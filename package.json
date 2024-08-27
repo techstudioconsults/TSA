@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
-    "@strategic-dot/components": "^0.0.16",
+    "@strategic-dot/components": "^0.0.23",
     "@t3-oss/env-nextjs": "^0.10.1",
     "@types/jest-axe": "^3.5.9",
     "framer-motion": "^11.3.8",
@@ -24,7 +24,7 @@
     "lenis": "^1.1.6",
     "lucide-react": "^0.400.0",
     "moment": "^2.30.1",
-    "next": "14.2.5",
+    "next": "14.2.6",
     "next-nprogress-bar": "^2.3.13",
     "react": "^18",
     "react-dom": "^18",

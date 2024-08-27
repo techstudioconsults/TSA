@@ -16,7 +16,7 @@ const NotFoundPage = () => {
           Page Not Found
         </p>
         <Image
-          src="/404.gif"
+          src="/gifs/404.gif"
           alt="404"
           width={480}
           height={204}

@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
+import LenisProvider from "~/components/lenis-provider";
+import GotoTop from "~/components/miscellaneous/goto-top";
+
 import "@strategic-dot/components/dist/style.css";
 import "./globals.css";
 
-import LenisProvider from "~/components/lenis-provider";
-import GotoTop from "~/components/miscellaneous/goto-top";
+import Navbar from "~/components/layout/navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
@@ -22,7 +24,12 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <GotoTop />
-        <LenisProvider>{children}</LenisProvider>
+        <LenisProvider>
+          <main>
+            <Navbar />
+            {children}
+          </main>
+        </LenisProvider>
       </body>
     </html>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import { CustomButton } from "@strategic-dot/components";
+import { TsaButton } from "@strategic-dot/components";
 import { Orbit, Plus } from "lucide-react";
 import { FC } from "react";
 
@@ -61,25 +61,25 @@ const StyleGuide: FC = () => {
         <div className="group flex h-full flex-col items-start justify-between rounded-lg border px-5 py-5">
           <h2 className="mb-3 text-2xl font-semibold">Default Button</h2>
           <div className="flex items-center gap-4">
-            <CustomButton>Button CTA</CustomButton>
+            <TsaButton>Button CTA</TsaButton>
           </div>
         </div>
         <div className="group flex h-full flex-col items-start justify-between rounded-lg border px-5 py-5">
           <h2 className="mb-3 text-2xl font-semibold">Primary Button</h2>
           <div className="flex items-center gap-4">
-            <CustomButton variant="primary">Button CTA</CustomButton>
+            <TsaButton variant="primary">Button CTA</TsaButton>
           </div>
         </div>
         <div className="group flex h-full flex-col items-start justify-between rounded-lg border px-5 py-5">
           <h2 className="mb-3 text-2xl font-semibold">Destructive Button</h2>
           <div className="flex items-center gap-4">
-            <CustomButton variant="destructive">Button CTA</CustomButton>
+            <TsaButton variant="destructive">Button CTA</TsaButton>
           </div>
         </div>
         <div className="group flex h-full flex-col items-start justify-between rounded-lg border px-5 py-5">
           <h2 className="mb-3 text-2xl font-semibold">Subtle Button</h2>
           <div className="flex items-center gap-4">
-            <CustomButton variant="subtle">Button CTA</CustomButton>
+            <TsaButton variant="subtle">Button CTA</TsaButton>
           </div>
         </div>
         <div className="group flex h-full flex-col items-start justify-between rounded-lg border px-5 py-5">
@@ -87,9 +87,9 @@ const StyleGuide: FC = () => {
             With Icon Default Button
           </h2>
           <div className="flex items-center gap-4">
-            <CustomButton isLeftIconVisible={true} icon={<Orbit />}>
+            <TsaButton isLeftIconVisible={true} icon={<Orbit />}>
               Button CTA
-            </CustomButton>
+            </TsaButton>
           </div>
         </div>
         <div className="group flex h-full flex-col items-start justify-between rounded-lg border px-5 py-5">
@@ -97,25 +97,25 @@ const StyleGuide: FC = () => {
             With Icon Primary Button
           </h2>
           <div className="flex items-center gap-4">
-            <CustomButton
+            <TsaButton
               variant="primary"
               isLeftIconVisible={true}
               icon={<Orbit />}
             >
               Button CTA
-            </CustomButton>
+            </TsaButton>
           </div>
         </div>
         <div className="group flex h-full flex-col items-start justify-between rounded-lg border px-5 py-5">
           <h2 className="mb-3 text-2xl font-semibold">Loading Button</h2>
           <div className="flex items-center gap-4">
-            <CustomButton variant="loading" isLoading={true} />
+            <TsaButton variant="loading" isLoading={true} />
           </div>
         </div>
         <div className="group flex h-full flex-col items-start justify-between rounded-lg border px-5 py-5">
           <h2 className="mb-3 text-2xl font-semibold">Outline Button</h2>
           <div className="flex items-center gap-4">
-            <CustomButton variant="outline">Button CTA</CustomButton>
+            <TsaButton variant="outline">Button CTA</TsaButton>
           </div>
         </div>
         <div className="group flex h-full flex-col items-start justify-between rounded-lg border px-5 py-5">
@@ -123,14 +123,14 @@ const StyleGuide: FC = () => {
             Link With Left Icon Button
           </h2>
           <div className="flex items-center gap-4">
-            <CustomButton
+            <TsaButton
               variant="link"
               size="link"
               isLeftIconVisible={true}
               icon={<Orbit />}
             >
               Button CTA
-            </CustomButton>
+            </TsaButton>
           </div>
         </div>
         <div className="group flex h-full flex-col items-start justify-between rounded-lg border px-5 py-5">
@@ -138,28 +138,28 @@ const StyleGuide: FC = () => {
             Link With Right Icon Button
           </h2>
           <div className="flex items-center gap-4">
-            <CustomButton
+            <TsaButton
               variant="link"
               size="link"
               isRightIconVisible={true}
               icon={<Orbit />}
             >
               Button CTA
-            </CustomButton>
+            </TsaButton>
           </div>
         </div>
         <div className="group flex h-full flex-col items-start justify-between rounded-lg border px-5 py-5">
           <h2 className="mb-3 text-2xl font-semibold">Link Button</h2>
           <div className="flex items-center gap-4">
-            <CustomButton variant="link" size="link">
+            <TsaButton variant="link" size="link">
               Button CTA
-            </CustomButton>
+            </TsaButton>
           </div>
         </div>
         <div className="group flex h-full flex-col items-start justify-between rounded-lg border px-5 py-5">
           <h2 className="mb-3 text-2xl font-semibold">Icon Only Button</h2>
           <div className="flex items-center gap-4">
-            <CustomButton
+            <TsaButton
               variant="outline"
               size="icon"
               isIconOnly={true}
@@ -172,7 +172,7 @@ const StyleGuide: FC = () => {
             Icon Only Circle Button
           </h2>
           <div className="flex items-center gap-4">
-            <CustomButton
+            <TsaButton
               variant="outline"
               size="circle"
               isIconOnly={true}
@@ -187,7 +187,7 @@ const StyleGuide: FC = () => {
           <span>Import the custom button component</span>
           <div className="rounded-lg bg-zinc-950 p-4">
             <span className="block font-mono text-sm text-white">
-              import <span className="text-blue-400">CustomButton</span> from{" "}
+              import <span className="text-blue-400">TsaButton</span> from{" "}
               <span className="text-yellow-400">
                 &quot;~/components/common/Button/button&quot;
               </span>
@@ -273,7 +273,7 @@ const StyleGuide: FC = () => {
             </span>
             <span className="ml-4 block font-mono text-sm text-gray-100">
               <span className="text-green-400">{"<"}</span>
-              <span className="text-blue-400">CustomButton</span>
+              <span className="text-blue-400">TsaButton</span>
               <br />
               <span className="ml-4">
                 variant=
@@ -299,7 +299,7 @@ const StyleGuide: FC = () => {
               <span className="text-green-400">{">"}</span> <br />
               <span className="ml-4">Click Me</span> <br />
               <span className="text-green-400">{"<"}</span>/
-              <span className="text-blue-400">CustomButton</span>
+              <span className="text-blue-400">TsaButton</span>
               <span className="text-green-400">{">"}</span>
             </span>
             <span className="block font-mono text-sm text-gray-100">);</span>
