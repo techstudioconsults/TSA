@@ -1,8 +1,8 @@
 /* eslint-disable unicorn/prefer-module */
 import type { Config } from "tailwindcss";
 
-const config = {
-  darkMode: ["class"],
+const config: Config = {
+  darkMode: ["class", '[data-mode="dark"]'],
   content: [
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
@@ -11,30 +11,18 @@ const config = {
   ],
   prefix: "",
   theme: {
-    container: {
-      center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
-    },
     extend: {
+      backgroundImage: {
+        "primary-gradient":
+          "radial-gradient(50% 50% at 50% 50%, rgba(6, 11, 59, 0) 0%, #060B3B 100%)",
+      },
       colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        toastBg: "hsl(var(--toast-bg))",
-        toastBorder: "hsl(var(--toast-border))",
-        defaultBadgeBg: "hsl(var(--default-badge-bg))",
-        primaryBadgeBg: "hsl(var(--primary-badge-bg))",
-        successBadgeBg: "hsl(var(--success-badge-bg))",
-        errorBadgeBg: "hsl(var(--red-badge-bg))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        default: {
-          DEFAULT: "hsl(var(--default))",
-          foreground: "hsl(var(--default-foreground))",
-        },
+        card: "hsl(var(--card))",
+        "card-foreground": "hsl(var(--card-foreground))",
+        popover: "hsl(var(--popover))",
+        "popover-foreground": "hsl(var(--popover-foreground))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -42,29 +30,6 @@ const config = {
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          hover: "hsl(var(--destructive-hover))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        subtle: {
-          DEFAULT: "hsl(var(--subtle))",
-          hover: "hsl(var(--subtle-hover))",
-          foreground: "hsl(var(--subtle-foreground))",
-        },
-        loading: {
-          DEFAULT: "hsl(var(--loading))",
-          hover: "hsl(var(--loading-hover))",
-          foreground: "hsl(var(--loading-foreground))",
-        },
-        outline: {
-          DEFAULT: "hsl(var(--outline))",
-          hover: "hsl(var(--outline-hover))",
-          foreground: "hsl(var(--outline-foreground))",
-        },
-        link: {
-          DEFAULT: "hsl(var(--link))",
         },
         muted: {
           DEFAULT: "hsl(var(--muted))",
@@ -74,63 +39,49 @@ const config = {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
         },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
-        error: "hsl(var(--error))",
-        success: "hsl(var(--success))",
-        warning: "hsl(var(--warning))",
-        neutral: {
-          dark: {
-            1: "hsl(var(--neutralColor-dark-1))",
-            2: "hsl(var(--neutralColor-dark-2))",
-          },
-        },
-        stroke: {
-          "colors-stroke": "hsl(var(--stroke-colors-stroke))",
-        },
-        breadcrumb: {
-          page: "hsl(var(--breadcrumb-page))",
-          foreground: "hsl(var(--breadcrumb-foreground))",
-        },
-        desaturatedBlue: "hsl(var(--desaturated-blue))",
-        grey50: "hsl(var(--grey50))",
-        blog: {
-          relatedBg: "hsl(var(--blog-related-article-bg))",
-          relatedHeading: "hsl(var(--blog-related-article-heading))",
-          relatedTimeReadBg: "hsl(var(--blog-related-article-timeread-bg))",
-        },
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        "chart-1": "hsl(var(--chart-1))",
+        "chart-2": "hsl(var(--chart-2))",
+        "chart-3": "hsl(var(--chart-3))",
+        "chart-4": "hsl(var(--chart-4))",
+        "chart-5": "hsl(var(--chart-5))",
+        white: "hsl(var(--white))",
+        black: "hsl(var(--black))",
+        "high-blue": "hsl(var(--high-blue))",
+        "mid-blue": "hsl(var(--mid-blue))",
+        "low-blue": "hsl(var(--low-blue))",
+        "high-danger": "hsl(var(--high-danger))",
+        "mid-danger": "hsl(var(--mid-danger))",
+        "low-danger": "hsl(var(--low-danger))",
+        "high-warning": "hsl(var(--high-warning))",
+        "mid-warning": "hsl(var(--mid-warning))",
+        "low-warning": "hsl(var(--low-warning))",
+        "high-success": "hsl(var(--high-success))",
+        "mid-success": "hsl(var(--mid-success))",
+        "low-success": "hsl(var(--low-success))",
+        "high-grey-III": "hsl(var(--high-grey-III))",
+        "mid-grey-III": "hsl(var(--mid-grey-III))",
+        "low-grey-III": "hsl(var(--low-grey-III))",
+        "high-grey-II": "hsl(var(--high-grey-II))",
+        "mid-grey-II": "hsl(var(--mid-grey-II))",
+        "low-grey-II": "hsl(var(--low-grey-II))",
+        "high-grey-I": "hsl(var(--high-grey-I))",
+        "mid-grey-I": "hsl(var(--mid-grey-I))",
+        "low-grey-I": "hsl(var(--low-grey-I))",
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
-      boxShadow: {
-        spread: "0px 1px 18px 0px #0A39B01F",
-      },
-      keyframes: {
-        "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
-        },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
-        },
-      },
-      animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
-      },
     },
   },
-
   plugins: [
     require("tailwindcss-animate"),
     require("@mertasan/tailwindcss-variables"),

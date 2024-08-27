@@ -1,5 +1,5 @@
+/* eslint-disable unicorn/prefer-ternary */
 interface Mouse {
-  radius: number;
   x: number;
   y: number;
 }
@@ -8,11 +8,15 @@ export function HeroCanvas(canvasElement: HTMLCanvasElement) {
   const canvas = canvasElement;
   const context = canvas.getContext("2d");
 
-  canvas.width = window.innerWidth * window.devicePixelRatio;
-  canvas.height = window.innerHeight * window.devicePixelRatio;
+  // Set canvas dimensions to 50% of the viewport height
+  const canvasHeight = window.innerHeight;
+  const canvasWidth = window.innerWidth;
 
-  canvas.style.width = `${window.innerWidth}px`;
-  canvas.style.height = `${window.innerHeight}px`;
+  canvas.width = canvasWidth * window.devicePixelRatio;
+  canvas.height = canvasHeight * window.devicePixelRatio;
+
+  canvas.style.width = `${canvasWidth}px`;
+  canvas.style.height = `${canvasHeight}px`;
 
   // Effect class
   class Effect {
@@ -20,7 +24,7 @@ export function HeroCanvas(canvasElement: HTMLCanvasElement) {
     private height: number;
     private gap: number;
     public ctx: CanvasRenderingContext2D;
-    public readonly mouse: Mouse;
+    public mouse: Mouse;
 
     constructor(
       width: number,
@@ -30,53 +34,53 @@ export function HeroCanvas(canvasElement: HTMLCanvasElement) {
       this.width = width;
       this.height = height;
       this.ctx = context;
-      this.gap = 50; // Adjust the gap between grid lines
+      this.gap = 70; // Adjust the gap between grid boxes
 
-      this.mouse = {
-        radius: 3000,
-        x: 0,
-        y: 0,
-      };
+      this.mouse = { x: -1, y: -1 };
 
-      window.addEventListener("mousemove", (event) => {
-        this.mouse.x = event.clientX * window.devicePixelRatio;
-        this.mouse.y = event.pageY * window.devicePixelRatio;
-        this.mouse.radius = 3000;
-      });
-      window.addEventListener("mouseout", () => {
-        this.mouse.x = 0;
-        this.mouse.y = 0;
-        this.mouse.radius = 0;
-      });
       window.addEventListener("resize", () => {
-        canvas.width = window.innerWidth * window.devicePixelRatio;
-        canvas.height = window.innerHeight * window.devicePixelRatio;
+        const newHeight = window.innerHeight;
+        const newWidth = window.innerWidth;
+
+        canvas.width = newWidth * window.devicePixelRatio;
+        canvas.height = newHeight * window.devicePixelRatio;
         this.width = canvas.width;
         this.height = canvas.height;
 
-        canvas.style.width = `${window.innerWidth}px`;
-        canvas.style.height = `${window.innerHeight}px`;
+        canvas.style.width = `${newWidth}px`;
+        canvas.style.height = `${newHeight}px`;
+      });
+
+      canvas.addEventListener("mousemove", (event) => {
+        const rect = canvas.getBoundingClientRect();
+        this.mouse.x = (event.clientX - rect.left) * window.devicePixelRatio;
+        this.mouse.y = (event.clientY - rect.top) * window.devicePixelRatio;
+      });
+
+      canvas.addEventListener("mouseleave", () => {
+        this.mouse.x = -1;
+        this.mouse.y = -1;
       });
     }
 
     drawGrid() {
-      this.ctx.strokeStyle = "grey"; // Grid line color
-      this.ctx.lineWidth = 0.2; // Grid line width
+      // Calculate the grid box the mouse is currently in
+      const mouseGridX = Math.floor(this.mouse.x / this.gap) * this.gap;
+      const mouseGridY = Math.floor(this.mouse.y / this.gap) * this.gap;
 
-      // Draw vertical lines
-      for (let x = 0; x <= this.width; x += this.gap) {
-        this.ctx.beginPath();
-        this.ctx.moveTo(x, 0);
-        this.ctx.lineTo(x, this.height);
-        this.ctx.stroke();
-      }
+      for (let x = 0; x < this.width; x += this.gap) {
+        for (let y = 0; y < this.height; y += this.gap) {
+          if (x === mouseGridX && y === mouseGridY) {
+            this.ctx.fillStyle = "#72779F10"; // Orange color when hovered
+          } else {
+            this.ctx.fillStyle = "transparent"; // Default color
+          }
 
-      // Draw horizontal lines
-      for (let y = 0; y <= this.height; y += this.gap) {
-        this.ctx.beginPath();
-        this.ctx.moveTo(0, y);
-        this.ctx.lineTo(this.width, y);
-        this.ctx.stroke();
+          this.ctx.fillRect(x, y, this.gap, this.gap);
+          this.ctx.strokeStyle = "#72779F50"; // Grid line color
+          this.ctx.lineWidth = 0.1; // Grid line width
+          this.ctx.strokeRect(x, y, this.gap, this.gap);
+        }
       }
     }
 
