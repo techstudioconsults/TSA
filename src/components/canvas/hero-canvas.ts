@@ -1,4 +1,3 @@
-/* eslint-disable unicorn/prefer-ternary */
 interface Mouse {
   x: number;
   y: number;
