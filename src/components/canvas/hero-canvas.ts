@@ -8,7 +8,7 @@ export function HeroCanvas(canvasElement: HTMLCanvasElement) {
   const canvas = canvasElement;
   const context = canvas.getContext("2d");
 
-  // Set canvas dimensions to 50% of the viewport height
+  // Set canvas dimensions to the full viewport
   const canvasHeight = window.innerHeight;
   const canvasWidth = window.innerWidth;
 
@@ -25,6 +25,7 @@ export function HeroCanvas(canvasElement: HTMLCanvasElement) {
     private gap: number;
     public ctx: CanvasRenderingContext2D;
     public mouse: Mouse;
+    private randomHighlights: Set<string> = new Set();
 
     constructor(
       width: number,
@@ -61,6 +62,40 @@ export function HeroCanvas(canvasElement: HTMLCanvasElement) {
         this.mouse.x = -1;
         this.mouse.y = -1;
       });
+
+      this.initializeRandomHighlights();
+      this.startRandomHighlighting();
+    }
+
+    initializeRandomHighlights() {
+      const totalColumns = Math.floor(this.width / this.gap);
+      const totalRows = Math.floor(this.height / this.gap);
+
+      // Initially highlight a random set of grid boxes
+      for (let index = 0; index < 10; index++) {
+        const randomX = Math.floor(Math.random() * totalColumns) * this.gap;
+        const randomY = Math.floor(Math.random() * totalRows) * this.gap;
+        this.randomHighlights.add(`${randomX},${randomY}`);
+      }
+    }
+
+    startRandomHighlighting() {
+      setInterval(() => {
+        const totalColumns = Math.floor(this.width / this.gap);
+        const totalRows = Math.floor(this.height / this.gap);
+
+        // Select a random grid box to highlight
+        const randomX = Math.floor(Math.random() * totalColumns) * this.gap;
+        const randomY = Math.floor(Math.random() * totalRows) * this.gap;
+
+        // Toggle highlight
+        const key = `${randomX},${randomY}`;
+        if (this.randomHighlights.has(key)) {
+          this.randomHighlights.delete(key);
+        } else {
+          this.randomHighlights.add(key);
+        }
+      }, 500); // Adjust the interval to control the speed of random highlighting
     }
 
     drawGrid() {
@@ -70,8 +105,13 @@ export function HeroCanvas(canvasElement: HTMLCanvasElement) {
 
       for (let x = 0; x < this.width; x += this.gap) {
         for (let y = 0; y < this.height; y += this.gap) {
+          const key = `${x},${y}`;
           if (x === mouseGridX && y === mouseGridY) {
-            this.ctx.fillStyle = "#72779F10"; // Orange color when hovered
+            // Highlight if the mouse is over this grid box
+            this.ctx.fillStyle = "#72779F10"; // Mouse hover color
+          } else if (this.randomHighlights.has(key)) {
+            // Highlight if this grid box is in the random highlights set
+            this.ctx.fillStyle = "#72779F10"; // Random highlight color
           } else {
             this.ctx.fillStyle = "transparent"; // Default color
           }
