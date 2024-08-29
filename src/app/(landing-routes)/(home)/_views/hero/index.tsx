@@ -27,21 +27,21 @@ export const Hero = () => {
             <Image
               className="translate-x-[1rem]"
               src="/icons/javascript.png"
-              alt=""
+              alt="img"
               width="64"
               height="64"
             />
             <Image
               className="translate-x-[7rem]"
               src="/icons/react.png"
-              alt=""
+              alt="img"
               width="64"
               height="64"
             />
             <Image
               className="translate-x-[-1rem]"
               src="/icons/python.png"
-              alt=""
+              alt="img"
               width="64"
               height="64"
             />
@@ -70,21 +70,21 @@ export const Hero = () => {
               <Image
                 className="translate-x-[11rem]"
                 src="/icons/lock.png"
-                alt=""
+                alt="img"
                 width="64"
                 height="64"
               />
               <Image
                 className="translate-x-[5rem]"
                 src="/icons/marketing.png"
-                alt=""
+                alt="img"
                 width="64"
                 height="64"
               />
               <Image
                 className="translate-x-[12rem]"
                 src="/icons/figma.png"
-                alt=""
+                alt="img"
                 width="64"
                 height="64"
               />

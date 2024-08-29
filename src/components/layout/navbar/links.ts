@@ -7,7 +7,7 @@ type DropdownItem = {
 
 export type NavLink = {
   route: string;
-  link: string;
+  link: string | undefined;
   dropdown?: DropdownItem[]; // Optional dropdown property
 };
 
@@ -16,7 +16,7 @@ export const NAV_LINKS: NavLink[] = [
   { route: "About Us", link: "/about" },
   {
     route: "Courses",
-    link: "",
+    link: undefined,
     dropdown: [
       {
         title: "Alert Dialog",
