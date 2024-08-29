@@ -1,55 +1,54 @@
 import { clsx, type ClassValue } from "clsx";
-import moment from "moment";
 import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export const shrinkString = ({
-  str,
-  len,
-}: {
-  str?: string;
-  len: number;
-}): string => {
-  if (!str) return "";
-  if (str.length > len) {
-    return str.slice(0, Math.max(0, len)) + "...";
-  }
-  return str;
-};
+// export const shrinkString = ({
+//   str,
+//   len,
+// }: {
+//   str?: string;
+//   len: number;
+// }): string => {
+//   if (!str) return "";
+//   if (str.length > len) {
+//     return str.slice(0, Math.max(0, len)) + "...";
+//   }
+//   return str;
+// };
 
-export const encryptString = (string_?: string): string => {
-  if (!string_) return "";
-  const buffer = Buffer.from(string_);
-  return buffer.toString("base64");
-};
+// export const encryptString = (string_?: string): string => {
+//   if (!string_) return "";
+//   const buffer = Buffer.from(string_);
+//   return buffer.toString("base64");
+// };
 
-export const decryptString = (string_?: string): string => {
-  if (!string_) return "";
-  const buffer = Buffer.from(string_, "base64");
-  return buffer.toString();
-};
+// export const decryptString = (string_?: string): string => {
+//   if (!string_) return "";
+//   const buffer = Buffer.from(string_, "base64");
+//   return buffer.toString();
+// };
 
-export const formatTime = (time: number): string => {
-  const minutes = Math.floor(time / 60);
-  const seconds = time % 60;
-  return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
-};
+// export const formatTime = (time: number): string => {
+//   const minutes = Math.floor(time / 60);
+//   const seconds = time % 60;
+//   return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+// };
 
-export function getCurrentDateTime() {
-  const now = new Date();
+// export function getCurrentDateTime() {
+//   const now = new Date();
 
-  // Using moment to format the date and time
-  const date_added = moment(now).format("YYYY-MM-DD");
-  const time = moment(now).format("HH:mm:ss");
+//   // Using moment to format the date and time
+//   const date_added = moment(now).format("YYYY-MM-DD");
+//   const time = moment(now).format("HH:mm:ss");
 
-  return {
-    date_added,
-    time,
-  };
-}
+//   return {
+//     date_added,
+//     time,
+//   };
+// }
 
 export function formatPrice(
   price: number | string,
