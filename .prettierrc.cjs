@@ -17,7 +17,7 @@ module.exports = {
     "prettier-plugin-tailwindcss",
   ],
   // #region @ianvs/prettier-plugin-sort-imports
-  importOrder: ["<THIRD_PARTY_MODULES>", "^~/", "^[.][.]/", "^[.]/"],
+  importOrder: ["<THIRD_PARTY_MODULES>", "", "^~/", "^[.][.]/", "^[.]/"],
   importOrderParserPlugins: ["typescript", "jsx", "decorators-legacy"],
   importOrderTypeScriptVersion: "5.0.0",
   // #endregion @ianvs/prettier-plugin-sort-imports
