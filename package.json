@@ -7,12 +7,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "lint:fix": "next lint --fix",
+    "lint": "next lint --fix",
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:update": "vitest --update",
-    "test:ci": "vitest --coverage"
+    "test:ci": "vitest --coverage",
+    "prepare": "husky install",
+    "prettier": "prettier --write \"src/**/*.{ts,tsx,js,jsx,mdx}\""
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -64,6 +65,8 @@
     "eslint-plugin-unicorn": "^54.0.0",
     "eslint-plugin-unused-imports": "^3.2.0",
     "eslint-plugin-vitest": "^0.4.1",
+    "lint-staged": "13.2.3",
+    "husky": "8.0.3",
     "jsdom": "^24.1.0",
     "postcss": "^8",
     "prettier": "^3.3.2",
