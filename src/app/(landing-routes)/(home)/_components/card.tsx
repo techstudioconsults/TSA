@@ -24,10 +24,10 @@ export const Card: FC<CardProperties> = ({
         alt={"card-img"}
       />
       <div className="mt-[1rem] p-[1rem] text-center">
-        <h4 className="text-high-grey-III mb-[1rem] text-lg font-[700]">
+        <h4 className="mb-[1rem] text-lg font-[700] text-high-grey-III">
           {title}
         </h4>
-        <p className="text-high-grey-II text-sm leading-[25px]">
+        <p className="text-sm leading-[25px] text-high-grey-II">
           {description}
         </p>
       </div>

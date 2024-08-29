@@ -5,7 +5,7 @@ export const SectionOne = () => {
   return (
     <Wrapper className="py-[50px]">
       <section className="mx-auto w-fit text-center">
-        <p className="text-mid-blue text-sm font-[700] uppercase">
+        <p className="text-sm font-[700] uppercase text-mid-blue">
           Why techstudio?
         </p>
         <h2 className="mb-[58px] mt-[33px] text-4xl">

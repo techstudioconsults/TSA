@@ -32,10 +32,12 @@ module.exports = {
     "plugin:unicorn/recommended",
     "plugin:prettier/recommended",
     "plugin:testing-library/react",
+    "plugin:prettier/recommended",
   ],
   ignorePatterns: ["dist", "node_modules"],
   parser: "@typescript-eslint/parser",
   plugins: [
+    "prettier",
     "@typescript-eslint",
     "react",
     "unicorn",
@@ -44,6 +46,7 @@ module.exports = {
     "testing-library",
   ],
   rules: {
+    "prettier/prettier": "error",
     "no-console": "error",
     "react/prop-types": "off",
     "unused-imports/no-unused-imports": "error",

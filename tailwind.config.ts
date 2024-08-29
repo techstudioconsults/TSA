@@ -9,7 +9,7 @@ const config: Config = {
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
   ],
-  prefix: "",
+  // prefix: "",
   theme: {
     extend: {
       backgroundImage: {
