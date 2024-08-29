@@ -7,7 +7,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint --fix",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx --fix",
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:update": "vitest --update",
@@ -74,5 +74,10 @@
     "tailwindcss": "^3.4.1",
     "typescript": "^5.5.4",
     "vitest": "^1.6.0"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier -w"
+    ]
   }
 }
