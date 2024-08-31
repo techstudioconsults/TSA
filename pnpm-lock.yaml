@@ -12,8 +12,8 @@ importers:
         specifier: ^3.9.0
         version: 3.9.0(react-hook-form@7.52.1(react@18.3.1))
       '@strategic-dot/components':
-        specifier: ^0.0.28
-        version: 0.0.28(next@14.2.6(@babel/core@7.24.9)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^0.0.36
+        version: 0.0.36(next@14.2.6(@babel/core@7.24.9)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@t3-oss/env-nextjs':
         specifier: ^0.10.1
         version: 0.10.1(typescript@5.5.4)(zod@3.23.8)
@@ -814,8 +814,8 @@ packages:
   '@sinclair/typebox@0.27.8':
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
 
-  '@strategic-dot/components@0.0.28':
-    resolution: {integrity: sha512-BuTA8d27NtL/ZOYJa5pkuSoPqcWLCpzEYX76fNKi2rNrpDn4tVXfX0Bjk9E9a1yTGe60FhHWxZ0RNlzT3juWvA==}
+  '@strategic-dot/components@0.0.36':
+    resolution: {integrity: sha512-1ZcTZnvW4cPHd1vBsJz2ZPTd39KQxdZLjMEProWgstsFWFo86hbbAOoxOjUTDlQxEcLQk4QBTFuOvpYhEqHb+w==}
     engines: {node: '18'}
     peerDependencies:
       next: ^14.2.6
@@ -4041,7 +4041,7 @@ snapshots:
 
   '@sinclair/typebox@0.27.8': {}
 
-  '@strategic-dot/components@0.0.28(next@14.2.6(@babel/core@7.24.9)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@strategic-dot/components@0.0.36(next@14.2.6(@babel/core@7.24.9)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       next: 14.2.6(@babel/core@7.24.9)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1

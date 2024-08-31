@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
-    "@strategic-dot/components": "^0.0.28",
+    "@strategic-dot/components": "^0.0.36",
     "@t3-oss/env-nextjs": "^0.10.1",
     "@types/jest-axe": "^3.5.9",
     "class-variance-authority": "^0.7.0",

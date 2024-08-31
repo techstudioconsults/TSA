@@ -17,6 +17,8 @@ const index = () => {
         className="bg-transparent"
         logoPath="/images/logo-white.png"
         navLinks={NAV_LINKS}
+        showBanner={true}
+        bannerDuration="20m"
       />
     </section>
   );

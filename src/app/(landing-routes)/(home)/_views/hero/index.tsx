@@ -22,7 +22,7 @@ export const Hero = () => {
   return (
     <section className="hero-section absolute left-0 top-0 h-[724px] w-full items-center overflow-hidden bg-primary bg-primary-gradient text-white">
       <Wrapper>
-        <section className="mx-auto flex h-full items-center justify-center bg-transparent">
+        <section className="mx-auto mt-16 flex h-full items-center justify-center bg-transparent">
           <div className="flex flex-1 flex-col gap-[7rem]">
             <Image
               className="translate-x-[1rem]"
