@@ -2,11 +2,11 @@
 
 import { TsaButton } from "@strategic-dot/components";
 import { Star } from "lucide-react";
-import Image from "next/image";
 import React, { useEffect } from "react";
 
 import { HeroCanvas } from "~/components/canvas/hero-canvas";
 import { Wrapper } from "~/components/layout/wrapper";
+import BlurImage from "~/components/miscellaneous/blur-image";
 import useWindowWidth from "~/hooks/util-hooks/use-window-width";
 
 export const Hero = () => {
@@ -24,21 +24,21 @@ export const Hero = () => {
       <Wrapper>
         <section className="mx-auto mt-16 flex h-full items-center justify-center bg-transparent">
           <div className="flex flex-1 flex-col gap-[7rem]">
-            <Image
+            <BlurImage
               className="translate-x-[1rem]"
               src="/icons/javascript.png"
               alt="img"
               width="64"
               height="64"
             />
-            <Image
+            <BlurImage
               className="translate-x-[7rem]"
               src="/icons/react.png"
               alt="img"
               width="64"
               height="64"
             />
-            <Image
+            <BlurImage
               className="translate-x-[-1rem]"
               src="/icons/python.png"
               alt="img"
@@ -67,21 +67,21 @@ export const Hero = () => {
           </article>
           <div className="flex-1">
             <div className="flex flex-1 flex-col gap-[7rem]">
-              <Image
+              <BlurImage
                 className="translate-x-[11rem]"
                 src="/icons/lock.png"
                 alt="img"
                 width="64"
                 height="64"
               />
-              <Image
+              <BlurImage
                 className="translate-x-[5rem]"
                 src="/icons/marketing.png"
                 alt="img"
                 width="64"
                 height="64"
               />
-              <Image
+              <BlurImage
                 className="translate-x-[12rem]"
                 src="/icons/figma.png"
                 alt="img"
