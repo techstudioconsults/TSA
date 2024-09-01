@@ -12,7 +12,7 @@ const index = () => {
         className="bg-transparent"
         logoPath="/images/logo-white.png"
         navLinks={NAV_LINKS}
-        showBanner={false}
+        showBanner={true}
       />
     </section>
   );

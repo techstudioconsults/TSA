@@ -22,7 +22,7 @@ export const Hero = () => {
   return (
     <section className="hero-section absolute left-0 top-0 h-[724px] w-full items-center overflow-hidden bg-primary bg-primary-gradient text-white">
       <Wrapper>
-        <section className="mx-auto mt-16 flex h-full items-center justify-center bg-transparent">
+        <section className="mx-auto mt-16 flex h-full flex-col items-center justify-center bg-transparent lg:flex-row">
           <div className="flex flex-1 flex-col gap-[7rem]">
             <BlurImage
               className="translate-x-[1rem]"
@@ -49,9 +49,11 @@ export const Hero = () => {
           <article className="flex-3 relative z-10 flex max-w-[731px] flex-col items-center">
             <div className="flex w-fit items-center gap-2 rounded-full bg-mid-blue px-[14px] py-[10px]">
               <Star size="24px" className="text-warning" />
-              <p className="text-sm">No 1 Training Institute in Lagos</p>
+              <p className="text-sm text-white">
+                No 1 Training Institute in Lagos
+              </p>
             </div>
-            <h1 className="mb-5 text-center text-[48px] font-[700] text-white lg:text-[73px]">
+            <h1 className="h1 mb-5 text-center text-[40px] text-white lg:text-[73px]">
               Unlock Your{" "}
               <span className="italic text-mid-danger">
                 {" "}

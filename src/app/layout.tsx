@@ -8,6 +8,8 @@ import GotoTop from "~/components/miscellaneous/goto-top";
 import "@strategic-dot/components/dist/style.css";
 import "./globals.css";
 
+import { cn } from "~/lib/utils";
+
 const openSans = Open_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -22,7 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={openSans.className}>
+      <body className={cn(openSans.className)}>
         <GotoTop />
         <LenisProvider>
           <main>

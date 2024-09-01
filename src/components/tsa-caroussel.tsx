@@ -2,8 +2,8 @@
 
 import { TsaCarousel } from "@strategic-dot/components";
 
-import { slideContent } from "~/constants";
+import { SLIDE_CONTENT } from "~/constants";
 
 export const TsaCaroussel = () => {
-  return <TsaCarousel slideContent={slideContent} />;
+  return <TsaCarousel slideContent={SLIDE_CONTENT} />;
 };

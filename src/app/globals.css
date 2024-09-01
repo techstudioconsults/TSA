@@ -145,27 +145,92 @@
   width: 100%;
   height: 4px !important;
 }
+/* Base typography settings */
 @layer base {
-  * {
-    @apply border-border;
-  }
+  /* Body text */
   body {
-    @apply bg-background text-foreground;
+    font-family: "Inter", sans-serif; /* Ensure a clean, readable font family */
+    color: hsl(var(--foreground));
+    line-height: 1.6; /* Ensures readability */
   }
+
+  /* Headings */
   h1,
   h2,
-  h3 {
-    @apply font-bold text-primary;
-  }
-  .dark h1,
-  .dark h2,
-  .dark h3 {
-    color: hsl(var(--foreground));
-  }
-  .dark p {
+  h3,
+  h4,
+  h5,
+  h6 {
     color: hsl(var(--primary));
   }
+
+  h1 {
+    font-size: 2.25rem; /* 36px */
+    font-weight: 700; /* Consistent weight for headings */
+    @screen sm {
+      font-size: 2.5rem; /* 40px */
+    }
+    @screen md {
+      font-size: 2.75rem; /* 44px */
+    }
+  }
+
+  h2 {
+    font-size: 2rem; /* 32px */
+    font-weight: 700; /* Consistent weight for headings */
+    @screen sm {
+      font-size: 2.25rem; /* 36px */
+    }
+    @screen md {
+      font-size: 2.5rem; /* 40px */
+    }
+  }
+
+  h3 {
+    font-size: 1.75rem; /* 28px */
+    font-weight: 600; /* Consistent weight for headings */
+    @screen sm {
+      font-size: 2rem; /* 32px */
+    }
+    @screen md {
+      font-size: 2.25rem; /* 36px */
+    }
+  }
+
+  h4 {
+    font-size: 1.5rem; /* 24px */
+    font-weight: 600; /* Consistent weight for headings */
+    @screen sm {
+      font-size: 1.75rem; /* 28px */
+    }
+    @screen md {
+      font-size: 2rem; /* 32px */
+    }
+  }
+
+  h5 {
+    font-size: 1.25rem; /* 20px */
+    font-weight: 500; /* Consistent weight for headings */
+    @screen sm {
+      font-size: 1.5rem; /* 24px */
+    }
+    @screen md {
+      font-size: 1.75rem; /* 28px */
+    }
+  }
+
+  h6 {
+    font-size: 1rem; /* 16px */
+    font-weight: 500; /* Consistent weight for headings */
+    @screen sm {
+      font-size: 1.25rem; /* 20px */
+    }
+    @screen md {
+      font-size: 1.5rem; /* 24px */
+    }
+  }
 }
+
 [data-placeholder="true"] {
   background: linear-gradient(
     90deg,
