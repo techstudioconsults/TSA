@@ -1,16 +1,31 @@
 "use client";
 
 import Image from "next/image";
-import { useState, type ComponentProps } from "react";
+import { FC, useState, type ComponentProps } from "react";
 
 import { cn } from "~/lib/utils";
 
-export default function BlurImage(properties: ComponentProps<typeof Image>) {
+interface BlurImageProperties extends ComponentProps<typeof Image> {
+  _width: number;
+  _height: number;
+}
+
+export const BlurImage: FC<BlurImageProperties> = ({
+  _width,
+  _height,
+  ...properties
+}) => {
   const [isLoading, setLoading] = useState(true);
 
   return (
     <Image
       {...properties}
+      style={{
+        width: properties.alt === `icon` ? `${_width}px` : `100%`,
+        height: "auto",
+      }}
+      width={_width}
+      height={_height}
       alt={properties.alt}
       className={cn(
         "duration-700 ease-in-out",
@@ -24,4 +39,4 @@ export default function BlurImage(properties: ComponentProps<typeof Image>) {
       }}
     />
   );
-}
+};

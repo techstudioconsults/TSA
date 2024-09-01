@@ -3,7 +3,7 @@
 import { TsaBanner, TsaButton, TsaMarquee } from "@strategic-dot/components";
 
 import { Wrapper } from "~/components/layout/wrapper";
-import BlurImage from "~/components/miscellaneous/blur-image";
+import { BlurImage } from "~/components/miscellaneous/blur-image";
 import { COMPANIES, TESTIMONIALS } from "~/constants";
 import { cn } from "~/lib/utils";
 
@@ -11,9 +11,8 @@ export const SectionThree = () => {
   const companiesList = COMPANIES.map((company, index) => {
     return (
       <BlurImage
-        // className="mx-auto"
-        width={85}
-        height={85}
+        _width={85}
+        _height={85}
         key={index}
         src={company}
         alt="company"
@@ -47,18 +46,19 @@ export const SectionThree = () => {
           )}
           topSlot={
             <BlurImage
-              width={112}
-              height={112}
+              _width={112}
+              _height={112}
               src="/icons/box-2.png"
-              alt="img"
+              alt="icon"
             />
           }
           bottomSlot={
             <BlurImage
-              width={91}
-              height={88}
+              className="h-[88px] w-[91px]"
               src="/icons/box-1(full).png"
-              alt="img"
+              alt="icon"
+              _width={91}
+              _height={80}
             />
           }
           testimonials={TESTIMONIALS}
@@ -67,8 +67,8 @@ export const SectionThree = () => {
       <Wrapper className="grid grid-cols-1 items-center gap-[28px] gap-y-0 text-center lg:grid-cols-2 lg:text-left">
         <div className="flex-1">
           <BlurImage
-            width={567}
-            height={431}
+            _width={567}
+            _height={431}
             src="/gifs/certificate.gif"
             alt="certificate"
             className="mx-auto"

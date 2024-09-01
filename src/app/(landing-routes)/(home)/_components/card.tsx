@@ -1,6 +1,6 @@
 import { FC, HTMLAttributes } from "react";
 
-import BlurImage from "~/components/miscellaneous/blur-image";
+import { BlurImage } from "~/components/miscellaneous/blur-image";
 
 interface CardProperties extends HTMLAttributes<HTMLDivElement> {
   image: string;
@@ -18,8 +18,8 @@ export const Card: FC<CardProperties> = ({
     <section className="mx-auto w-full max-w-[376px]" {...rest}>
       <BlurImage
         className="mx-auto"
-        width={337}
-        height={190}
+        _width={337}
+        _height={190}
         src={image}
         alt={"card-img"}
       />
