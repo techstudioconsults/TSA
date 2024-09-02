@@ -122,3 +122,21 @@ export const TESTIMONIALS = [
     job: `Software Developer`,
   },
 ];
+
+export const STEPS = [
+  {
+    label: "Apply",
+    description:
+      "At Tech Studio we offer a variety of courses designed to build your skills and professionally improve you. All you have to do is apply.",
+  },
+  {
+    label: "Get Admitted",
+    description:
+      "Once we confirm your payment for the program, we reserve your spot. You will go through the onboarding process before the program starts.",
+  },
+  {
+    label: "Start classes",
+    description:
+      "Be sure to attend the introductory classes, this will play a huge role in your subsequent learning stages. You'll participate in projects, personal tasks, and group works.",
+  },
+];

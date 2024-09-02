@@ -11,9 +11,12 @@ importers:
       '@hookform/resolvers':
         specifier: ^3.9.0
         version: 3.9.0(react-hook-form@7.52.1(react@18.3.1))
+      '@keyvaluesystems/react-stepper':
+        specifier: ^1.0.4
+        version: 1.0.4(react@18.3.1)
       '@strategic-dot/components':
-        specifier: ^0.0.42
-        version: 0.0.42(next@14.2.6(@babel/core@7.24.9)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^0.0.43
+        version: 0.0.43(next@14.2.6(@babel/core@7.24.9)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@t3-oss/env-nextjs':
         specifier: ^0.10.1
         version: 0.10.1(typescript@5.5.4)(zod@3.23.8)
@@ -638,6 +641,12 @@ packages:
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
 
+  '@keyvaluesystems/react-stepper@1.0.4':
+    resolution: {integrity: sha512-CHwPQx7qRl2Wxd2MiDi2M1yDNDSQ60wSQsaDYXDn+fjpylTWDMyIQ0cm6J+GobSg+pihX25571S/QvHFpMGLAQ==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: ^18.2.0
+
   '@mertasan/tailwindcss-variables@2.7.0':
     resolution: {integrity: sha512-rKPhxi/0r6XWP0+OjPmsfrloX/TtQmvONj2Pr3Nl8BNBznQVP3M9sphguDBUDC0AiKYx2xgup3XzAhlIDLPLIA==}
     engines: {node: '>=12.13.0'}
@@ -814,8 +823,8 @@ packages:
   '@sinclair/typebox@0.27.8':
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
 
-  '@strategic-dot/components@0.0.42':
-    resolution: {integrity: sha512-yxZYQjrUC+8HTKGWQOgGNhMHA3JA53xG5IWuOU0z2LyvyexxLkfvIOu5w/mDUBkON+mUh1EcQq2pZ/fpPXfYmA==}
+  '@strategic-dot/components@0.0.43':
+    resolution: {integrity: sha512-anPd1T7omN88Ga69oiJ8GoRyACYnPqKcmsWxoJEMwq5yE8RRRPwhM0K3ALmbW9OzGMIsEGPd8q+R5KFA/r6LFg==}
     engines: {node: '18'}
     peerDependencies:
       next: ^14.2.6
@@ -3931,6 +3940,10 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
+  '@keyvaluesystems/react-stepper@1.0.4(react@18.3.1)':
+    dependencies:
+      react: 18.3.1
+
   '@mertasan/tailwindcss-variables@2.7.0(autoprefixer@10.4.14(postcss@8.4.40))(postcss@8.4.40)':
     dependencies:
       autoprefixer: 10.4.14(postcss@8.4.40)
@@ -4041,7 +4054,7 @@ snapshots:
 
   '@sinclair/typebox@0.27.8': {}
 
-  '@strategic-dot/components@0.0.42(next@14.2.6(@babel/core@7.24.9)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@strategic-dot/components@0.0.43(next@14.2.6(@babel/core@7.24.9)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       next: 14.2.6(@babel/core@7.24.9)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
