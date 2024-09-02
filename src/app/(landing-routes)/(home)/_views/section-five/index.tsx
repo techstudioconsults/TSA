@@ -1,6 +1,7 @@
 "use client";
 
 import { TsaCarousel } from "@strategic-dot/components";
+import { CalendarDays, Hourglass, MapPin } from "lucide-react";
 
 import { Wrapper } from "~/components/layout/wrapper";
 import { BlurImage } from "~/components/miscellaneous/blur-image";
@@ -9,14 +10,14 @@ export const GALLARY_CONTENT = [
   <BlurImage
     key={0}
     _width={500}
-    _height={500}
+    _height={50}
     src={"/images/img-1.png"}
     alt={"img"}
   />,
   <BlurImage
     key={1}
     _width={500}
-    _height={500}
+    _height={50}
     src={"/images/img-2.png"}
     alt={"img"}
   />,
@@ -42,13 +43,12 @@ export const SectionFive = () => {
         </div>
       </Wrapper>
       <Wrapper className="relative items-center gap-[28px] gap-y-0 pt-[100px] lg:flex">
-        <div className="hidden lg:block">
-          <TsaCarousel
-            variant="gallery"
-            slideContent={[]}
-            galleryContent={GALLARY_CONTENT}
-          />
-        </div>
+        <TsaCarousel
+          variant="gallery"
+          slideContent={[]}
+          galleryContent={GALLARY_CONTENT}
+        />
+
         <div className="right-10 z-10 max-w-[458px] rounded-lg bg-background px-[28px] py-[47px] shadow-lg lg:absolute">
           <div>
             <h6 className="font-bold">A World-Class Learning Facility</h6>
@@ -66,6 +66,43 @@ export const SectionFive = () => {
               engaging lessons that captivate students attention and spark their
               curiosity.
             </p>
+          </div>
+        </div>
+      </Wrapper>
+      <Wrapper className="my-[100px] grid grid-cols-1 items-center gap-[28px] gap-y-0 text-center lg:grid-cols-2 lg:text-left">
+        <div className="flex-1">
+          <BlurImage
+            _width={478}
+            _height={397}
+            src="/gifs/upcoming.gif"
+            alt="upcoming"
+          />
+        </div>
+        <div className="flex-1">
+          <span className="text-sm font-bold uppercase text-mid-blue">
+            Upcoming Classes
+          </span>
+          <h3 className="my-[19px]">Javascript Fullstack Web Development</h3>
+          <p>
+            With 24 intense weeks of on-campus training, you will learn to think
+            and build like software developers. You move from understanding
+            programming fundamentals to launching full-stack web apps. You do
+            all these while learning to solve everyday problems with
+            constructive, well-written programs
+          </p>
+          <div>
+            <span>
+              <MapPin className="text-xs" />
+              <span>Location</span>
+            </span>
+            <span>
+              <CalendarDays className="text-xs" />
+              <span>Start Date</span>
+            </span>
+            <span>
+              <Hourglass className="text-xs" />
+              <span>Duration</span>
+            </span>
           </div>
         </div>
       </Wrapper>
