@@ -1,11 +1,11 @@
 "use client";
 
-import { TsaBanner, TsaButton, TsaMarquee } from "@strategic-dot/components";
+import { TsaButton, TsaMarquee } from "@strategic-dot/components";
 
+import { CarouselBanner } from "~/components/banners/carousel-banner";
 import { Wrapper } from "~/components/layout/wrapper";
 import { BlurImage } from "~/components/miscellaneous/blur-image";
-import { COMPANIES, TESTIMONIALS } from "~/constants";
-import { cn } from "~/lib/utils";
+import { COMPANIES } from "~/constants";
 
 export const SectionThree = () => {
   const companiesList = COMPANIES.map((company, index) => {
@@ -40,29 +40,7 @@ export const SectionThree = () => {
       </Wrapper>
       <TsaMarquee className="gap-20 p-0 lg:gap-40">{companiesList}</TsaMarquee>
       <Wrapper className="mt-[50px] lg:mt-[100px]">
-        <TsaBanner
-          className={cn(
-            `mx-auto flex min-h-[392px] max-w-full flex-col justify-between rounded-lg bg-primary p-4 text-background md:max-w-[1244px] md:flex-row md:p-[42px]`,
-          )}
-          topSlot={
-            <BlurImage
-              _width={112}
-              _height={112}
-              src="/icons/box-2.png"
-              alt="icon"
-            />
-          }
-          bottomSlot={
-            <BlurImage
-              className="h-[88px] w-[91px]"
-              src="/icons/box-1(full).png"
-              alt="icon"
-              _width={91}
-              _height={80}
-            />
-          }
-          testimonials={TESTIMONIALS}
-        />
+        <CarouselBanner />
       </Wrapper>
       <Wrapper className="grid grid-cols-1 items-center gap-[28px] gap-y-0 text-center lg:grid-cols-2 lg:text-left">
         <div className="flex-1">
