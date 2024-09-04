@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 
-import Navbar from "~/components/layout/navbar";
 import LenisProvider from "~/components/lenis-provider";
 import GotoTop from "~/components/miscellaneous/goto-top";
 
 import "@strategic-dot/components/dist/style.css";
 import "./globals.css";
 
-import { Footer } from "~/components/layout/footer";
+import { Layout } from "~/components/layout";
 import { cn } from "~/lib/utils";
 
 const openSans = Open_Sans({ subsets: ["latin"] });
@@ -28,11 +27,7 @@ export default function RootLayout({
       <body className={cn(openSans.className)}>
         <GotoTop />
         <LenisProvider>
-          <main>
-            <Navbar />
-            {children}
-            <Footer />
-          </main>
+          <Layout>{children}</Layout>
         </LenisProvider>
       </body>
     </html>
