@@ -23,33 +23,35 @@ export const Hero = () => {
     <section className="hero-section absolute left-0 top-0 h-[724px] w-full items-center overflow-hidden bg-primary bg-primary-gradient text-white">
       <Wrapper>
         <section className="mx-auto mt-16 flex h-full flex-col items-center justify-center bg-transparent lg:flex-row">
-          <div className="flex flex-1 flex-col gap-[7rem]">
-            <BlurImage
-              className="translate-x-[1rem]"
-              src="/icons/javascript.png"
-              alt="icon"
-              _width={64}
-              _height={64}
-            />
-            <BlurImage
-              className="translate-x-[7rem]"
-              src="/icons/react.png"
-              alt="icon"
-              _width={64}
-              _height={64}
-            />
-            <BlurImage
-              className="translate-x-[-1rem]"
-              src="/icons/python.png"
-              alt="icon"
-              _width={64}
-              _height={64}
-            />
+          <div className="hidden flex-1 lg:block">
+            <div className="flex flex-col gap-[7rem]">
+              <BlurImage
+                className="translate-x-[1rem]"
+                src="/icons/javascript.png"
+                alt="icon"
+                _width={64}
+                _height={64}
+              />
+              <BlurImage
+                className="translate-x-[7rem]"
+                src="/icons/react.png"
+                alt="icon"
+                _width={64}
+                _height={64}
+              />
+              <BlurImage
+                className="translate-x-[-1rem]"
+                src="/icons/python.png"
+                alt="icon"
+                _width={64}
+                _height={64}
+              />
+            </div>
           </div>
           <article className="flex-3 relative z-10 flex max-w-[731px] flex-col items-center">
             <div className="flex w-fit items-center gap-2 rounded-full bg-mid-blue px-[14px] py-[10px]">
-              <Star size="24px" className="text-warning" />
-              <p className="text-sm text-white">
+              <Star size="16px" className="text-warning" />
+              <p className="text-xs text-white lg:text-sm">
                 No 1 Training Institute in Lagos
               </p>
             </div>
@@ -67,7 +69,7 @@ export const Hero = () => {
               </TsaButton>
             </div>
           </article>
-          <div className="flex-1">
+          <div className="hidden flex-1 lg:block">
             <div className="flex flex-1 flex-col gap-[7rem]">
               <BlurImage
                 className="translate-x-[11rem]"

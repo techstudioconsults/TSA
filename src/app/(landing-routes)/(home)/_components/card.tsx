@@ -18,8 +18,8 @@ export const Card: FC<CardProperties> = ({
     <section className="mx-auto w-full max-w-[376px]" {...rest}>
       <BlurImage
         className="mx-auto"
-        _width={337}
-        _height={190}
+        _width={100}
+        _height={100}
         src={image}
         alt={"card-img"}
       />

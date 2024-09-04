@@ -8,6 +8,7 @@ import GotoTop from "~/components/miscellaneous/goto-top";
 import "@strategic-dot/components/dist/style.css";
 import "./globals.css";
 
+import { Footer } from "~/components/layout/footer";
 import { cn } from "~/lib/utils";
 
 const openSans = Open_Sans({ subsets: ["latin"] });
@@ -30,6 +31,7 @@ export default function RootLayout({
           <main>
             <Navbar />
             {children}
+            <Footer />
           </main>
         </LenisProvider>
       </body>

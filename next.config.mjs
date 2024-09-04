@@ -5,7 +5,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "localhost:3000", //e.g cloudinary
+        hostname: "techstudio.nyc3.cdn.digitaloceanspaces.com", //e.g cloudinary
         pathname: "/**",
       },
     ],
