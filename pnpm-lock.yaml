@@ -15,8 +15,8 @@ importers:
         specifier: ^1.0.4
         version: 1.0.4(react@18.3.1)
       '@strategic-dot/components':
-        specifier: ^0.0.54-beta
-        version: 0.0.54-beta(next@14.2.6(@babel/core@7.24.9)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^0.0.55-beta
+        version: 0.0.55-beta(next@14.2.6(@babel/core@7.24.9)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@t3-oss/env-nextjs':
         specifier: ^0.10.1
         version: 0.10.1(typescript@5.5.4)(zod@3.23.8)
@@ -59,6 +59,9 @@ importers:
       react-hook-form:
         specifier: ^7.52.1
         version: 7.52.1(react@18.3.1)
+      react-icons:
+        specifier: ^5.3.0
+        version: 5.3.0(react@18.3.1)
       sharp:
         specifier: ^0.33.4
         version: 0.33.4
@@ -823,8 +826,8 @@ packages:
   '@sinclair/typebox@0.27.8':
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
 
-  '@strategic-dot/components@0.0.54-beta':
-    resolution: {integrity: sha512-QqPMRq67oBxfBRqg2un8xbCZ09/GiUTOx/qaXDcbh2mHmhletpmV7udBDx8Z4KbejrPHut94nTo7qENilfu2Qg==}
+  '@strategic-dot/components@0.0.55-beta':
+    resolution: {integrity: sha512-d+eS3IHyLXtk0F4xnjClrwLyJcsbmtjhfiJgWomQ/9u8WN34aNWlZ/6hpJLxavGr1sz8JPAq4B6M+J37tJEwPA==}
     engines: {node: '18'}
     peerDependencies:
       next: ^14.2.6
@@ -2858,6 +2861,11 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17 || ^18 || ^19
 
+  react-icons@5.3.0:
+    resolution: {integrity: sha512-DnUk8aFbTyQPSkCfF8dbX6kQjXA9DktMeJqfjrg6cK9vwQVMxmcA3BfP4QoiztVmEHtwlTgLFsPuH2NskKT6eg==}
+    peerDependencies:
+      react: '*'
+
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
@@ -4054,7 +4062,7 @@ snapshots:
 
   '@sinclair/typebox@0.27.8': {}
 
-  '@strategic-dot/components@0.0.54-beta(next@14.2.6(@babel/core@7.24.9)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@strategic-dot/components@0.0.55-beta(next@14.2.6(@babel/core@7.24.9)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       next: 14.2.6(@babel/core@7.24.9)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
@@ -6391,6 +6399,10 @@ snapshots:
       scheduler: 0.23.2
 
   react-hook-form@7.52.1(react@18.3.1):
+    dependencies:
+      react: 18.3.1
+
+  react-icons@5.3.0(react@18.3.1):
     dependencies:
       react: 18.3.1
 

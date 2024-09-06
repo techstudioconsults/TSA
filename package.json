@@ -18,7 +18,7 @@
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
     "@keyvaluesystems/react-stepper": "^1.0.4",
-    "@strategic-dot/components": "^0.0.54-beta",
+    "@strategic-dot/components": "^0.0.55-beta",
     "@t3-oss/env-nextjs": "^0.10.1",
     "@types/jest-axe": "^3.5.9",
     "class-variance-authority": "^0.7.0",
@@ -33,6 +33,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.52.1",
+    "react-icons": "^5.3.0",
     "sharp": "^0.33.4",
     "swiper": "^11.1.5",
     "tailwind-merge": "^2.3.0",

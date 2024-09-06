@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 import { Wrapper } from "~/components/layout/wrapper";
-import { BlurImage } from "~/components/miscellaneous/blur-image";
 import { TsaCaroussel } from "~/components/tsa-caroussel";
 
 export const SectionTwo = () => {
@@ -18,11 +17,11 @@ export const SectionTwo = () => {
               Explore our extensive selection of highly sought-after
               beginner-friendly tech courses, meticulously designed to empower
               and inspire learners at every step of their educational journey.
-              <BlurImage
+              <Image
                 src={"/icons/scribble.png"}
                 alt={"icon"}
-                _width={34}
-                _height={31}
+                width={34}
+                height={31}
               />
             </p>
           </div>
@@ -30,14 +29,14 @@ export const SectionTwo = () => {
         </section>
       </Wrapper>
       <Image
-        className="absolute left-[-1rem] top-[-1rem]"
+        className="absolute left-[-1rem] top-[-1rem] hidden lg:block"
         src={"/icons/box-2.png"}
         alt={"img"}
         width={112}
         height={112}
       />
       <Image
-        className="absolute bottom-0 right-0"
+        className="absolute bottom-0 right-0 hidden lg:block"
         src={"/icons/box-1.png"}
         alt={"img"}
         width={91}

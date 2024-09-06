@@ -1,6 +1,7 @@
 "use client";
 
 import { TsaButton, TsaMarquee } from "@strategic-dot/components";
+import Image from "next/image";
 
 import { CarouselBanner } from "~/components/banners/carousel-banner";
 import { Wrapper } from "~/components/layout/wrapper";
@@ -10,12 +11,13 @@ import { COMPANIES } from "~/constants";
 export const SectionThree = () => {
   const companiesList = COMPANIES.map((company, index) => {
     return (
-      <BlurImage
-        _width={85}
-        _height={85}
+      <Image
+        width={120}
+        height={100}
         key={index}
         src={company}
         alt="company"
+        className="object-contain"
       />
     );
   });
@@ -39,7 +41,7 @@ export const SectionThree = () => {
         </div>
       </Wrapper>
       <TsaMarquee className="gap-20 p-0 lg:gap-40">{companiesList}</TsaMarquee>
-      <Wrapper className="mt-[50px] lg:mt-[100px]">
+      <Wrapper className="my-[50px] lg:my-[100px]">
         <CarouselBanner />
       </Wrapper>
       <Wrapper className="grid grid-cols-1 items-center gap-[28px] gap-y-0 text-center lg:grid-cols-2 lg:text-left">
@@ -49,7 +51,7 @@ export const SectionThree = () => {
             _height={431}
             src="/gifs/certificate.gif"
             alt="certificate"
-            className="mx-auto"
+            className="mx-auto object-cover"
           />
         </div>
         <div className="flex-1">

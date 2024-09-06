@@ -22,6 +22,7 @@ export const SectionFour = () => {
             _height={387}
             src="/gifs/apply.gif"
             alt={"img"}
+            className="object-cover"
           />
         </div>
       </Wrapper>

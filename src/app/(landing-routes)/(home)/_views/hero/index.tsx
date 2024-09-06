@@ -2,11 +2,11 @@
 
 import { TsaButton } from "@strategic-dot/components";
 import { Star } from "lucide-react";
+import Image from "next/image";
 import React, { useEffect } from "react";
 
 import { HeroCanvas } from "~/components/canvas/hero-canvas";
 import { Wrapper } from "~/components/layout/wrapper";
-import { BlurImage } from "~/components/miscellaneous/blur-image";
 import useWindowWidth from "~/hooks/util-hooks/use-window-width";
 
 export const Hero = () => {
@@ -25,26 +25,26 @@ export const Hero = () => {
         <section className="mx-auto mt-16 flex h-full flex-col items-center justify-center bg-transparent lg:flex-row">
           <div className="hidden flex-1 lg:block">
             <div className="flex flex-col gap-[7rem]">
-              <BlurImage
+              <Image
                 className="translate-x-[1rem]"
                 src="/icons/javascript.png"
                 alt="icon"
-                _width={64}
-                _height={64}
+                width={64}
+                height={64}
               />
-              <BlurImage
+              <Image
                 className="translate-x-[7rem]"
                 src="/icons/react.png"
                 alt="icon"
-                _width={64}
-                _height={64}
+                width={64}
+                height={64}
               />
-              <BlurImage
+              <Image
                 className="translate-x-[-1rem]"
                 src="/icons/python.png"
                 alt="icon"
-                _width={64}
-                _height={64}
+                width={64}
+                height={64}
               />
             </div>
           </div>
@@ -71,26 +71,26 @@ export const Hero = () => {
           </article>
           <div className="hidden flex-1 lg:block">
             <div className="flex flex-1 flex-col gap-[7rem]">
-              <BlurImage
+              <Image
                 className="translate-x-[11rem]"
                 src="/icons/lock.png"
                 alt="icon"
-                _width={64}
-                _height={64}
+                width={64}
+                height={64}
               />
-              <BlurImage
+              <Image
                 className="translate-x-[5rem]"
                 src="/icons/marketing.png"
                 alt="icon"
-                _width={64}
-                _height={64}
+                width={64}
+                height={64}
               />
-              <BlurImage
+              <Image
                 className="translate-x-[12rem]"
                 src="/icons/figma.png"
                 alt="icon"
-                _width={64}
-                _height={64}
+                width={64}
+                height={64}
               />
             </div>
           </div>

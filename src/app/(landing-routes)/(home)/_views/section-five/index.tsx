@@ -32,7 +32,7 @@ export const SectionFive = () => {
           <span className="text-sm font-bold uppercase text-mid-blue">
             What To Expect
           </span>
-          <h3 className="my-[19px]">Our Facility</h3>
+          <h3>Our Facility</h3>
         </div>
         <div className="col-span-2">
           <p>
@@ -77,6 +77,7 @@ export const SectionFive = () => {
             _height={397}
             src="/gifs/upcoming.gif"
             alt="upcoming"
+            className="object-cover"
           />
         </div>
         <div className="flex-1 text-left">

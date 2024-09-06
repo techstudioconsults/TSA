@@ -1,27 +1,33 @@
 "use client";
 
 import { TsaFooter, TsaNavbar } from "@strategic-dot/components";
+import { usePathname } from "next/navigation";
 import { ReactNode } from "react";
 
 import { NAV_LINKS } from "~/constants";
+import { cn } from "~/lib/utils";
 
 export const Layout = ({ children }: { children: ReactNode }) => {
+  const pathname = usePathname();
+
   return (
     <main>
       <TsaNavbar
-        linkClassName="bg-transparent text-white"
-        className="bg-transparent"
-        logoPath="/images/logo-white.png"
+        linkClassName={cn(
+          `bg-transparent`,
+          pathname === `/about` ? `text-black` : `text-white`,
+        )}
+        logoPath={
+          pathname === `/about`
+            ? `/images/logo-black.png`
+            : "/images/logo-white.png"
+        }
         navLinks={NAV_LINKS}
         showBanner={true}
         bgScrollColor="bg-primary"
       />
       {children}
-      <TsaFooter
-        className="px-[1rem]"
-        footerBgColor={"default"}
-        footerLayoutType={"default"}
-      />
+      <TsaFooter className="mt-[40px]" />
     </main>
   );
 };

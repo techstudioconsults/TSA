@@ -81,3 +81,10 @@ export interface NavLink {
   link: string;
   dropdown?: DropdownItem[];
 }
+
+export interface TeamProperties {
+  image: string;
+  name: string;
+  role: string;
+  linkedIn: string;
+}
