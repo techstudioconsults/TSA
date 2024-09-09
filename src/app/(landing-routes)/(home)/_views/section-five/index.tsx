@@ -2,23 +2,26 @@
 
 import { TsaButton, TsaCarousel } from "@strategic-dot/components";
 import { CalendarDays, Hourglass, MapPin } from "lucide-react";
+import Image from "next/image";
 
 import HelpBanner from "~/components/banners/help-banner";
 import { Wrapper } from "~/components/layout/wrapper";
 import { BlurImage } from "~/components/miscellaneous/blur-image";
 
 export const GALLARY_CONTENT = [
-  <BlurImage
+  <Image
+    className="w-full object-bottom"
     key={0}
-    _width={500}
-    _height={50}
+    width={500}
+    height={50}
     src={"/images/img-1.png"}
     alt={"img"}
   />,
-  <BlurImage
+  <Image
+    className="w-full object-bottom"
     key={1}
-    _width={500}
-    _height={50}
+    width={500}
+    height={50}
     src={"/images/img-2.png"}
     alt={"img"}
   />,

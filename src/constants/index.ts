@@ -87,7 +87,7 @@ export const NAV_LINKS: NavLink[] = [
       },
     ],
   },
-  { route: "Employers", link: "/employers" },
+  // { route: "Employers", link: "/employers" },
   { route: "FAQ", link: "/faq" },
   { route: "Contact Us", link: "/contact" },
 ];

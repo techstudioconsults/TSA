@@ -24,7 +24,9 @@ export const Layout = ({ children }: { children: ReactNode }) => {
         }
         navLinks={NAV_LINKS}
         showBanner={true}
-        bgScrollColor="bg-primary"
+        bgScrollColor={cn(
+          pathname === `/about` ? `backdrop-blur-3xl` : `bg-primary`,
+        )}
       />
       {children}
       <TsaFooter className="mt-[40px]" />
