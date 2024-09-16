@@ -3,12 +3,12 @@ import { FC } from "react";
 
 import { CourseTag } from "../types/index.types";
 
-interface TagProp {
+interface TagProperty {
   tag: CourseTag;
   bgColor: string;
 }
 
-export const ToolTag: FC<TagProp> = ({ tag, bgColor }) => {
+export const ToolTag: FC<TagProperty> = ({ tag, bgColor }) => {
   const ifBgColorPrimary =
     bgColor === `bg-primary` || bgColor === `bg-accent`
       ? `bg-white`

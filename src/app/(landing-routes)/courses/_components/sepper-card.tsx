@@ -31,8 +31,8 @@ export const StepperCard: FC<StepperCardProperty> = ({ course }) => {
             {course.desc}
           </p>
           <div className="flex items-center gap-[17px]">
-            {course.tags.map((tag) => {
-              return <ToolTag tag={tag} bgColor={course.bgColor} />;
+            {course.tags.map((tag, index) => {
+              return <ToolTag key={index} tag={tag} bgColor={course.bgColor} />;
             })}
           </div>
         </div>
