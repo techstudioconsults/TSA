@@ -55,7 +55,7 @@ export const SectionFive = () => {
           <BlurImage
             _width={478}
             _height={397}
-            src="/gifs/upcoming.gif"
+            src="https://techstudio.nyc3.cdn.digitaloceanspaces.com/tsa-2.0/gifs/upcoming.gif"
             alt="upcoming"
             className="object-cover"
           />

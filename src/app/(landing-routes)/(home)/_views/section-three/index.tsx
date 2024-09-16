@@ -19,7 +19,7 @@ export const SectionThree = () => {
           <BlurImage
             _width={567}
             _height={431}
-            src="/gifs/certificate.gif"
+            src="https://techstudio.nyc3.cdn.digitaloceanspaces.com/tsa-2.0/gifs/certificate.gif"
             alt="certificate"
             className="mx-auto object-cover"
           />

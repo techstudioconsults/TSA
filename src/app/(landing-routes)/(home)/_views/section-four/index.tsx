@@ -20,7 +20,7 @@ export const SectionFour = () => {
           <BlurImage
             _width={440}
             _height={387}
-            src="/gifs/apply.gif"
+            src="https://techstudio.nyc3.cdn.digitaloceanspaces.com/tsa-2.0/gifs/apply.gif"
             alt={"img"}
             className="object-cover"
           />

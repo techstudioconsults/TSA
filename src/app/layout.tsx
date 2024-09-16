@@ -8,6 +8,7 @@ import "@strategic-dot/components/dist/style.css";
 import "./globals.css";
 
 import { Layout } from "~/components/layout";
+import Progress_Bar from "~/components/progress-bar";
 import { cn } from "~/lib/utils";
 
 const openSans = Open_Sans({ subsets: ["latin"] });
@@ -25,6 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn(openSans.className)}>
+        <Progress_Bar />
         <GotoTop />
         <LenisProvider>
           <Layout>{children}</Layout>
