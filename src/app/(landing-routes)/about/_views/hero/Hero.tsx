@@ -3,7 +3,7 @@ import { BlurImage } from "~/components/miscellaneous/blur-image";
 
 export const Hero = () => {
   return (
-    <Wrapper className="flex flex-col-reverse items-center gap-[28px] pb-[115px] pt-[56px] lg:flex-row">
+    <Wrapper className="flex flex-col-reverse items-center gap-[28px] pb-[115px] pt-[135px] lg:flex-row">
       <section className="flex-1">
         <div className="flex-1">
           <span className="text-sm font-bold uppercase text-mid-blue">

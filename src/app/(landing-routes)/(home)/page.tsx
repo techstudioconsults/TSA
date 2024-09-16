@@ -9,7 +9,7 @@ function Home() {
   return (
     <main>
       <Hero />
-      <div className="mt-[650px]">
+      <div className="pt-[724px]">
         <SectionOne />
         <SectionTwo />
         <SectionThree />

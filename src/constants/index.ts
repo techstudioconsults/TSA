@@ -51,39 +51,33 @@ export const NAV_LINKS: NavLink[] = [
     link: "",
     dropdown: [
       {
-        title: "Alert Dialog",
-        href: "/",
+        title: "Fullstack Development",
+        href: "/courses/fullstack-development",
         description:
           "A modal dialog that interrupts the user with important content and expects a response.",
       },
       {
-        title: "Hover Card",
-        href: "/",
+        title: "Product Design",
+        href: "/courses/product-design",
         description:
           "For sighted users to preview content available behind a link.",
       },
       {
-        title: "Progress",
-        href: "/",
+        title: "Data Science",
+        href: "/courses/data-science",
         description:
           "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
       },
       {
-        title: "Scroll-area",
-        href: "/",
+        title: "Digital Marketing",
+        href: "/courses/digital-marketing",
         description: "Visually or semantically separates content.",
       },
       {
-        title: "Tabs",
-        href: "/",
+        title: "Cyber Security",
+        href: "/courses/cyber-security",
         description:
           "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
-      },
-      {
-        title: "Tooltip",
-        href: "/",
-        description:
-          "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
       },
     ],
   },

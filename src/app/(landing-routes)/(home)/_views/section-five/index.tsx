@@ -1,12 +1,13 @@
 "use client";
 
-import { TsaButton, TsaCarousel } from "@strategic-dot/components";
+import { TsaButton } from "@strategic-dot/components";
 import { CalendarDays, Hourglass, MapPin } from "lucide-react";
 import Image from "next/image";
 
 import HelpBanner from "~/components/banners/help-banner";
 import { Wrapper } from "~/components/layout/wrapper";
 import { BlurImage } from "~/components/miscellaneous/blur-image";
+import { Gallery } from "~/views/gallery";
 
 export const GALLARY_CONTENT = [
   <Image
@@ -46,33 +47,9 @@ export const SectionFive = () => {
           </p>
         </div>
       </Wrapper>
-      <Wrapper className="relative items-center gap-[28px] gap-y-0 pt-[100px] lg:flex">
-        <TsaCarousel
-          variant="gallery"
-          slideContent={[]}
-          galleryContent={GALLARY_CONTENT}
-        />
-
-        <div className="right-10 z-10 max-w-[458px] rounded-lg bg-background px-[28px] py-[47px] shadow-lg lg:absolute">
-          <div>
-            <h6 className="font-bold">A World-Class Learning Facility</h6>
-            <p className="my-[25px] leading-[26px]">
-              At Tech Studio Academy, we have created a conducive environment
-              for learning, combining exceptional school structures, inspiring
-              classrooms, and dedicated tutors. We understand that the physical
-              surroundings greatly impact the educational experience, and we
-              strive to provide a nurturing setting that fosters academic
-              growth, creativity, and personal development.
-            </p>
-            <p className="leading-[26px]">
-              Our classrooms are carefully designed to facilitate effective
-              teaching and learning to enable tutors to deliver dynamic and
-              engaging lessons that captivate students attention and spark their
-              curiosity.
-            </p>
-          </div>
-        </div>
-      </Wrapper>
+      <div>
+        <Gallery />
+      </div>
       <Wrapper className="my-[100px] grid grid-cols-1 items-center gap-[28px] gap-y-0 text-center lg:grid-cols-2 lg:text-left">
         <div className="flex-1">
           <BlurImage

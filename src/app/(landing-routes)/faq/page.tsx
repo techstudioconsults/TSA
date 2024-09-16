@@ -5,9 +5,7 @@ const Faq = () => {
   return (
     <div>
       <Hero />
-      <section className="mt-[400px]">
-        <SectionOne />
-      </section>
+      <SectionOne />
     </div>
   );
 };

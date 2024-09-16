@@ -16,6 +16,7 @@ export function HeroCanvas(canvasElement: HTMLCanvasElement) {
 
   canvas.style.width = `${canvasWidth}px`;
   canvas.style.height = `${canvasHeight}px`;
+  // canvas.style.height = `${724}px`;
 
   // Effect class
   class Effect {

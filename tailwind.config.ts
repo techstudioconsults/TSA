@@ -12,6 +12,10 @@ const config: Config = {
   // prefix: "",
   theme: {
     extend: {
+      content: {
+        empty: '""',
+        star: '"*"',
+      },
       backgroundImage: {
         "primary-gradient":
           "radial-gradient(50% 50% at 50% 50%, rgba(6, 11, 59, 0) 0%, #060B3B 100%)",

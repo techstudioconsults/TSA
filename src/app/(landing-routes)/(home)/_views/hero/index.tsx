@@ -20,9 +20,9 @@ export const Hero = () => {
   }, [winWidth]);
 
   return (
-    <section className="hero-section absolute left-0 top-0 h-[724px] w-full items-center overflow-hidden bg-primary bg-primary-gradient text-white">
+    <section className="hero-section absolute h-[724px] w-full items-center overflow-hidden bg-primary bg-primary-gradient text-white">
       <Wrapper>
-        <section className="mx-auto mt-16 flex h-full flex-col items-center justify-center bg-transparent lg:flex-row">
+        <section className="mx-auto mt-[58px] flex h-full flex-col items-center justify-center bg-transparent lg:flex-row">
           <div className="hidden flex-1 lg:block">
             <div className="flex flex-col gap-[7rem]">
               <Image
