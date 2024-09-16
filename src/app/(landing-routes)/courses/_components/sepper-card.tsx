@@ -2,7 +2,6 @@ import Image from "next/image";
 import { FC } from "react";
 
 import { Wrapper } from "~/components/layout/wrapper";
-import { BlurImage } from "~/components/miscellaneous/blur-image";
 import { Course } from "../types/index.types";
 import { ToolTag } from "./tool-tag";
 
