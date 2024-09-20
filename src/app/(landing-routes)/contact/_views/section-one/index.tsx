@@ -7,13 +7,13 @@ import { ContactForm } from "../../_components/contact-form";
 
 export const SectionOne: React.FC = () => {
   return (
-    <section className="pt-[46px]">
+    <section className="min-h-[653px] pt-[46px]">
       <Wrapper>
         <section className="flex flex-col-reverse gap-12 lg:flex-row lg:gap-[109px]">
           <div className="mb-10 flex-1 lg:mb-0">
             <ContactForm />
           </div>
-          <div className="mb-10 mt-[90px] flex-1 text-center lg:mb-0 lg:text-start">
+          <div className="mb-10 flex-1 text-center lg:mb-0 lg:mt-[90px] lg:text-start">
             <div className="mb-6">
               <h3 className="mb-2 text-2xl font-bold">Our Office Location</h3>
               <p className="text-gray-700">Where the magic happens</p>

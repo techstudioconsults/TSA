@@ -2,8 +2,8 @@ import { Wrapper } from "~/components/layout/wrapper";
 
 export const SectionOne = () => {
   return (
-    <section className="bg-accent py-[48px]">
-      <Wrapper className="mb-[35px] grid grid-cols-1 items-center gap-[28px] gap-y-0 text-center lg:grid-cols-3 lg:text-left">
+    <section className="min-h-[214px] bg-accent py-[48px]">
+      <Wrapper className="mb-[35px] grid grid-cols-1 items-center gap-y-0 text-center lg:grid-cols-3 lg:gap-[28px] lg:text-left">
         <div>
           <span className="text-sm font-bold uppercase text-mid-blue">
             MORE ABOUT US

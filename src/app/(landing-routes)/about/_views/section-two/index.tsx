@@ -4,7 +4,7 @@ import { Wrapper } from "~/components/layout/wrapper";
 
 export const SectionTwo = () => {
   return (
-    <section className="py-[70px]">
+    <section className="min-h-[745px] py-[70px]">
       <Wrapper>
         <header className="mx-auto max-w-[557px] text-center">
           <h2 className="text-[24px] lg:text-[35px]">

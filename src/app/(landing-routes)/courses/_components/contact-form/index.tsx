@@ -10,7 +10,7 @@ export const ContactForm = () => {
           Register to learn more about the program pricing and curriculum
         </h6>
         <form className="flex flex-col gap-[21px]">
-          <div className="flex justify-between gap-[21px]">
+          <div className="flex flex-col justify-between gap-[21px] lg:flex-row">
             <div className="w-full">
               <TsaInput className="text-black" placeholder={"First Name"} />
             </div>

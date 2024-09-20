@@ -1,7 +1,28 @@
-import { TsaCarousel } from "@strategic-dot/components";
+"use client";
 
-import { GALLARY_CONTENT } from "~/app/(landing-routes)/(home)/_views/section-five";
+import { TsaCarousel } from "@strategic-dot/components";
+import Image from "next/image";
+
 import { Wrapper } from "~/components/layout/wrapper";
+
+export const GALLARY_CONTENT = [
+  <Image
+    className="w-full object-bottom"
+    key={0}
+    width={500}
+    height={50}
+    src={"/images/img-1.png"}
+    alt={"img"}
+  />,
+  <Image
+    className="w-full object-bottom"
+    key={1}
+    width={500}
+    height={50}
+    src={"/images/img-2.png"}
+    alt={"img"}
+  />,
+];
 
 export const Gallery = () => {
   return (
@@ -12,7 +33,7 @@ export const Gallery = () => {
         galleryContent={GALLARY_CONTENT}
       />
 
-      <div className="right-10 z-10 max-w-[458px] rounded-lg bg-background px-[28px] py-[47px] shadow-lg lg:absolute">
+      <div className="right-0 z-10 max-w-[458px] rounded-lg bg-background px-[28px] py-[47px] shadow-lg lg:absolute">
         <div>
           <h6 className="font-bold">A World-Class Learning Facility</h6>
           <p className="my-[25px] leading-[26px]">

@@ -18,7 +18,7 @@ export const LifeAfterTraining = () => {
     );
   });
   return (
-    <section>
+    <>
       <Wrapper className="mb-[50px] grid grid-cols-1 items-center gap-[28px] gap-y-0 text-center lg:mb-[64px] lg:grid-cols-2 lg:text-left">
         <div className="flex-1">
           <span className="text-sm font-bold uppercase text-mid-blue">
@@ -36,6 +36,6 @@ export const LifeAfterTraining = () => {
         </div>
       </Wrapper>
       <TsaMarquee className="gap-20 p-0 lg:gap-40">{companiesList}</TsaMarquee>
-    </section>
+    </>
   );
 };

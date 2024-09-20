@@ -11,11 +11,17 @@ export const CarouselBanner = () => {
         `mx-auto flex min-h-[392px] max-w-full flex-col justify-between rounded-lg bg-primary p-4 text-background md:max-w-[1244px] md:flex-row md:p-[42px]`,
       )}
       topSlot={
-        <Image width={112} height={112} src="/icons/box-2.png" alt="icon" />
+        <Image
+          className="hidden lg:block"
+          width={112}
+          height={112}
+          src="/icons/box-2.png"
+          alt="icon"
+        />
       }
       bottomSlot={
         <Image
-          className="h-[88px] w-[91px]"
+          className="hidden h-[88px] w-[91px] lg:block"
           src="/icons/box-1(full).png"
           alt="icon"
           width={91}

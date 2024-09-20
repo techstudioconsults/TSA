@@ -1,11 +1,15 @@
 import Image from "next/image";
+import { FC, lazy, Suspense } from "react";
 
+import Loading from "~/app/loading";
 import { Wrapper } from "~/components/layout/wrapper";
-import { TsaCaroussel } from "~/components/tsa-caroussel";
 
-export const SectionTwo = () => {
+// Lazy load the TsaCaroussel component
+const TsaCaroussel = lazy(() => import("~/components/tsa-caroussel"));
+
+export const SectionTwo: FC = () => {
   return (
-    <section className="relative overflow-hidden bg-accent py-[85px]">
+    <section className="relative min-h-[518px] overflow-hidden bg-accent py-[85px]">
       <Wrapper>
         <section className="grid grid-cols-1 items-center gap-[28px] lg:grid-cols-2">
           <div className="text-center lg:text-left">
@@ -25,7 +29,10 @@ export const SectionTwo = () => {
               />
             </p>
           </div>
-          <TsaCaroussel />
+          {/* Suspense with lazy-loaded component */}
+          <Suspense fallback={<Loading />}>
+            <TsaCaroussel />
+          </Suspense>
         </section>
       </Wrapper>
       <Image

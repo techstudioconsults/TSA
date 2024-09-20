@@ -8,12 +8,7 @@ interface CardProperties extends HTMLAttributes<HTMLDivElement> {
   description: string;
 }
 
-export const Card: FC<CardProperties> = ({
-  image,
-  title,
-  description,
-  ...rest
-}) => {
+const Card: FC<CardProperties> = ({ image, title, description, ...rest }) => {
   return (
     <section className="mx-auto w-full max-w-[376px]" {...rest}>
       <BlurImage
@@ -34,3 +29,5 @@ export const Card: FC<CardProperties> = ({
     </section>
   );
 };
+
+export default Card;

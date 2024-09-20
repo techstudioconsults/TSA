@@ -10,20 +10,20 @@ import { LifeAfterTraining } from "~/views/life-after-training";
 export const SectionThree = () => {
   return (
     <section>
-      <div className="py-[95px]">
+      <div className="min-h-[495px] py-[95px]">
         <LifeAfterTraining />
       </div>
-      <div>
+      <div className="min-h-[874px]">
         <Gallery />
       </div>
-      <Wrapper className="my-[50px] lg:my-[100px]">
+      <Wrapper className="my-[50px] min-h-[412px] lg:my-[100px]">
         <CarouselBanner />
       </Wrapper>
-      <Wrapper>
+      <Wrapper className="min-h-[952px]">
         <h2 className="text-center">FAQs</h2>
         <TsaAccordion />
       </Wrapper>
-      <Wrapper className="py-[50px] lg:py-[120px]">
+      <Wrapper className="py-[50px] lg:py-[120px] xl:min-h-[575px]">
         <HelpBanner />
       </Wrapper>
     </section>

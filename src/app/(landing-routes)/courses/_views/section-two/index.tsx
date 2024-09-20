@@ -9,7 +9,7 @@ interface CourseSectionTwoProperty {
 
 export const SectionTwo: FC<CourseSectionTwoProperty> = ({ courseList }) => {
   return (
-    <section>
+    <section className="min-h-[591px]">
       {courseList.map((course) => {
         return <StepperCard key={course.id} course={course} />;
       })}

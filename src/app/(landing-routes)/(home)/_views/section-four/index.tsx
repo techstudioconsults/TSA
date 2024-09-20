@@ -11,7 +11,7 @@ export const SectionFour = () => {
   const [currentStep] = useState(0);
 
   return (
-    <section className="bg-accent py-[76px]">
+    <section className="min-h-[685px] bg-accent py-[76px]">
       <Wrapper className="grid grid-cols-1 items-center gap-[28px] gap-y-0 lg:grid-cols-2">
         <div className="flex-1">
           <VerticalStepper steps={STEPS} currentStep={currentStep} />

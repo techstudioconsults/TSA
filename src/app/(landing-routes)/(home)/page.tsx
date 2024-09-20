@@ -5,7 +5,7 @@ import { SectionOne } from "./_views/section-one";
 import { SectionThree } from "./_views/section-three";
 import { SectionTwo } from "./_views/section-two";
 
-function Home() {
+const Home = async () => {
   return (
     <main>
       <Hero />
@@ -18,6 +18,6 @@ function Home() {
       </div>
     </main>
   );
-}
+};
 
 export default Home;

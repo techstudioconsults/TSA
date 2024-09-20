@@ -21,7 +21,9 @@ export const StepperCard: FC<StepperCardProperty> = ({ course }) => {
           >
             {course.caption}
           </h6>
-          <h3 className={`text-[33px] font-[700] ${ifBgColorPrimary}`}>
+          <h3
+            className={`text-[20px] font-[700] lg:text-[33px] ${ifBgColorPrimary}`}
+          >
             {course.title}
           </h3>
           <p
@@ -29,7 +31,7 @@ export const StepperCard: FC<StepperCardProperty> = ({ course }) => {
           >
             {course.desc}
           </p>
-          <div className="flex items-center gap-[17px]">
+          <div className="flex flex-wrap items-center gap-[17px]">
             {course.tags.map((tag, index) => {
               return <ToolTag key={index} tag={tag} bgColor={course.bgColor} />;
             })}

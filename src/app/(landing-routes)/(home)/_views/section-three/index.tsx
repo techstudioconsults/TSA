@@ -9,17 +9,19 @@ import { LifeAfterTraining } from "~/views/life-after-training";
 
 export const SectionThree = () => {
   return (
-    <section className="py-[100px]">
-      <LifeAfterTraining />
-      <Wrapper className="my-[50px] lg:my-[100px]">
+    <section className="min-h-[1577px] py-[100px]">
+      <div className="min-h-[305px]">
+        <LifeAfterTraining />
+      </div>
+      <Wrapper className="my-[50px] min-h-[412px] lg:my-[100px]">
         <CarouselBanner />
       </Wrapper>
-      <Wrapper className="grid grid-cols-1 items-center gap-[28px] gap-y-0 text-center lg:grid-cols-2 lg:text-left">
+      <Wrapper className="grid min-h-[431px] grid-cols-1 items-center gap-[28px] gap-y-0 text-center lg:grid-cols-2 lg:text-left">
         <div className="flex-1">
           <BlurImage
             _width={567}
             _height={431}
-            src="https://techstudio.nyc3.cdn.digitaloceanspaces.com/tsa-2.0/gifs/certificate.gif"
+            src="/gifs/certificate.gif"
             alt="certificate"
             className="mx-auto object-cover"
           />

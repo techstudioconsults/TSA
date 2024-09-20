@@ -6,7 +6,7 @@ export const Hero: FC = () => {
   return (
     <header className="w-full bg-[url('/images/HeroBg.webp')] bg-cover bg-center pt-[135px] text-white">
       <Wrapper>
-        <section className="py-[150px] text-center">
+        <section className="py-[50px] text-center lg:py-[150px]">
           <h1 className="text-[34px] text-white">
             We&apos;d love to hear from you
           </h1>

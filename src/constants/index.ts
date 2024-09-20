@@ -2,44 +2,29 @@ import { NavLink, slideContentProperties } from "~/types/index.types";
 
 export const SLIDE_CONTENT: slideContentProperties[] = [
   {
-    name: "Fullstack development",
-    image: "/images/logo-black.png",
-    link: "https://example.com/page1",
+    name: "Fullstack Development",
+    image: "/images/fullstack.png",
+    link: "/courses/fullstack-development",
   },
   {
-    name: "Item 2",
-    image: "/images/logo-black.png",
-    link: "https://example.com/page2",
+    name: "Product Design",
+    image: "/images/ui-ux.png",
+    link: "/courses/product-design",
   },
   {
-    name: "Item 3",
-    image: "/images/logo-black.png",
-    link: "https://example.com/page3",
+    name: "Data Science",
+    image: "/images/datascience.png",
+    link: "/courses/data-science",
   },
   {
-    name: "Item 4",
+    name: "Digital Marketing",
     image: "/images/logo-black.png",
-    link: "https://example.com/page4",
+    link: "/courses/digital-marketing",
   },
   {
-    name: "Item 5",
+    name: "Cyber Security",
     image: "/images/logo-black.png",
-    link: "https://example.com/page5",
-  },
-  {
-    name: "Item 6",
-    image: "/images/logo-black.png",
-    link: "https://example.com/page5",
-  },
-  {
-    name: "Item 7",
-    image: "/images/logo-black.png",
-    link: "https://example.com/page5",
-  },
-  {
-    name: "Item 8",
-    image: "/images/logo-black.png",
-    link: "https://example.com/page5",
+    link: "/courses/cyber-security",
   },
 ];
 

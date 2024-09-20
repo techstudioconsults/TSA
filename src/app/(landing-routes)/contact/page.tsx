@@ -13,7 +13,7 @@ const Contact = () => {
         target="_blank"
         href={`https://www.google.com/maps/place/Tech+Studio+Academy+%7C+Tech+Training+Institute+in+Lagos/@6.5355864,3.3653758,19z/data=!3m1!4b1!4m6!3m5!1s0x103b8dba7bad97cb:0xae0bc176821041e5!8m2!3d6.5355851!4d3.3660195!16s%2Fg%2F11h4zqnp1s?authuser=0&entry=ttu`}
       >
-        <section className="mb-[-40px] lg:pt-[80px]">
+        <section className="mb-[-40px] min-h-[312px] lg:pt-[80px]">
           <BlurImage
             className="object-contain object-top lg:object-cover"
             _width={1440}

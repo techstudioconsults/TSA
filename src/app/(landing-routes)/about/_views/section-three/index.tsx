@@ -3,9 +3,9 @@ import { TeamCard } from "../../_components/team-card";
 
 export const SectionThree = () => {
   return (
-    <section className="bg-accent py-[70px]">
+    <section className="min-h-[1149px] bg-accent py-[70px]">
       <Wrapper>
-        <header className="mx-auto mb-[63px] max-w-[650px] text-center">
+        <header className="mx-auto mb-[63px] min-h-[129px] max-w-[650px] text-center">
           <h2 className="mb-[22px] text-[24px] lg:text-[35px]">
             Meet the Team
           </h2>

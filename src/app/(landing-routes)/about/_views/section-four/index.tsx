@@ -7,7 +7,7 @@ import { BlurImage } from "~/components/miscellaneous/blur-image";
 export const SectionFour = () => {
   return (
     <section>
-      <div className="h-fit w-full">
+      <div className="h-fit w-full lg:min-h-[706px]">
         <BlurImage
           _width={1440}
           _height={706}
@@ -16,8 +16,8 @@ export const SectionFour = () => {
           className="object-contain object-top lg:object-cover"
         />
       </div>
-      <div className="py-[146px]">
-        <Wrapper className="justify-centergap-[28px] mb-[70px] grid grid-cols-1 gap-y-0 text-center lg:grid-cols-3 lg:text-left">
+      <div className="min-h-[375px] py-[70px] lg:py-[146px]">
+        <Wrapper className="grid grid-cols-1 justify-center gap-[28px] gap-y-0 text-center lg:grid-cols-3 lg:text-left">
           <div>
             <span className="text-sm font-bold uppercase text-mid-blue">
               What To Expect
@@ -34,7 +34,7 @@ export const SectionFour = () => {
           </div>
         </Wrapper>
       </div>
-      <Wrapper className="pb-[116px]">
+      <Wrapper className="mb-[116px] min-h-[335px]">
         <HelpBanner />
       </Wrapper>
     </section>

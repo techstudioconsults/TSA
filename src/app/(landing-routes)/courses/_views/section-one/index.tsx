@@ -10,7 +10,7 @@ interface CourseSectionOneProperty {
 
 export const SectionOne: FC<CourseSectionOneProperty> = ({ sectionOne }) => {
   return (
-    <section className="py-[50px] lg:pb-[169px] lg:pt-[187px]">
+    <section className="min-h-[708px] py-[50px] lg:pb-[169px] lg:pt-[187px]">
       <Wrapper className="text-center">
         <h2 className="mb-[55px] text-[24px] lg:text-[36px]">Our Process</h2>
         <div className="flex flex-col justify-between gap-[20px] lg:flex-row">
