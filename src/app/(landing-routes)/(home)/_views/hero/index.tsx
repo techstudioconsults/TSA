@@ -26,7 +26,7 @@ export const Hero = () => {
           <div className="hidden flex-1 lg:block">
             <div className="flex flex-col gap-[7rem]">
               <Image
-                className="translate-x-[1rem]"
+                className="translate-x-[0rem]"
                 src="/icons/javascript.png"
                 alt="icon"
                 width={64}
@@ -40,7 +40,7 @@ export const Hero = () => {
                 height={64}
               />
               <Image
-                className="translate-x-[-1rem]"
+                className="translate-x-[0rem]"
                 src="/icons/python.png"
                 alt="icon"
                 width={64}
@@ -72,21 +72,21 @@ export const Hero = () => {
           <div className="hidden flex-1 lg:block">
             <div className="flex flex-1 flex-col gap-[7rem]">
               <Image
-                className="translate-x-[11rem]"
+                className="translate-x-[18rem]"
                 src="/icons/lock.png"
                 alt="icon"
                 width={64}
                 height={64}
               />
               <Image
-                className="translate-x-[5rem]"
+                className="translate-x-[9rem]"
                 src="/icons/marketing.png"
                 alt="icon"
                 width={64}
                 height={64}
               />
               <Image
-                className="translate-x-[12rem]"
+                className="translate-x-[18rem]"
                 src="/icons/figma.png"
                 alt="icon"
                 width={64}
