@@ -40,9 +40,9 @@ export const useSubmitContactForm = () => {
       if (!response.ok) {
         throw new Error("Failed to send your message");
       }
-
+      // comback to handle this properly with original error message
       const responseData = await response.json();
-      setResponseMessage("Your message has been sent successfully!");
+      setResponseMessage(responseData.message);
       return responseData;
     } catch (error) {
       setResponseMessage(

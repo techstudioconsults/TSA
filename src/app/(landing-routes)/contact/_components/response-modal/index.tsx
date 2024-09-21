@@ -5,13 +5,14 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@strategic-dot/components";
+import Image from "next/image";
 import React from "react";
 
 interface ResponseModalProps {
   isOpen: boolean;
   onClose: () => void;
-  responseMessage: string; // Dynamic message passed to the modal
-  isError: boolean; // To determine if the message is an error or success
+  responseMessage: string;
+  isError: boolean;
 }
 
 const ResponseModal: React.FC<ResponseModalProps> = ({
@@ -20,17 +21,31 @@ const ResponseModal: React.FC<ResponseModalProps> = ({
   responseMessage,
   isError,
 }) => {
+  const img = isError ? `/gifs/scream.gif` : `/images/yes.png`;
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle className={isError ? "text-red-600" : "text-green-600"}>
-            {isError ? "Error!" : "Success!"}
+          <DialogTitle>
+            <Image
+              className="mx-auto"
+              width={138}
+              height={85}
+              src={img}
+              alt={"image"}
+            />
           </DialogTitle>
         </DialogHeader>
-        <p className={isError ? "text-red-600" : "text-green-600"}>
-          {responseMessage}
-        </p>
+        <div className="text-center">
+          <h5 className="mb-4 text-xl font-bold">
+            {isError ? `Something went wrong` : ` Message Sent Successfully!`}
+          </h5>
+          <p className={isError ? "text-red-600" : ""}>
+            {isError
+              ? responseMessage
+              : `Thank you for contacting us! Our team is reviewing your message and will respond promptly. Feel free to explore our website for more information in the meantime. We appreciate your patience!`}
+          </p>
+        </div>
         <DialogFooter>
           <button
             className={`mt-4 rounded px-4 py-2 text-white ${
@@ -38,7 +53,7 @@ const ResponseModal: React.FC<ResponseModalProps> = ({
             }`}
             onClick={onClose}
           >
-            Close
+            Close this window
           </button>
         </DialogFooter>
       </DialogContent>
