@@ -4,6 +4,7 @@ import { TsaButton } from "@strategic-dot/components";
 import { CalendarDays, Hourglass, MapPin } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 
+import { formatDateTime } from "~/lib/utils";
 import useHomePageStore from "../../../../services";
 import { UpcomingClassesSkeleton } from "../skeleton/upcoming.skeleton";
 
@@ -59,7 +60,7 @@ export const UpcomingClasses = () => {
             <CalendarDays size={12} />
             <span>Start Date</span>
           </span>
-          <span>{upcomingClass.startDate}</span>
+          <span>{formatDateTime(upcomingClass.startDate).date}</span>
         </div>
         <div className="flex items-center justify-between gap-[11px]">
           <span className="flex items-center gap-[11px]">

@@ -1,4 +1,5 @@
 import { clsx, type ClassValue } from "clsx";
+import moment from "moment";
 import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
@@ -37,18 +38,29 @@ export function cn(...inputs: ClassValue[]) {
 //   return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
 // };
 
-// export function getCurrentDateTime() {
-//   const now = new Date();
+export function getCurrentDateTime() {
+  const now = new Date();
 
-//   // Using moment to format the date and time
-//   const date_added = moment(now).format("YYYY-MM-DD");
-//   const time = moment(now).format("HH:mm:ss");
+  const date_added = moment(now).format("YYYY-MM-DD");
+  const time = moment(now).format("HH:mm:ss");
 
-//   return {
-//     date_added,
-//     time,
-//   };
-// }
+  return {
+    date_added,
+    time,
+  };
+}
+
+export function formatDateTime(dateString: string) {
+  const date = moment(dateString);
+
+  const formattedDate = date.format("YYYY-MM-DD");
+  const formattedTime = date.format("HH:mm:ss");
+
+  return {
+    date: formattedDate,
+    time: formattedTime,
+  };
+}
 
 export function formatPrice(
   price: number | string,
