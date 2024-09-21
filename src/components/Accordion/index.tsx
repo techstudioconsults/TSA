@@ -7,93 +7,67 @@ import {
   AccordionTrigger,
 } from "@strategic-dot/components";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 
+import useFAQStore from "~/app/(landing-routes)/faq/services";
 import { Wrapper } from "~/components/layout/wrapper";
 import { PaginationComp } from "../pagination";
 
 export const TsaAccordion: React.FC = () => {
+  const { getFAQ, faq, loading, error } = useFAQStore();
+
+  useEffect(() => {
+    getFAQ();
+  }, []);
+
   return (
-    <section className="py-[50px] lg:py-[46px]">
+    <section className="min-h-[857px] py-[50px] lg:py-[46px]">
       <Wrapper>
-        <Accordion type="multiple">
-          <AccordionItem value="item-1">
-            <AccordionTrigger className="h-[80px] text-left text-sm lg:text-xl">
-              Tell me what the Python Full stack program is about?
-            </AccordionTrigger>
-            <AccordionContent>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero
-              porro ullam nobis atque dolor necessitatibus reiciendis eos itaque
-              magni vitae quo exercitationem assumenda, maiores voluptatum harum
-              eum iusto, cum minima fugiat maxime ipsam minus. Nisi, ipsa qui
-              fugiat dignissimos itaque nobis aliquid reprehenderit! Impedit
-              reprehenderit ipsa expedita in recusandae exercitationem.
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-2">
-            <AccordionTrigger className="h-[80px] text-left text-sm lg:text-xl">
-              Tell me what the Python Full stack program is about?
-            </AccordionTrigger>
-            <AccordionContent>Content for the second item.</AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-3">
-            <AccordionTrigger className="h-[80px] text-left text-sm lg:text-xl">
-              What is the difference between Python FullStack and JavaScript
-              FullStack?
-            </AccordionTrigger>
-            <AccordionContent>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero
-              porro ullam nobis atque dolor necessitatibus reiciendis eos itaque
-              magni vitae quo exercitationem assumenda, maiores voluptatum harum
-              eum iusto, cum minima fugiat maxime ipsam minus. Nisi, ipsa qui
-              fugiat dignissimos itaque nobis aliquid reprehenderit! Impedit
-              reprehenderit ipsa expedita in recusandae exercitationem.
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-4">
-            <AccordionTrigger className="h-[80px] text-left text-sm lg:text-xl">
-              What is the difference between website evelopment and software
-              development?
-            </AccordionTrigger>
-            <AccordionContent>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero
-              porro ullam nobis atque dolor necessitatibus reiciendis eos itaque
-              magni vitae quo exercitationem assumenda, maiores voluptatum harum
-              eum iusto, cum minima fugiat maxime ipsam minus. Nisi, ipsa qui
-              fugiat dignissimos itaque nobis aliquid reprehenderit! Impedit
-              reprehenderit ipsa expedita in recusandae exercitationem.
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-5">
-            <AccordionTrigger className="h-[80px] text-left text-sm lg:text-xl">
-              Is coding the same as programming?
-            </AccordionTrigger>
-            <AccordionContent>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero
-              porro ullam nobis atque dolor necessitatibus reiciendis eos itaque
-              magni vitae quo exercitationem assumenda, maiores voluptatum harum
-              eum iusto, cum minima fugiat maxime ipsam minus. Nisi, ipsa qui
-              fugiat dignissimos itaque nobis aliquid reprehenderit! Impedit
-              reprehenderit ipsa expedita in recusandae exercitationem.
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-6">
-            <AccordionTrigger className="h-[80px] text-left text-sm lg:text-xl">
-              What are the benefits of Registering with you?
-            </AccordionTrigger>
-            <AccordionContent>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero
-              porro ullam nobis atque dolor necessitatibus reiciendis eos itaque
-              magni vitae quo exercitationem assumenda, maiores voluptatum harum
-              eum iusto, cum minima fugiat maxime ipsam minus. Nisi, ipsa qui
-              fugiat dignissimos itaque nobis aliquid reprehenderit! Impedit
-              reprehenderit ipsa expedita in recusandae exercitationem.
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
+        {/* Loading state */}
+        {loading && <p className="text-center text-lg">Loading FAQs...</p>}
+
+        {/* Error state */}
+        {error && (
+          <p className="text-center text-lg text-red-500">
+            Failed to load FAQs: {error}
+          </p>
+        )}
+
+        {/* Render the Accordion when the data is loaded */}
+        <section className="min-h-[580px]">
+          {!loading && !error && faq && (
+            <Accordion type="multiple">
+              {faq.map((faqItem: any) => (
+                <AccordionItem key={faqItem.id} value={`item-${faqItem.id}`}>
+                  <AccordionTrigger className="h-[80px] text-left text-sm lg:text-xl">
+                    {faqItem.question}
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    {/* Check if it's the online class question with bullet points */}
+                    {faqItem.bullets ? (
+                      <ul className="ml-4 list-disc">
+                        {faqItem.bullets.map(
+                          (bullet: string, index: number) => (
+                            <li key={index}>{bullet}</li>
+                          ),
+                        )}
+                      </ul>
+                    ) : (
+                      <p>{faqItem.answer}</p>
+                    )}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          )}
+        </section>
+
+        {/* Pagination */}
         <div className="mb-[78px] mt-[144px]">
           <PaginationComp />
         </div>
+
+        {/* Fallback message */}
         <p className="text-center">
           Can’t find the answer you are looking for?{" "}
           <Link href="/contact" className="font-semibold text-primary">

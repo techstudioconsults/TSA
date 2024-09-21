@@ -28,7 +28,7 @@ const useHomePageStore = create<HomePageState>()(
           headers: {
             "Content-Type": "application/json",
           },
-          cache: "no-store", // Prevents caching
+          cache: "no-store",
         });
 
         if (!response.ok) {

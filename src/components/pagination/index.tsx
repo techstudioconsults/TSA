@@ -8,37 +8,56 @@ import {
   PaginationPrevious,
 } from "@strategic-dot/components";
 import clsx from "clsx";
-import Link from "next/link";
 
-// import { useRouter } from "next/router";
+import useFAQStore from "~/app/(landing-routes)/faq/services";
 
 export const PaginationComp = () => {
-  // const router = useRouter();
-  const currentPage = 2; // Assuming the current page is 2, you can dynamically set this based on your app logic
+  const { currentPage, totalPages, getFAQ } = useFAQStore();
+
+  const handlePageChange = (page: number) => {
+    getFAQ(page); // Fetch the FAQ data for the selected page
+  };
 
   return (
     <Pagination>
       <PaginationContent>
         <PaginationItem>
-          <PaginationPrevious href="#" size={undefined} />
+          {currentPage > 1 && (
+            <PaginationPrevious
+              href="#"
+              onClick={() => handlePageChange(currentPage - 1)}
+              size={undefined}
+            />
+          )}
         </PaginationItem>
-        {[1, 2, 3, 4].map((page) => (
-          <PaginationItem key={page}>
-            <Link
-              href={`/${page}`}
-              className={clsx(
-                "rounded px-2 py-1",
-                currentPage === page
-                  ? "bg-blue-900 text-white"
-                  : "text-gray-500",
-              )}
-            >
-              {page}
-            </Link>
-          </PaginationItem>
-        ))}
+
+        {Array.from({ length: totalPages }, (_, index) => index + 1).map(
+          (page) => (
+            <PaginationItem key={page}>
+              <a
+                href="#"
+                className={clsx(
+                  "rounded px-2 py-1",
+                  currentPage === page
+                    ? "bg-blue-900 text-white"
+                    : "text-gray-500",
+                )}
+                onClick={() => handlePageChange(page)}
+              >
+                {page}
+              </a>
+            </PaginationItem>
+          ),
+        )}
+
         <PaginationItem>
-          <PaginationNext href="#" size={undefined} />
+          {currentPage < totalPages && (
+            <PaginationNext
+              href="#"
+              onClick={() => handlePageChange(currentPage + 1)}
+              size={undefined}
+            />
+          )}
         </PaginationItem>
       </PaginationContent>
     </Pagination>
