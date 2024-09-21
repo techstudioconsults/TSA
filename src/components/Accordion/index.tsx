@@ -9,6 +9,7 @@ import {
 import Link from "next/link";
 import React, { useEffect } from "react";
 
+import { AccordionSkeleton } from "~/app/(landing-routes)/faq/_components/skeleton/accordion.skeleton";
 import useFAQStore from "~/app/(landing-routes)/faq/services";
 import { Wrapper } from "~/components/layout/wrapper";
 import { PaginationComp } from "../pagination";
@@ -22,19 +23,15 @@ export const TsaAccordion: React.FC = () => {
 
   return (
     <section className="min-h-[857px] py-[50px] lg:py-[46px]">
-      <Wrapper>
-        {/* Loading state */}
-        {loading && <p className="text-center text-lg">Loading FAQs...</p>}
-
-        {/* Error state */}
-        {error && (
-          <p className="text-center text-lg text-red-500">
-            Failed to load FAQs: {error}
-          </p>
-        )}
-
+      <Wrapper className="min-h-[580px]">
         {/* Render the Accordion when the data is loaded */}
         <section className="min-h-[580px]">
+          {loading && <AccordionSkeleton />}
+          {error && (
+            <p className="text-center text-lg text-red-500">
+              Failed to load FAQs: {error}
+            </p>
+          )}
           {!loading && !error && faq && (
             <Accordion type="multiple">
               {faq.map((faqItem: any) => (

@@ -38,17 +38,17 @@ export function cn(...inputs: ClassValue[]) {
 //   return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
 // };
 
-export function getCurrentDateTime() {
-  const now = new Date();
+// export function getCurrentDateTime() {
+//   const now = new Date();
 
-  const date_added = moment(now).format("YYYY-MM-DD");
-  const time = moment(now).format("HH:mm:ss");
+//   const date_added = moment(now).format("YYYY-MM-DD");
+//   const time = moment(now).format("HH:mm:ss");
 
-  return {
-    date_added,
-    time,
-  };
-}
+//   return {
+//     date_added,
+//     time,
+//   };
+// }
 
 export function formatDateTime(dateString: string) {
   const date = moment(dateString);
