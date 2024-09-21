@@ -22,6 +22,11 @@ import ResponseModal from "../response-modal";
 export const ContactForm: FC = () => {
   const formMethods = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      fullName: "",
+      email: "",
+      message: "",
+    },
   });
 
   const {
