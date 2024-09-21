@@ -29,7 +29,7 @@ export default function RootLayout({
         <Progress_Bar />
         <LenisProvider>
           <Layout>
-            {/* <GotoTop /> */}
+            <GotoTop />
             {children}
           </Layout>
         </LenisProvider>

@@ -19,7 +19,7 @@ export const TsaAccordion: React.FC = () => {
 
   useEffect(() => {
     getFAQ();
-  }, []);
+  }, [getFAQ]);
 
   return (
     <section className="min-h-[857px] py-[50px] lg:py-[46px]">
@@ -34,7 +34,7 @@ export const TsaAccordion: React.FC = () => {
           )}
           {!loading && !error && faq && (
             <Accordion type="multiple">
-              {faq.map((faqItem: any) => (
+              {faq.map((faqItem) => (
                 <AccordionItem key={faqItem.id} value={`item-${faqItem.id}`}>
                   <AccordionTrigger className="h-[80px] text-left text-sm lg:text-xl">
                     {faqItem.question}

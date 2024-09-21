@@ -1,4 +1,4 @@
-// stores/contactFormStore.ts
+/* eslint-disable unicorn/no-null */
 import { create } from "zustand";
 
 import { ContactFormData } from "~/schemas";

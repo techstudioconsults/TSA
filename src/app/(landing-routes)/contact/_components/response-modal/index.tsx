@@ -8,14 +8,14 @@ import {
 import Image from "next/image";
 import React from "react";
 
-interface ResponseModalProps {
+interface ResponseModalProperties {
   isOpen: boolean;
   onClose: () => void;
   responseMessage: string;
   isError: boolean;
 }
 
-const ResponseModal: React.FC<ResponseModalProps> = ({
+const ResponseModal: React.FC<ResponseModalProperties> = ({
   isOpen,
   onClose,
   responseMessage,
