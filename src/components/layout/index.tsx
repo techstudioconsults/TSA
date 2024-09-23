@@ -24,7 +24,6 @@ export const Layout = ({ children }: { children: ReactNode }) => {
             : "/images/logo-white.png"
         }
         navLinks={NAV_LINKS}
-        showBanner={true}
         bgScrollColor={cn(
           pathname === `/about` ? `backdrop-blur-3xl` : `bg-primary`,
         )}

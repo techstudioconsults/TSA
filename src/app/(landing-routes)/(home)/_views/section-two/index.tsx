@@ -1,11 +1,8 @@
 import Image from "next/image";
-import { FC, lazy, Suspense } from "react";
+import { FC } from "react";
 
-import Loading from "~/app/loading";
 import { Wrapper } from "~/components/layout/wrapper";
-
-// Lazy load the TsaCaroussel component
-const TsaCaroussel = lazy(() => import("~/components/tsa-caroussel"));
+import { TsaCaroussel } from "~/components/tsa-caroussel";
 
 export const SectionTwo: FC = () => {
   return (
@@ -16,23 +13,23 @@ export const SectionTwo: FC = () => {
             <span className="relative z-10 text-sm font-bold uppercase text-mid-blue">
               what we offer
             </span>
-            <h3 className="my-[19px]">Certified Tech Training Courses and</h3>
+            <h3 className="mt-[12px] lg:mt-0">
+              Certified Tech Training Courses and
+            </h3>
             <p className="leading-[23px]">
               Explore our extensive selection of highly sought-after
               beginner-friendly tech courses, meticulously designed to empower
               and inspire learners at every step of their educational journey.
               <Image
+                className="relative left-1 top-4 hidden lg:inline"
                 src={"/icons/scribble.png"}
                 alt={"icon"}
                 width={34}
-                height={31}
+                height={34}
               />
             </p>
           </div>
-          {/* Suspense with lazy-loaded component */}
-          <Suspense fallback={<Loading />}>
-            <TsaCaroussel />
-          </Suspense>
+          <TsaCaroussel />
         </section>
       </Wrapper>
       <Image

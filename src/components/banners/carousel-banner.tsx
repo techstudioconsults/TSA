@@ -8,7 +8,7 @@ export const CarouselBanner = () => {
   return (
     <TsaBanner
       className={cn(
-        `mx-auto flex min-h-[392px] max-w-full flex-col justify-between rounded-lg bg-primary p-4 text-background md:max-w-[1244px] md:flex-row md:p-[42px]`,
+        `mx-auto flex min-h-[392px] max-w-full flex-col justify-between rounded-[16px] bg-primary p-4 text-background md:max-w-[1244px] md:flex-row md:p-[42px]`,
       )}
       topSlot={
         <Image

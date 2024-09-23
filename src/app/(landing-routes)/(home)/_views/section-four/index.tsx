@@ -9,6 +9,11 @@ import { STEPS } from "~/constants";
 
 export const SectionFour = () => {
   const [currentStep] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+
+  // Image URLs
+  const defaultImage = "/gifs/apply.gif";
+  const hoverImage = "/gifs/scream.gif";
 
   return (
     <section className="min-h-[685px] bg-accent py-[76px]">
@@ -16,13 +21,17 @@ export const SectionFour = () => {
         <div className="flex-1">
           <VerticalStepper steps={STEPS} currentStep={currentStep} />
         </div>
-        <div className="flex-1">
+        <div
+          className="flex-1"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
           <BlurImage
             _width={440}
             _height={387}
-            src="https://techstudio.nyc3.cdn.digitaloceanspaces.com/tsa-2.0/gifs/apply.gif"
+            src={isHovered ? hoverImage : defaultImage}
             alt={"img"}
-            className="object-cover"
+            className={`object-cover transition-opacity duration-500 ease-in-out`}
           />
         </div>
       </Wrapper>

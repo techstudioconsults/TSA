@@ -168,6 +168,14 @@
     height: 48px;
   }
 
+  p {
+    font-size: 0.875rem; /* 16px */
+    line-height: 1.5; /* Default line-height */
+    @screen sm {
+      font-size: 1rem; /* 16px */
+    }
+  }
+
   h1 {
     font-size: 2.25rem; /* 36px */
     font-weight: 700; /* Consistent weight for headings */
@@ -186,7 +194,7 @@
       font-size: 2.25rem; /* 36px */
     }
     @screen md {
-      font-size: 2.5rem; /* 40px */
+      font-size: 2.375rem; /* 38px */
     }
   }
 
@@ -195,9 +203,6 @@
     font-weight: 600; /* Consistent weight for headings */
     @screen sm {
       font-size: 2rem; /* 32px */
-    }
-    @screen md {
-      font-size: 2.25rem; /* 36px */
     }
   }
 

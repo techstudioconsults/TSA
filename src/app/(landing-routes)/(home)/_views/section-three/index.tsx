@@ -17,7 +17,7 @@ export const SectionThree = () => {
         <CarouselBanner />
       </Wrapper>
       <Wrapper className="grid min-h-[431px] grid-cols-1 items-center gap-[28px] gap-y-0 text-center lg:grid-cols-2 lg:text-left">
-        <div className="flex-1">
+        <div className="">
           <BlurImage
             _width={567}
             _height={431}
@@ -26,7 +26,7 @@ export const SectionThree = () => {
             className="mx-auto object-cover"
           />
         </div>
-        <div className="flex-1">
+        <div className="">
           <span className="text-sm font-bold uppercase text-mid-blue">
             Take A Course
           </span>

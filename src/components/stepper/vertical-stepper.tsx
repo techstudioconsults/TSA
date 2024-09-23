@@ -29,7 +29,7 @@ export const VerticalStepper = ({
           {/* Step Indicator */}
           <div className="z-10 mr-4 flex flex-col items-center">
             <div
-              className={`flex h-[32px] w-[32px] items-center justify-center rounded-full border-[8px] ${(index + 1) % 2 === 0 ? `border-[#ED9742]` : `border-primary`} bg-white`}
+              className={`flex h-[32px] w-[32px] items-center justify-center rounded-full border-[8px] ${(index + 1) % 2 === 0 ? `border-[#ED9742]` : `border-mid-blue`} bg-white`}
             >
               {/* {currentStep > index ? "✓" : index + 1} */}
             </div>

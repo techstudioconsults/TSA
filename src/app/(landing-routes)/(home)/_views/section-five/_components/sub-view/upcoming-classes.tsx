@@ -44,8 +44,8 @@ export const UpcomingClasses = () => {
       <span className="text-sm font-bold uppercase text-mid-blue">
         Upcoming Classes
       </span>
-      <h3 className="my-[19px] min-h-[8rem]">{upcomingClass.title}</h3>
-      <p className="mb-[30px] min-h-[12rem]">{upcomingClass.description}</p>
+      <h3 className="my-[19px]">{upcomingClass.title}</h3>
+      <p className="mb-[30px]">{upcomingClass.description}</p>
 
       <div className="max-w-[355px]">
         <div className="flex items-center justify-between gap-[11px]">
@@ -81,20 +81,16 @@ export const UpcomingClasses = () => {
         </TsaButton>
 
         <span className="flex items-center gap-5 font-semibold text-primary">
-          <TsaButton
-            variant="link"
-            onClick={handlePrevious}
-            isDisabled={index === 0}
-          >
-            {"<< Prev"}
-          </TsaButton>
-          <TsaButton
-            variant="link"
-            onClick={handleNext}
-            isDisabled={index === upcomingClasses.length - 1}
-          >
-            {"Next >>"}
-          </TsaButton>
+          {index > 0 && (
+            <TsaButton variant="link" onClick={handlePrevious}>
+              {"<< Prev"}
+            </TsaButton>
+          )}
+          {index < upcomingClasses.length - 1 && (
+            <TsaButton variant="link" onClick={handleNext}>
+              {"Next >>"}
+            </TsaButton>
+          )}
         </span>
       </div>
     </section>

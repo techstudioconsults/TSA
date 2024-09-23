@@ -5,7 +5,7 @@ import Card from "../../_components/card";
 
 export const SectionOne = () => {
   return (
-    <Wrapper className="min-h-[678px] pb-[50px] pt-[25px] lg:pt-[50px]">
+    <Wrapper className="min-h-[678px] pb-[50px] pt-[50px]">
       <section className="mx-auto w-fit text-center">
         <p className="text-sm font-[700] uppercase text-mid-blue">
           Why techstudio?
@@ -28,7 +28,7 @@ export const SectionOne = () => {
           }
         />
         <Card
-          image={"/gifs/great-learning-enviroment.gif"}
+          image={"/gifs/career-support.gif"}
           title={"Career Support"}
           description={
             "We provide unparalleled support both during your learning journey and after graduation. Our commitment to your success extends beyond the classroom."
