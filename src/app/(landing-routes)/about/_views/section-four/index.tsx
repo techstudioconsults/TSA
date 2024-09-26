@@ -11,7 +11,7 @@ export const SectionFour = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState("");
 
-  const handleMouseEnter = (imageSource: string) => {
+  const handleImageClick = (imageSource: string) => {
     setCurrentImage(imageSource);
     setIsDialogOpen(true);
   };
@@ -54,13 +54,13 @@ export const SectionFour = () => {
       </div>
       <section className="grid min-h-[408px] grid-cols-1 gap-[5px] md:grid-cols-2 xl:grid-cols-4">
         {images.map((source, index) => (
-          <div key={index} onClick={() => handleMouseEnter(source)}>
+          <div key={index} onClick={() => handleImageClick(source)}>
             <BlurImage
               _width={372}
               _height={408}
               src={source}
               alt={`facility ${index + 1}`}
-              className="rounded-[6px] object-contain object-top lg:object-cover"
+              className="cursor-pointer rounded-[6px] object-contain object-top grayscale filter hover:grayscale-0 lg:object-cover"
             />
           </div>
         ))}
