@@ -1,6 +1,6 @@
-import { NavLink, slideContentProperties } from "~/types/index.types";
+import { courseContentProperties, NavLink } from "~/types/index.types";
 
-export const SLIDE_CONTENT: slideContentProperties[] = [
+export const SLIDE_CONTENT: courseContentProperties[] = [
   {
     name: "Fullstack Development",
     image: "/images/fullstack.png",
@@ -118,4 +118,14 @@ export const STEPS = [
     description:
       "Be sure to attend the introductory classes, this will play a huge role in your subsequent learning stages. You'll participate in projects, personal tasks, and group works.",
   },
+];
+
+export const FACILITY_CONTENT = [
+  "/images/facility1.png",
+  "/images/facility2.png",
+  "/images/facility3.png",
+  "/images/facility4.png",
+  "/images/facility5.png",
+  "/images/facility6.png",
+  "/images/facility7.png",
 ];

@@ -1,8 +1,11 @@
+"use client";
+
+import { TsaCarousel } from "@strategic-dot/components";
 import Image from "next/image";
 import { FC } from "react";
 
 import { Wrapper } from "~/components/layout/wrapper";
-import { TsaCaroussel } from "~/components/tsa-caroussel";
+import { SLIDE_CONTENT } from "~/constants";
 
 export const SectionTwo: FC = () => {
   return (
@@ -29,7 +32,7 @@ export const SectionTwo: FC = () => {
               />
             </p>
           </div>
-          <TsaCaroussel />
+          <TsaCarousel variant="course" courseContent={SLIDE_CONTENT} />
         </section>
       </Wrapper>
       <Image

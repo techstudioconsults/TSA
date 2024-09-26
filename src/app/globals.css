@@ -136,7 +136,7 @@
 }
 
 #nprogress .bar {
-  background: linear-gradient(90deg, #fff0bf, #f85318) !important;
+  background: linear-gradient(90deg, #fff0bf, #d01127) !important;
   box-shadow: 10px 0px 20px rgba(255, 240, 191, 0.641) !important;
   position: fixed;
   z-index: 99999999 !important;

@@ -27,11 +27,7 @@ export const GALLARY_CONTENT = [
 export const Gallery = () => {
   return (
     <Wrapper className="relative items-center gap-[28px] gap-y-0 lg:flex lg:py-[100px]">
-      <TsaCarousel
-        variant="gallery"
-        slideContent={[]}
-        galleryContent={GALLARY_CONTENT}
-      />
+      <TsaCarousel variant="gallery" galleryContent={GALLARY_CONTENT} />
 
       <div className="right-0 z-10 max-w-[458px] rounded-lg bg-background px-[28px] py-[47px] shadow-lg lg:absolute">
         <div>

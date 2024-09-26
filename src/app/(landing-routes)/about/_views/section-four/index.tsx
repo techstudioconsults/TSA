@@ -1,10 +1,28 @@
 "use client";
 
+import { Dialog, DialogContent } from "@strategic-dot/components";
+import { useState } from "react";
+
 import HelpBanner from "~/components/banners/help-banner";
 import { Wrapper } from "~/components/layout/wrapper";
 import { BlurImage } from "~/components/miscellaneous/blur-image";
 
 export const SectionFour = () => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [currentImage, setCurrentImage] = useState("");
+
+  const handleMouseEnter = (imageSource: string) => {
+    setCurrentImage(imageSource);
+    setIsDialogOpen(true);
+  };
+
+  const images = [
+    "/images/facility1.png",
+    "/images/facility2.png",
+    "/images/facility3.png",
+    "/images/facility4.png",
+  ];
+
   return (
     <section>
       <div className="h-fit w-full lg:min-h-[706px]">
@@ -22,7 +40,7 @@ export const SectionFour = () => {
             <span className="text-sm font-bold uppercase text-mid-blue">
               What To Expect
             </span>
-            <h3 className="">Our Facility</h3>
+            <h3>Our Facility</h3>
           </div>
           <div className="col-span-2">
             <p>
@@ -34,9 +52,36 @@ export const SectionFour = () => {
           </div>
         </Wrapper>
       </div>
-      <Wrapper className="mb-[116px] min-h-[335px]">
+      <section className="grid min-h-[408px] grid-cols-1 gap-[5px] md:grid-cols-2 xl:grid-cols-4">
+        {images.map((source, index) => (
+          <div key={index} onClick={() => handleMouseEnter(source)}>
+            <BlurImage
+              _width={372}
+              _height={408}
+              src={source}
+              alt={`facility ${index + 1}`}
+              className="rounded-[6px] object-contain object-top lg:object-cover"
+            />
+          </div>
+        ))}
+      </section>
+
+      <Wrapper className="mb-[116px] mt-[160px] min-h-[335px]">
         <HelpBanner />
       </Wrapper>
+
+      {/* Dialog for showing the hovered image */}
+      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <DialogContent className="max-w-7xl bg-transparent">
+          <BlurImage
+            _width={500}
+            _height={408}
+            src={currentImage}
+            alt="Enlarged facility"
+            className="h-auto w-full rounded-lg"
+          />
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };

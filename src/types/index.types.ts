@@ -64,7 +64,7 @@ export interface TsaNavbarProperties {
   bannerDuration?: string;
 }
 
-export interface slideContentProperties {
+export interface courseContentProperties {
   name: string;
   image: string;
   link: string;

@@ -1,8 +1,13 @@
+"use client";
+
+import { TsaCarousel } from "@strategic-dot/components";
+
 import { Wrapper } from "~/components/layout/wrapper";
+import { FACILITY_CONTENT } from "~/constants";
 
 export const SectionOne = () => {
   return (
-    <section className="min-h-[214px] bg-accent py-[48px]">
+    <section className="min-h-[676px] bg-accent py-[48px]">
       <Wrapper className="mb-[35px] grid grid-cols-1 items-center gap-y-0 text-center lg:grid-cols-3 lg:gap-[28px] lg:text-left">
         <div>
           <span className="text-sm font-bold uppercase text-mid-blue">
@@ -20,7 +25,9 @@ export const SectionOne = () => {
           </p>
         </div>
       </Wrapper>
-      <div>{/* another carousel */}</div>
+      <Wrapper className="p-[38px]">
+        <TsaCarousel variant="facility" facilityContent={FACILITY_CONTENT} />
+      </Wrapper>
     </section>
   );
 };
