@@ -31,7 +31,7 @@ export const SectionFour = () => {
           _height={706}
           src="/team/employees.png"
           alt="employees"
-          className="object-contain object-top lg:object-cover"
+          className="animate-zoom-in object-contain object-top lg:object-cover"
         />
       </div>
       <div className="min-h-[375px] py-[70px] lg:py-[146px]">

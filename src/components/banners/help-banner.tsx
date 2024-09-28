@@ -15,6 +15,7 @@ const HelpBanner = () => {
           place who are ready and willing to be of help.
         </p>
         <TsaButton
+          href="/contact"
           variant="primary"
           size="lg"
           className="w-[159px] bg-mid-blue"

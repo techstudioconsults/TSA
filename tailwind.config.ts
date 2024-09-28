@@ -93,15 +93,13 @@ const config: Config = {
           from: { height: "80px" },
           to: { height: "160px" },
         },
-        // pulse: {
-        //   "0%, 100%": { transform: "scale(1)", opacity: `1` },
-        //   "50%": { transform: "scale(1.2)", opacity: `0.7` },
-        // },
+        zoomIn: {
+          "0%": { transform: "scale(1)" },
+          "100%": { transform: "scale(1.1)" },
+        },
       },
       animation: {
-        // "accordion-down": "accordion-down 0.3s ease-out forwards",
-        // "accordion-up": "accordion-up 0.3s ease-out forwards",
-        // pulse: "pulse 1.5s infinite",
+        "zoom-in": "zoomIn 10s ease-in-out infinite", // Adjust duration as needed
       },
     },
   },

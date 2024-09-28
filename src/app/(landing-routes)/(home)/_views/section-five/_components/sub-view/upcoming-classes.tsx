@@ -71,6 +71,7 @@ export const UpcomingClasses = () => {
 
       <div className="mt-[33px] flex flex-col items-center justify-between gap-[20px] lg:flex-row lg:gap-0">
         <TsaButton
+          href={`/courses/${course.title.replaceAll(/\s+/g, "-").toLowerCase()}`}
           variant="primary"
           size="lg"
           className="w-full bg-mid-blue lg:w-[152px]"
