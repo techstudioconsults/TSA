@@ -13,23 +13,28 @@ export const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <main>
       <TsaNavbar
+        showBanner
         className="fixed"
         linkClassName={cn(
           `bg-transparent`,
-          pathname === `/about` ? `text-black` : `text-white`,
+          pathname === `/about` || pathname === `/explore`
+            ? `text-black`
+            : `text-white`,
         )}
         logoPath={
-          pathname === `/about`
+          pathname === `/about` || pathname === `/explore`
             ? `/images/logo-black.png`
             : "/images/logo-white.png"
         }
         navLinks={NAV_LINKS}
         bgScrollColor={cn(
-          pathname === `/about` ? `backdrop-blur-3xl` : `bg-primary`,
+          pathname === `/about` || pathname === `/explore`
+            ? `backdrop-blur-3xl`
+            : `bg-primary`,
         )}
       />
       {children}
-      <TsaFooter className="mt-[40px]" />
+      <TsaFooter />
     </main>
   );
 };

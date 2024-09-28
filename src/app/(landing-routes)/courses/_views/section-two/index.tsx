@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { StepperCard } from "../../_components/sepper-card";
+import { StepperCard } from "../../_components/stepper-card";
 import { Course } from "../../types/index.types";
 
 interface CourseSectionTwoProperty {

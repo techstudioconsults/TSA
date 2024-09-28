@@ -5,22 +5,18 @@ import { CalendarDays, Hourglass, MapPin } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 
 import { formatDateTime } from "~/lib/utils";
-import useHomePageStore from "../../../../services";
+import useGlobalStore from "~/services";
 import { UpcomingClassesSkeleton } from "../skeleton/upcoming.skeleton";
 
 export const UpcomingClasses = () => {
-  const { loading, error, getUpcomingClasses, upcomingClasses } =
-    useHomePageStore();
+  const { loading, error, getAllCourses, allCourses } = useGlobalStore();
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    getUpcomingClasses();
-  }, [getUpcomingClasses]);
+    getAllCourses();
+  }, [getAllCourses]);
 
-  const upcomingClass = useMemo(
-    () => upcomingClasses?.[index],
-    [upcomingClasses, index],
-  );
+  const course = useMemo(() => allCourses?.[index], [allCourses, index]);
 
   const handlePrevious = () => {
     if (index > 0) {
@@ -29,7 +25,7 @@ export const UpcomingClasses = () => {
   };
 
   const handleNext = () => {
-    if (index < upcomingClasses.length - 1) {
+    if (index < allCourses.length - 1) {
       setIndex((previousIndex) => previousIndex + 1);
     }
   };
@@ -37,15 +33,15 @@ export const UpcomingClasses = () => {
   if (loading) return <UpcomingClassesSkeleton />;
   if (error) return <p>Error loading classes: {error}</p>;
 
-  if (!upcomingClass) return <p>No upcoming classes available.</p>;
+  if (!course) return <p>No upcoming classes available.</p>;
 
   return (
     <section>
       <span className="text-sm font-bold uppercase text-mid-blue">
         Upcoming Classes
       </span>
-      <h3 className="my-[19px]">{upcomingClass.title}</h3>
-      <p className="mb-[30px]">{upcomingClass.description}</p>
+      <h3 className="my-[19px]">{course.title}</h3>
+      <p className="mb-[30px]">{course.description}</p>
 
       <div className="max-w-[355px]">
         <div className="flex items-center justify-between gap-[11px]">
@@ -53,14 +49,16 @@ export const UpcomingClasses = () => {
             <MapPin size={12} />
             <span>Location</span>
           </span>
-          <span>{upcomingClass.preference}</span>
+          <span>{course.classes.weekday[0].preference}</span>
         </div>
         <div className="my-[11px] flex items-center justify-between gap-[11px]">
           <span className="flex items-center gap-[11px]">
             <CalendarDays size={12} />
             <span>Start Date</span>
           </span>
-          <span>{formatDateTime(upcomingClass.startDate).date}</span>
+          <span>
+            {formatDateTime(course.classes.weekday[0].startDate).date}
+          </span>
         </div>
         <div className="flex items-center justify-between gap-[11px]">
           <span className="flex items-center gap-[11px]">
@@ -86,7 +84,7 @@ export const UpcomingClasses = () => {
               {"<< Prev"}
             </TsaButton>
           )}
-          {index < upcomingClasses.length - 1 && (
+          {index < allCourses.length - 1 && (
             <TsaButton variant="link" onClick={handleNext}>
               {"Next >>"}
             </TsaButton>

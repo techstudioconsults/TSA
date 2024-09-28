@@ -36,7 +36,7 @@ export const TsaAccordion: React.FC = () => {
             <Accordion type="multiple">
               {faq.map((faqItem) => (
                 <AccordionItem key={faqItem.id} value={`item-${faqItem.id}`}>
-                  <AccordionTrigger className="h-[80px] text-left text-sm lg:text-xl">
+                  <AccordionTrigger className="data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up h-[80px] text-left text-sm lg:text-xl">
                     {faqItem.question}
                   </AccordionTrigger>
                   <AccordionContent>

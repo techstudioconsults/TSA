@@ -53,7 +53,7 @@ export function cn(...inputs: ClassValue[]) {
 export function formatDateTime(dateString: string) {
   const date = moment(dateString);
 
-  const formattedDate = date.format("YYYY-MM-DD");
+  const formattedDate = date.format("MMM DD, YYYY"); // Updated format
   const formattedTime = date.format("HH:mm:ss");
 
   return {
@@ -65,19 +65,23 @@ export function formatDateTime(dateString: string) {
 export function formatPrice(
   price: number | string,
   options: {
-    currency?: "USD" | "EUR" | "GBP" | "BDT";
+    currency?: "USD" | "EUR" | "GBP" | "BDT" | "NGN";
     notation?: Intl.NumberFormatOptions["notation"];
   } = {},
 ) {
-  const { currency = "USD", notation = "compact" } = options;
+  const { currency = "NGN", notation = "compact" } = options;
 
   const numericPrice =
     typeof price === "string" ? Number.parseFloat(price) : price;
+
   const newPrice = new Intl.NumberFormat("en-US", {
     currency,
     notation,
-    style: "currency",
+    style: currency === "NGN" ? "currency" : "currency",
+    currencyDisplay: currency === "NGN" ? "symbol" : undefined,
     maximumFractionDigits: 2,
   }).format(numericPrice);
-  return newPrice;
+
+  // If currency is NGN and you want to add the "₦" symbol explicitly
+  return currency === "NGN" ? `₦${newPrice.replace(/NGN\s?/, "")}` : newPrice;
 }

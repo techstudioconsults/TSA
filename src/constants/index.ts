@@ -39,30 +39,31 @@ export const NAV_LINKS: NavLink[] = [
         title: "Fullstack Development",
         href: "/courses/fullstack-development",
         description:
-          "A modal dialog that interrupts the user with important content and expects a response.",
+          "Let’s help you become a professional Fullstack web developer. You’ll learn all you need to know to become a Fullstack Developer and build interesting portfolios while learning the fundamentals of HTML, CSS, JavaScript, React, Mongo DB, Express and hosting on Vercel.",
       },
       {
         title: "Product Design",
         href: "/courses/product-design",
         description:
-          "For sighted users to preview content available behind a link.",
+          "Learn to design and deliver digital products that serve clients’ needs and solve users problems. Understand the fundamental techniques and tools of design like problem definition, user research, prototyping, testing and more..",
       },
       {
         title: "Data Science",
         href: "/courses/data-science",
         description:
-          "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+          "Get your hands dirty working with Excel and complex data. Dive into the Python programming language, understand data analysis and statistical modeling using Python, after which you move into machine learning and algorithms.",
       },
       {
         title: "Digital Marketing",
         href: "/courses/digital-marketing",
-        description: "Visually or semantically separates content.",
+        description:
+          "Let’s equip you with practical, hands-on expertise that will help you become a highly sought-after marketing professional. From mastering the fundamentals of digital marketing to delving deep into advanced strategies, our experienced instructors will guide you through every step of the journey.",
       },
       {
         title: "Cyber Security",
         href: "/courses/cyber-security",
         description:
-          "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+          "The significance of cybersecurity in today's increasingly digital environment cannot be emphasized. This extensive course provides an overview of the basic ideas, approaches, and methods needed to protect networks, information systems, and digital assets.",
       },
     ],
   },
@@ -119,6 +120,8 @@ export const STEPS = [
       "Be sure to attend the introductory classes, this will play a huge role in your subsequent learning stages. You'll participate in projects, personal tasks, and group works.",
   },
 ];
+
+export const CourseSteps = [];
 
 export const FACILITY_CONTENT = [
   "/images/facility1.png",

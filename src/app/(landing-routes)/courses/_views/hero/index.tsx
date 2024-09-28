@@ -10,9 +10,9 @@ interface CourseHeroProperty {
 
 export const Hero: FC<CourseHeroProperty> = ({ intro }) => {
   return (
-    <header className="min-h-[737px] w-full bg-[url('/images/guy-on-laptop.png')] bg-cover bg-center pb-[50px] pt-[185px] text-white lg:pt-[135px]">
+    <header className="min-h-[737px] w-full bg-[#162143DE] bg-[url('/images/guy-on-laptop.png')] bg-cover bg-center pb-[50px] pt-[160px] text-white lg:pt-[135px]">
       <Wrapper>
-        <section className="flex flex-col items-center gap-[50px] text-center lg:flex-row lg:gap-[171px] lg:py-[150px] lg:text-left">
+        <section className="flex flex-col items-center gap-[50px] text-center lg:gap-[171px] lg:py-[150px] xl:flex-row xl:text-left">
           <div className="flex-1">
             <h1 className="mb-[26px] leading-[61px] text-white">
               {intro.title}

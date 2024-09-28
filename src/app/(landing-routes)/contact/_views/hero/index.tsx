@@ -4,7 +4,7 @@ import { Wrapper } from "~/components/layout/wrapper";
 
 export const Hero: FC = () => {
   return (
-    <header className="w-full bg-[url('/images/HeroBg.webp')] bg-cover bg-center pt-[135px] text-white">
+    <header className="w-full bg-[url('/images/HeroBg.webp')] bg-cover bg-center pt-[90px] text-white xl:pt-[135px]">
       <Wrapper>
         <section className="py-[50px] text-center lg:py-[150px]">
           <h1 className="text-[34px] text-white">

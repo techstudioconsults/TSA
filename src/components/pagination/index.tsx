@@ -14,8 +14,9 @@ import useFAQStore from "~/app/(landing-routes)/faq/services";
 export const PaginationComp = () => {
   const { currentPage, totalPages, getFAQ } = useFAQStore();
 
-  const handlePageChange = (page: number) => {
-    getFAQ(page); // Fetch the FAQ data for the selected page
+  const handlePageChange = (event: React.MouseEvent, page: number) => {
+    event.preventDefault();
+    getFAQ(page);
   };
 
   return (
@@ -25,7 +26,7 @@ export const PaginationComp = () => {
           {currentPage > 1 && (
             <PaginationPrevious
               href="#"
-              onClick={() => handlePageChange(currentPage - 1)}
+              onClick={(event) => handlePageChange(event, currentPage - 1)}
               size={undefined}
             />
           )}
@@ -42,7 +43,7 @@ export const PaginationComp = () => {
                     ? "bg-blue-900 text-white"
                     : "text-gray-500",
                 )}
-                onClick={() => handlePageChange(page)}
+                onClick={(event) => handlePageChange(event, page)}
               >
                 {page}
               </a>
@@ -54,7 +55,7 @@ export const PaginationComp = () => {
           {currentPage < totalPages && (
             <PaginationNext
               href="#"
-              onClick={() => handlePageChange(currentPage + 1)}
+              onClick={(event) => handlePageChange(event, currentPage + 1)}
               size={undefined}
             />
           )}

@@ -1,29 +1,32 @@
-/* eslint-disable unicorn/no-null */
 import { create } from "zustand";
 import { devtools } from "zustand/middleware";
 
-import { ClassData } from "./services.types";
+import { Course } from "./services.type";
 
-type HomePageState = {
-  upcomingClasses: ClassData[];
+type globalState = {
+  allCourses: Course[];
   loading: boolean;
   error: string | null;
-  getUpcomingClasses: () => Promise<void>;
+  activeCourse: Course | null;
+  getAllCourses: () => Promise<void>;
+  setActiveCourse: (course: Course) => void;
 };
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000"; // Fallback in case env is not set
 
-const useHomePageStore = create<HomePageState>()(
+const useGlobalStore = create<globalState>()(
   devtools((set) => ({
-    upcomingClasses: [],
+    allCourses: [],
     loading: true,
     error: null,
+    activeCourse: null,
+    // activeCourse: JSON.parse(localStorage.getItem("activeCourse") || "null"),
 
-    getUpcomingClasses: async () => {
+    getAllCourses: async () => {
       set({ loading: true, error: null });
 
       try {
-        const response = await fetch(`${BASE_URL}/external/classes`, {
+        const response = await fetch(`${BASE_URL}/external/courses`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -37,10 +40,11 @@ const useHomePageStore = create<HomePageState>()(
 
         const data = await response.json();
 
-        // Assuming the data contains an array of classes
-        set({ upcomingClasses: data.data, loading: false });
+        set({
+          allCourses: data.data,
+          loading: false,
+        });
       } catch (error: unknown) {
-        // Narrow down the type of error
         if (error instanceof Error) {
           set({ error: error.message, loading: false });
         } else {
@@ -48,7 +52,11 @@ const useHomePageStore = create<HomePageState>()(
         }
       }
     },
+    setActiveCourse: (course: Course) => {
+      set({ activeCourse: course });
+      // localStorage.setItem("activeCourse", JSON.stringify(course)); // Save to localStorage
+    },
   })),
 );
 
-export default useHomePageStore;
+export default useGlobalStore;
