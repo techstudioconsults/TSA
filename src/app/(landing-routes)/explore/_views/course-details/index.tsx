@@ -126,7 +126,7 @@ export const CourseDetails = () => {
             </section>
             <section className="mt-[32px] text-end">
               <TsaButton
-                href={`/courses/${activeCourse.title.replace(/\s+/g, "-").toLowerCase()}`}
+                href={`/courses/${activeCourse.title.replaceAll(/\s+/g, "-").toLowerCase()}`}
                 size={`lg`}
                 variant={`primary`}
                 className="w-full bg-mid-blue lg:w-fit"

@@ -20,7 +20,7 @@ export const Hero = () => {
 
   useEffect(() => {
     getAllCourses();
-  }, []);
+  }, [getAllCourses]);
 
   // {
   //   !allCourses.length && (

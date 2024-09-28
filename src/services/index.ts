@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/no-null */
 import { create } from "zustand";
 import { devtools } from "zustand/middleware";
 
@@ -18,7 +19,7 @@ const useGlobalStore = create<globalState>()(
   devtools((set) => ({
     allCourses: [],
     loading: true,
-    error: null,
+    error: "",
     activeCourse: null,
     // activeCourse: JSON.parse(localStorage.getItem("activeCourse") || "null"),
 
