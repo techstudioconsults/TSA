@@ -24,9 +24,7 @@ export const Hero = () => {
 
   useEffect(() => {
     if (allCourses.length > 0) {
-      // Select a random course
-      const randomCourse =
-        allCourses[Math.floor(Math.random() * allCourses.length)];
+      const randomCourse = allCourses[0];
       setActiveCourse(randomCourse);
     }
   }, [allCourses, setActiveCourse]);

@@ -50,7 +50,7 @@ export function cn(...inputs: ClassValue[]) {
 //   };
 // }
 
-export function formatDateTime(dateString: string) {
+export function formatDateTime(dateString: string | undefined) {
   const date = moment(dateString);
 
   const formattedDate = date.format("MMM DD, YYYY"); // Updated format

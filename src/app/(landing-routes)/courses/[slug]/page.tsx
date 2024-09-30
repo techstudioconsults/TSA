@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 
+import { DurationBanner } from "../_components/duration-banner";
 import { Hero } from "../_views/hero";
 import { SectionOne } from "../_views/section-one";
 import { SectionThree } from "../_views/section-three";
@@ -13,7 +14,8 @@ const Courses = async ({ params }: { params: { slug: string } }) => {
 
     return (
       <main>
-        <Hero intro={course.intro} />
+        <Hero slug={slug} intro={course.intro} />
+        <DurationBanner slug={slug} />
         <SectionOne sectionOne={course.sectionOne} />
         <SectionTwo courseList={course.courseList} />
         <SectionThree />

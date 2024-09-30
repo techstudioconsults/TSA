@@ -1,14 +1,15 @@
 import { FC } from "react";
 
 import { Wrapper } from "~/components/layout/wrapper";
-import { ContactForm } from "../../_components/contact-form";
+import { RegisterForm } from "../../_components/register-form";
 import { ProgramIntro } from "../../types/index.types";
 
 interface CourseHeroProperty {
   intro: ProgramIntro;
+  slug: string;
 }
 
-export const Hero: FC<CourseHeroProperty> = ({ intro }) => {
+export const Hero: FC<CourseHeroProperty> = ({ intro, slug }) => {
   return (
     <header className="min-h-[737px] w-full bg-[#162143DE] bg-[url('/images/guy-on-laptop.png')] bg-cover bg-center pb-[50px] pt-[160px] text-white lg:pt-[135px]">
       <Wrapper>
@@ -20,7 +21,7 @@ export const Hero: FC<CourseHeroProperty> = ({ intro }) => {
             <p>{intro.subTitle}</p>
           </div>
           <div className="flex-1">
-            <ContactForm />
+            <RegisterForm slug={slug} />
           </div>
         </section>
       </Wrapper>

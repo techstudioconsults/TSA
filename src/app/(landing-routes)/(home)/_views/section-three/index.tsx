@@ -40,11 +40,12 @@ export const SectionThree = () => {
             end of the program.
           </p>
           <TsaButton
+            href="/explore"
             variant="primary"
             size="lg"
             className="mt-[36px] h-[48px] w-[156px] bg-mid-blue"
           >
-            Get Started
+            Enroll Now
           </TsaButton>
         </div>
       </Wrapper>
