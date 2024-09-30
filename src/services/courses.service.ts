@@ -4,7 +4,8 @@ import { devtools } from "zustand/middleware";
 
 import { Course } from "./services.type";
 
-type globalState = {
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000"; // Fallback in case env is not set
+type coursesState = {
   allCourses: Course[];
   loading: boolean;
   error: string | null;
@@ -13,9 +14,7 @@ type globalState = {
   setActiveCourse: (course: Course) => void;
 };
 
-const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000"; // Fallback in case env is not set
-
-const useGlobalStore = create<globalState>()(
+const useCoursesStore = create<coursesState>()(
   devtools((set) => ({
     allCourses: [],
     loading: true,
@@ -60,4 +59,4 @@ const useGlobalStore = create<globalState>()(
   })),
 );
 
-export default useGlobalStore;
+export default useCoursesStore;

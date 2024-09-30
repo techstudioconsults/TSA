@@ -36,14 +36,14 @@ export const SectionTwo: FC = () => {
         </section>
       </Wrapper>
       <Image
-        className="absolute left-[-1rem] top-[-1rem] hidden lg:block"
+        className="absolute left-[-1rem] top-[-1rem] hidden xl:block"
         src={"/icons/box-2.png"}
         alt={"img"}
         width={112}
         height={112}
       />
       <Image
-        className="absolute bottom-0 right-0 hidden lg:block"
+        className="absolute bottom-0 right-0 hidden xl:block"
         src={"/icons/box-1.png"}
         alt={"img"}
         width={91}

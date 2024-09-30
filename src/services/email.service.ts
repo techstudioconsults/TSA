@@ -1,19 +1,19 @@
 /* eslint-disable unicorn/no-null */
 import { create } from "zustand";
 
-import { ContactFormData } from "~/schemas";
+import { newsletterFormData } from "~/schemas";
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
-const API_URL = `${BASE_URL}/mailing/contactus`;
+const API_URL = `${BASE_URL}/external/newsletter`;
 
-interface ContactFormState {
+interface NewsletterFormState {
   isSubmitting: boolean;
   responseMessage: string | null;
   setIsSubmitting: (isSubmitting: boolean) => void;
   setResponseMessage: (message: string | null) => void;
 }
 
-export const useContactFormStore = create<ContactFormState>((set) => ({
+export const useNewsletterFormStore = create<NewsletterFormState>((set) => ({
   isSubmitting: false,
   responseMessage: null,
   setIsSubmitting: (isSubmitting: boolean) => set({ isSubmitting }),
@@ -22,10 +22,10 @@ export const useContactFormStore = create<ContactFormState>((set) => ({
 }));
 
 // Hook for form submission logic
-export const useSubmitContactForm = () => {
-  const { setIsSubmitting, setResponseMessage } = useContactFormStore();
+export const useSubmitNewsletterForm = () => {
+  const { setIsSubmitting, setResponseMessage } = useNewsletterFormStore();
 
-  return async (data: ContactFormData) => {
+  return async (data: newsletterFormData) => {
     setIsSubmitting(true);
 
     try {

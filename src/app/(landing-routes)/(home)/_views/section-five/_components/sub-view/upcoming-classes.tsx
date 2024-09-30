@@ -5,11 +5,11 @@ import { CalendarDays, Hourglass, MapPin } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 
 import { formatDateTime } from "~/lib/utils";
-import useGlobalStore from "~/services";
+import useCoursesStore from "~/services/courses.service";
 import { UpcomingClassesSkeleton } from "../skeleton/upcoming.skeleton";
 
 export const UpcomingClasses = () => {
-  const { loading, error, getAllCourses, allCourses } = useGlobalStore();
+  const { loading, error, getAllCourses, allCourses } = useCoursesStore();
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -43,7 +43,7 @@ export const UpcomingClasses = () => {
       <h3 className="my-[19px]">{course.title}</h3>
       <p className="mb-[30px]">{course.description}</p>
 
-      <div className="max-w-[355px]">
+      <div className="md:max-w-[355px]">
         <div className="flex items-center justify-between gap-[11px]">
           <span className="flex items-center gap-[11px]">
             <MapPin size={12} />
@@ -69,24 +69,24 @@ export const UpcomingClasses = () => {
         </div>
       </div>
 
-      <div className="mt-[33px] flex flex-col items-center justify-between gap-[20px] lg:flex-row lg:gap-0">
+      <div className="mt-[33px] flex flex-col justify-between gap-[20px] md:flex-row lg:items-center lg:gap-0">
         <TsaButton
           href={`/courses/${course.title.replaceAll(/\s+/g, "-").toLowerCase()}`}
           variant="primary"
           size="lg"
-          className="w-full bg-mid-blue lg:w-[152px]"
+          className="w-full bg-mid-blue lg:max-w-[136px]"
         >
           Enroll Now
         </TsaButton>
 
-        <span className="flex items-center gap-5 font-semibold text-primary">
+        <span className="flex items-center justify-between gap-5 font-semibold text-primary">
           {index > 0 && (
-            <TsaButton variant="link" onClick={handlePrevious}>
+            <TsaButton size="lg" variant="link" onClick={handlePrevious}>
               {"<< Prev"}
             </TsaButton>
           )}
           {index < allCourses.length - 1 && (
-            <TsaButton variant="link" onClick={handleNext}>
+            <TsaButton size="lg" variant="link" onClick={handleNext}>
               {"Next >>"}
             </TsaButton>
           )}

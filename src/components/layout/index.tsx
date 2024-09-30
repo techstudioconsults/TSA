@@ -13,7 +13,7 @@ export const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <main>
       <TsaNavbar
-        showBanner
+        // showBanner
         className="fixed"
         linkClassName={cn(
           `bg-transparent`,

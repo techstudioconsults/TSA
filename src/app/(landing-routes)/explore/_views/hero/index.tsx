@@ -6,7 +6,7 @@ import { useEffect } from "react";
 
 import { Wrapper } from "~/components/layout/wrapper";
 import { cn } from "~/lib/utils";
-import useGlobalStore from "~/services";
+import useCoursesStore from "~/services/courses.service";
 
 export const Hero = () => {
   const {
@@ -16,19 +16,20 @@ export const Hero = () => {
     setActiveCourse,
     activeCourse,
     getAllCourses,
-  } = useGlobalStore();
+  } = useCoursesStore();
 
   useEffect(() => {
     getAllCourses();
   }, [getAllCourses]);
 
-  // {
-  //   !allCourses.length && (
-  //     <div className="w-full">
-  //       <p className="h-fit text-center">No upcoming class available</p>
-  //     </div>
-  //   );
-  // }
+  useEffect(() => {
+    if (allCourses.length > 0) {
+      // Select a random course
+      const randomCourse =
+        allCourses[Math.floor(Math.random() * allCourses.length)];
+      setActiveCourse(randomCourse);
+    }
+  }, [allCourses, setActiveCourse]);
 
   return (
     <header className="min-h-[364px] w-full pt-[135px]">

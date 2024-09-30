@@ -22,7 +22,7 @@ export const Hero = () => {
     <section className="hero-section absolute h-[746px] w-full items-center overflow-hidden bg-primary bg-primary-gradient text-white">
       <Wrapper>
         <section className="mx-auto flex h-full items-center justify-center bg-transparent xl:flex-row">
-          <section className="w mx-auto flex w-full flex-col items-center justify-between gap-[50px] lg:flex-row">
+          <section className="mx-auto mt-[3rem] flex w-full flex-col items-center justify-between gap-[50px] lg:flex-row">
             <div className="flex flex-row gap-[7rem] lg:flex-col">
               <Image
                 className="h-[32px] w-[32px] lg:h-[64px] lg:w-[64px]"
@@ -47,7 +47,7 @@ export const Hero = () => {
               />
             </div>
             <article className="z-10 flex h-full flex-col items-center xl:w-[731px]">
-              <div className="mb-[10px] flex w-fit items-center gap-2 rounded-full bg-mid-blue px-[14px] py-[10px]">
+              <div className="mb-[10px] flex w-fit items-center gap-2 rounded-full bg-mid-blue px-[14px] py-[10px] opacity-[60%]">
                 <Image
                   src="/icons/star.png"
                   width={24}

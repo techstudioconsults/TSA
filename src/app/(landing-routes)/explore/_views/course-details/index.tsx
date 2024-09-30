@@ -6,11 +6,11 @@ import { Calendar, Clock10 } from "lucide-react";
 import { Wrapper } from "~/components/layout/wrapper";
 import { BlurImage } from "~/components/miscellaneous/blur-image";
 import { formatDateTime, formatPrice } from "~/lib/utils";
-import useGlobalStore from "~/services";
+import useCoursesStore from "~/services/courses.service";
 import { CourseSkeletonLoader } from "../../_components/course-detail.skeleton";
 
 export const CourseDetails = () => {
-  const { loading, error, activeCourse } = useGlobalStore();
+  const { loading, error, activeCourse } = useCoursesStore();
 
   if (!activeCourse)
     return (

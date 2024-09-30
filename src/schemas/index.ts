@@ -46,16 +46,25 @@ import * as z from "zod";
 export const contactFormSchema = z.object({
   fullName: z
     .string()
-    .min(2, "Full Name must be at least 2 characters long") // Minimum length validation
-    .min(1, "Full Name is required"), // Check for non-empty string
+    .min(2, "Full Name must be at least 2 characters long")
+    .min(1, "Full Name is required"),
   email: z
     .string()
     .email("Must be a valid email address")
-    .min(1, "Email Address is required"), // Check for non-empty string
+    .min(1, "Email Address is required"),
   message: z
     .string()
-    .min(10, "Message must be at least 10 characters long") // Minimum length validation
-    .min(1, "Message is required"), // Check for non-empty string
+    .min(10, "Message must be at least 10 characters long")
+    .min(1, "Message is required"),
 });
 
+export const newsletterFormSchema = z.object({
+  email: z
+    .string()
+    .email("Must be a valid email address")
+    .min(1, "Email Address is required"),
+});
+
+// type declaration
 export type ContactFormData = z.infer<typeof contactFormSchema>;
+export type newsletterFormData = z.infer<typeof newsletterFormSchema>;
