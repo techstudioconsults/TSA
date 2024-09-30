@@ -60,7 +60,7 @@ export const TsaAccordion: React.FC = () => {
         </section>
 
         {/* Pagination */}
-        <div className="mb-[78px] mt-[144px]">
+        <div className="mb-[78px] mt-[50px]">
           <PaginationComp />
         </div>
 

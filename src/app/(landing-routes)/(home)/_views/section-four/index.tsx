@@ -13,7 +13,7 @@ export const SectionFour = () => {
 
   // Image URLs
   const defaultImage = "/gifs/apply.gif";
-  const hoverImage = "/gifs/scream.gif";
+  const hoverImage = "/gifs/join-class.gif";
 
   return (
     <section className="min-h-[685px] bg-accent py-[76px]">

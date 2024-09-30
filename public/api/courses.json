@@ -244,7 +244,7 @@
           "img": "/gifs/uiux/man-placing-ui-ux-design-elements-on-application.gif",
           "tags": [
             {
-              "img": "/icons/vscode.png",
+              "img": "/icons/figma.png",
               "text": "Figma"
             }
           ]
@@ -259,15 +259,15 @@
           "img": "/gifs/uiux/male-mobile-application-designer-working-on-design-project.gif",
           "tags": [
             {
-              "img": "/icons/vscode.png",
+              "img": "/icons/figma.png",
               "text": "Figma"
             },
             {
-              "img": "/icons/vscode.png",
+              "img": "/icons/iconify.png",
               "text": "Iconify"
             },
             {
-              "img": "/icons/vscode.png",
+              "img": "/icons/unsplash.png",
               "text": "Unsplash"
             }
           ]
@@ -282,7 +282,7 @@
           "img": "/gifs/uiux/man-working-on-app-ui.gif",
           "tags": [
             {
-              "img": "/icons/vscode.png",
+              "img": "/icons/figma.png",
               "text": "Figma"
             }
           ]
@@ -297,11 +297,11 @@
           "img": "/gifs/uiux/male-designer-creating-a-mobile-ui-design.gif",
           "tags": [
             {
-              "img": "/icons/vscode.png",
+              "img": "/icons/figma.png",
               "text": "FigJam"
             },
             {
-              "img": "/icons/vscode.png",
+              "img": "/icons/google-form.png",
               "text": "Google Forms"
             }
           ]
@@ -316,15 +316,15 @@
           "img": "/gifs/uiux/man-placing-ui-ux-design-elements-on-application.gif",
           "tags": [
             {
-              "img": "/icons/vscode.png",
+              "img": "/icons/figma.png",
               "text": "Figma"
             },
             {
-              "img": "/icons/vscode.png",
+              "img": "/icons/behance.png",
               "text": "Behance"
             },
             {
-              "img": "/icons/vscode.png",
+              "img": "/icons/dribbble.png",
               "text": "Dribbble"
             }
           ]
@@ -395,7 +395,7 @@
           "caption": "UNIT 2",
           "title": "Introduction to SQL",
           "desc": "This unit introduces students to SQL, a programming language used for accessing databases. They learn the basics of SQL, including its purpose, types of databases, and concepts of DBMS and RDBMS. Students gain practical skills in creating and managing databases and tables, including inserting records and altering table structures. They also explore SQL statements for selecting columns, updating data, applying constraints, and sorting values. Throughout the unit, students develop a solid foundation in SQL fundamentals for working with databases.",
-          "bgColor": "bg-accent",
+          "bgColor": "bg-primary",
           "img": "/gifs/datascience/sql-file-format-extension.gif",
           "tags": [
             {
@@ -440,7 +440,7 @@
           "caption": "UNIT 5",
           "title": "Python NumPy",
           "desc": "Students delve into NumPy, a vital Python library for numerical data analysis and scientific computing. They gain hands-on experience by importing the library and utilizing array functions. Through practical exercises, they learn to create one-dimensional and two-dimensional arrays, enabling efficient manipulation and analysis of complex numerical data. By mastering NumPy, students acquire essential skills for advanced data analysis, modeling, and scientific computations in Python.",
-          "bgColor": "bg-white",
+          "bgColor": "bg-accent",
           "img": "/gifs/datascience/python-3.gif",
           "tags": [
             {
@@ -459,7 +459,7 @@
           "caption": "UNIT 6",
           "title": "Python Pandas",
           "desc": "In this unit, students delve into Pandas, a powerful Python library for data manipulation and analysis. They learn to convert sequences and dictionaries into DataFrame tables using the .DataFrame function. Students gain practical skills in importing files and converting them into DataFrames. They explore various DataFrame operations such as retrieving index and columns, using head and tail methods, accessing specific columns, counting values, summing columns vertically and horizontally, locating values in cells or positions, extracting rows based on conditions, creating columns based on conditions, and utilizing the groupby function.",
-          "bgColor": "bg-accent",
+          "bgColor": "bg-white",
           "img": "https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/GIFS/python%20(2).gif",
           "tags": [
             {
@@ -478,7 +478,7 @@
           "caption": "UNIT 7",
           "title": "Python Plotly",
           "desc": "Students delve into Plotly and Plotly Express, Python libraries renowned for interactive data visualization. They acquire practical skills in creating a variety of charts, including bar charts for categorical comparisons, line charts for trend analysis, area charts for cumulative data, pie charts for proportions, and donut charts with a center hole. By mastering Plotly, students unlock the ability to design captivating and interactive visualizations that effectively convey data insights.",
-          "bgColor": "bg-white",
+          "bgColor": "bg-primary",
           "img": "https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/GIFS/python.gif",
           "tags": [
             {
@@ -497,7 +497,7 @@
           "caption": "UNIT 8",
           "title": "Machine Learning Basics",
           "desc": "Students will learn how to build predictive models using machine learning to understand and forecast the probability of future events. It is important in a variety of fields including finance, marketing, sales, healthcare, etc. Predictive analytics enables organisations to understand who their customers and prospects are, how to up-sell and cross-sell products and services, and anticipate customer behaviour",
-          "bgColor": "bg-primary",
+          "bgColor": "bg-white",
           "img": "/gifs/datascience/brain-chip.gif",
           "tags": [
             {

@@ -1,5 +1,7 @@
 "use client";
 
+import { cn } from "~/lib/utils";
+
 interface Step {
   label: string;
   description: string;

@@ -1,6 +1,6 @@
 "use client";
 
-import { TsaInput } from "@strategic-dot/components";
+import { Input } from "@strategic-dot/components";
 import { FC } from "react";
 
 import { Wrapper } from "~/components/layout/wrapper";
@@ -17,10 +17,13 @@ export const Hero: FC = () => {
             You have questions? We are here to help
           </p>
         </section>
-        <TsaInput
-          className="mx-auto mb-[59px] mt-[37px] h-[65px] max-w-[780px] text-black"
-          placeholder={"Search for a question..."}
-        />
+        <div className="pb-[59px] pt-[37px]">
+          <Input
+            disabled
+            className="mx-auto h-[65px] max-w-[780px] text-black"
+            placeholder={"Search for a question..."}
+          />
+        </div>
       </Wrapper>
     </header>
   );
