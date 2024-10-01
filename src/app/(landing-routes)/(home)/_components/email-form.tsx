@@ -22,11 +22,11 @@ import {
   useSubmitNewsletterForm,
 } from "~/services/email.service";
 
-interface EmailFormProps extends HtmlHTMLAttributes<HTMLFormElement> {
+interface EmailFormProperties extends HtmlHTMLAttributes<HTMLFormElement> {
   buttonTitle: string;
 }
 
-export const EmailForm: FC<EmailFormProps> = ({
+export const EmailForm: FC<EmailFormProperties> = ({
   buttonTitle,
   className,
   ...rest

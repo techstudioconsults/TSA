@@ -63,7 +63,6 @@ export const useSubmitRegisterForm = (courseID: string) => {
         },
         body: JSON.stringify(data),
       });
-      console.log(data);
 
       if (!response.ok) {
         throw new Error("Failed to send your message");

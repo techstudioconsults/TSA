@@ -63,7 +63,7 @@ const RegistrationForm: FC = () => {
         reset();
       }
     }
-  }, [responseMessage, reset]);
+  }, [responseMessage, reset, getAllCourses]);
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
