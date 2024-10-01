@@ -1,6 +1,6 @@
 "use client";
 
-import { TsaFooter, TsaNavbar } from "@strategic-dot/components";
+import { TsaButton, TsaFooter, TsaNavbar } from "@strategic-dot/components";
 import { usePathname } from "next/navigation";
 import { ReactNode, useEffect, useState } from "react";
 
@@ -69,7 +69,16 @@ export const Layout = ({ children }: { children: ReactNode }) => {
         logoPath={logoPath}
         navLinks={navLinks}
         bgScrollColor={bgScrollColor}
-      />
+      >
+        <TsaButton
+          href="/register"
+          className="bg-mid-blue"
+          size="lg"
+          variant="primary"
+        >
+          Register
+        </TsaButton>
+      </TsaNavbar>
       {children}
       <TsaFooter
         navLinks={navLinks}
