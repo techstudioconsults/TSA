@@ -14,10 +14,13 @@ import { Loader } from "lucide-react";
 import { FC, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
-import ResponseModal from "~/app/(landing-routes)/contact/_components/response-modal";
+import ResponseModal from "~/components/response-modal";
 import { RegisterFormData, registerFormSchema } from "~/schemas";
 import useCoursesStore from "~/services/courses.service";
-import { useRegisterStore, useSubmitRegisterForm } from "../../services";
+import {
+  useRegisterStore,
+  useSubmitRegisterForm,
+} from "../../../../../services/register.service";
 
 interface registerProperties {
   slug: string;
@@ -186,6 +189,7 @@ export const RegisterForm: FC<registerProperties> = ({ slug }) => {
 
       {/* Response Modal */}
       <ResponseModal
+        title={`Course Registered Successfully`}
         isOpen={isModalOpen}
         onClose={handleCloseModal}
         responseMessage={responseMessage || ""}

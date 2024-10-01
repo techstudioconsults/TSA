@@ -4,6 +4,7 @@ import { TsaFooter, TsaNavbar } from "@strategic-dot/components";
 import { usePathname } from "next/navigation";
 import { ReactNode, useEffect, useState } from "react";
 
+import { EmailForm } from "~/app/(landing-routes)/(home)/_components/email-form";
 import { STATIC_NAV_LINK } from "~/constants";
 import { cn } from "~/lib/utils";
 import useCoursesStore from "~/services/courses.service";
@@ -13,10 +14,12 @@ export const Layout = ({ children }: { children: ReactNode }) => {
   const [navLinks, setNavLinks] = useState(STATIC_NAV_LINK);
   const { allCourses, getAllCourses, loading } = useCoursesStore();
 
+  // Fetch all courses
   useEffect(() => {
     getAllCourses();
   }, [getAllCourses]);
 
+  // Update navLinks when courses data changes
   useEffect(() => {
     const coursesDropdown = allCourses.map((course) => {
       const courseSlug = course.title
@@ -50,32 +53,27 @@ export const Layout = ({ children }: { children: ReactNode }) => {
     ]);
   }, [allCourses, loading]);
 
+  // Determine logoPath and text color based on current pathname
+  const isDarkMode = pathname === "/about" || pathname === "/explore";
+  const logoPath = isDarkMode
+    ? "/images/logo-black.png"
+    : "/images/logo-white.png";
+  const linkClassName = cn(isDarkMode ? "text-black" : "text-white");
+  const bgScrollColor = cn(isDarkMode ? "backdrop-blur-3xl" : "bg-primary");
+
   return (
     <main>
       <TsaNavbar
         className="fixed"
-        linkClassName={cn(
-          "bg-transparent",
-          pathname === "/about" || pathname === "/explore"
-            ? "text-black"
-            : "text-white",
-        )}
-        logoPath={
-          pathname === "/about" || pathname === "/explore"
-            ? "/images/logo-black.png"
-            : "/images/logo-white.png"
-        }
+        linkClassName={cn("bg-transparent", linkClassName)}
+        logoPath={logoPath}
         navLinks={navLinks}
-        bgScrollColor={cn(
-          pathname === "/about" || pathname === "/explore"
-            ? "backdrop-blur-3xl"
-            : "bg-primary",
-        )}
+        bgScrollColor={bgScrollColor}
       />
       {children}
       <TsaFooter
         navLinks={navLinks}
-        subscribeComponent={undefined}
+        subscribeComponent={<EmailForm buttonTitle={"Subscribe"} />}
         logoPath={""}
       />
     </main>

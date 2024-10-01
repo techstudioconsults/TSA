@@ -1,5 +1,23 @@
 import * as z from "zod";
 
+const formSchema = z.object({
+  firstName: z
+    .string()
+    .min(2, "First Name must be at least 2 characters long")
+    .min(1, "First Name is required"),
+  lastName: z
+    .string()
+    .min(2, "Last Name must be at least 2 characters long")
+    .min(1, "Last Name is required"),
+  email: z
+    .string()
+    .email("Must be a valid email address")
+    .min(1, "Email Address is required"),
+  phoneNumber: z
+    .string()
+    .min(11, "Phone Number must be at least 10 characters long")
+    .min(1, "Phone Number is required"),
+});
 // const passwordSchema = z
 //   .string()
 //   .min(1, { message: "Password is required" })
@@ -58,32 +76,40 @@ export const contactFormSchema = z.object({
     .min(1, "Message is required"),
 });
 
-export const registerFormSchema = z.object({
-  firstName: z
-    .string()
-    .min(2, "First Name must be at least 2 characters long")
-    .min(1, "First Name is required"),
-  lastName: z
-    .string()
-    .min(2, "Last Name must be at least 2 characters long")
-    .min(1, "Last Name is required"),
-  email: z
-    .string()
-    .email("Must be a valid email address")
-    .min(1, "Email Address is required"),
-  phoneNumber: z
-    .string()
-    .min(11, "Phone Number must be at least 10 characters long")
-    .min(1, "Phone Number is required"),
-  course: z
-    .string()
-    .min(2, "Course must be at least 2 characters long")
-    .min(1, "Course is required"),
-  schedule: z
-    .string()
-    .min(2, "Schedule must be at least 2 characters long")
-    .min(1, "Schedule is required"),
-});
+export const registerFormSchema = formSchema.merge(
+  z.object({
+    course: z
+      .string()
+      .min(1, "Course is required")
+      .refine((value) => value !== "", {
+        message: "Please select a course",
+      }),
+    schedule: z
+      .string()
+      .min(1, "Schedule is required")
+      .refine((value) => value !== "", {
+        message: "Please select a schedule",
+      }),
+  }),
+);
+
+export const signUpFormSchema = formSchema.merge(
+  z.object({
+    course: z
+      .string()
+      .min(1, "Course is required")
+      .refine((value) => value !== "", {
+        message: "Please select a course",
+      }),
+    schedule: z
+      .string()
+      .min(1, "Schedule is required")
+      .refine((value) => value !== "", {
+        message: "Please select a schedule",
+      }),
+    newsletter: z.boolean(),
+  }),
+);
 
 export const newsletterFormSchema = z.object({
   email: z
@@ -95,4 +121,5 @@ export const newsletterFormSchema = z.object({
 // type declaration
 export type ContactFormData = z.infer<typeof contactFormSchema>;
 export type RegisterFormData = z.infer<typeof registerFormSchema>;
+export type SignUpFormData = z.infer<typeof signUpFormSchema>;
 export type newsletterFormData = z.infer<typeof newsletterFormSchema>;

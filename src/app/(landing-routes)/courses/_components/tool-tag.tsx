@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { FC } from "react";
 
+import { cn } from "~/lib/utils";
 import { CourseTag } from "../types/index.types";
 
 interface TagProperty {
@@ -21,7 +22,10 @@ export const ToolTag: FC<TagProperty> = ({ tag, bgColor }) => {
       className={`flex w-fit items-center gap-[16px] rounded-[8px] px-[16px] py-[10px] lg:p-[16px] ${ifBgColorPrimary}`}
     >
       <Image
-        className="h-[24px] w-[24px] object-cover"
+        className={cn(
+          `h-[24px] w-[24px] object-cover`,
+          tag.img ? `block` : `hidden`,
+        )}
         width={24}
         height={24}
         src={tag.img}

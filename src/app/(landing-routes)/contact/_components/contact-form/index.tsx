@@ -15,9 +15,9 @@ import { Loader } from "lucide-react";
 import { FC, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
+import ResponseModal from "~/components/response-modal";
 import { ContactFormData, contactFormSchema } from "~/schemas";
 import { useContactFormStore, useSubmitContactForm } from "../../services";
-import ResponseModal from "../response-modal";
 
 export const ContactForm: FC = () => {
   const formMethods = useForm<ContactFormData>({
@@ -153,6 +153,7 @@ export const ContactForm: FC = () => {
 
       {/* Response Modal */}
       <ResponseModal
+        title={` Message Sent Successfully!`}
         isOpen={isModalOpen}
         onClose={handleCloseModal}
         responseMessage={responseMessage || ""}

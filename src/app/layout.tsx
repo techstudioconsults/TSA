@@ -1,14 +1,11 @@
-import type { Metadata } from "next";
+// src/app/layout.tsx
+import { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
-
-import LenisProvider from "~/components/lenis-provider";
-import GotoTop from "~/components/miscellaneous/goto-top";
+import React from "react";
 
 import "@strategic-dot/components/dist/style.css";
 import "./globals.css";
 
-import { Layout } from "~/components/layout";
-import Progress_Bar from "~/components/progress-bar";
 import { cn } from "~/lib/utils";
 
 const openSans = Open_Sans({ subsets: ["latin"] });
@@ -25,15 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={cn(openSans.className)}>
-        <Progress_Bar />
-        <LenisProvider>
-          <Layout>
-            <GotoTop />
-            {children}
-          </Layout>
-        </LenisProvider>
-      </body>
+      <body className={cn(openSans.className)}>{children}</body>
     </html>
   );
 }

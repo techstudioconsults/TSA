@@ -12,7 +12,9 @@ interface ResponseModalProperties {
   isOpen: boolean;
   onClose: () => void;
   responseMessage: string;
+  title?: string;
   isError: boolean;
+  image?: string;
 }
 
 const ResponseModal: React.FC<ResponseModalProperties> = ({
@@ -20,8 +22,10 @@ const ResponseModal: React.FC<ResponseModalProperties> = ({
   onClose,
   responseMessage,
   isError,
+  image,
+  title,
 }) => {
-  const img = isError ? `/gifs/scream.gif` : `/images/yes.png`;
+  const img = isError ? `/gifs/scream.gif` : image || `/images/yes.png`;
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent>
@@ -38,7 +42,7 @@ const ResponseModal: React.FC<ResponseModalProperties> = ({
         </DialogHeader>
         <div className="text-center">
           <h5 className="mb-4 text-xl font-bold">
-            {isError ? `Something went wrong` : ` Message Sent Successfully!`}
+            {isError ? `Something went wrong` : title}
           </h5>
           <p className={isError ? "text-red-600" : ""}>
             {isError

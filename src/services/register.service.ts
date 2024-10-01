@@ -1,8 +1,8 @@
 /* eslint-disable unicorn/no-null */
 import { create } from "zustand";
 
+import { EducationPrograms } from "~/app/(landing-routes)/courses/types/index.types";
 import { RegisterFormData } from "~/schemas";
-import { EducationPrograms } from "../types/index.types";
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 const API_URL = `${BASE_URL}/auth/register`;
@@ -63,6 +63,7 @@ export const useSubmitRegisterForm = (courseID: string) => {
         },
         body: JSON.stringify(data),
       });
+      console.log(data);
 
       if (!response.ok) {
         throw new Error("Failed to send your message");

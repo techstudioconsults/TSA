@@ -65,7 +65,10 @@ export const Hero = () => {
                 </span>
                 With Us Today!
               </h1>
-              <EmailForm />
+              <EmailForm
+                className="mt-[44px]"
+                buttonTitle={"Explore Courses"}
+              />
             </article>
             <div className="flex flex-row gap-[7rem] lg:flex-col">
               <Image

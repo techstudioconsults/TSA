@@ -12,15 +12,25 @@ import {
 } from "@strategic-dot/components";
 import { Loader } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { FC, HtmlHTMLAttributes } from "react";
 import { useForm } from "react-hook-form";
 
+import { cn } from "~/lib/utils";
 import { newsletterFormData, newsletterFormSchema } from "~/schemas";
 import {
   useNewsletterFormStore,
   useSubmitNewsletterForm,
 } from "~/services/email.service";
 
-export const EmailForm = () => {
+interface EmailFormProps extends HtmlHTMLAttributes<HTMLFormElement> {
+  buttonTitle: string;
+}
+
+export const EmailForm: FC<EmailFormProps> = ({
+  buttonTitle,
+  className,
+  ...rest
+}) => {
   const router = useRouter();
   const formMethods = useForm<newsletterFormData>({
     resolver: zodResolver(newsletterFormSchema),
@@ -45,8 +55,9 @@ export const EmailForm = () => {
   return (
     <Form {...formMethods}>
       <form
+        {...rest}
         onSubmit={handleSubmit(onSubmit)}
-        className="mt-[44px] flex h-[48px] max-w-[521px] items-center"
+        className={cn(`flex h-[48px] max-w-[521px] items-center`, className)}
       >
         <FormField
           name="email"
@@ -82,7 +93,7 @@ export const EmailForm = () => {
           {isSubmitting ? (
             <Loader className="animate-spin text-white" />
           ) : (
-            "Explore Courses"
+            buttonTitle
           )}
         </TsaButton>
       </form>
