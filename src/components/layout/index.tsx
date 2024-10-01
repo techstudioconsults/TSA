@@ -4,24 +4,13 @@ import { TsaFooter, TsaNavbar } from "@strategic-dot/components";
 import { usePathname } from "next/navigation";
 import { ReactNode, useEffect, useState } from "react";
 
+import { STATIC_NAV_LINK } from "~/constants";
 import { cn } from "~/lib/utils";
 import useCoursesStore from "~/services/courses.service";
-import { NavLink } from "~/types/index.types";
 
 export const Layout = ({ children }: { children: ReactNode }) => {
   const pathname = usePathname();
-  const defaultNavLinks: NavLink[] = [
-    { route: "About Us", link: "/about" },
-    {
-      route: "Courses",
-      link: "",
-      dropdown: [],
-    },
-    { route: "FAQ", link: "/faq" },
-    { route: "Contact Us", link: "/contact" },
-  ];
-  const [navLinks, setNavLinks] = useState<NavLink[]>(defaultNavLinks);
-
+  const [navLinks, setNavLinks] = useState(STATIC_NAV_LINK);
   const { allCourses, getAllCourses, loading } = useCoursesStore();
 
   useEffect(() => {
@@ -84,7 +73,11 @@ export const Layout = ({ children }: { children: ReactNode }) => {
         )}
       />
       {children}
-      <TsaFooter />
+      <TsaFooter
+        navLinks={navLinks}
+        subscribeComponent={undefined}
+        logoPath={""}
+      />
     </main>
   );
 };
