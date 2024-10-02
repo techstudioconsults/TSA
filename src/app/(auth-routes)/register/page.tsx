@@ -73,7 +73,7 @@ const RegistrationForm: FC = () => {
     <>
       <Form {...formMethods}>
         <div className="mx-auto max-w-[600px] rounded-lg border-t-8 border-mid-blue bg-white p-6 shadow-lg lg:p-12">
-          <h2 className="text-dark-blue mb-1 text-2xl font-bold">
+          <h2 className="text-dark-blue mb-1 text-xl font-bold lg:text-2xl">
             One last step, let’s get to know you
           </h2>
           <p className="mb-8 text-base text-gray-500">
@@ -81,7 +81,7 @@ const RegistrationForm: FC = () => {
           </p>
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="flex flex-col gap-4 lg:grid lg:grid-cols-2">
               {/* First Name */}
               <FormField
                 name="firstName"
