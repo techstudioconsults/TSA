@@ -1,0 +1,10 @@
+p {
+  font-size: 1rem; /* 16px */
+  line-height: 1.5; /* Default line-height */
+  @screen sm {
+    font-size: 1.125rem; /* 18px */
+  }
+  @screen md {
+    font-size: 1.25rem; /* 20px */
+  }
+}

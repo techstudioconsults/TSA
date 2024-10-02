@@ -12,6 +12,10 @@ const config: Config = {
   // prefix: "",
   theme: {
     extend: {
+      content: {
+        empty: '""',
+        star: '"*"',
+      },
       backgroundImage: {
         "primary-gradient":
           "radial-gradient(50% 50% at 50% 50%, rgba(6, 11, 59, 0) 0%, #060B3B 100%)",
@@ -79,6 +83,23 @@ const config: Config = {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      keyframes: {
+        "accordion-down": {
+          from: { height: "80px" },
+          to: { height: "160px" },
+        },
+        "accordion-up": {
+          from: { height: "80px" },
+          to: { height: "160px" },
+        },
+        zoomIn: {
+          "0%": { transform: "scale(1)" },
+          "100%": { transform: "scale(1.1)" },
+        },
+      },
+      animation: {
+        "zoom-in": "zoomIn 10s ease-in-out infinite", // Adjust duration as needed
       },
     },
   },
