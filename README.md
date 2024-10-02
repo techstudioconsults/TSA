@@ -1,6 +1,6 @@
 # Techstudio Academy
 
-![Techstudio Academy Logo](/images/logo-white.png)
+![Techstudio Academy Logo](/public/images/logo-white.png)
 
 ## Overview
 
