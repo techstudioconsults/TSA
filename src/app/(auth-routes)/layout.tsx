@@ -8,26 +8,29 @@ export default function AuthLayout({
   children: React.ReactNode;
 }) {
   return (
-    <main className="flex h-screen flex-col xl:grid xl:grid-cols-2">
-      <section className="h-[20rem] xl:h-screen">
-        <Link
-          className="absolute left-[1rem] top-[1rem] hover:animate-pulse"
-          href={`/`}
-        >
+    <main className="flex h-screen flex-col gap-4 xl:grid xl:grid-cols-2">
+      {/* Logo and Image Section */}
+      <section className="relative h-[15rem] xl:h-screen">
+        <Link className="absolute left-4 top-4 hover:animate-pulse" href={`/`}>
           <Image width={48} height={48} src={"/icons/logo.png"} alt="logo" />
         </Link>
         <Image
           width={742}
           height={900}
-          className="h-[100%] w-full object-cover xl:h-full"
+          className="h-full w-full object-cover"
           src="/images/model.png"
           alt="model"
+          priority
         />
       </section>
-      <section className="flex h-full w-full items-center justify-center">
+
+      {/* Content Section */}
+      <section className="flex items-center justify-center p-4">
         {children}
       </section>
-      <p className="absolute bottom-[1rem] right-[1rem] font-[700]">
+
+      {/* Footer */}
+      <p className="absolute bottom-4 right-4 hidden font-bold xl:block">
         &copy; {new Date().getFullYear()} TechStudio Academy
       </p>
     </main>
