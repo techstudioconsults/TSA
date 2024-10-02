@@ -30,4 +30,4 @@ Please see [CONTRIBUTING](./CONTRIBUTING.md)
 
 ### Authors
 
-This project is led by [Kingsley Ifijeh Solomon](https://github.com/kinxlo)
+Written by [Kingsley Ifijeh Solomon](https://github.com/kinxlo)
