@@ -279,13 +279,6 @@ const RegistrationForm: FC = () => {
               </TsaButton>
             </div>
           </form>
-
-          <p className="mt-4 text-center text-sm">
-            Do you have an account already?{" "}
-            <a href="/signin" className="text-mid-blue underline">
-              Sign in here
-            </a>
-          </p>
         </div>
       </Form>
 
