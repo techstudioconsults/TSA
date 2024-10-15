@@ -12,7 +12,7 @@
     "v:test": "vitest",
     "v:test:ui": "vitest --ui",
     "v:test:update": "vitest --update",
-    "V:test:ci": "vitest --coverage",
+    "v:test:ci": "vitest --coverage",
     "prepare": "husky",
     "prettier": "prettier --write \"src/**/*.{ts,tsx,js,jsx,mdx}\""
   },
