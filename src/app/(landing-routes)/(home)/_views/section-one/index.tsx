@@ -1,7 +1,7 @@
 "use client";
 
 import { Wrapper } from "~/components/layout/wrapper";
-import Card from "../../_components/card";
+import Card from "../../_components/card/card";
 
 export const SectionOne = () => {
   return (

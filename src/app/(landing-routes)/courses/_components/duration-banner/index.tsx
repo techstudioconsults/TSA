@@ -75,8 +75,8 @@ export const DurationBanner: FC<DurationBannerProperties> = ({ slug }) => {
         </div>
         <div>
           <TsaButton
-            variant="primary"
-            className="bg-mid-blue"
+            variant="outline"
+            className="border-mid-blue text-mid-blue"
             size="lg"
             href="/register"
           >

@@ -189,28 +189,214 @@
             }
           ]
         }
-      ],
-      "duration": {
-        "online": {
-          "time": "N/A",
-          "date": "N/A",
-          "price": "0"
+      ]
+    }
+  },
+  {
+    "frontend-engineering": {
+      "intro": {
+        "title": "Frontend Engineering Immersive",
+        "subTitle": "Let’s help you become a professional frontend web developer. You’ll learn all you need to know to become a Frontend Developer and build interesting portfolios while learning the fundamentals of HTML, CSS, JavaScript and React."
+      },
+      "sectionOne": {
+        "cards": [
+          {
+            "text": "We teach the important skills required to jumpstart your career as a web developer. With 5 straight weeks of web training, you learn to think and build like frontend developers."
+          },
+          {
+            "text": "You move from understanding web basics to launching Single Page Applications (SPAs). You’ll be taught to build smart SPAs using vanilla JavaScript that interacts with user inputs."
+          },
+          {
+            "text": "And finally, you’ll learn the fundamentals of working as a team; collaborate with other group members of the class to build, change, maintain, and secure an application. Track your team development Process using Version Control Systems."
+          }
+        ]
+      },
+      "courseList": [
+        {
+          "id": 1,
+          "classname": "A",
+          "caption": "UNIT 1",
+          "title": "Introduction To HTML And CSS",
+          "desc": "This unit provides a solid foundation in web development, covering both HTML and CSS. Students will learn how to create well-structured HTML documents using tags, elements, and attributes. They will also explore CSS syntax and style rules to customize the appearance of web pages. Topics include text styling, backgrounds, borders, and images. Additionally, students will discover CSS layout techniques, such as floats and CSS grid, to create different page layouts. They will also explore Bootstrap, utilizing its pre-built components and responsive grid system for attractive and mobile-friendly layouts. Practical exercises reinforce learning.",
+          "bgColor": "bg-white",
+          "img": "/gifs/fullstack/writing-code.gif",
+          "tags": [
+            {
+              "img": "/icons/vscode.png",
+              "text": "Visual Studio Code"
+            },
+            {
+              "img": "/icons/html.png",
+              "text": "HTML"
+            },
+            {
+              "img": "/icons/css.png",
+              "text": "CSS"
+            }
+          ]
         },
-        "weekday": {
-          "time": "12",
-          "date": "May 11, 2024",
-          "price": "250000"
+        {
+          "id": 2,
+          "classname": "B",
+          "caption": "UNIT 2",
+          "title": "JavaScript Basic",
+          "desc": "Throughout the course of this unit, students will embark on a journey into the fundamentals of JavaScript, unlocking the potential to create engaging and interactive web experiences. By delving into the core concepts and syntax of JavaScript, students will gain a comprehensive understanding of how to leverage this powerful programming language to build dynamic and responsive web pages. They will explore topics such as variables, data types, conditional statements, loops, functions, arrays, objects, and DOM manipulation.",
+          "bgColor": "bg-white",
+          "img": "/gifs/fullstack/writing-code.gif",
+          "tags": [
+            {
+              "img": "/icons/vscode.png",
+              "text": "Visual Studio Code"
+            },
+            {
+              "img": "/icons/html.png",
+              "text": "HTML"
+            },
+            {
+              "img": "/icons/css.png",
+              "text": "CSS"
+            }
+          ]
         },
-        "weekend": {
-          "time": "12",
-          "date": "May 13, 2024",
-          "price": "250000"
+        {
+          "id": 3,
+          "classname": "C",
+          "caption": "UNIT 3",
+          "title": "Object-Oriented JavaScript",
+          "desc": "Object-oriented JavaScript is a programming paradigm that focuses on organizing code into objects, which encapsulate data and methods. It provides a way to create reusable and modular code, making it easier to manage and maintain complex applications. In object-oriented JavaScript, students will learn how to create objects, define their properties and methods, and establish relationships between objects through inheritance. They will explore concepts such as encapsulation, where data and methods are bundled together within objects to control access and ensure data integrity.",
+          "bgColor": "bg-white",
+          "img": "/gifs/fullstack/writing-code.gif",
+          "tags": [
+            {
+              "img": "/icons/vscode.png",
+              "text": "Visual Studio Code"
+            },
+            {
+              "img": "/icons/html.png",
+              "text": "HTML"
+            },
+            {
+              "img": "/icons/css.png",
+              "text": "CSS"
+            }
+          ]
         },
-        "span": {
-          "weekday": "Mon - wed (10am - 5pm)",
-          "weekend": "Sat - Sun (10am - 5pm)"
+        {
+          "id": 4,
+          "classname": "D",
+          "caption": "UNIT 4",
+          "title": "The DOM",
+          "desc": "The Document Object Model (DOM) is an API (Application Programming Interface) that allows you to interact with HTML and XML documents programmatically. It is primarily associated with JavaScript, as JavaScript is the most commonly used programming language for web development and has built-in support for the DOM.",
+          "bgColor": "bg-white",
+          "img": "/gifs/fullstack/writing-code.gif",
+          "tags": [
+            {
+              "img": "/icons/vscode.png",
+              "text": "Visual Studio Code"
+            },
+            {
+              "img": "/icons/html.png",
+              "text": "HTML"
+            },
+            {
+              "img": "/icons/css.png",
+              "text": "CSS"
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "classname": "E",
+          "caption": "UNIT 5",
+          "title": "The REACT Library",
+          "desc": "React has gained immense popularity as a JavaScript library for creating robust and interactive user interfaces. Its core philosophy revolves around a component-based architecture, empowering developers to build reusable UI components that encapsulate specific functionality. By breaking down the user interface into modular components, React enables code reusability, enhances maintainability, and facilitates collaborative development.",
+          "bgColor": "bg-white",
+          "img": "/gifs/fullstack/writing-code.gif",
+          "tags": [
+            {
+              "img": "/icons/vscode.png",
+              "text": "Visual Studio Code"
+            },
+            {
+              "img": "/icons/html.png",
+              "text": "HTML"
+            },
+            {
+              "img": "/icons/css.png",
+              "text": "CSS"
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "classname": "F",
+          "caption": "UNIT 6",
+          "title": "Next JS",
+          "desc": "Next.js is built on React. It elevates web development with efficient rendering and routing, offering server-side rendering and automatic code splitting for optimal performance. By extending React's component-based approach to pages, it simplifies dynamic routing. With server-side rendering, pages are pre-rendered on the server, boosting speed and SEO. Empowering developers with data fetching and routing control, Next.js enables seamless creation of high-performance web applications.",
+          "bgColor": "bg-white",
+          "img": "/gifs/fullstack/writing-code.gif",
+          "tags": [
+            {
+              "img": "/icons/vscode.png",
+              "text": "Visual Studio Code"
+            },
+            {
+              "img": "/icons/html.png",
+              "text": "HTML"
+            },
+            {
+              "img": "/icons/css.png",
+              "text": "CSS"
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "classname": "G",
+          "caption": "UNIT 7",
+          "title": "Version Control and Deployment",
+          "desc": "Version control systems like Git play a crucial role in managing code changes over time. They provide a structured way to track modifications, maintain a history of changes, and enable multiple developers to work on the same codebase simultaneously. With version control, developers can create branches to work on different features or bug fixes independently.",
+          "bgColor": "bg-white",
+          "img": "/gifs/fullstack/writing-code.gif",
+          "tags": [
+            {
+              "img": "/icons/vscode.png",
+              "text": "Visual Studio Code"
+            },
+            {
+              "img": "/icons/html.png",
+              "text": "HTML"
+            },
+            {
+              "img": "/icons/css.png",
+              "text": "CSS"
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "classname": "H",
+          "caption": "UNIT 8",
+          "title": "Capstone Project",
+          "desc": "In this unit, the project enables you to demonstrate multiple skills you have learned to develop a real-life project. Students apply their Frontend Engineering skills to create a web application that is dynamic and real-life worthy from choosing your library, creating folder structure, coding, testing, deployment, user experience enhancement, and a final presentation, showcasing their comprehensive understanding and abilities in frontend engineering.",
+          "bgColor": "bg-white",
+          "img": "/gifs/fullstack/writing-code.gif",
+          "tags": [
+            {
+              "img": "/icons/vscode.png",
+              "text": "Visual Studio Code"
+            },
+            {
+              "img": "/icons/html.png",
+              "text": "HTML"
+            },
+            {
+              "img": "/icons/css.png",
+              "text": "CSS"
+            }
+          ]
         }
-      }
+      ]
     }
   },
   {
@@ -329,28 +515,7 @@
             }
           ]
         }
-      ],
-      "duration": {
-        "online": {
-          "time": "N/A",
-          "date": "N/A",
-          "price": "0"
-        },
-        "weekday": {
-          "time": "12",
-          "date": "May 11, 2024",
-          "price": "250000"
-        },
-        "weekend": {
-          "time": "12",
-          "date": "May 13, 2024",
-          "price": "250000"
-        },
-        "span": {
-          "weekday": "Mon - wed (10am - 5pm)",
-          "weekend": "Sat - Sun (10am - 5pm)"
-        }
-      }
+      ]
     }
   },
   {
@@ -506,29 +671,7 @@
             }
           ]
         }
-      ],
-
-      "duration": {
-        "online": {
-          "time": "N/A",
-          "date": "N/A",
-          "price": "0"
-        },
-        "weekday": {
-          "time": "12",
-          "date": "May 11, 2024",
-          "price": "250000"
-        },
-        "weekend": {
-          "time": "12",
-          "date": "May 13, 2024",
-          "price": "250000"
-        },
-        "span": {
-          "weekday": "Mon - Wed (10am - 5pm)",
-          "weekend": "Sat - Sun (10am - 5pm)"
-        }
-      }
+      ]
     }
   },
   {
@@ -684,28 +827,7 @@
             }
           ]
         }
-      ],
-      "duration": {
-        "online": {
-          "time": "N/A",
-          "date": "N/A",
-          "price": "0"
-        },
-        "weekday": {
-          "time": "12",
-          "date": "May 11, 2024",
-          "price": "300000"
-        },
-        "weekend": {
-          "time": "12",
-          "date": "May 13, 2024",
-          "price": "300000"
-        },
-        "span": {
-          "weekday": "Mon - Wed (10am - 5pm)",
-          "weekend": "Sat - Sun (10am - 5pm)"
-        }
-      }
+      ]
     }
   },
   {
@@ -819,28 +941,7 @@
           "img": "/gifs/marketing/Ads.gif",
           "tags": []
         }
-      ],
-      "duration": {
-        "online": {
-          "time": "N/A",
-          "date": "N/A",
-          "price": "0"
-        },
-        "weekend": {
-          "time": "12",
-          "date": "April 29, 2024",
-          "price": "250000"
-        },
-        "weekday": {
-          "time": "N/A",
-          "date": "N/A",
-          "price": "N/A"
-        },
-        "span": {
-          "weekday": "Mon - Wed (10am - 5pm)",
-          "weekend": "Sat - Sun (10am - 5pm)"
-        }
-      }
+      ]
     }
   }
 ]

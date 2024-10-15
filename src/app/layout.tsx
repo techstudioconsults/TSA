@@ -1,11 +1,10 @@
-// src/app/layout.tsx
 import { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import React from "react";
 
-import "@strategic-dot/components/dist/style.css";
-import "./globals.css";
+import "./setup.ts";
 
+import { WhatsAppIcon } from "~/components/miscellaneous/whatsapp";
 import { cn } from "~/lib/utils";
 
 const openSans = Open_Sans({ subsets: ["latin"] });
@@ -22,7 +21,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={cn(openSans.className)}>{children}</body>
+      <body className={cn(openSans.className)}>
+        <WhatsAppIcon />
+        {children}
+      </body>
     </html>
   );
 }

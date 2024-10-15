@@ -4,7 +4,7 @@ import { devtools } from "zustand/middleware";
 
 import { Course } from "./services.type";
 
-const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000"; // Fallback in case env is not set
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 type coursesState = {
   allCourses: Course[];
   loading: boolean;
@@ -20,7 +20,6 @@ const useCoursesStore = create<coursesState>()(
     loading: true,
     error: "",
     activeCourse: null,
-    // activeCourse: JSON.parse(localStorage.getItem("activeCourse") || "null"),
 
     getAllCourses: async () => {
       set({ loading: true, error: null });
@@ -52,9 +51,9 @@ const useCoursesStore = create<coursesState>()(
         }
       }
     },
+
     setActiveCourse: (course: Course) => {
       set({ activeCourse: course });
-      // localStorage.setItem("activeCourse", JSON.stringify(course)); // Save to localStorage
     },
   })),
 );

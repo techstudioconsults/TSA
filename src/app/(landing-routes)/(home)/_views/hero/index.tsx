@@ -6,7 +6,7 @@ import React, { useEffect } from "react";
 import { HeroCanvas } from "~/components/canvas/hero-canvas";
 import { Wrapper } from "~/components/layout/wrapper";
 import useWindowWidth from "~/hooks/util-hooks/use-window-width";
-import { EmailForm } from "../../_components/email-form";
+import { EmailForm } from "../../_components/email-form/email-form";
 
 export const Hero = () => {
   const canvaReference = React.useRef<HTMLCanvasElement>(null);

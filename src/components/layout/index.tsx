@@ -4,7 +4,7 @@ import { TsaButton, TsaFooter, TsaNavbar } from "@strategic-dot/components";
 import { usePathname } from "next/navigation";
 import { ReactNode, useEffect, useState } from "react";
 
-import { EmailForm } from "~/app/(landing-routes)/(home)/_components/email-form";
+import { EmailForm } from "~/app/(landing-routes)/(home)/_components/email-form/email-form";
 import { STATIC_NAV_LINK } from "~/constants";
 import { cn } from "~/lib/utils";
 import useCoursesStore from "~/services/courses.service";

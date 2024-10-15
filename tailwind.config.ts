@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 /* eslint-disable unicorn/prefer-module */
 import type { Config } from "tailwindcss";
 

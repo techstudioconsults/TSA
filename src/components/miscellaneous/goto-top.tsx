@@ -7,7 +7,7 @@ import useWindowHeight from "~/hooks/util-hooks/use-window-height";
 import { cn } from "~/lib/utils";
 
 const handleTop = () => {
-  window && window.scroll({ top: 0, behavior: "smooth" });
+  globalThis && window.scroll({ top: 0, behavior: "smooth" });
 };
 const GotoTop = () => {
   const { scrollY } = useWindowHeight();
@@ -16,7 +16,6 @@ const GotoTop = () => {
 
   useEffect(() => {
     let previousScrollpos = window.scrollY;
-    // console.log("PREV", prevScrollpos);
     window.addEventListener("scroll", () => {
       const currentScrollPos = window.scrollY;
 
