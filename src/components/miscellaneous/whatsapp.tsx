@@ -2,10 +2,17 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 export const WhatsAppIcon: React.FC = () => {
-  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+  const [isIOS, setIsIOS] = useState(false);
+
+  useEffect(() => {
+    // Check if running in the browser
+    const userAgent =
+      typeof navigator === "undefined" ? "" : navigator.userAgent;
+    setIsIOS(/iPad|iPhone|iPod/.test(userAgent));
+  }, []);
 
   const whatsappLink = isIOS
     ? "https://api.whatsapp.com/send/?phone=2348113800161&text=Hello!%20TechStudio%20Academy,%20I%E2%80%99ll%20like%20to%20make%20an%20enquiry"
