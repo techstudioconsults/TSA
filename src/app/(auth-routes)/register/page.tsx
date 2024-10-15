@@ -2,7 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
-  Checkbox,
+  // Checkbox,
   Form,
   FormControl,
   FormField,
@@ -241,7 +241,7 @@ const RegistrationForm: FC = () => {
               />
 
               {/* Newsletter Checkbox */}
-              <FormField
+              {/* <FormField
                 name="newsletter"
                 control={control}
                 render={({ field }) => (
@@ -259,7 +259,7 @@ const RegistrationForm: FC = () => {
                     </FormControl>
                   </FormItem>
                 )}
-              />
+              /> */}
             </div>
 
             {/* Submit Button */}
