@@ -18,7 +18,14 @@
   ],
   "ignorePatterns": [
     "dist",
-    "node_modules"
+    "node_modules",
+    "coverage",
+    "html",
+    "**/*.test.js",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/*.test.jsx",
+    "!.prettierrc.cjs"
   ],
   "parser": "@typescript-eslint/parser",
   "plugins": [
@@ -64,26 +71,19 @@
   },
   "overrides": [
     {
-      "files": [
-        ".eslintrc.*js",
-        ".vite(|st).(js|ts)"
-      ],
+      "files": [".eslintrc.*js", ".vite(|st).(js|ts)"],
       "env": {
         "node": true
       }
     },
     {
-      "files": [
-        "*.d.ts"
-      ],
+      "files": ["*.d.ts"],
       "rules": {
         "unicorn/prevent-abbreviations": "off"
       }
     },
     {
-      "files": [
-        "!*.test.(js|jsx|ts|tsx)"
-      ],
+      "files": ["!*.test.(js|jsx|ts|tsx)"],
       "rules": {
         "vitest/require-hook": "off",
         "vitest/max-expects": "off",

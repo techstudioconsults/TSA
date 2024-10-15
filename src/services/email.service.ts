@@ -54,7 +54,6 @@ export const useSubmitNewsletterForm = () => {
           ? error.message
           : "Failed to send your message. Please try again later.",
       );
-      console.error("Submission error:", error); // Log the error for debugging
       return error;
     } finally {
       setIsSubmitting(false);
