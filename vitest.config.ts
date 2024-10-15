@@ -25,7 +25,7 @@ export default defineConfig({
       enabled: true,
       exclude: ["node_modules/", "src/test/", "src/main.tsx"],
       include: ["src/**/*.{js,jsx,ts,tsx}"],
-      provider: "istanbul",
+      provider: "v8",
       reporter: ["text", "json-summary", "json", "html"],
       reportOnFailure: true,
     },

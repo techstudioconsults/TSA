@@ -4,7 +4,10 @@ import { Skeleton } from "@strategic-dot/components";
 
 export const UpcomingClassesSkeleton = () => {
   return (
-    <section className="flex min-h-[447px] flex-col justify-between">
+    <section
+      data-testid="skeleton"
+      className="flex min-h-[447px] flex-col justify-between"
+    >
       <span>
         <Skeleton className="h-[12px] w-[120px]" />
       </span>

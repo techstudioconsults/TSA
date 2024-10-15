@@ -23,7 +23,6 @@ type ClassDetail = {
   endDate: string;
   fee: number;
   tutors: Tutor[];
-  students: Student[];
   resources: Resources;
   createdAt: string;
 };
@@ -32,10 +31,6 @@ type Tutor = {
   id: string;
   name: string;
   avatar: string | null;
-};
-
-type Student = {
-  // Define the student type if needed, currently assumed to be an empty array
 };
 
 type Resources = {

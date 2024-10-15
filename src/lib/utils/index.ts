@@ -53,7 +53,7 @@ export function cn(...inputs: ClassValue[]) {
 export function formatDateTime(dateString: string | undefined) {
   const date = moment(dateString);
 
-  const formattedDate = date.format("MMM DD, YYYY"); // Updated format
+  const formattedDate = date.format("MMM DD, YYYY");
   const formattedTime = date.format("HH:mm:ss");
 
   return {
@@ -82,6 +82,5 @@ export function formatPrice(
     maximumFractionDigits: 2,
   }).format(numericPrice);
 
-  // If currency is NGN and you want to add the "₦" symbol explicitly
   return currency === "NGN" ? `₦${newPrice.replace(/NGN\s?/, "")}` : newPrice;
 }

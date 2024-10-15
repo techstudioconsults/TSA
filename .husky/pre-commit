@@ -1,1 +1,1 @@
-pnpm run prettier && pnpm run lint && pnpx lint-staged
+pnpm lint && pnpm lint-staged

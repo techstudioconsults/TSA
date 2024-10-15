@@ -15,7 +15,7 @@ type FAQState = {
   error: string | null;
   currentPage: number;
   totalPages: number;
-  getFAQ: (page?: number) => Promise<void>;
+  getFAQ: (page?: number) => Promise<string | null>;
 };
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
@@ -37,7 +37,7 @@ const useFAQStore = create<FAQState>()(
           headers: {
             "Content-Type": "application/json",
           },
-          cache: "no-store", // Prevents caching
+          cache: "no-store",
         });
 
         if (!response.ok) {
@@ -46,19 +46,22 @@ const useFAQStore = create<FAQState>()(
 
         const data = await response.json();
 
-        // Assuming the API returns pagination data: `pages` and `pageNumber`
         set({
-          faq: data.data.data, // The actual FAQ data
+          faq: data.data.data,
           currentPage: data.data.pageNumber,
           totalPages: data.data.pages,
           loading: false,
         });
+
+        return null;
       } catch (error: unknown) {
+        let errorMessage = "An unknown error occurred";
         if (error instanceof Error) {
-          set({ error: error.message, loading: false });
-        } else {
-          set({ error: "An unknown error occurred", loading: false });
+          errorMessage = error.message;
         }
+
+        set({ error: errorMessage, loading: false });
+        return errorMessage;
       }
     },
   })),

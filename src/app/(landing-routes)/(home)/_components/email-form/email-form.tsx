@@ -66,6 +66,7 @@ export const EmailForm: FC<EmailFormProperties> = ({
             <FormItem className="h-full">
               <FormControl>
                 <Input
+                  data-testid="email-input"
                   placeholder="Enter Your Email Address"
                   className="h-full rounded-none rounded-s-[5px] text-black"
                   size={384}
@@ -88,7 +89,7 @@ export const EmailForm: FC<EmailFormProperties> = ({
         <TsaButton
           type="submit"
           variant="primary"
-          className="h-[100%] w-[138px] rounded-none rounded-e-[5px] bg-mid-blue"
+          className="tsaButton h-[100%] w-[138px] rounded-none rounded-e-[5px] bg-mid-blue"
         >
           {isSubmitting ? (
             <Loader className="animate-spin text-white" />

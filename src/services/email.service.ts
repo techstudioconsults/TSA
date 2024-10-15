@@ -11,6 +11,7 @@ interface NewsletterFormState {
   responseMessage: string | null;
   setIsSubmitting: (isSubmitting: boolean) => void;
   setResponseMessage: (message: string | null) => void;
+  reset: () => void;
 }
 
 export const useNewsletterFormStore = create<NewsletterFormState>((set) => ({
@@ -19,6 +20,7 @@ export const useNewsletterFormStore = create<NewsletterFormState>((set) => ({
   setIsSubmitting: (isSubmitting: boolean) => set({ isSubmitting }),
   setResponseMessage: (message: string | null) =>
     set({ responseMessage: message }),
+  reset: () => set({ isSubmitting: false, responseMessage: null }),
 }));
 
 // Hook for form submission logic
@@ -27,6 +29,7 @@ export const useSubmitNewsletterForm = () => {
 
   return async (data: newsletterFormData) => {
     setIsSubmitting(true);
+    setResponseMessage(null); // Clear previous messages before submitting
 
     try {
       const response = await fetch(API_URL, {
@@ -38,15 +41,18 @@ export const useSubmitNewsletterForm = () => {
       });
 
       if (!response.ok) {
-        throw new Error("Failed to send your message");
+        const errorResponse = await response.json(); // Extract error message from response if available
+        throw new Error(errorResponse.message || "Failed to send your message");
       }
-      // comback to handle this properly with original error message
+
       const responseData = await response.json();
       setResponseMessage(responseData.message);
       return responseData;
     } catch (error) {
       setResponseMessage(
-        "Failed to send your message. Please try again later.",
+        error instanceof Error
+          ? error.message
+          : "Failed to send your message. Please try again later.",
       );
       return error;
     } finally {
