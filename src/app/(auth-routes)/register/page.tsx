@@ -20,7 +20,7 @@ import { Loader } from "lucide-react";
 import { FC, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
-import ResponseModal from "~/components/response-modal";
+import ResponseModal from "~/components/modals/response-modal";
 import { SignUpFormData, signUpFormSchema } from "~/schemas";
 import useCoursesStore from "~/services/courses.service";
 import {
