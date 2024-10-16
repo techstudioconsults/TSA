@@ -10,8 +10,8 @@ In order to run this app locally, you should have the following programs install
 ##### Clone this repository
 
 ```
-git clone git@github.com/skycomproject/skycom_boilerplate_nextjs.git
-cd skycom_boilerplate_nextjs
+git clone https://github.com/techstudioconsults/TSA.git
+cd TSA
 ```
 
 ##### Install dependencies
@@ -39,7 +39,7 @@ htpp://localhost:3000/guides
 ##### Navigate to
 
 ```
-htpp://localhost:3000/guides
+htpp://localhost:3000/guides and https://www.npmjs.com/package/@strategic-dot/components
 ```
 
 ## Prerequisites
@@ -54,12 +54,18 @@ htpp://localhost:3000/guides
   },
   ```
 - Use the global CSS variables
-- Use Tailwind CSS and shadCN exclusively.
-- UI components should be stored in `~/components/common`
+- Use Tailwind CSS and TSA components exclusively.
+- UI general components should be stored in `~/components`
+- Page specific components should be stored in the page component folder
 - Modal components should be stored in `~/components/modals`
 - Layout components should be stored in `~/components/layouts`
-- All tests should be stored in `~/test`
-- All emails are to be built with react email components and tailwind and stored in `~/emails/templates`
+- All tests should be created in their page folder level upwards e.g
+  - landing-routes
+    - home
+      - page.tsx
+      - components
+      - views
+      - test (this test folder is used for only the home page)
 
 ## Contributing
 
