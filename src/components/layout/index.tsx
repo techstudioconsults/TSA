@@ -4,22 +4,21 @@ import { TsaButton, TsaFooter, TsaNavbar } from "@strategic-dot/components";
 import { usePathname } from "next/navigation";
 import { ReactNode, useEffect, useState } from "react";
 
+import { fetchAllCourses } from "~/action/courses.action";
 import { EmailForm } from "~/app/(landing-routes)/(home)/_components/email-form/email-form";
 import { STATIC_NAV_LINK } from "~/constants";
 import { cn } from "~/lib/utils";
-import useCoursesStore from "~/services/courses.service";
+import useCoursesStore from "~/stores/course.store";
 
 export const Layout = ({ children }: { children: ReactNode }) => {
   const pathname = usePathname();
   const [navLinks, setNavLinks] = useState(STATIC_NAV_LINK);
-  const { allCourses, getAllCourses, loading } = useCoursesStore();
+  const { allCourses, loading } = useCoursesStore();
 
-  // Fetch all courses
   useEffect(() => {
-    getAllCourses();
-  }, [getAllCourses]);
+    fetchAllCourses();
+  }, []);
 
-  // Update navLinks when courses data changes
   useEffect(() => {
     const coursesDropdown = allCourses.map((course) => {
       const courseSlug = course.title
@@ -53,7 +52,6 @@ export const Layout = ({ children }: { children: ReactNode }) => {
     ]);
   }, [allCourses, loading]);
 
-  // Determine logoPath and text color based on current pathname
   const isDarkMode = pathname === "/about" || pathname === "/explore";
   const logoPath = isDarkMode
     ? "/images/logo-black.png"

@@ -15,8 +15,8 @@ importers:
         specifier: ^1.0.4
         version: 1.0.4(react@18.3.1)
       '@strategic-dot/components':
-        specifier: ^0.0.80-beta
-        version: 0.0.80-beta(@babel/core@7.25.8)(@emotion/is-prop-valid@0.8.8)(@types/react-dom@18.3.0)(@types/react@18.3.11)(autoprefixer@10.4.14(postcss@8.4.40))(embla-carousel@8.3.0)(next@14.2.15(@babel/core@7.25.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(postcss@8.4.40)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.13)(typescript@5.6.3)
+        specifier: ^0.0.82-beta
+        version: 0.0.82-beta(@babel/core@7.25.8)(@emotion/is-prop-valid@0.8.8)(@types/react-dom@18.3.0)(@types/react@18.3.11)(autoprefixer@10.4.14(postcss@8.4.40))(embla-carousel@8.3.0)(next@14.2.15(@babel/core@7.25.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(postcss@8.4.40)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.13)(typescript@5.6.3)
       '@t3-oss/env-nextjs':
         specifier: ^0.11.1
         version: 0.11.1(typescript@5.6.3)(zod@3.23.8)
@@ -77,6 +77,9 @@ importers:
       tailwindcss-animate:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.13)
+      tsa-web:
+        specifier: 'file:'
+        version: file:(@babel/core@7.25.8)(@emotion/is-prop-valid@0.8.8)(@types/react-dom@18.3.0)(@types/react@18.3.11)(autoprefixer@10.4.14(postcss@8.4.40))(embla-carousel@8.3.0)(postcss@8.4.40)(tailwindcss@3.4.13)(typescript@5.6.3)
       zod:
         specifier: ^3.23.8
         version: 3.23.8
@@ -1532,8 +1535,8 @@ packages:
   '@sinclair/typebox@0.27.8':
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
 
-  '@strategic-dot/components@0.0.80-beta':
-    resolution: {integrity: sha512-HxilrhkvgrK6Awkl9XjFGuQhG4v3hIDqRGncw+/SODi0/zu31pAjoxA3Zopm4hMw+k3lhF3sBGpvctjmGTXOlQ==}
+  '@strategic-dot/components@0.0.82-beta':
+    resolution: {integrity: sha512-0yCOsHNjd183BYXmKxicjiRYZKS621wYc4z4Uz2QxmTZT6tvmS9CFh3NDi533IAS+6RuIrVf1qzTareuxZaA7g==}
     engines: {node: '18'}
     peerDependencies:
       next: ^14.2.6
@@ -6247,7 +6250,7 @@ snapshots:
 
   '@sinclair/typebox@0.27.8': {}
 
-  '@strategic-dot/components@0.0.80-beta(@babel/core@7.25.8)(@emotion/is-prop-valid@0.8.8)(@types/react-dom@18.3.0)(@types/react@18.3.11)(autoprefixer@10.4.14(postcss@8.4.40))(embla-carousel@8.3.0)(next@14.2.15(@babel/core@7.25.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(postcss@8.4.40)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.13)(typescript@5.6.3)':
+  '@strategic-dot/components@0.0.82-beta(@babel/core@7.25.8)(@emotion/is-prop-valid@0.8.8)(@types/react-dom@18.3.0)(@types/react@18.3.11)(autoprefixer@10.4.14(postcss@8.4.40))(embla-carousel@8.3.0)(next@14.2.15(@babel/core@7.25.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(postcss@8.4.40)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.13)(typescript@5.6.3)':
     dependencies:
       '@hookform/resolvers': 3.9.0(react-hook-form@7.53.0(react@18.3.1))
       '@mertasan/tailwindcss-variables': 2.7.0(autoprefixer@10.4.14(postcss@8.4.40))(postcss@8.4.40)
@@ -9759,7 +9762,7 @@ snapshots:
     dependencies:
       '@hookform/resolvers': 3.9.0(react-hook-form@7.53.0(react@18.3.1))
       '@keyvaluesystems/react-stepper': 1.0.4(react@18.3.1)
-      '@strategic-dot/components': 0.0.80-beta(@babel/core@7.25.8)(@emotion/is-prop-valid@0.8.8)(@types/react-dom@18.3.0)(@types/react@18.3.11)(autoprefixer@10.4.14(postcss@8.4.40))(embla-carousel@8.3.0)(next@14.2.15(@babel/core@7.25.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(postcss@8.4.40)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.13)(typescript@5.6.3)
+      '@strategic-dot/components': 0.0.82-beta(@babel/core@7.25.8)(@emotion/is-prop-valid@0.8.8)(@types/react-dom@18.3.0)(@types/react@18.3.11)(autoprefixer@10.4.14(postcss@8.4.40))(embla-carousel@8.3.0)(next@14.2.15(@babel/core@7.25.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(postcss@8.4.40)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.13)(typescript@5.6.3)
       '@t3-oss/env-nextjs': 0.11.1(typescript@5.6.3)(zod@3.23.8)
       '@types/jest-axe': 3.5.9
       class-variance-authority: 0.7.0

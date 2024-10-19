@@ -164,10 +164,6 @@
     color: hsl(var(--primary));
   }
 
-  button {
-    height: 48px;
-  }
-
   p {
     font-size: 0.875rem; /* 16px */
     line-height: 1.5; /* Default line-height */

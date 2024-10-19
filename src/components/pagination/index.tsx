@@ -9,7 +9,7 @@ import {
 } from "@strategic-dot/components";
 import clsx from "clsx";
 
-import useFAQStore from "~/app/(landing-routes)/faq/services";
+import useFAQStore from "~/app/(landing-routes)/faq/action";
 
 export const PaginationComp = () => {
   const { currentPage, totalPages, getFAQ } = useFAQStore();
