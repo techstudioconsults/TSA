@@ -10,7 +10,7 @@ import Link from "next/link";
 import React, { useEffect } from "react";
 
 import { AccordionSkeleton } from "~/app/(landing-routes)/faq/_components/skeleton/accordion.skeleton";
-import useFAQStore from "~/app/(landing-routes)/faq/services";
+import useFAQStore from "~/app/(landing-routes)/faq/action";
 import { Wrapper } from "~/components/layout/wrapper";
 import { PaginationComp } from "../pagination";
 

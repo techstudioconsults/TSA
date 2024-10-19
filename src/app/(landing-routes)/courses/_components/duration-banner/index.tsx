@@ -4,19 +4,20 @@ import { TsaButton } from "@strategic-dot/components";
 import { Calendar, Loader } from "lucide-react";
 import { FC, useEffect } from "react";
 
+import { fetchAllCourses } from "~/action/courses.action";
 import { formatDateTime } from "~/lib/utils";
-import useCoursesStore from "~/services/courses.service";
+import useCoursesStore from "~/stores/course.store";
 
 interface DurationBannerProperties {
   slug: string;
 }
 
 export const DurationBanner: FC<DurationBannerProperties> = ({ slug }) => {
-  const { loading, error, allCourses, getAllCourses } = useCoursesStore();
+  const { loading, error, allCourses } = useCoursesStore();
 
   useEffect(() => {
-    getAllCourses();
-  }, [getAllCourses]);
+    fetchAllCourses();
+  }, []);
 
   // Find the course using the slug
   const course = allCourses.find(

@@ -1,9 +1,9 @@
-import { useContactFormStore, useSubmitContactForm } from ".";
+import { submitContactForm } from ".";
 import { act } from "react";
-import { beforeEach, describe, expect, it, vi } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 
 import { ContactFormData } from "~/schemas";
-import { mockResponse, renderHook } from "~/test/utils";
+import { mockResponse } from "~/test/utils";
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 const API_URL = `${BASE_URL}/mailing/contactus`;
@@ -12,17 +12,13 @@ globalThis.fetch = vi.fn();
 
 describe("Contact Form test", () => {
   beforeEach(() => {
-    // Reset store state before each test
-    useContactFormStore.setState({
-      isSubmitting: false,
-      responseMessage: null,
-    });
-    vi.resetAllMocks();
+    vi.clearAllMocks(); // Clear mock calls between tests
   });
 
   it("should submit contact form successfully", async () => {
     const mockResponseData = { message: "Message sent successfully!" };
 
+    // Mock successful API response
     (fetch as any).mockResolvedValueOnce(mockResponse(200, mockResponseData));
 
     const formData: ContactFormData = {
@@ -31,17 +27,14 @@ describe("Contact Form test", () => {
       message: "Hello, this is a test message.",
     };
 
-    const { result } = renderHook(() => useSubmitContactForm());
-
+    // Directly call the function
+    let response;
     await act(async () => {
-      const response = await result.current(formData);
-      expect(response).toEqual(mockResponseData);
+      response = await submitContactForm(formData);
     });
 
-    const store = useContactFormStore.getState();
+    expect(response).toEqual({ success: "Message sent successfully!" });
 
-    expect(store.isSubmitting).toBe(false);
-    expect(store.responseMessage).toBe("Message sent successfully!");
     expect(fetch).toHaveBeenCalledWith(
       API_URL,
       expect.objectContaining({
@@ -53,6 +46,7 @@ describe("Contact Form test", () => {
   });
 
   it("should handle contact form submission error correctly", async () => {
+    // Mock failed API response
     (fetch as any).mockResolvedValueOnce(
       mockResponse(500, { message: "Error sending message." }),
     );
@@ -63,18 +57,21 @@ describe("Contact Form test", () => {
       message: "This is another test message.",
     };
 
-    const { result } = renderHook(() => useSubmitContactForm());
-
+    let response;
     await act(async () => {
-      const error = await result.current(formData);
-      expect(error).toBeInstanceOf(Error);
+      response = await submitContactForm(formData);
     });
 
-    const store = useContactFormStore.getState();
+    // Expect the error to be returned
+    expect(response).toEqual({ error: "Error sending message." });
 
-    expect(store.isSubmitting).toBe(false);
-    expect(store.responseMessage).toBe(
-      "Failed to send your message. Please try again later.",
+    expect(fetch).toHaveBeenCalledWith(
+      API_URL,
+      expect.objectContaining({
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      }),
     );
   });
 });

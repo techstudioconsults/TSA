@@ -4,23 +4,18 @@ import { TsaButton } from "@strategic-dot/components";
 import { Loader } from "lucide-react";
 import { useEffect } from "react";
 
+import { fetchAllCourses } from "~/action/courses.action";
 import { Wrapper } from "~/components/layout/wrapper";
 import { cn } from "~/lib/utils";
-import useCoursesStore from "~/services/courses.service";
+import useCoursesStore from "~/stores/course.store";
 
 export const Hero = () => {
-  const {
-    loading,
-    error,
-    allCourses,
-    setActiveCourse,
-    activeCourse,
-    getAllCourses,
-  } = useCoursesStore();
+  const { loading, error, allCourses, setActiveCourse, activeCourse } =
+    useCoursesStore();
 
   useEffect(() => {
-    getAllCourses();
-  }, [getAllCourses]);
+    fetchAllCourses();
+  }, []);
 
   useEffect(() => {
     if (allCourses.length > 0) {

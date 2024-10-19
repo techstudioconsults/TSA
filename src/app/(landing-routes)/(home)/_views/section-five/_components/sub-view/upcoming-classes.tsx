@@ -4,17 +4,18 @@ import { TsaButton } from "@strategic-dot/components";
 import { CalendarDays, Hourglass, MapPin } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 
+import { fetchAllCourses } from "~/action/courses.action";
 import { formatDateTime } from "~/lib/utils";
-import useCoursesStore from "~/services/courses.service";
+import useCoursesStore from "~/stores/course.store";
 import { UpcomingClassesSkeleton } from "../skeleton/upcoming.skeleton";
 
 export const UpcomingClasses = () => {
-  const { loading, error, getAllCourses, allCourses } = useCoursesStore();
+  const { loading, error, allCourses } = useCoursesStore();
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    getAllCourses();
-  }, [getAllCourses]);
+    fetchAllCourses();
+  }, []);
 
   const course = useMemo(() => allCourses?.[index], [allCourses, index]);
 

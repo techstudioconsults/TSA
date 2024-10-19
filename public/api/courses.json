@@ -239,22 +239,18 @@
           "id": 2,
           "classname": "B",
           "caption": "UNIT 2",
-          "title": "JavaScript Basic",
+          "title": "Java Script Basic",
           "desc": "Throughout the course of this unit, students will embark on a journey into the fundamentals of JavaScript, unlocking the potential to create engaging and interactive web experiences. By delving into the core concepts and syntax of JavaScript, students will gain a comprehensive understanding of how to leverage this powerful programming language to build dynamic and responsive web pages. They will explore topics such as variables, data types, conditional statements, loops, functions, arrays, objects, and DOM manipulation.",
-          "bgColor": "bg-white",
-          "img": "/gifs/fullstack/writing-code.gif",
+          "bgColor": "bg-accent",
+          "img": "/gifs/fullstack/javascript-programming-language.gif",
           "tags": [
             {
               "img": "/icons/vscode.png",
               "text": "Visual Studio Code"
             },
             {
-              "img": "/icons/html.png",
-              "text": "HTML"
-            },
-            {
-              "img": "/icons/css.png",
-              "text": "CSS"
+              "img": "/icons/js.png",
+              "text": "Javascript"
             }
           ]
         },
@@ -265,19 +261,15 @@
           "title": "Object-Oriented JavaScript",
           "desc": "Object-oriented JavaScript is a programming paradigm that focuses on organizing code into objects, which encapsulate data and methods. It provides a way to create reusable and modular code, making it easier to manage and maintain complex applications. In object-oriented JavaScript, students will learn how to create objects, define their properties and methods, and establish relationships between objects through inheritance. They will explore concepts such as encapsulation, where data and methods are bundled together within objects to control access and ensure data integrity.",
           "bgColor": "bg-white",
-          "img": "/gifs/fullstack/writing-code.gif",
+          "img": "/gifs/fullstack/js-javascript.gif",
           "tags": [
             {
               "img": "/icons/vscode.png",
               "text": "Visual Studio Code"
             },
             {
-              "img": "/icons/html.png",
-              "text": "HTML"
-            },
-            {
-              "img": "/icons/css.png",
-              "text": "CSS"
+              "img": "/icons/js.png",
+              "text": "Javascript"
             }
           ]
         },
@@ -286,21 +278,21 @@
           "classname": "D",
           "caption": "UNIT 4",
           "title": "The DOM",
-          "desc": "The Document Object Model (DOM) is an API (Application Programming Interface) that allows you to interact with HTML and XML documents programmatically. It is primarily associated with JavaScript, as JavaScript is the most commonly used programming language for web development and has built-in support for the DOM.",
-          "bgColor": "bg-white",
-          "img": "/gifs/fullstack/writing-code.gif",
+          "desc": "Unit 4 dives into the exploration of the Document Object Model (DOM), an essential API for interacting programmatically with HTML and XML documents. The unit focuses on the DOM's association with JavaScript, the widely used programming language for web development, known for its built-in support for the DOM. Students learn how to leverage the DOM to manipulate and interact with web content dynamically.",
+          "bgColor": "bg-primary",
+          "img": "/gifs/fullstack/js-file-document.gif",
           "tags": [
             {
               "img": "/icons/vscode.png",
               "text": "Visual Studio Code"
             },
             {
-              "img": "/icons/html.png",
-              "text": "HTML"
+              "img": "/icons/js.png",
+              "text": "Javascript"
             },
             {
-              "img": "/icons/css.png",
-              "text": "CSS"
+              "img": "/icons/html.png",
+              "text": "HTML"
             }
           ]
         },
@@ -309,21 +301,18 @@
           "classname": "E",
           "caption": "UNIT 5",
           "title": "The REACT Library",
-          "desc": "React has gained immense popularity as a JavaScript library for creating robust and interactive user interfaces. Its core philosophy revolves around a component-based architecture, empowering developers to build reusable UI components that encapsulate specific functionality. By breaking down the user interface into modular components, React enables code reusability, enhances maintainability, and facilitates collaborative development.",
+          "desc": "Unit 5 focuses on the popular JavaScript library, React, known for its ability to create powerful and interactive user interfaces. React has gained immense popularity due to its component-based architecture, which allows developers to build reusable UI components that encapsulate specific functionalities. By breaking down the user interface into modular components, React promotes code reusability, improves maintainability, and facilitates collaborative development.",
           "bgColor": "bg-white",
-          "img": "/gifs/fullstack/writing-code.gif",
+          "className": "react-img",
+          "img": "/gifs/fullstack/react-js.gif",
           "tags": [
             {
               "img": "/icons/vscode.png",
               "text": "Visual Studio Code"
             },
             {
-              "img": "/icons/html.png",
-              "text": "HTML"
-            },
-            {
-              "img": "/icons/css.png",
-              "text": "CSS"
+              "img": "/icons/react-icon.png",
+              "text": "React"
             }
           ]
         },
@@ -333,7 +322,7 @@
           "caption": "UNIT 6",
           "title": "Next JS",
           "desc": "Next.js is built on React. It elevates web development with efficient rendering and routing, offering server-side rendering and automatic code splitting for optimal performance. By extending React's component-based approach to pages, it simplifies dynamic routing. With server-side rendering, pages are pre-rendered on the server, boosting speed and SEO. Empowering developers with data fetching and routing control, Next.js enables seamless creation of high-performance web applications.",
-          "bgColor": "bg-white",
+          "bgColor": "bg-accent",
           "img": "/gifs/fullstack/writing-code.gif",
           "tags": [
             {
@@ -341,35 +330,31 @@
               "text": "Visual Studio Code"
             },
             {
-              "img": "/icons/html.png",
-              "text": "HTML"
-            },
-            {
-              "img": "/icons/css.png",
-              "text": "CSS"
+              "img": "/icons/nextjs.png",
+              "text": "Next.js"
             }
           ]
         },
         {
           "id": 7,
-          "classname": "G",
+          "classname": "F",
           "caption": "UNIT 7",
-          "title": "Version Control and Deployment",
-          "desc": "Version control systems like Git play a crucial role in managing code changes over time. They provide a structured way to track modifications, maintain a history of changes, and enable multiple developers to work on the same codebase simultaneously. With version control, developers can create branches to work on different features or bug fixes independently.",
-          "bgColor": "bg-white",
-          "img": "/gifs/fullstack/writing-code.gif",
+          "title": "Version Control",
+          "desc": "This Unit of the curriculum explores the importance of version control systems, with a particular focus on Git. Version control systems like Git play a crucial role in managing code changes over time. They provide a structured framework for tracking modifications, maintaining a comprehensive history of changes, and facilitating collaborative development by enabling multiple developers to work on the same codebase simultaneously.",
+          "bgColor": "bg-accent",
+          "img": "/gifs/fullstack/git.gif",
           "tags": [
             {
               "img": "/icons/vscode.png",
               "text": "Visual Studio Code"
             },
             {
-              "img": "/icons/html.png",
-              "text": "HTML"
+              "img": "/icons/git.png",
+              "text": "Git"
             },
             {
-              "img": "/icons/css.png",
-              "text": "CSS"
+              "img": "/icons/github.png",
+              "text": "GitHub"
             }
           ]
         },
@@ -383,16 +368,12 @@
           "img": "/gifs/fullstack/writing-code.gif",
           "tags": [
             {
-              "img": "/icons/vscode.png",
-              "text": "Visual Studio Code"
+              "img": "/icons/github.png",
+              "text": "GitHub"
             },
             {
-              "img": "/icons/html.png",
-              "text": "HTML"
-            },
-            {
-              "img": "/icons/css.png",
-              "text": "CSS"
+              "img": "/icons/vercel.png",
+              "text": "Vercel"
             }
           ]
         }

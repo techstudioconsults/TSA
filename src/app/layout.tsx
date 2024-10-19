@@ -5,6 +5,7 @@ import React from "react";
 import "./setup.ts";
 
 import { WhatsAppIcon } from "~/components/miscellaneous/whatsapp";
+import { Toast } from "~/components/Toast";
 import { cn } from "~/lib/utils";
 
 const openSans = Open_Sans({ subsets: ["latin"] });
@@ -22,6 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn(openSans.className)}>
+        <Toast />
         <WhatsAppIcon />
         {children}
       </body>
