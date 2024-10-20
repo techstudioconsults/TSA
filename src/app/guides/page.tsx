@@ -4,53 +4,94 @@ import { TsaButton } from "@strategic-dot/components";
 import { Orbit, Plus } from "lucide-react";
 import { FC } from "react";
 
-// import Footer from "~/components/layout/footer/footer";
-// import Navbar from "~/components/layout/navbar/navbar";
-
 const StyleGuide: FC = () => {
   return (
     <main className="flex min-h-screen flex-col items-start gap-7 overflow-hidden p-6 sm:p-12 md:p-24">
       <h2 className="text-2xl font-semibold">Color Guides</h2>
-      <div
-        className="grid w-full items-start gap-4"
-        style={{ gridTemplateColumns: "repeat(auto-fit,minmax(300px,1fr))" }}
-      >
-        <div className="bg-default text-default-foreground flex w-full items-center justify-center whitespace-nowrap rounded-lg px-4 py-4">
-          bg-default, text-default-foreground
-        </div>
+      <div className="grid w-full grid-cols-3 items-start gap-4">
         <div className="flex w-full items-center justify-center whitespace-nowrap rounded-lg border border-border bg-background px-4 py-4 text-foreground">
-          bg-background, text-foreground
+          bg-background, text-foreground (default)
         </div>
         <div className="flex w-full items-center justify-center whitespace-nowrap rounded-lg bg-primary px-4 py-4 text-primary-foreground">
           bg-primary, text-primary-foreground
         </div>
-        <div className="bg-subtle text-subtle-foreground flex w-full items-center justify-center whitespace-nowrap rounded-lg px-4 py-4">
-          bg-subtle, text-subtle-foreground
+        <div className="flex w-full items-center justify-center whitespace-nowrap rounded-lg bg-secondary px-4 py-4 text-secondary-foreground">
+          bg-secondary, text-secondary-foreground
         </div>
-        <div className="bg-neutral-dark-1 flex w-full items-center justify-center whitespace-nowrap rounded-lg px-4 py-4 text-background">
-          bg-neutral-dark-1, text-background
+        <div className="flex w-full items-center justify-center whitespace-nowrap rounded-lg bg-muted px-4 py-4 text-muted-foreground">
+          bg-muted, text-muted-foreground
         </div>
-        <div className="bg-neutral-dark-2 flex w-full items-center justify-center whitespace-nowrap rounded-lg px-4 py-4 text-background">
-          bg-neutral-dark-2, text-background
-        </div>
-
-        <div className="bg-error flex w-full items-center justify-center whitespace-nowrap rounded-lg px-4 py-4 text-background">
-          bg-error, text-background
+        <div className="flex w-full items-center justify-center whitespace-nowrap rounded-lg bg-accent px-4 py-4 text-accent-foreground">
+          bg-accent, text-accent-foreground
         </div>
         <div className="flex w-full items-center justify-center whitespace-nowrap rounded-lg bg-destructive px-4 py-4 text-background">
           bg-destructive, text-background
         </div>
-        <div className="bg-warning flex w-full items-center justify-center whitespace-nowrap rounded-lg px-4 py-4 text-background">
-          bg-warning, text-background
+      </div>
+      <h2 className="text-2xl font-semibold">TSA Design system</h2>
+      <div className="grid w-full grid-cols-3 items-start gap-4">
+        <div className="flex w-full items-center justify-center whitespace-nowrap rounded-lg bg-high-blue px-4 py-4 text-white">
+          bg-high-blue
         </div>
-        <div className="bg-success flex w-full items-center justify-center whitespace-nowrap rounded-lg px-4 py-4 text-background">
-          bg-success, text-background
+        <div className="flex w-full items-center justify-center whitespace-nowrap rounded-lg bg-mid-blue px-4 py-4 text-white">
+          bg-mid-blue
         </div>
-        <div className="flex w-full items-center justify-center whitespace-nowrap rounded-lg border border-border px-4 py-4 text-foreground">
-          border-border, text-foreground
+        <div className="flex w-full items-center justify-center whitespace-nowrap rounded-lg bg-low-blue px-4 py-4 text-black">
+          bg-low-blue
         </div>
-        <div className="flex w-full items-center justify-center whitespace-nowrap rounded-lg bg-accent px-4 py-4 text-background">
-          accent, accent-foreground
+        <div className="flex w-full items-center justify-center whitespace-nowrap rounded-lg bg-high-danger px-4 py-4 text-white">
+          bg-high-danger
+        </div>
+        <div className="flex w-full items-center justify-center whitespace-nowrap rounded-lg bg-mid-danger px-4 py-4 text-white">
+          bg-mid-danger
+        </div>
+        <div className="flex w-full items-center justify-center whitespace-nowrap rounded-lg bg-low-danger px-4 py-4 text-black">
+          bg-low-danger
+        </div>
+        <div className="flex w-full items-center justify-center whitespace-nowrap rounded-lg bg-high-warning px-4 py-4 text-white">
+          bg-high-warning
+        </div>
+        <div className="flex w-full items-center justify-center whitespace-nowrap rounded-lg bg-mid-warning px-4 py-4 text-white">
+          bg-mid-warning
+        </div>
+        <div className="flex w-full items-center justify-center whitespace-nowrap rounded-lg bg-low-warning px-4 py-4 text-black">
+          bg-low-warning
+        </div>
+        <div className="flex w-full items-center justify-center whitespace-nowrap rounded-lg bg-high-success px-4 py-4 text-white">
+          bg-high-success
+        </div>
+        <div className="flex w-full items-center justify-center whitespace-nowrap rounded-lg bg-mid-success px-4 py-4 text-white">
+          bg-mid-success
+        </div>
+        <div className="flex w-full items-center justify-center whitespace-nowrap rounded-lg bg-low-success px-4 py-4 text-black">
+          bg-low-success
+        </div>
+        <div className="flex w-full items-center justify-center whitespace-nowrap rounded-lg bg-high-grey-III px-4 py-4 text-white">
+          bg-high-grey-III
+        </div>
+        <div className="flex w-full items-center justify-center whitespace-nowrap rounded-lg bg-mid-grey-III px-4 py-4 text-white">
+          bg-mid-grey-III
+        </div>
+        <div className="flex w-full items-center justify-center whitespace-nowrap rounded-lg bg-low-grey-III px-4 py-4 text-white">
+          bg-low-grey-III
+        </div>
+        <div className="flex w-full items-center justify-center whitespace-nowrap rounded-lg bg-high-grey-II px-4 py-4 text-white">
+          bg-high-grey-II
+        </div>
+        <div className="flex w-full items-center justify-center whitespace-nowrap rounded-lg bg-mid-grey-II px-4 py-4 text-white">
+          bg-mid-grey-II
+        </div>
+        <div className="flex w-full items-center justify-center whitespace-nowrap rounded-lg bg-low-grey-II px-4 py-4 text-white">
+          bg-low-grey-II
+        </div>
+        <div className="flex w-full items-center justify-center whitespace-nowrap rounded-lg bg-high-grey-I px-4 py-4 text-black">
+          bg-high-grey-I
+        </div>
+        <div className="flex w-full items-center justify-center whitespace-nowrap rounded-lg bg-mid-grey-I px-4 py-4 text-black">
+          bg-mid-grey-I
+        </div>
+        <div className="flex w-full items-center justify-center whitespace-nowrap rounded-lg bg-low-grey-I px-4 py-4 text-black">
+          bg-low-grey-I
         </div>
       </div>
       <h2 className="text-2xl font-semibold">Button Variants</h2>

@@ -9,18 +9,16 @@ import {
   FormMessage,
   Input,
   TsaButton,
+  useToast,
 } from "@strategic-dot/components";
 import { Loader } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { FC, HtmlHTMLAttributes } from "react";
+import { FC, HtmlHTMLAttributes, useState } from "react";
 import { useForm } from "react-hook-form";
 
+import { submitNewsletterForm } from "~/action/email.action";
 import { cn } from "~/lib/utils";
 import { newsletterFormData, newsletterFormSchema } from "~/schemas";
-import {
-  useNewsletterFormStore,
-  useSubmitNewsletterForm,
-} from "~/services/email.service";
 
 interface EmailFormProperties extends HtmlHTMLAttributes<HTMLFormElement> {
   buttonTitle: string;
@@ -31,7 +29,10 @@ export const EmailForm: FC<EmailFormProperties> = ({
   className,
   ...rest
 }) => {
+  const { toast } = useToast();
   const router = useRouter();
+  const [isSubmitting, setIsSubmitting] = useState<boolean>();
+
   const formMethods = useForm<newsletterFormData>({
     resolver: zodResolver(newsletterFormSchema),
     defaultValues: {
@@ -43,14 +44,31 @@ export const EmailForm: FC<EmailFormProperties> = ({
     handleSubmit,
     formState: { errors },
     control,
+    reset,
   } = formMethods;
 
-  const { isSubmitting, responseMessage } = useNewsletterFormStore();
-  const onSubmit = useSubmitNewsletterForm();
+  const onSubmit = async (data: newsletterFormData) => {
+    setIsSubmitting(true);
 
-  if (responseMessage) {
-    router.push(`/explore`);
-  }
+    const response = await submitNewsletterForm(data);
+
+    if (response.error) {
+      toast({
+        variant: "destructive",
+        title: "Something went wrong!",
+        description: response.error,
+      });
+    } else {
+      toast({
+        title: "Successfully submitted!",
+        description: response.success,
+      });
+      reset();
+      router.push(`/explore`);
+    }
+
+    setIsSubmitting(false);
+  };
 
   return (
     <Form {...formMethods}>
@@ -75,12 +93,7 @@ export const EmailForm: FC<EmailFormProperties> = ({
               </FormControl>
               {errors.email && (
                 <FormMessage className="text-xs italic text-low-danger">
-                  {errors.email?.message}
-                </FormMessage>
-              )}
-              {responseMessage && (
-                <FormMessage className="text-xs italic text-low-success">
-                  {responseMessage}
+                  {errors.email.message} {/* Client-side validation error */}
                 </FormMessage>
               )}
             </FormItem>
@@ -89,6 +102,7 @@ export const EmailForm: FC<EmailFormProperties> = ({
         <TsaButton
           type="submit"
           variant="primary"
+          isDisabled={isSubmitting}
           className="tsaButton h-[100%] w-[138px] rounded-none rounded-e-[5px] bg-mid-blue"
         >
           {isSubmitting ? (

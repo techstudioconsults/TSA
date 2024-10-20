@@ -6,7 +6,7 @@ import { Calendar, Clock10 } from "lucide-react";
 import { Wrapper } from "~/components/layout/wrapper";
 import { BlurImage } from "~/components/miscellaneous/blur-image";
 import { formatDateTime, formatPrice } from "~/lib/utils";
-import useCoursesStore from "~/services/courses.service";
+import useCoursesStore from "~/stores/course.store";
 import { CourseSkeletonLoader } from "../../_components/course-detail.skeleton";
 
 export const CourseDetails = () => {

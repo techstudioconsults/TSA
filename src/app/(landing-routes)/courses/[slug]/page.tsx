@@ -1,11 +1,11 @@
 import { notFound } from "next/navigation";
 
+import { getCourseData } from "~/action/courses.action";
 import { DurationBanner } from "../_components/duration-banner";
 import { Hero } from "../_views/hero";
 import { SectionOne } from "../_views/section-one";
 import { SectionThree } from "../_views/section-three";
 import { SectionTwo } from "../_views/section-two";
-import { getCourseData } from "../../../../services/register.service";
 
 const Courses = async ({ params }: { params: { slug: string } }) => {
   const { slug } = params;

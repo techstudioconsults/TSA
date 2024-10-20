@@ -9,28 +9,27 @@ import {
   FormMessage,
   Input,
   TsaButton,
+  useToast,
 } from "@strategic-dot/components";
 import { Loader } from "lucide-react";
 import { FC, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
+import { fetchAllCourses } from "~/action/courses.action";
+import { submitRegisterForm } from "~/action/register.action";
 import ResponseModal from "~/components/modals/response-modal";
 import { RegisterFormData, registerFormSchema } from "~/schemas";
-import useCoursesStore from "~/services/courses.service";
-import {
-  useRegisterStore,
-  useSubmitRegisterForm,
-} from "../../../../../services/register.service";
 
-interface registerProperties {
+interface RegisterProperties {
   slug: string;
 }
 
-export const RegisterForm: FC<registerProperties> = ({ slug }) => {
+export const RegisterForm: FC<RegisterProperties> = ({ slug }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { getAllCourses } = useCoursesStore();
-  const { isSubmitting, responseMessage } = useRegisterStore();
-  const onSubmit = useSubmitRegisterForm("courseId");
+  const [responseMessage, setResponseMessage] = useState<string | undefined>();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
+
   const formMethods = useForm<RegisterFormData>({
     resolver: zodResolver(registerFormSchema),
     defaultValues: {
@@ -44,8 +43,8 @@ export const RegisterForm: FC<registerProperties> = ({ slug }) => {
   });
 
   useEffect(() => {
-    getAllCourses();
-  }, [getAllCourses]);
+    fetchAllCourses();
+  }, []);
 
   const {
     handleSubmit,
@@ -54,15 +53,28 @@ export const RegisterForm: FC<registerProperties> = ({ slug }) => {
     reset,
   } = formMethods;
 
-  useEffect(() => {
-    if (responseMessage && !responseMessage.includes("Failed")) {
+  const onSubmit = async (data: RegisterFormData) => {
+    setIsSubmitting(true);
+    const result = await submitRegisterForm(data, slug);
+
+    if (result.success) {
+      setResponseMessage(result.success);
       setIsModalOpen(true);
       reset();
+    } else {
+      toast({
+        variant: "destructive",
+        title: "Something went wrong!",
+        description: result.error || "Failed to register for the course.",
+      });
     }
-  }, [responseMessage, reset]);
+
+    setIsSubmitting(false);
+  };
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
+    setResponseMessage(undefined);
   };
 
   return (
@@ -193,7 +205,7 @@ export const RegisterForm: FC<registerProperties> = ({ slug }) => {
         isOpen={isModalOpen}
         onClose={handleCloseModal}
         responseMessage={responseMessage || ""}
-        isError={!responseMessage || responseMessage.includes("Failed")}
+        isError={false}
       />
     </>
   );
