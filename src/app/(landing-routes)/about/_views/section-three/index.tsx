@@ -29,7 +29,7 @@ export const SectionThree = () => {
             linkedIn=""
           />
           <TeamCard
-            image=""
+            image="/team/aisha.png"
             name={"Akinwumi Aishat"}
             role={"Product Lead"}
             linkedIn=""
