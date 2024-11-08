@@ -25,21 +25,21 @@ export const SectionThree = () => {
           <TeamCard
             image="/team/tosin.png"
             name="Tosin Sanya"
-            role="Chief Operations Officer"
+            role="Head of Admin"
             linkedIn=""
           />
           <TeamCard
             image="/team/aisha.png"
             name={"Akinwumi Aishat"}
-            role={"Product Lead"}
+            role="Head of Products"
             linkedIn=""
           />
-          <TeamCard
-            image=""
-            name="Arikawe Omolayo"
-            role="Marketing Lead"
-            linkedIn=""
-          />
+          {/*<TeamCard*/}
+          {/*    image=""*/}
+          {/*    name=""*/}
+          {/*    role="Marketing Lead"*/}
+          {/*    linkedIn=""*/}
+          {/*/>*/}
           <TeamCard
             image="/team/busola.png"
             name="Adebusola Adebowale"
