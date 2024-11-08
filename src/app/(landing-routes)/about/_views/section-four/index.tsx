@@ -29,7 +29,7 @@ export const SectionFour = () => {
         <BlurImage
           _width={1440}
           _height={706}
-          src="/team/employees.png"
+          src="/team/employees.svg"
           alt="employees"
           className="object-contain object-top lg:object-cover"
         />
@@ -65,11 +65,9 @@ export const SectionFour = () => {
           </div>
         ))}
       </section>
-
       <Wrapper className="mb-[116px] mt-[160px] min-h-[335px]">
         <HelpBanner />
       </Wrapper>
-
       {/* Dialog for showing the hovered image */}
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
         <DialogContent className="max-w-3xl bg-transparent">

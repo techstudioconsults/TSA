@@ -8,6 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "lint:fix": "eslint \"src/**/*.{ts,tsx,js,jsx}\" --fix",
     "c:test": "cypress open",
     "v:test": "vitest",
     "v:test:ui": "vitest --ui",
