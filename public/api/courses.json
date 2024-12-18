@@ -500,9 +500,9 @@
     }
   },
   {
-    "data-science": {
+    "data-analysis-with-machine-learning": {
       "intro": {
-        "title": "Data Science Immersive With Python",
+        "title": "Data Analysis With Machine Learning",
         "subTitle": "Get your hands dirty working with Excel and complex data. Dive into the Python programming language, understand data analysis and statistical modeling using Python, after which you move into machine learning and algorithms.",
         "img": "https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/GIFS/Network%20Security.gif"
       },
