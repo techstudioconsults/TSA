@@ -69,16 +69,6 @@ export const DurationBanner: FC<DurationBannerProperties> = ({ slug }) => {
             {formatDateTime(course?.classes?.weekday[0]?.startDate).date}
           </p>
         </div>
-
-        {/* <div className={`${`removeWeekend`}`}>
-          <h2 className="m-0 text-mid-blue">
-            {formatDateTime(course?.classes?.weekend[0]?.startDate).date}
-          </h2>
-          <p className="m-0 text-sm font-bold text-gray-700">
-            Weekend Class, Online Class:
-            {formatDateTime(course?.classes?.weekend[0]?.startDate).date}
-          </p>
-        </div> */}
         {!isFrontendPath && (
           <div className={`${`removeWeekend`}`}>
             <h2 className="m-0 text-mid-blue">
