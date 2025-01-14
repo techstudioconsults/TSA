@@ -2,6 +2,7 @@
 
 import { TsaButton } from "@strategic-dot/components";
 import { Calendar, Loader } from "lucide-react";
+import { usePathname } from "next/navigation";
 import { FC, useEffect } from "react";
 
 import { fetchAllCourses } from "~/action/courses.action";
@@ -14,6 +15,9 @@ interface DurationBannerProperties {
 
 export const DurationBanner: FC<DurationBannerProperties> = ({ slug }) => {
   const { loading, error, allCourses } = useCoursesStore();
+  const pathname = usePathname();
+
+  const isFrontendPath = pathname === "/courses/frontend-engineering";
 
   useEffect(() => {
     fetchAllCourses();
@@ -65,15 +69,18 @@ export const DurationBanner: FC<DurationBannerProperties> = ({ slug }) => {
             {formatDateTime(course?.classes?.weekday[0]?.startDate).date}
           </p>
         </div>
-        <div className={`${`removeWeekend`}`}>
-          <h2 className="m-0 text-mid-blue">
-            {formatDateTime(course?.classes?.weekend[0]?.startDate).date}
-          </h2>
-          <p className="m-0 text-sm font-bold text-gray-700">
-            Weekend Class, Online Class:
-            {formatDateTime(course?.classes?.weekend[0]?.startDate).date}
-          </p>
-        </div>
+        {!isFrontendPath && (
+          <div className={`${`removeWeekend`}`}>
+            <h2 className="m-0 text-mid-blue">
+              {formatDateTime(course?.classes?.weekend[0]?.startDate).date}
+            </h2>
+            <p className="m-0 text-sm font-bold text-gray-700">
+              Weekend Class, Online Class:
+              {formatDateTime(course?.classes?.weekend[0]?.startDate).date}
+            </p>
+          </div>
+        )}
+
         <div>
           <TsaButton
             variant="outline"
