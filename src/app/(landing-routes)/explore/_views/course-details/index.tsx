@@ -11,6 +11,7 @@ import { CourseSkeletonLoader } from "../../_components/course-detail.skeleton";
 
 export const CourseDetails = () => {
   const { loading, error, activeCourse } = useCoursesStore();
+  const isFrontend = activeCourse?.title === "FrontEnd Engineering";
 
   if (!activeCourse)
     return (
@@ -99,30 +100,32 @@ export const CourseDetails = () => {
                   </span>
                 </div>
               </article>
-              <article>
-                <p className="mb-1 text-[10px] text-mid-danger">Weekend</p>
-                <div className="flex flex-col justify-between lg:flex-row xl:items-center">
-                  <span className="flex items-center space-x-[5px] xl:space-x-[10px]">
-                    <Calendar className="inline w-[10px] text-mid-blue xl:w-[20px]" />
-                    <span className="text-[10px] xl:text-[14px]">
-                      {activeCourse.duration} Weeks
+              {!isFrontend && (
+                <article>
+                  <p className="mb-1 text-[10px] text-mid-danger">Weekend</p>
+                  <div className="flex flex-col justify-between lg:flex-row xl:items-center">
+                    <span className="flex items-center space-x-[5px] xl:space-x-[10px]">
+                      <Calendar className="inline w-[10px] text-mid-blue xl:w-[20px]" />
+                      <span className="text-[10px] xl:text-[14px]">
+                        {activeCourse.duration} Weeks
+                      </span>
                     </span>
-                  </span>
-                  <span className="flex items-center space-x-[5px] xl:space-x-[10px]">
-                    <Clock10 className="inline w-[10px] text-mid-blue xl:w-[20px]" />
-                    <span className="text-[10px] xl:text-[14px]">
-                      {
-                        formatDateTime(
-                          activeCourse.classes.weekend[0]?.startDate,
-                        ).date
-                      }
+                    <span className="flex items-center space-x-[5px] xl:space-x-[10px]">
+                      <Clock10 className="inline w-[10px] text-mid-blue xl:w-[20px]" />
+                      <span className="text-[10px] xl:text-[14px]">
+                        {
+                          formatDateTime(
+                            activeCourse.classes.weekend[0]?.startDate,
+                          ).date
+                        }
+                      </span>
                     </span>
-                  </span>
-                  <span className="text-[12px] xl:text-[16px]">
-                    {formatPrice(activeCourse.classes.weekend[0]?.fee)}
-                  </span>
-                </div>
-              </article>
+                    <span className="text-[12px] xl:text-[16px]">
+                      {formatPrice(activeCourse.classes.weekend[0]?.fee)}
+                    </span>
+                  </div>
+                </article>
+              )}
             </section>
             <section className="mt-[32px] text-end">
               <TsaButton
