@@ -17,9 +17,9 @@ export const SLIDE_CONTENT: courseContentProperties[] = [
     link: "/courses/data-science",
   },
   {
-    name: "Product Management",
+    name: "Digital Marketing",
     image: "/images/logo-black.png",
-    link: "/courses/product-management",
+    link: "/courses/digital-marketing-immersive",
   },
   {
     name: "Cyber Security",
