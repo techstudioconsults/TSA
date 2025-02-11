@@ -80,7 +80,7 @@ export const Hero = () => {
               />
               <Image
                 className="h-[32px] w-[32px] lg:h-[64px] lg:w-[64px] lg:translate-x-[-7rem]"
-                src="/icons/marketing.png"
+                src="/icons/clickup.png"
                 alt="icon"
                 width={64}
                 height={64}
