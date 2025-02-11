@@ -12,19 +12,19 @@ export const SLIDE_CONTENT: courseContentProperties[] = [
     link: "/courses/product-design-ui-ux",
   },
   {
-    name: "Data Science",
+    name: "Data Analysis and Machine Learning",
     image: "/images/datascience.png",
-    link: "/courses/data-science",
-  },
-  {
-    name: "Digital Marketing",
-    image: "/images/logo-black.png",
-    link: "/courses/digital-marketing-immersive",
+    link: "/courses/data-analysis-with-machine-learning",
   },
   {
     name: "Cyber Security",
-    image: "/images/logo-black.png",
+    image: "/images/cyber-security.png",
     link: "/courses/cyber-security",
+  },
+  {
+    name: "Product Managment",
+    image: "/images/product-management.png",
+    link: "/courses/product-management",
   },
 ];
 
