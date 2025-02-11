@@ -928,20 +928,20 @@
   {
     "product-management": {
       "intro": {
-        "title": "Introduction to Product Management",
-        "subTitle": "Master the art of building and launching successful products. Learn how to identify market opportunities, define user needs, and craft strategies to deliver exceptional value. Gain hands-on experience with essential tools and techniques like roadmap planning, stakeholder management, agile methodologies, and user-centric development.",
+        "title": "Product Management Immersive",
+        "subTitle": "Master the art of building and launching successful products. Learn how to identify market opportunities, define user needs, and craft strategies to deliver exceptional value. Gain hands-on experience with essential tools and techniques like roadmap planning, stakeholder management, agile methodologies, and user-centric development",
         "img": ""
       },
       "sectionOne": {
         "cards": [
           {
-            "text": "We teach the important skills required to jumpstart your career as a web developer. With 5 straight weeks of web training, you learn to think and build like frontend developers."
+            "text": "We teach the essential skills needed to kickstart your career as a product manager. In just 5 weeks of intensive training, you'll learn to think and work like a product manager, from ideation to product launch."
           },
           {
-            "text": "We believe in learning by doing. That's why our digital marketing course is designed to be highly interactive and hands-on. From day one, you'll be actively engaged in practical exercises, real-world simulations, and collaborative projects that mirror the challenges you'll face in the field."
+            "text": "You progress from mastering product management basics to launching successful products, learning to define strategies, create roadmaps, and manage development."
           },
           {
-            "text": "Our curriculum is carefully crafted to align with the latest industry trends, best practices, and emerging technologies in digital marketing. Whether you're interested in SEO, social media marketing, content creation, or email automation, you'll find relevant and up-to-date content that equips you with the skills and knowledge to excel in your career."
+            "text": "And finally, you’ll learn to work as a team, collaborating with peers to define, develop, and refine a product. Track your product development process using agile frameworks and project management tools."
           }
         ]
       },
@@ -951,7 +951,7 @@
           "classname": "A",
           "caption": "UNIT 1",
           "title": "Introduction to Product Management",
-          "desc": "Unit 1 provides students with a foundational understanding of product management. It introduces the core principles, methodologies, and responsibilities of a product manager, emphasizing the role of product management in building successful digital products. Students explore the product lifecycle, from ideation to delivery, and the importance of collaboration with cross-functional teams, including engineering, design, and marketing. Through lectures and discussions, they gain insights into the key traits of effective product managers and the strategic thinking required to align product goals with business objectives.",
+          "desc": "Provides students with a foundational understanding of product management. It introduces the core principles, methodologies, and responsibilities of a product manager, emphasizing the role of product management in building successful digital products. Students explore the product lifecycle, from ideation to delivery, and the importance of collaboration with cross-functional teams, including engineering, design, and marketing. Through lectures and discussions, they gain insights into the key traits of effective product managers and the strategic thinking required to align product goals with business objectives.",
           "bgColor": "bg-white",
           "img": "/gifs/product-management/unit-1.gif",
           "tags": [
@@ -970,7 +970,7 @@
           "classname": "B",
           "caption": "UNIT 2",
           "title": "Market Research and Understanding User Needs",
-          "desc": "Unit 2 equips students with the knowledge and skills to identify market opportunities and understand user needs. Students learn to conduct market research, perform competitive analysis, and define target customer segments. They also explore techniques for creating user personas and journey maps to better understand user behavior and pain points. This unit emphasizes problem definition and value proposition development, ensuring that students can craft solutions that address user needs and deliver meaningful impact.",
+          "desc": "Students learn the fundamentals of design thinking, user experience (UX) design, and customer research. This unit covers how to analyze market needs, create user personas, and develop intuitive product experiences. Through hands-on activities, students will apply UX principles to design user-friendly solutions that solve real problems, ensuring their products are both functional and desirable.",
           "bgColor": "bg-accent",
           "img": "/gifs/product-management/unit-2.gif",
           "tags": [
@@ -993,7 +993,7 @@
           "classname": "C",
           "caption": "UNIT 3",
           "title": "Strategic Product Planning and Roadmapping",
-          "desc": "Unit 3 focuses on the strategic aspects of product management, with an emphasis on planning and prioritization. Students learn how to develop a product vision, define success metrics, and use prioritization frameworks to evaluate features and initiatives. The unit also covers the creation and maintenance of product roadmaps, helping students understand how to balance user needs, technical constraints, and business goals. By the end of this unit, students can effectively align product strategies with organizational objectives and communicate their vision to stakeholders.",
+          "desc": "This unit teaches students how to define a product vision, conduct competitive analysis, and create a strategic roadmap. They learn how to set clear business goals, map customer journeys, and establish key performance indicators (KPIs) for measuring product success. Students will also practice communicating their product vision effectively to stakeholders and aligning teams around shared objectives.",
           "bgColor": "bg-white",
           "img": "/gifs/product-management/unit-3.gif",
           "tags": [
@@ -1016,7 +1016,7 @@
           "classname": "D",
           "caption": "UNIT 4",
           "title": "Agile Product Development",
-          "desc": "Unit 4 dives into the Agile development process and the critical role of product managers in driving successful outcomes. Students learn to write user stories with clear acceptance criteria, manage product backlogs, and facilitate sprints. They also explore the nuances of working with cross-functional teams to deliver products iteratively and incrementally. This unit provides hands-on experience in Agile methodologies, ensuring students are equipped to navigate the dynamic environment of product development and deliver impactful solutions.",
+          "desc": "Students dive into Agile methodologies, learning how to write user stories, prioritize backlogs, and manage cross-functional teams. The unit introduces Scrum and Kanban, with a focus on sprint planning, backlog grooming, and iterative product development. By working through real-world scenarios, students will experience how product managers collaborate with designers, engineers, and stakeholders to drive development.",
           "bgColor": "bg-primary",
           "img": "/gifs/product-management/unit-2.gif",
           "tags": [
@@ -1039,7 +1039,7 @@
           "classname": "E",
           "caption": "UNIT 5",
           "title": "Data-Driven Decision Making",
-          "desc": "Unit 5 emphasizes the importance of leveraging data to inform product decisions. Students learn to set measurable objectives, analyze product metrics, and interpret user feedback. The unit covers essential tools and techniques for data analysis, including A/B testing and cohort analysis, enabling students to evaluate product performance and make evidence-based improvements. By mastering these skills, students can confidently track progress, measure success, and iterate on their products to enhance user satisfaction and business outcomes.",
+          "desc": "This unit focuses on defining a product’s business model using the Business Model Canvas (BMC). Students learn how to identify value propositions, customer segments, revenue streams, and cost structures. The latter part of this unit explores go-to-market (GTM) strategies, launch planning, and post-launch iterations. By the end, students will understand how to position a product in the market and ensure a successful launch with the right business strategy.",
           "bgColor": "bg-white",
           "img": "/gifs/product-management/unit-5.gif",
           "tags": [
@@ -1058,7 +1058,7 @@
           "classname": "F",
           "caption": "UNIT 6",
           "title": "Go-to-Market Strategy and Product Launch",
-          "desc": "Unit 6 prepares students for the critical phase of launching a product. It covers the essential components of a go-to-market strategy, including positioning, pricing, and promotional planning. Students learn how to manage product launches, from pre-launch preparation to post-launch evaluation, ensuring seamless execution and alignment with business goals. The unit also emphasizes the importance of gathering user feedback after launch to identify areas for improvement and inform future iterations.",
+          "desc": "Students explore the role of data in product management, learning how to define and analyze key metrics for success. The unit covers customer feedback loops, A/B testing, and using analytics tools to drive informed decision-making. By interpreting product data and identifying patterns, students will gain the confidence to make strategic decisions that improve product performance and user experience.",
           "bgColor": "bg-accent",
           "img": "/gifs/product-management/unit-6.gif",
           "tags": [
@@ -1077,7 +1077,7 @@
           "classname": "G",
           "caption": "UNIT 7",
           "title": "Capstone Project: Building a Successful Product",
-          "desc": "Unit 4 dives into the Agile development process and the critical role of product managers in driving successful outcomes. Students learn to write user stories with clear acceptance criteria, manage product backlogs, and facilitate sprints. They also explore the nuances of working with cross-functional teams to deliver products iteratively and incrementally. This unit provides hands-on experience in Agile methodologies, ensuring students are equipped to navigate the dynamic environment of product development and deliver impactful solutions.",
+          "desc": "The final unit is dedicated to a hands-on capstone project where students apply their knowledge to manage a product from ideation to launch. They create a full product strategy, develop a roadmap, define key metrics, and present their work in a professional setting. This project allows students to showcase their problem-solving abilities, strategic thinking, and execution skills, preparing them for real-world product management roles.",
           "bgColor": "bg-white",
           "img": "/gifs/product-management/unit-7.gif",
           "tags": [
