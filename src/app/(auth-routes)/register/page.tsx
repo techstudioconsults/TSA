@@ -2,10 +2,12 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
+  Checkbox,
   Form,
   FormControl,
   FormField,
   FormItem,
+  FormLabel,
   FormMessage,
   Input,
   Select,
@@ -55,7 +57,6 @@ const RegistrationForm: FC = () => {
 
   const onSubmit = async (data: SignUpFormData) => {
     setIsSubmitting(true);
-
     const response = await submitRegisterForm(data, `courseID`);
 
     if (response.error) {
@@ -84,168 +85,201 @@ const RegistrationForm: FC = () => {
 
   return (
     <>
-      <Form {...formMethods}>
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="mx-auto max-w-[600px] space-y-6 p-6"
-        >
-          <h2 className="text-xl font-bold">
-            One last step, let’s get to know you
-          </h2>
-          <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-            {/* First Name */}
-            <FormField
-              name="firstName"
-              control={control}
-              render={({ field }) => (
-                <FormItem>
-                  <FormControl>
-                    <Input
-                      placeholder="First Name"
-                      {...field}
-                      className="w-full rounded-md border px-4 py-2"
-                    />
-                  </FormControl>
-                  {errors.firstName && (
-                    <FormMessage>{errors.firstName?.message}</FormMessage>
-                  )}
-                </FormItem>
-              )}
-            />
-
-            {/* Last Name */}
-            <FormField
-              name="lastName"
-              control={control}
-              render={({ field }) => (
-                <FormItem>
-                  <FormControl>
-                    <Input
-                      placeholder="Last Name"
-                      {...field}
-                      className="w-full rounded-md border px-4 py-2"
-                    />
-                  </FormControl>
-                  {errors.lastName && (
-                    <FormMessage>{errors.lastName?.message}</FormMessage>
-                  )}
-                </FormItem>
-              )}
-            />
-
-            {/* Schedule */}
-            <FormField
-              name="schedule"
-              control={control}
-              render={({ field }) => (
-                <FormItem>
-                  <FormControl>
-                    <Select onValueChange={field.onChange}>
-                      <SelectTrigger className="w-full">
-                        <SelectValue placeholder="Choose a schedule" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="weekday">Weekday Class</SelectItem>
-                        <SelectItem value="weekend">Weekend Class</SelectItem>
-                        <SelectItem value="online">Online Class</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </FormControl>
-                  {errors.schedule && (
-                    <FormMessage>{errors.schedule?.message}</FormMessage>
-                  )}
-                </FormItem>
-              )}
-            />
-
-            {/* Course */}
-            <FormField
-              name="course"
-              control={control}
-              render={({ field }) => (
-                <FormItem>
-                  <FormControl>
-                    <Select onValueChange={field.onChange}>
-                      <SelectTrigger className="w-full">
-                        <SelectValue placeholder="Choose a course" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {loading ? (
-                          <Loader className="animate-spin" />
-                        ) : (
-                          allCourses?.map((course: Course) => (
-                            <SelectItem key={course.id} value={course.title}>
-                              {course.title}
-                            </SelectItem>
-                          ))
-                        )}
-                      </SelectContent>
-                    </Select>
-                  </FormControl>
-                  {errors.course && (
-                    <FormMessage>{errors.course?.message}</FormMessage>
-                  )}
-                </FormItem>
-              )}
-            />
-
-            {/* Phone Number */}
-            <FormField
-              name="phoneNumber"
-              control={control}
-              render={({ field }) => (
-                <FormItem>
-                  <FormControl>
-                    <Input
-                      placeholder="Phone Number"
-                      {...field}
-                      className="w-full rounded-md border px-4 py-2"
-                    />
-                  </FormControl>
-                  {errors.phoneNumber && (
-                    <FormMessage>{errors.phoneNumber?.message}</FormMessage>
-                  )}
-                </FormItem>
-              )}
-            />
-
-            {/* Email */}
-            <FormField
-              name="email"
-              control={control}
-              render={({ field }) => (
-                <FormItem>
-                  <FormControl>
-                    <Input
-                      type="email"
-                      placeholder="Email Address"
-                      {...field}
-                      className="w-full rounded-md border px-4 py-2"
-                    />
-                  </FormControl>
-                  {errors.email && (
-                    <FormMessage>{errors.email?.message}</FormMessage>
-                  )}
-                </FormItem>
-              )}
-            />
-          </div>
-
-          {/* Submit Button */}
-          <TsaButton
-            type="submit"
-            variant="primary"
-            isDisabled={isSubmitting}
-            className="w-full bg-mid-blue"
+      <div className="rounded-md p-0 shadow-none lg:p-8 lg:shadow-lg">
+        <Form {...formMethods}>
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="mx-auto max-w-[600px] space-y-8 p-6"
           >
-            {isSubmitting ? (
-              <Loader className="animate-spin text-white" />
-            ) : (
-              "Register"
-            )}
-          </TsaButton>
-        </form>
-      </Form>
+            <div className="space-y-3">
+              <h2 className="text-xl font-bold">
+                One last step, let’s get to know you
+              </h2>
+              <p>Fill in your details to get started.</p>
+            </div>
+
+            <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+              {/* First Name */}
+              <FormField
+                name="firstName"
+                control={control}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>First Name</FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder="First Name"
+                        {...field}
+                        className="w-full rounded-md border px-4 py-2"
+                      />
+                    </FormControl>
+                    {errors.firstName && (
+                      <FormMessage>{errors.firstName?.message}</FormMessage>
+                    )}
+                  </FormItem>
+                )}
+              />
+
+              {/* Last Name */}
+              <FormField
+                name="lastName"
+                control={control}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Last Name</FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder="Last Name"
+                        {...field}
+                        className="w-full rounded-md border px-4 py-2"
+                      />
+                    </FormControl>
+                    {errors.lastName && (
+                      <FormMessage>{errors.lastName?.message}</FormMessage>
+                    )}
+                  </FormItem>
+                )}
+              />
+
+              {/* Schedule */}
+              <FormField
+                name="schedule"
+                control={control}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Time Schedule</FormLabel>
+                    <FormControl>
+                      <Select onValueChange={field.onChange}>
+                        <SelectTrigger className="w-full">
+                          <SelectValue placeholder="Choose a schedule" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="weekday">Weekday Class</SelectItem>
+                          <SelectItem value="weekend">Weekend Class</SelectItem>
+                          <SelectItem value="online">Online Class</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </FormControl>
+                    {errors.schedule && (
+                      <FormMessage>{errors.schedule?.message}</FormMessage>
+                    )}
+                  </FormItem>
+                )}
+              />
+
+              {/* Course */}
+              <FormField
+                name="course"
+                control={control}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Course</FormLabel>
+                    <FormControl>
+                      <Select onValueChange={field.onChange}>
+                        <SelectTrigger className="w-full">
+                          <SelectValue placeholder="Choose a course" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {loading ? (
+                            <Loader className="animate-spin" />
+                          ) : (
+                            allCourses?.map((course: Course) => (
+                              <SelectItem key={course.id} value={course.title}>
+                                {course.title}
+                              </SelectItem>
+                            ))
+                          )}
+                        </SelectContent>
+                      </Select>
+                    </FormControl>
+                    {errors.course && (
+                      <FormMessage>{errors.course?.message}</FormMessage>
+                    )}
+                  </FormItem>
+                )}
+              />
+
+              {/* Phone Number */}
+              <FormField
+                name="phoneNumber"
+                control={control}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Phone Number</FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder="Phone Number"
+                        {...field}
+                        className="w-full rounded-md border px-4 py-2"
+                      />
+                    </FormControl>
+                    {errors.phoneNumber && (
+                      <FormMessage>{errors.phoneNumber?.message}</FormMessage>
+                    )}
+                  </FormItem>
+                )}
+              />
+
+              {/* Email */}
+              <FormField
+                name="email"
+                control={control}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Email Address</FormLabel>
+                    <FormControl>
+                      <Input
+                        type="email"
+                        placeholder="Email Address"
+                        {...field}
+                        className="w-full rounded-md border px-4 py-2"
+                      />
+                    </FormControl>
+                    {errors.email && (
+                      <FormMessage>{errors.email?.message}</FormMessage>
+                    )}
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            {/* Newsletter Checkbox */}
+            <FormField
+              name="newsletter"
+              control={control}
+              render={({ field }) => (
+                <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+                  <FormControl>
+                    <Checkbox
+                      checked={field.value}
+                      onCheckedChange={(checked) => {
+                        field.onChange(checked);
+                      }}
+                    />
+                  </FormControl>
+                  <div className="space-y-1 leading-none">
+                    <FormLabel>Send me alerts and weekly newsletters</FormLabel>
+                  </div>
+                </FormItem>
+              )}
+            />
+
+            {/* Submit Button */}
+            <TsaButton
+              type="submit"
+              variant="primary"
+              isDisabled={isSubmitting}
+              className="w-full bg-mid-blue"
+            >
+              {isSubmitting ? (
+                <Loader className="animate-spin text-white" />
+              ) : (
+                "Register"
+              )}
+            </TsaButton>
+          </form>
+        </Form>
+      </div>
 
       {isModalOpen && (
         <ResponseModal
