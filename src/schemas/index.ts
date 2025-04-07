@@ -78,7 +78,7 @@ export const contactFormSchema = z.object({
 
 export const registerFormSchema = formSchema.merge(
   z.object({
-    course: z
+    courseId: z
       .string()
       .min(1, "Course is required")
       .refine((value) => value !== "", {
@@ -90,12 +90,13 @@ export const registerFormSchema = formSchema.merge(
       .refine((value) => value !== "", {
         message: "Please select a schedule",
       }),
+    newsletter: z.boolean(),
   }),
 );
 
 export const signUpFormSchema = formSchema.merge(
   z.object({
-    course: z
+    courseId: z
       .string()
       .min(1, "Course is required")
       .refine((value) => value !== "", {

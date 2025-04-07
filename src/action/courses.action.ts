@@ -38,7 +38,7 @@ export const fetchAllCourses = async () => {
   setError(null);
 
   try {
-    const response = await fetch(`${BASE_URL}/external/courses`, {
+    const response = await fetch(`${BASE_URL}/courses`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -51,7 +51,7 @@ export const fetchAllCourses = async () => {
     }
 
     const data = await response.json();
-    setCourses(data.data);
+    setCourses(data.data.items);
   } catch (error: unknown) {
     if (error instanceof Error) {
       setError(error.message);

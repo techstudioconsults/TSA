@@ -12,10 +12,9 @@ interface RegisterFormResponse {
 
 export const submitRegisterForm = async (
   data: RegisterFormData,
-  courseID: string,
 ): Promise<RegisterFormResponse> => {
   try {
-    const response = await fetch(`${API_URL}?courseId=${courseID}`, {
+    const response = await fetch(`${API_URL}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -29,6 +28,7 @@ export const submitRegisterForm = async (
     }
 
     const responseData = await response.json();
+
     return { success: responseData.message };
   } catch (error) {
     const errorMessage =

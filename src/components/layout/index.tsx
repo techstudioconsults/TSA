@@ -28,7 +28,7 @@ export const Layout = ({ children }: { children: ReactNode }) => {
       return {
         title: course.title,
         href: `/courses/${courseSlug}`,
-        description: course.description,
+        description: course.about,
       };
     });
 
