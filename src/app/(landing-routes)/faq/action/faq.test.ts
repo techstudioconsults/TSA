@@ -45,7 +45,7 @@ describe("FAQs test", () => {
     expect(store.faq).toEqual(mockFAQs.data);
     expect(store.error).toBe(null);
     expect(fetch).toHaveBeenCalledWith(
-      `${BASE_URL}/external/faq?page=${mockFAQs.pages}`,
+      `${BASE_URL}/faq?page=${mockFAQs.pages}`,
       expect.objectContaining({
         method: "GET",
         headers: { "Content-Type": "application/json" },

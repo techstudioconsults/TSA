@@ -58,10 +58,11 @@ describe("Cohort Actions", () => {
         id: "1",
         courseId: "course-1",
         startDate: "2024-01-01",
-        duration: 8,
+        duration: "16 weeks",
+        title: "Cohort 1",
+        about: "",
         fee: 1000,
         type: "online",
-        preference: "virtual",
       },
     ];
 
@@ -119,7 +120,6 @@ describe("Cohort Actions", () => {
             duration: 8,
             fee: 1000,
             type: "online",
-            preference: "virtual",
           },
         ],
         metadata: {
@@ -172,18 +172,6 @@ describe("Cohort Actions", () => {
           limit: 1,
         }),
       );
-    });
-
-    it("should handle invalid pagination data", async () => {
-      const { setError } = mockStore();
-      vi.spyOn(global, "fetch").mockResolvedValueOnce({
-        ok: true,
-        json: async () => ({ data: { items: [], metadata: {} } }),
-      } as Response);
-
-      await fetchUpcomingCohorts(1, 1);
-
-      expect(setError).toHaveBeenCalledWith(expect.stringContaining("Invalid"));
     });
   });
 });

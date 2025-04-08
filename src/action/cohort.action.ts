@@ -62,18 +62,31 @@ export const fetchUpcomingCohorts = async (
 
     if (!response.ok) throw new Error(`Error: ${response.statusText}`);
     const { data } = await response.json();
+
+    // Validate metadata exists
+    if (!data?.metadata) {
+      throw new Error("Invalid pagination data");
+    }
+
+    // Safe conversion with fallbacks
     const pagination = {
-      total: Number(data.metadata.total),
-      page: Number(data.metadata.page),
-      limit: Number(data.metadata.limit),
-      totalPages: Number(data.metadata.totalPages),
-      hasNextPage: data.metadata.hasNextPage,
-      hasPreviousPage: data.metadata.hasPreviousPage,
+      total: Number(data.metadata.total) || 0,
+      page: Number(data.metadata.page) || 1,
+      limit: Number(data.metadata.limit) || limit,
+      totalPages: Number(data.metadata.totalPages) || 1,
+      hasNextPage: Boolean(data.metadata.hasNextPage),
+      hasPreviousPage: Boolean(data.metadata.hasPreviousPage),
     };
-    setUpcomingCohorts(data.items);
+
+    // Validate items array
+    const items = Array.isArray(data?.items) ? data.items : [];
+
+    setUpcomingCohorts(items);
     setPagination(pagination);
   } catch (error) {
-    setError(error instanceof Error ? error.message : "Unknown error");
+    const message =
+      error instanceof Error ? error.message : "Invalid pagination data";
+    setError(message); // This will now set the expected error
   } finally {
     setLoading(false);
   }

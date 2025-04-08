@@ -6,7 +6,7 @@ import { ContactFormData } from "~/schemas";
 import { mockResponse } from "~/test/utils";
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
-const API_URL = `${BASE_URL}/mailing/contactus`;
+const API_URL = `${BASE_URL}/contactus`;
 
 globalThis.fetch = vi.fn();
 

@@ -96,12 +96,10 @@ describe("fetchAllCourses", () => {
   });
 
   it("should fetch all courses and update the store", async () => {
-    // Mock the Zustand store methods
     const setCourses = vi.fn();
     const setLoading = vi.fn();
     const setError = vi.fn();
 
-    // Mock Zustand's useCoursesStore
     vi.spyOn(useCoursesStore, "getState").mockReturnValue({
       setCourses,
       setLoading,
@@ -110,23 +108,26 @@ describe("fetchAllCourses", () => {
       loading: false,
       error: null,
       activeCourse: null,
-      setActiveCourse: function (course: Course): void {
-        throw new Error("Function not implemented.");
-      },
+      setActiveCourse: vi.fn(),
     });
 
-    // Mock successful fetch response
+    // Mock response with correct structure
     vi.spyOn(global, "fetch").mockResolvedValueOnce({
       ok: true,
-      json: async () => ({ data: mockCourses }),
+      json: async () => ({
+        data: {
+          items: mockCourses,
+        },
+      }),
     } as Response);
 
     await fetchAllCourses();
 
-    expect(setLoading).toHaveBeenCalledWith(true);
-    expect(setCourses).toHaveBeenCalledWith(mockCourses);
-    expect(setLoading).toHaveBeenCalledWith(false);
+    // Verify call order and arguments
+    expect(setLoading).toHaveBeenNthCalledWith(1, true);
     expect(setError).toHaveBeenCalledWith(null);
+    expect(setCourses).toHaveBeenCalledWith(mockCourses);
+    expect(setLoading).toHaveBeenNthCalledWith(2, false);
   });
 
   it("should handle fetch errors and set error in the store", async () => {

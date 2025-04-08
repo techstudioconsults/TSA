@@ -17,6 +17,7 @@ export type Course = {
 export type Cohort = {
   id: string;
   title: string;
+  courseId: string;
   // description: string;
   about: string;
   type: string;
