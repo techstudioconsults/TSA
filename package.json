@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start:staging": "next start -p 3000",
-    "start:prod": "next start -p 3001",
+    "start:staging": "next start -p 3001",
+    "start:prod": "next start -p 3000",
     "lint": "next lint",
     "lint:fix": "eslint \"src/**/*.{ts,tsx,js,jsx}\" --fix",
     "c:test": "cypress open",
