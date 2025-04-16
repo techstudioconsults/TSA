@@ -6,6 +6,7 @@ on:
 
 jobs:
     deploy-staging:
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/staging' }}
         name: Build and Deploy Staging Branch
         runs-on: [techstudio-external]
 
@@ -58,6 +59,7 @@ jobs:
               run: pm2 restart techstudio-external-staging
 
     deploy-prod:
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         name: Build and Deploy Main Branch
         runs-on: [techstudio-external]
 
