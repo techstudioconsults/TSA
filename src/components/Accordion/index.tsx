@@ -1,11 +1,5 @@
 "use client";
 
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@strategic-dot/components";
 import Link from "next/link";
 import React, { useEffect } from "react";
 
@@ -13,6 +7,7 @@ import { AccordionSkeleton } from "~/app/(landing-routes)/faq/_components/skelet
 import useFAQStore from "~/app/(landing-routes)/faq/action";
 import { Wrapper } from "~/components/layout/wrapper";
 import { PaginationComp } from "../pagination";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion";
 
 export const TsaAccordion: React.FC = () => {
   const { getFAQ, faq, loading, error } = useFAQStore();
@@ -27,11 +22,7 @@ export const TsaAccordion: React.FC = () => {
         {/* Render the Accordion when the data is loaded */}
         <section className="min-h-[580px]">
           {loading && <AccordionSkeleton />}
-          {error && (
-            <p className="text-center text-lg text-red-500">
-              Failed to load FAQs: {error}
-            </p>
-          )}
+          {error && <p className="text-center text-lg text-red-500">Failed to load FAQs: {error}</p>}
           {!loading && !error && faq && (
             <Accordion type="multiple">
               {faq.map((faqItem) => (
@@ -43,11 +34,9 @@ export const TsaAccordion: React.FC = () => {
                     {/* Check if it's the online class question with bullet points */}
                     {faqItem.bullets ? (
                       <ul className="ml-4 list-disc">
-                        {faqItem.bullets.map(
-                          (bullet: string, index: number) => (
-                            <li key={index}>{bullet}</li>
-                          ),
-                        )}
+                        {faqItem.bullets.map((bullet: string, index: number) => (
+                          <li key={index}>{bullet}</li>
+                        ))}
                       </ul>
                     ) : (
                       <p>{faqItem.answer}</p>

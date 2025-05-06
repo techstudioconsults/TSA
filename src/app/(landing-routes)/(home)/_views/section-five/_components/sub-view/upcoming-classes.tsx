@@ -1,10 +1,10 @@
 "use client";
 
-import { TsaButton } from "@strategic-dot/components";
 import { CalendarDays, Hourglass, MapPin } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 
 import { fetchAllCourses } from "~/action/courses.action";
+import TsaButton from "~/lib/storybook/atoms/tsa-button";
 import { formatDateTime } from "~/lib/utils";
 import useCoursesStore from "~/stores/course.store";
 import { UpcomingClassesSkeleton } from "../skeleton/upcoming.skeleton";
@@ -38,9 +38,7 @@ export const UpcomingClasses = () => {
 
   return (
     <section>
-      <span className="text-sm font-bold uppercase text-mid-blue">
-        Upcoming Classes
-      </span>
+      <span className="text-sm font-bold uppercase text-mid-blue">Upcoming Classes</span>
       <h3 className="my-[19px]">{course.title}</h3>
       <p className="mb-[30px]">{course.description}</p>
 
@@ -57,9 +55,7 @@ export const UpcomingClasses = () => {
             <CalendarDays size={12} />
             <span>Start Date</span>
           </span>
-          <span>
-            {formatDateTime(course.classes.weekday[0].startDate).date}
-          </span>
+          <span>{formatDateTime(course.classes.weekday[0].startDate).date}</span>
         </div>
         <div className="flex items-center justify-between gap-[11px]">
           <span className="flex items-center gap-[11px]">

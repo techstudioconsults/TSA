@@ -9,12 +9,8 @@ export const SectionTwo = () => {
     <section className="min-h-[745px] py-[70px]">
       <Wrapper>
         <header className="mx-auto max-w-[557px] text-center">
-          <h2 className="text-[24px] lg:text-[35px]">
-            Driven by our core values
-          </h2>
-          <p className="mx-auto max-w-[398px]">
-            We are advocates of growth, progress and career advancement.
-          </p>
+          <h2 className="text-[24px] lg:text-[35px]">Driven by our core values</h2>
+          <p className="mx-auto max-w-[398px]">We are advocates of growth, progress and career advancement.</p>
         </header>
         <section className="mt-[38px] grid grid-cols-1 justify-between gap-[60px] md:grid-cols-2 lg:grid-cols-3">
           <CoreValueCardLayout
@@ -66,9 +62,7 @@ const CoreValueCardLayout = ({
     <section className="mx-auto flex min-h-[185px] max-w-[358px] flex-col items-center text-center lg:items-start lg:text-start">
       <Image width={30} height={30} src={iconPath} alt={`icon`} />
       <div className="mt-[23px]">
-        <h6 className="mb-[13px] text-[18px] font-[700] lg:text-[20px]">
-          {title}
-        </h6>
+        <h6 className="mb-[13px] text-[18px] font-[700] lg:text-[20px]">{title}</h6>
         <p>{description}</p>
       </div>
     </section>

@@ -20,18 +20,11 @@ export const SectionOne: React.FC = () => {
             </div>
             <div className="flex flex-col items-center gap-5 lg:flex-row lg:items-start">
               <div>
-                <Image
-                  width={66}
-                  height={46}
-                  src="/images/flag.webp"
-                  alt="flag"
-                />
+                <Image width={66} height={46} src="/images/flag.webp" alt="flag" />
               </div>
               <div>
                 <h6 className="font-semibold">Lagos, Nigeria</h6>
-                <p className="text-high-grey-II">
-                  1 Ogunlesi Street, Off Awoyokun, Onipanu, Lagos.
-                </p>
+                <p className="text-high-grey-II">1 Ogunlesi Street, Off Awoyokun, Onipanu, Lagos.</p>
                 <h6 className="mt-6 font-semibold">Call or Whatsapp</h6>
                 <p className="mt-2 text-high-grey-II">
                   <span className="font-semibold">Busola:</span>
@@ -47,10 +40,7 @@ export const SectionOne: React.FC = () => {
                 </p>
                 <div className="mt-8 flex items-center justify-center gap-4 lg:justify-normal">
                   <MdEmail className="text-2xl" />
-                  <a
-                    href="mailto:info@techstudioacademy.com"
-                    className="font-semibold"
-                  >
+                  <a href="mailto:info@techstudioacademy.com" className="font-semibold">
                     info@techstudioacademy.com
                   </a>
                 </div>
