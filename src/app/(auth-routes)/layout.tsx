@@ -2,11 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-export default function AuthLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function AuthLayout({ children }: { children: React.ReactNode }) {
   return (
     <main className="flex h-screen flex-col gap-4 xl:grid xl:grid-cols-2">
       {/* Logo and Image Section */}
@@ -25,9 +21,7 @@ export default function AuthLayout({
       </section>
 
       {/* Content Section */}
-      <section className="flex items-center justify-center p-4">
-        {children}
-      </section>
+      <section className="flex items-center justify-center p-4">{children}</section>
 
       {/* Footer */}
       <p className="absolute bottom-4 right-4 hidden font-bold xl:block">

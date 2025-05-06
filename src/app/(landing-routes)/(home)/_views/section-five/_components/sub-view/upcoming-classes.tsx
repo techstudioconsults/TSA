@@ -1,13 +1,17 @@
 "use client";
 
-import { TsaButton } from "@strategic-dot/components";
 import { CalendarDays, Hourglass, MapPin } from "lucide-react";
 import { useEffect } from "react";
 
+<<<<<<< HEAD
 import {
   fetchCohortsByCourseId,
   fetchUpcomingCohorts,
 } from "~/action/cohort.action";
+=======
+import { fetchAllCourses } from "~/action/courses.action";
+import TsaButton from "~/lib/storybook/atoms/tsa-button";
+>>>>>>> 0866e3d6c92c7975adc6b923a430cc7223cd23f7
 import { formatDateTime } from "~/lib/utils";
 import useCohortStore from "~/stores/cohort.store";
 import { UpcomingClassesSkeleton } from "../skeleton/upcoming.skeleton";
@@ -50,11 +54,17 @@ export const UpcomingClasses = () => {
 
   return (
     <section>
+<<<<<<< HEAD
       <span className="text-sm font-bold uppercase text-mid-blue">
         Upcoming Classes
       </span>
       <h3 className="my-[19px]">{cohort.title}</h3>
       <p className="mb-[30px]">{cohort.about}</p>
+=======
+      <span className="text-sm font-bold uppercase text-mid-blue">Upcoming Classes</span>
+      <h3 className="my-[19px]">{course.title}</h3>
+      <p className="mb-[30px]">{course.description}</p>
+>>>>>>> 0866e3d6c92c7975adc6b923a430cc7223cd23f7
 
       <div className="md:max-w-[355px]">
         <div className="flex items-center justify-between gap-[11px]">
@@ -69,10 +79,14 @@ export const UpcomingClasses = () => {
             <CalendarDays size={12} />
             <span>Start Date</span>
           </span>
+<<<<<<< HEAD
           {/* <span>{formatDateTime(cohort.startDate).date}</span> */}
           {weekdayCohort?.startDate
             ? formatDateTime(weekdayCohort.startDate).date
             : "No Date Yet"}
+=======
+          <span>{formatDateTime(course.classes.weekday[0].startDate).date}</span>
+>>>>>>> 0866e3d6c92c7975adc6b923a430cc7223cd23f7
         </div>
         <div className="flex items-center justify-between gap-[11px]">
           <span className="flex items-center gap-[11px]">

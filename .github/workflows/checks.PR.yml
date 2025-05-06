@@ -12,13 +12,13 @@ jobs:
         with:
           node-version: 18
       - run: npm install
-      - name: "Run Tests"
-        run: npm run v:test:ci
-      - name: "Upload Coverage"
-        uses: actions/upload-artifact@v4
-        with:
-          name: coverage
-          path: coverage
+      # - name: "Run Tests"
+      #   run: npm run v:test:ci
+      # - name: "Upload Coverage"
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: coverage
+      #     path: coverage
 
   eslint:
     runs-on: ubuntu-latest

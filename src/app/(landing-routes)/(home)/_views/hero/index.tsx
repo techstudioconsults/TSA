@@ -48,15 +48,8 @@ export const Hero = () => {
             </div>
             <article className="z-10 flex h-full flex-col items-center xl:w-[731px]">
               <div className="mb-[10px] flex w-fit items-center gap-2 rounded-full bg-mid-blue px-[14px] py-[10px] opacity-[60%]">
-                <Image
-                  src="/icons/star.png"
-                  width={24}
-                  height={24}
-                  alt="star"
-                />
-                <p className="text-xs text-white lg:text-sm">
-                  No 1 Training Institute in Lagos
-                </p>
+                <Image src="/icons/star.png" width={24} height={24} alt="star" />
+                <p className="text-xs text-white lg:text-sm">No 1 Training Institute in Lagos</p>
               </div>
               <h1 className="h1 text-center text-[40px] text-white lg:text-[73px] xl:leading-[99px]">
                 Unlock Your{" "}
@@ -65,10 +58,7 @@ export const Hero = () => {
                 </span>
                 With Us Today!
               </h1>
-              <EmailForm
-                className="mt-[44px]"
-                buttonTitle={"Explore Courses"}
-              />
+              <EmailForm className="mt-[44px]" buttonTitle={"Explore Courses"} />
             </article>
             <div className="flex flex-row gap-[7rem] lg:flex-col">
               <Image
@@ -96,11 +86,7 @@ export const Hero = () => {
           </section>
         </section>
       </Wrapper>
-      <canvas
-        className="absolute top-0 w-full"
-        ref={canvaReference}
-        id="particles_404"
-      />
+      <canvas className="absolute top-0 w-full" ref={canvaReference} id="particles_404" />
     </section>
   );
 };

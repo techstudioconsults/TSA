@@ -21,11 +21,7 @@ export const SectionFour = () => {
         <div className="flex-1">
           <VerticalStepper steps={STEPS} currentStep={currentStep} />
         </div>
-        <div
-          className="flex-1"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        >
+        <div className="flex-1" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
           <BlurImage
             _width={440}
             _height={387}

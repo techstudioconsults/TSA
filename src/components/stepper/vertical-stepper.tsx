@@ -10,10 +10,7 @@ interface VerticalStepperProperties {
   currentStep: number;
 }
 
-export const VerticalStepper = ({
-  steps,
-  currentStep,
-}: VerticalStepperProperties) => {
+export const VerticalStepper = ({ steps, currentStep }: VerticalStepperProperties) => {
   return (
     <div className="relative flex flex-col">
       {steps.map((step, index) => (

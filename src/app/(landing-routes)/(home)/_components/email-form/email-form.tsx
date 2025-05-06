@@ -1,22 +1,16 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormMessage,
-  Input,
-  TsaButton,
-  useToast,
-} from "@strategic-dot/components";
 import { Loader } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { FC, HtmlHTMLAttributes, useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 
 import { submitNewsletterForm } from "~/action/email.action";
+import { Form, FormControl, FormField, FormItem, FormMessage } from "~/components/ui/form";
+import { Input } from "~/components/ui/input";
+import TsaButton from "~/lib/storybook/atoms/tsa-button";
 import { cn } from "~/lib/utils";
 import { newsletterFormData, newsletterFormSchema } from "~/schemas";
 
@@ -24,12 +18,7 @@ interface EmailFormProperties extends HtmlHTMLAttributes<HTMLFormElement> {
   buttonTitle: string;
 }
 
-export const EmailForm: FC<EmailFormProperties> = ({
-  buttonTitle,
-  className,
-  ...rest
-}) => {
-  const { toast } = useToast();
+export const EmailForm: FC<EmailFormProperties> = ({ buttonTitle, className, ...rest }) => {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState<boolean>();
 
@@ -53,14 +42,11 @@ export const EmailForm: FC<EmailFormProperties> = ({
     const response = await submitNewsletterForm(data);
 
     if (response.error) {
-      toast({
-        variant: "destructive",
-        title: "Something went wrong!",
+      toast.error("Something went wrong!", {
         description: response.error,
       });
     } else {
-      toast({
-        title: "Successfully submitted!",
+      toast.success("Successfully submitted!", {
         description: response.success,
       });
       reset();
@@ -105,11 +91,7 @@ export const EmailForm: FC<EmailFormProperties> = ({
           isDisabled={isSubmitting}
           className="tsaButton h-[100%] w-[138px] rounded-none rounded-e-[5px] bg-mid-blue"
         >
-          {isSubmitting ? (
-            <Loader className="animate-spin text-white" />
-          ) : (
-            buttonTitle
-          )}
+          {isSubmitting ? <Loader className="animate-spin text-white" /> : buttonTitle}
         </TsaButton>
       </form>
     </Form>

@@ -1,4 +1,4 @@
-import { Skeleton } from "@strategic-dot/components";
+import { Skeleton } from "~/components/ui/skeleton";
 
 export const CardSkeleton = () => {
   return (
