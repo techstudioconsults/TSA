@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader } from "lucide-react";
 import { FC, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 
 import { fetchAllCourses } from "~/action/courses.action";
 import { submitRegisterForm } from "~/action/register.action";
@@ -12,14 +13,12 @@ import ResponseModal from "~/components/modals/response-modal";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "~/components/ui/form";
 import { Input } from "~/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "~/components/ui/select";
-import { useToast } from "~/components/ui/use-toast";
 import TsaButton from "~/lib/storybook/atoms/tsa-button";
 import { SignUpFormData, signUpFormSchema } from "~/schemas";
 import useCoursesStore from "~/stores/course.store";
 
 const RegistrationForm: FC = () => {
   const { allCourses, loading } = useCoursesStore();
-  const { toast } = useToast();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
@@ -49,9 +48,7 @@ const RegistrationForm: FC = () => {
     const response = await submitRegisterForm(data, `courseID`);
 
     if (response.error) {
-      toast({
-        variant: "destructive",
-        title: "Something went wrong!",
+      toast.error("Something went wrong!", {
         description: response.error,
       });
     } else {

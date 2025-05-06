@@ -4,13 +4,13 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader } from "lucide-react";
 import { FC, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 
 import { fetchAllCourses } from "~/action/courses.action";
 import { submitRegisterForm } from "~/action/register.action";
 import ResponseModal from "~/components/modals/response-modal";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "~/components/ui/form";
 import { Input } from "~/components/ui/input";
-import { useToast } from "~/components/ui/use-toast";
 import TsaButton from "~/lib/storybook/atoms/tsa-button";
 import { RegisterFormData, registerFormSchema } from "~/schemas";
 
@@ -22,7 +22,6 @@ export const RegisterForm: FC<RegisterProperties> = ({ slug }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [responseMessage, setResponseMessage] = useState<string | undefined>();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
 
   const formMethods = useForm<RegisterFormData>({
     resolver: zodResolver(registerFormSchema),
@@ -56,9 +55,7 @@ export const RegisterForm: FC<RegisterProperties> = ({ slug }) => {
       setIsModalOpen(true);
       reset();
     } else {
-      toast({
-        variant: "destructive",
-        title: "Something went wrong!",
+      toast.error("Something went wrong!", {
         description: result.error || "Failed to register for the course.",
       });
     }

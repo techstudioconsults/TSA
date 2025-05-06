@@ -5,11 +5,11 @@ import { Loader } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { FC, HtmlHTMLAttributes, useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 
 import { submitNewsletterForm } from "~/action/email.action";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "~/components/ui/form";
 import { Input } from "~/components/ui/input";
-import { useToast } from "~/components/ui/use-toast";
 import TsaButton from "~/lib/storybook/atoms/tsa-button";
 import { cn } from "~/lib/utils";
 import { newsletterFormData, newsletterFormSchema } from "~/schemas";
@@ -19,7 +19,6 @@ interface EmailFormProperties extends HtmlHTMLAttributes<HTMLFormElement> {
 }
 
 export const EmailForm: FC<EmailFormProperties> = ({ buttonTitle, className, ...rest }) => {
-  const { toast } = useToast();
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState<boolean>();
 
@@ -43,14 +42,11 @@ export const EmailForm: FC<EmailFormProperties> = ({ buttonTitle, className, ...
     const response = await submitNewsletterForm(data);
 
     if (response.error) {
-      toast({
-        variant: "destructive",
-        title: "Something went wrong!",
+      toast.error("Something went wrong!", {
         description: response.error,
       });
     } else {
-      toast({
-        title: "Successfully submitted!",
+      toast.success("Successfully submitted!", {
         description: response.success,
       });
       reset();
