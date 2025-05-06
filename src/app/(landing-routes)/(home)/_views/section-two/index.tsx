@@ -1,11 +1,11 @@
 "use client";
 
-import { TsaCarousel } from "@strategic-dot/components";
 import Image from "next/image";
 import { FC } from "react";
 
 import { Wrapper } from "~/components/layout/wrapper";
 import { SLIDE_CONTENT } from "~/constants";
+import { TsaCarousel } from "~/lib/storybook/molecules";
 
 export const SectionTwo: FC = () => {
   return (
@@ -13,16 +13,11 @@ export const SectionTwo: FC = () => {
       <Wrapper>
         <section className="grid grid-cols-1 items-center gap-[28px] lg:grid-cols-2">
           <div className="text-center lg:text-left">
-            <span className="relative z-10 text-sm font-bold uppercase text-mid-blue">
-              what we offer
-            </span>
-            <h3 className="mt-[12px] lg:mt-0">
-              Certified Tech Training Courses and
-            </h3>
+            <span className="relative z-10 text-sm font-bold uppercase text-mid-blue">what we offer</span>
+            <h3 className="mt-[12px] lg:mt-0">Certified Tech Training Courses and</h3>
             <p className="leading-[23px]">
-              Explore our extensive selection of highly sought-after
-              beginner-friendly tech courses, meticulously designed to empower
-              and inspire learners at every step of their educational journey.
+              Explore our extensive selection of highly sought-after beginner-friendly tech courses, meticulously
+              designed to empower and inspire learners at every step of their educational journey.
               <Image
                 className="relative left-1 top-4 hidden lg:inline"
                 src={"/icons/scribble.png"}

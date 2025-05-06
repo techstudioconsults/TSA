@@ -1,9 +1,9 @@
 "use client";
 
-import { Input } from "@strategic-dot/components";
 import { FC } from "react";
 
 import { Wrapper } from "~/components/layout/wrapper";
+import { Input } from "~/components/ui/input";
 
 export const Hero: FC = () => {
   return (
@@ -13,9 +13,7 @@ export const Hero: FC = () => {
           <h1 className="text-[34px] text-white">
             Frequently Asked Questions <br /> (FAQS)
           </h1>
-          <p className="mx-auto mt-4 max-w-[780px]">
-            You have questions? We are here to help
-          </p>
+          <p className="mx-auto mt-4 max-w-[780px]">You have questions? We are here to help</p>
         </section>
         <div className="pb-[59px] pt-[37px]">
           <Input

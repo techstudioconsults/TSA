@@ -100,3 +100,16 @@ export const FACILITY_CONTENT = [
   "/images/facility6.png",
   "/images/facility7.png",
 ];
+
+export const IMG_PATH = [
+  "/images/logo-black.png",
+  "/images/logo-black.png",
+  "/images/logo-black.png",
+  "/images/logo-black.png",
+  "/images/logo-black.png",
+  "/images/logo-black.png",
+  "/images/logo-black.png",
+  "/images/logo-black.png",
+  "/images/logo-black.png",
+  "/images/logo-black.png",
+];

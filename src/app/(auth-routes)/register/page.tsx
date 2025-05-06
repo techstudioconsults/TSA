@@ -1,21 +1,6 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormMessage,
-  Input,
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-  TsaButton,
-  useToast,
-} from "@strategic-dot/components";
 import { Loader } from "lucide-react";
 import { FC, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -24,6 +9,11 @@ import { fetchAllCourses } from "~/action/courses.action";
 import { submitRegisterForm } from "~/action/register.action";
 import { Course } from "~/action/services.type";
 import ResponseModal from "~/components/modals/response-modal";
+import { Form, FormControl, FormField, FormItem, FormMessage } from "~/components/ui/form";
+import { Input } from "~/components/ui/input";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "~/components/ui/select";
+import { useToast } from "~/components/ui/use-toast";
+import TsaButton from "~/lib/storybook/atoms/tsa-button";
 import { SignUpFormData, signUpFormSchema } from "~/schemas";
 import useCoursesStore from "~/stores/course.store";
 
@@ -85,13 +75,8 @@ const RegistrationForm: FC = () => {
   return (
     <>
       <Form {...formMethods}>
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="mx-auto max-w-[600px] space-y-6 p-6"
-        >
-          <h2 className="text-xl font-bold">
-            One last step, let’s get to know you
-          </h2>
+        <form onSubmit={handleSubmit(onSubmit)} className="mx-auto max-w-[600px] space-y-6 p-6">
+          <h2 className="text-xl font-bold">One last step, let’s get to know you</h2>
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
             {/* First Name */}
             <FormField
@@ -100,15 +85,9 @@ const RegistrationForm: FC = () => {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input
-                      placeholder="First Name"
-                      {...field}
-                      className="w-full rounded-md border px-4 py-2"
-                    />
+                    <Input placeholder="First Name" {...field} className="w-full rounded-md border px-4 py-2" />
                   </FormControl>
-                  {errors.firstName && (
-                    <FormMessage>{errors.firstName?.message}</FormMessage>
-                  )}
+                  {errors.firstName && <FormMessage>{errors.firstName?.message}</FormMessage>}
                 </FormItem>
               )}
             />
@@ -120,15 +99,9 @@ const RegistrationForm: FC = () => {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input
-                      placeholder="Last Name"
-                      {...field}
-                      className="w-full rounded-md border px-4 py-2"
-                    />
+                    <Input placeholder="Last Name" {...field} className="w-full rounded-md border px-4 py-2" />
                   </FormControl>
-                  {errors.lastName && (
-                    <FormMessage>{errors.lastName?.message}</FormMessage>
-                  )}
+                  {errors.lastName && <FormMessage>{errors.lastName?.message}</FormMessage>}
                 </FormItem>
               )}
             />
@@ -151,9 +124,7 @@ const RegistrationForm: FC = () => {
                       </SelectContent>
                     </Select>
                   </FormControl>
-                  {errors.schedule && (
-                    <FormMessage>{errors.schedule?.message}</FormMessage>
-                  )}
+                  {errors.schedule && <FormMessage>{errors.schedule?.message}</FormMessage>}
                 </FormItem>
               )}
             />
@@ -182,9 +153,7 @@ const RegistrationForm: FC = () => {
                       </SelectContent>
                     </Select>
                   </FormControl>
-                  {errors.course && (
-                    <FormMessage>{errors.course?.message}</FormMessage>
-                  )}
+                  {errors.course && <FormMessage>{errors.course?.message}</FormMessage>}
                 </FormItem>
               )}
             />
@@ -196,15 +165,9 @@ const RegistrationForm: FC = () => {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input
-                      placeholder="Phone Number"
-                      {...field}
-                      className="w-full rounded-md border px-4 py-2"
-                    />
+                    <Input placeholder="Phone Number" {...field} className="w-full rounded-md border px-4 py-2" />
                   </FormControl>
-                  {errors.phoneNumber && (
-                    <FormMessage>{errors.phoneNumber?.message}</FormMessage>
-                  )}
+                  {errors.phoneNumber && <FormMessage>{errors.phoneNumber?.message}</FormMessage>}
                 </FormItem>
               )}
             />
@@ -223,26 +186,15 @@ const RegistrationForm: FC = () => {
                       className="w-full rounded-md border px-4 py-2"
                     />
                   </FormControl>
-                  {errors.email && (
-                    <FormMessage>{errors.email?.message}</FormMessage>
-                  )}
+                  {errors.email && <FormMessage>{errors.email?.message}</FormMessage>}
                 </FormItem>
               )}
             />
           </div>
 
           {/* Submit Button */}
-          <TsaButton
-            type="submit"
-            variant="primary"
-            isDisabled={isSubmitting}
-            className="w-full bg-mid-blue"
-          >
-            {isSubmitting ? (
-              <Loader className="animate-spin text-white" />
-            ) : (
-              "Register"
-            )}
+          <TsaButton type="submit" variant="primary" isDisabled={isSubmitting} className="w-full bg-mid-blue">
+            {isSubmitting ? <Loader className="animate-spin text-white" /> : "Register"}
           </TsaButton>
         </form>
       </Form>

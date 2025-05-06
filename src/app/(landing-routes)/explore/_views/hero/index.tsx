@@ -1,17 +1,16 @@
 "use client";
 
-import { TsaButton } from "@strategic-dot/components";
 import { Loader } from "lucide-react";
 import { useEffect } from "react";
 
 import { fetchAllCourses } from "~/action/courses.action";
 import { Wrapper } from "~/components/layout/wrapper";
+import TsaButton from "~/lib/storybook/atoms/tsa-button";
 import { cn } from "~/lib/utils";
 import useCoursesStore from "~/stores/course.store";
 
 export const Hero = () => {
-  const { loading, error, allCourses, setActiveCourse, activeCourse } =
-    useCoursesStore();
+  const { loading, error, allCourses, setActiveCourse, activeCourse } = useCoursesStore();
 
   useEffect(() => {
     fetchAllCourses();
@@ -40,16 +39,10 @@ export const Hero = () => {
           {loading && (
             <div className="flex w-full justify-center gap-1">
               <Loader className="animate-spin text-primary" />
-              <span className="h-fit text-center text-[12px] lg:text-[16px]">
-                Getting All Courses... please wait.
-              </span>
+              <span className="h-fit text-center text-[12px] lg:text-[16px]">Getting All Courses... please wait.</span>
             </div>
           )}
-          {error && (
-            <p className="w-full text-mid-danger lg:text-center">
-              Error loading classes: {error}
-            </p>
-          )}
+          {error && <p className="w-full text-mid-danger lg:text-center">Error loading classes: {error}</p>}
           {allCourses.map((course) => (
             <TsaButton
               key={course.id}

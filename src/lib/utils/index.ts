@@ -71,8 +71,7 @@ export function formatPrice(
 ) {
   const { currency = "NGN", notation = "compact" } = options;
 
-  const numericPrice =
-    typeof price === "string" ? Number.parseFloat(price) : price;
+  const numericPrice = typeof price === "string" ? Number.parseFloat(price) : price;
 
   const newPrice = new Intl.NumberFormat("en-US", {
     currency,

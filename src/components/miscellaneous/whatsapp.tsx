@@ -9,8 +9,7 @@ export const WhatsAppIcon: React.FC = () => {
 
   useEffect(() => {
     // Check if running in the browser
-    const userAgent =
-      typeof navigator === "undefined" ? "" : navigator.userAgent;
+    const userAgent = typeof navigator === "undefined" ? "" : navigator.userAgent;
     setIsIOS(/iPad|iPhone|iPod/.test(userAgent));
   }, []);
 
@@ -26,12 +25,7 @@ export const WhatsAppIcon: React.FC = () => {
       className="fixed bottom-5 right-5 z-[9999] lg:bottom-7 lg:right-7"
     >
       <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#00e676] shadow-lg lg:h-16 lg:w-16 lg:text-[30px]">
-        <Image
-          width={32}
-          height={32}
-          src={"/icons/whatsapp.png"}
-          alt={"whatsapp"}
-        />
+        <Image width={32} height={32} src={"/icons/whatsapp.png"} alt={"whatsapp"} />
       </div>
     </Link>
   );

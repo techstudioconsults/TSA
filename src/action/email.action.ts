@@ -10,9 +10,7 @@ interface NewsletterFormResponse {
   error?: string;
 }
 
-export const submitNewsletterForm = async (
-  data: newsletterFormData,
-): Promise<NewsletterFormResponse> => {
+export const submitNewsletterForm = async (data: newsletterFormData): Promise<NewsletterFormResponse> => {
   try {
     const response = await fetch(API_URL, {
       method: "POST",
@@ -31,8 +29,7 @@ export const submitNewsletterForm = async (
     return { success: responseData.message };
   } catch (error) {
     return {
-      error:
-        error instanceof Error ? error.message : "An unknown error occurred",
+      error: error instanceof Error ? error.message : "An unknown error occurred",
     };
   }
 };

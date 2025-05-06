@@ -1,22 +1,15 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-  Input,
-  TsaButton,
-  useToast,
-} from "@strategic-dot/components";
 import { Loader } from "lucide-react";
 import { FC, useState } from "react";
 import { useForm } from "react-hook-form";
 
 import ResponseModal from "~/components/modals/response-modal";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "~/components/ui/form";
+import { Input } from "~/components/ui/input";
+import { useToast } from "~/components/ui/use-toast";
+import TsaButton from "~/lib/storybook/atoms/tsa-button";
 import { ContactFormData, contactFormSchema } from "~/schemas";
 import { submitContactForm } from "../../action";
 
@@ -86,9 +79,7 @@ export const ContactForm: FC = () => {
                     />
                   </FormControl>
                   {errors.fullName && (
-                    <FormMessage className="text-xs italic text-destructive">
-                      {errors.fullName?.message}
-                    </FormMessage>
+                    <FormMessage className="text-xs italic text-destructive">{errors.fullName?.message}</FormMessage>
                   )}
                 </FormItem>
               )}
@@ -110,9 +101,7 @@ export const ContactForm: FC = () => {
                     />
                   </FormControl>
                   {errors.email && (
-                    <FormMessage className="text-xs italic text-destructive">
-                      {errors.email?.message}
-                    </FormMessage>
+                    <FormMessage className="text-xs italic text-destructive">{errors.email?.message}</FormMessage>
                   )}
                 </FormItem>
               )}
@@ -134,9 +123,7 @@ export const ContactForm: FC = () => {
                     />
                   </FormControl>
                   {errors.message && (
-                    <FormMessage className="text-xs italic text-destructive">
-                      {errors.message?.message}
-                    </FormMessage>
+                    <FormMessage className="text-xs italic text-destructive">{errors.message?.message}</FormMessage>
                   )}
                 </FormItem>
               )}
@@ -151,11 +138,7 @@ export const ContactForm: FC = () => {
                 className="w-full bg-mid-blue"
                 isDisabled={isSubmitting}
               >
-                {isSubmitting ? (
-                  <Loader className="animate-spin text-primary" />
-                ) : (
-                  "Send Message"
-                )}
+                {isSubmitting ? <Loader className="animate-spin text-primary" /> : "Send Message"}
               </TsaButton>
             </div>
           </form>

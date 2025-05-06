@@ -1,16 +1,6 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormMessage,
-  Input,
-  TsaButton,
-  useToast,
-} from "@strategic-dot/components";
 import { Loader } from "lucide-react";
 import { FC, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -18,6 +8,10 @@ import { useForm } from "react-hook-form";
 import { fetchAllCourses } from "~/action/courses.action";
 import { submitRegisterForm } from "~/action/register.action";
 import ResponseModal from "~/components/modals/response-modal";
+import { Form, FormControl, FormField, FormItem, FormMessage } from "~/components/ui/form";
+import { Input } from "~/components/ui/input";
+import { useToast } from "~/components/ui/use-toast";
+import TsaButton from "~/lib/storybook/atoms/tsa-button";
 import { RegisterFormData, registerFormSchema } from "~/schemas";
 
 interface RegisterProperties {
@@ -85,10 +79,7 @@ export const RegisterForm: FC<RegisterProperties> = ({ slug }) => {
             <h6 className="mb-[27px] text-[16px] font-[700]">
               Register to learn more about the program pricing and curriculum
             </h6>
-            <form
-              onSubmit={handleSubmit(onSubmit)}
-              className="grid grid-cols-2 gap-[20px]"
-            >
+            <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-2 gap-[20px]">
               {/* First Name */}
               <FormField
                 name="firstName"
@@ -103,9 +94,7 @@ export const RegisterForm: FC<RegisterProperties> = ({ slug }) => {
                       />
                     </FormControl>
                     {errors.firstName && (
-                      <FormMessage className="text-xs italic text-destructive">
-                        {errors.firstName?.message}
-                      </FormMessage>
+                      <FormMessage className="text-xs italic text-destructive">{errors.firstName?.message}</FormMessage>
                     )}
                   </FormItem>
                 )}
@@ -125,9 +114,7 @@ export const RegisterForm: FC<RegisterProperties> = ({ slug }) => {
                       />
                     </FormControl>
                     {errors.lastName && (
-                      <FormMessage className="text-xs italic text-destructive">
-                        {errors.lastName?.message}
-                      </FormMessage>
+                      <FormMessage className="text-xs italic text-destructive">{errors.lastName?.message}</FormMessage>
                     )}
                   </FormItem>
                 )}
@@ -148,9 +135,7 @@ export const RegisterForm: FC<RegisterProperties> = ({ slug }) => {
                       />
                     </FormControl>
                     {errors.email && (
-                      <FormMessage className="text-xs italic text-destructive">
-                        {errors.email?.message}
-                      </FormMessage>
+                      <FormMessage className="text-xs italic text-destructive">{errors.email?.message}</FormMessage>
                     )}
                   </FormItem>
                 )}
@@ -187,11 +172,7 @@ export const RegisterForm: FC<RegisterProperties> = ({ slug }) => {
                   className="w-full bg-mid-blue"
                   isDisabled={isSubmitting}
                 >
-                  {isSubmitting ? (
-                    <Loader className="animate-spin text-primary" />
-                  ) : (
-                    "Get Program Package"
-                  )}
+                  {isSubmitting ? <Loader className="animate-spin text-primary" /> : "Get Program Package"}
                 </TsaButton>
               </div>
             </form>
