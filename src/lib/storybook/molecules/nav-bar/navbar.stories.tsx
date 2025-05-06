@@ -15,7 +15,7 @@ const Template: StoryFn<typeof TsaNavbar> = (arguments_: TsaNavbarProperties) =>
 export const CustomCTA = Template.bind({});
 CustomCTA.args = {
   navLinks: STATIC_NAV_LINK,
-  logoPath: "/images/logo-black.png",
+  logopath: "/images/logo-black.png",
   className: "bg-accent",
   linkClassName: "text-black",
 };
@@ -23,7 +23,7 @@ CustomCTA.args = {
 export const CustomCTA_2 = Template.bind({});
 CustomCTA_2.args = {
   navLinks: STATIC_NAV_LINK,
-  logoPath: "/images/logo-white.png",
+  logopath: "/images/logo-white.png",
   className: "bg-primary",
   linkClassName: "text-white",
 };
@@ -31,7 +31,7 @@ CustomCTA_2.args = {
 export const CustomCTA_2_with_banner = Template.bind({});
 CustomCTA_2_with_banner.args = {
   navLinks: STATIC_NAV_LINK,
-  logoPath: "/images/logo-white.png",
+  logopath: "/images/logo-white.png",
   className: "bg-primary",
   linkClassName: "text-white",
   showBanner: true,
