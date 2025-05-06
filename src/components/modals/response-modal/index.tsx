@@ -1,12 +1,7 @@
-import {
-  Dialog,
-  DialogContent,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-} from "@strategic-dot/components";
 import Image from "next/image";
 import React from "react";
+
+import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "~/components/ui/dialog";
 
 interface ResponseModalProperties {
   isOpen: boolean;
@@ -31,19 +26,11 @@ const ResponseModal: React.FC<ResponseModalProperties> = ({
       <DialogContent>
         <DialogHeader>
           <DialogTitle>
-            <Image
-              className="mx-auto"
-              width={138}
-              height={85}
-              src={img}
-              alt={"image"}
-            />
+            <Image className="mx-auto" width={138} height={85} src={img} alt={"image"} />
           </DialogTitle>
         </DialogHeader>
         <div className="text-center">
-          <h5 className="mb-4 text-xl font-bold">
-            {isError ? `Something went wrong` : title}
-          </h5>
+          <h5 className="mb-4 text-xl font-bold">{isError ? `Something went wrong` : title}</h5>
           <p className={isError ? "text-red-600" : ""}>
             {isError
               ? responseMessage
@@ -52,9 +39,7 @@ const ResponseModal: React.FC<ResponseModalProperties> = ({
         </div>
         <DialogFooter>
           <button
-            className={`mt-4 rounded px-4 py-2 text-white ${
-              isError ? "bg-red-600" : "bg-mid-blue"
-            }`}
+            className={`mt-4 rounded px-4 py-2 text-white ${isError ? "bg-red-600" : "bg-mid-blue"}`}
             onClick={onClose}
           >
             Close this window

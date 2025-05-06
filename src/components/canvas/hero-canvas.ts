@@ -27,11 +27,7 @@ export function HeroCanvas(canvasElement: HTMLCanvasElement) {
     public mouse: Mouse;
     private randomHighlights: Set<string> = new Set();
 
-    constructor(
-      width: number,
-      height: number,
-      context: CanvasRenderingContext2D,
-    ) {
+    constructor(width: number, height: number, context: CanvasRenderingContext2D) {
       this.width = width;
       this.height = height;
       this.ctx = context;

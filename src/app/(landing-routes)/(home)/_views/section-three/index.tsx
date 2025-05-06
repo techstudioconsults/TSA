@@ -1,10 +1,9 @@
 "use client";
 
-import { TsaButton } from "@strategic-dot/components";
-
 import { CarouselBanner } from "~/components/banners/carousel-banner";
 import { Wrapper } from "~/components/layout/wrapper";
 import { BlurImage } from "~/components/miscellaneous/blur-image";
+import TsaButton from "~/lib/storybook/atoms/tsa-button";
 import { LifeAfterTraining } from "~/views/life-after-training";
 
 export const SectionThree = () => {
@@ -27,24 +26,14 @@ export const SectionThree = () => {
           />
         </div>
         <div className="">
-          <span className="text-sm font-bold uppercase text-mid-blue">
-            Take A Course
-          </span>
-          <h3 className="my-[19px]">
-            Acquire a tech skill to transcend your current earning status
-          </h3>
+          <span className="text-sm font-bold uppercase text-mid-blue">Take A Course</span>
+          <h3 className="my-[19px]">Acquire a tech skill to transcend your current earning status</h3>
           <p>
-            We provide high-quality and affordable technology training to meet
-            our students’ needs. Also, we ensure all our students are equipped
-            with the necessary tech skills for related work opportunities at the
-            end of the program.
+            We provide high-quality and affordable technology training to meet our students’ needs. Also, we ensure all
+            our students are equipped with the necessary tech skills for related work opportunities at the end of the
+            program.
           </p>
-          <TsaButton
-            href="/explore"
-            variant="primary"
-            size="lg"
-            className="mt-[36px] h-[48px] w-[156px] bg-mid-blue"
-          >
+          <TsaButton href="/explore" variant="primary" size="lg" className="mt-[36px] h-[48px] w-[156px] bg-mid-blue">
             Enroll Now
           </TsaButton>
         </div>

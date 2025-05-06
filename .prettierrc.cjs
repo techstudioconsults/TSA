@@ -5,17 +5,16 @@
 /** @type {import('prettier').Config & PluginConfigs} */
 module.exports = {
   tabWidth: 2,
-  printWidth: 80,
+  printWidth: 120,
   jsxSingleQuote: false,
   singleQuote: false,
   semi: true,
   trailingComma: "all",
   arrowParens: "always",
   endOfLine: "auto",
-  plugins: [
-    "@ianvs/prettier-plugin-sort-imports",
-    "prettier-plugin-tailwindcss",
-  ],
+
+  plugins: ["@ianvs/prettier-plugin-sort-imports", "prettier-plugin-tailwindcss"],
+
   // #region @ianvs/prettier-plugin-sort-imports
   importOrder: ["<THIRD_PARTY_MODULES>", "", "^~/", "^[.][.]/", "^[.]/"],
   importOrderParserPlugins: ["typescript", "jsx", "decorators-legacy"],

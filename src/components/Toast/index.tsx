@@ -1,6 +1,6 @@
 "use client";
 
-import { Toaster } from "@strategic-dot/components";
+import { Toaster } from "../ui/sonner";
 
 export const Toast = () => {
   return <Toaster />;

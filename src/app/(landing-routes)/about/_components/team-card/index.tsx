@@ -1,18 +1,13 @@
 "use client";
 
-import { TsaButton } from "@strategic-dot/components";
 import { FC } from "react";
 import { FaLinkedinIn } from "react-icons/fa";
 
 import { BlurImage } from "~/components/miscellaneous/blur-image";
+import TsaButton from "~/lib/storybook/atoms/tsa-button";
 import { TeamProperties } from "~/types/index.types";
 
-export const TeamCard: FC<TeamProperties> = ({
-  image,
-  name,
-  role,
-  linkedIn,
-}) => {
+export const TeamCard: FC<TeamProperties> = ({ image, name, role, linkedIn }) => {
   return (
     <section className="mx-auto w-[100%] rounded-[12px] bg-white p-[10px] lg:w-[384px]">
       <div className="relative min-h-[387px] w-[100%] rounded-[12px] bg-low-grey-II">

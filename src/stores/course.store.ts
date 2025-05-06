@@ -1,4 +1,3 @@
-/* eslint-disable unicorn/no-null */
 import { create } from "zustand";
 import { devtools } from "zustand/middleware";
 
@@ -22,8 +21,7 @@ const useCoursesStore = create<coursesState>()(
     error: null,
     activeCourse: null,
 
-    setCourses: (courses: Course[]) =>
-      set({ allCourses: courses, loading: false }),
+    setCourses: (courses: Course[]) => set({ allCourses: courses, loading: false }),
 
     setLoading: (loading: boolean) => set({ loading }),
 
