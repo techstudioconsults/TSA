@@ -1,46 +1,49 @@
 "use client";
 
 import { CalendarDays, Hourglass, MapPin } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect } from "react";
 
-import { fetchAllCourses } from "~/action/courses.action";
+import { fetchCohortsByCourseId, fetchUpcomingCohorts } from "~/action/cohort.action";
 import TsaButton from "~/lib/storybook/atoms/tsa-button";
 import { formatDateTime } from "~/lib/utils";
-import useCoursesStore from "~/stores/course.store";
+import useCohortStore from "~/stores/cohort.store";
 import { UpcomingClassesSkeleton } from "../skeleton/upcoming.skeleton";
 
 export const UpcomingClasses = () => {
-  const { loading, error, allCourses } = useCoursesStore();
-  const [index, setIndex] = useState(0);
+  const { loading: cohortsLoading, error: cohortError, upcomingCohorts, cohorts, pagination } = useCohortStore();
 
   useEffect(() => {
-    fetchAllCourses();
-  }, []);
-
-  const course = useMemo(() => allCourses?.[index], [allCourses, index]);
+    fetchUpcomingCohorts(pagination.page, 1);
+  }, [pagination.page]);
 
   const handlePrevious = () => {
-    if (index > 0) {
-      setIndex((previousIndex) => previousIndex - 1);
-    }
+    fetchUpcomingCohorts(pagination.page - 1, 1);
   };
 
   const handleNext = () => {
-    if (index < allCourses.length - 1) {
-      setIndex((previousIndex) => previousIndex + 1);
-    }
+    fetchUpcomingCohorts(pagination.page + 1, 1);
   };
 
-  if (loading) return <UpcomingClassesSkeleton />;
-  if (error) return <p>Error loading classes: {error}</p>;
+  const cohort = upcomingCohorts[0];
 
-  if (!course) return <p>No upcoming classes available.</p>;
+  // Get cohort details by course Id
+  useEffect(() => {
+    if (cohort?.id) {
+      fetchCohortsByCourseId(cohort.id);
+    }
+  }, [cohort?.id]);
+
+  const weekdayCohort = cohorts.find((cohort) => cohort.type === "weekday");
+
+  if (cohortsLoading) return <UpcomingClassesSkeleton />;
+  if (cohortError) return <p>Error loading classes: {cohortError}</p>;
+  if (!cohort) return <p>No upcoming classes available.</p>;
 
   return (
     <section>
       <span className="text-sm font-bold uppercase text-mid-blue">Upcoming Classes</span>
-      <h3 className="my-[19px]">{course.title}</h3>
-      <p className="mb-[30px]">{course.description}</p>
+      <h3 className="my-[19px]">{cohort.title}</h3>
+      <p className="mb-[30px]">{cohort.about}</p>
 
       <div className="md:max-w-[355px]">
         <div className="flex items-center justify-between gap-[11px]">
@@ -48,27 +51,28 @@ export const UpcomingClasses = () => {
             <MapPin size={12} />
             <span>Location</span>
           </span>
-          <span>{course.classes.weekday[0].preference}</span>
+          <span>{weekdayCohort?.type || "Online"}</span>
         </div>
         <div className="my-[11px] flex items-center justify-between gap-[11px]">
           <span className="flex items-center gap-[11px]">
             <CalendarDays size={12} />
             <span>Start Date</span>
           </span>
-          <span>{formatDateTime(course.classes.weekday[0].startDate).date}</span>
+          {/* <span>{formatDateTime(cohort.startDate).date}</span> */}
+          {weekdayCohort?.startDate ? formatDateTime(weekdayCohort.startDate).date : "No Date Yet"}
         </div>
         <div className="flex items-center justify-between gap-[11px]">
           <span className="flex items-center gap-[11px]">
             <Hourglass size={12} />
             <span>Duration</span>
           </span>
-          <span>24 Weeks</span>
+          <span>{weekdayCohort?.duration} Weeks</span>
         </div>
       </div>
 
       <div className="mt-[33px] flex flex-col justify-between gap-[20px] md:flex-row lg:items-center lg:gap-0">
         <TsaButton
-          href={`/courses/${course.title
+          href={`/courses/${cohort.title
             .trim()
             .replaceAll(/[\s/]+/g, "-")
             .toLowerCase()}`}
@@ -80,12 +84,12 @@ export const UpcomingClasses = () => {
         </TsaButton>
 
         <span className="flex items-center justify-between gap-5 font-semibold text-primary">
-          {index > 0 && (
+          {pagination.hasPreviousPage && (
             <TsaButton size="lg" variant="link" onClick={handlePrevious}>
               {"<< Prev"}
             </TsaButton>
           )}
-          {index < allCourses.length - 1 && (
+          {pagination.hasNextPage && (
             <TsaButton size="lg" variant="link" onClick={handleNext}>
               {"Next >>"}
             </TsaButton>
