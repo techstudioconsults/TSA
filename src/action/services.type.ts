@@ -3,6 +3,7 @@ export type Course = {
   id: string;
   title: string;
   description: string;
+  about: string;
   duration: number;
   startDate: string;
   fee: number;
@@ -11,6 +12,18 @@ export type Course = {
     weekend: ClassDetail[];
     weekday: ClassDetail[];
   };
+};
+
+export type Cohort = {
+  id: string;
+  title: string;
+  courseId: string;
+  // description: string;
+  about: string;
+  type: string;
+  duration: string;
+  fee: number | string;
+  startDate: string;
 };
 
 type ClassDetail = {
