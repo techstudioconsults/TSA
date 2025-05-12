@@ -48,6 +48,7 @@ export const RegisterForm: FC<RegisterProperties> = ({ slug }) => {
       phoneNumber: "",
       courseId: "",
       schedule: "weekday",
+      newsletter: false,
     },
   });
 
