@@ -39,6 +39,6 @@ Please see [CONTRIBUTING](./CONTRIBUTING.md)
 
 Written by:
 
-[Kingsley Ifijeh Solomon](https://github.com/kinxlo) (Lead)
-[Olanitori Tobi](https://github.com/intuneteq) (Backend)
-[Kore Daniel](https://github.com/koredeploy) (Frontend)
+- [Kingsley Ifijeh Solomon](https://github.com/kinxlo) (Lead)
+- [Olanitori Tobi](https://github.com/intuneteq) (Backend)
+- [Kore Daniel](https://github.com/koredeploy) (Frontend)
