@@ -20,18 +20,18 @@ Thank you for considering contributing to TSA We welcome all kinds of contributi
 
 ## Getting Started
 
-1. Fork the repository.
+1. Fork the repository (If you are not a colaborator, team member or have direct access tot the repo).
 2. Clone your forked repository:
    ```bash
    git clone https://github.com/kinxlo/TSA.git
    ```
 3. Navigate to the project directory:
    ```bash
-   cd TSA
+   cd <repo-name> (in your case "TSA")
    ```
 4. Install dependencies:
    ```bash
-   pnpm i
+   pnpm i or pnpm install
    ```
 5. Start the local server to preview and interact with the app:
    ```bash
@@ -50,9 +50,9 @@ If you have an idea for a new feature, please open an issue on [GitHub Issues](h
 
 ### Code Contributions
 
-> Please make sure to have created a fork of the original repository. This is where you will work in when contibuting.
+> Please make sure to have created a fork or clone of the original repository. This is where you will work in when contibuting.
 
-#### Development Workflow
+## Development Workflow
 
 1. Create a new branch for your work:
    ```bash
@@ -78,7 +78,7 @@ If you have an idea for a new feature, please open an issue on [GitHub Issues](h
 
 > Please notice how both branch names an commit messages use the imperative tense. The imperative tense is a command or request, which makes it clear what the commit does. i.e., "fix login issue", NOT "I fixed login issue", and NOT "fixed login issue"
 
-3. Push your branch to your forked repository:
+3. Push your branch to your forked/cloned repository:
    ```bash
    git push origin <your-branch>
    ```

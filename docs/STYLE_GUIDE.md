@@ -4,7 +4,7 @@
 
 In order to run this app locally, you should have the following programs installed on your computer:
 
-- [Node.js](https://nodejs.org/) version 18.0.0 or higher
+- [Node.js](https://nodejs.org/) version 22.0.0 or higher
 - [pnpm](https://yarnpkg.com/) version 9.4.0 or higher
 
 ##### Clone this repository
