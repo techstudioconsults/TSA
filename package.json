@@ -14,7 +14,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start:staging": "next start -p 3001",
+    "start:prod": "next start -p 3000",
     "lint": "next lint",
     "lint:fix": "next lint --fix && eslint src --fix && pnpm format",
     "lint:strict": "eslint --max-warnings=0 src",
@@ -22,7 +23,8 @@
     "format:check": "prettier -c -w .",
     "prepare": "husky",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "chromatic": "npx chromatic"
   },
   "lint-staged": {
     "**/*.{js,jsx,tsx,ts,css,less,scss,sass}": [
