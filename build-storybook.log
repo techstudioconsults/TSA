@@ -1,0 +1,34 @@
+
+> tsa-web@0.1.0 build-storybook C:\Users\LENOVO\Documents\projects\frontend\javascript\next\TSA
+> storybook build "--output-dir=C:\\Users\\LENOVO\\AppData\\Local\\Temp\\chromatic--23184-GOjlEVUm1mRK"
+
+[1m@storybook/core v8.6.12
+[22m
+info => Cleaning outputDir: [36m..\..\..\..\..\..\AppData\Local\Temp\chromatic--23184-GOjlEVUm1mRK[39m
+info => Loading presets
+info => Building manager..
+info => Manager built ([38;2;181;126;229m683 ms[39m)
+info => Building preview..
+info Addon-docs: using MDX3
+info => Using implicit CSS loaders
+WARN No story files found for the specified pattern: [34msrc\**\*.mdx[39m
+info => Using SWC as compiler
+info => Using default Webpack5 setup
+info => Copying static files: [36mpublic[39m at [36m..\..\..\..\..\..\AppData\Local\Temp\chromatic--23184-GOjlEVUm1mRK[39m
+info Using tsconfig paths for react-docgen
+WARN asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).
+WARN This can impact web performance.
+WARN Assets: 
+WARN   180.63a12257.iframe.bundle.js (828 KiB)
+WARN   873.9cb1c032.iframe.bundle.js (413 KiB)
+WARN   564.383e6fce.iframe.bundle.js (2.1 MiB)
+WARN   963.a2aa0e5e.iframe.bundle.js (978 KiB)
+WARN entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.
+WARN Entrypoints:
+WARN   main (2.26 MiB)
+WARN       runtime~main.299742df.iframe.bundle.js
+WARN       564.383e6fce.iframe.bundle.js
+WARN       main.3546d79e.iframe.bundle.js
+WARN 
+info => Preview built ([38;2;181;126;229m36 s[39m)
+info => Output directory: C:\Users\LENOVO\AppData\Local\Temp\chromatic--23184-GOjlEVUm1mRK

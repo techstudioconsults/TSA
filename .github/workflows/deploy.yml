@@ -109,4 +109,4 @@ jobs:
               run: pnpm --dir $DEPLOY_PATH run build
    
             - name: Restart App 💻
-              run: pm2 restart techstudio-external-prod
+              run: pm2 restart tsa-external
