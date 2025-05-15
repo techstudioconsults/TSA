@@ -1,112 +1,112 @@
 name: Techstudio External Page CICID
 
 on:
-  push:
-    branches: ["main", "staging"]
+    push:
+        branches: ['main', 'staging']
 
 jobs:
-  deploy-staging:
-    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/staging' }}
-    name: Build and Deploy Staging Branch
-    runs-on: [techstudio-external]
+    deploy-staging:
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/staging' }}
+        name: Build and Deploy Staging Branch
+        runs-on: [techstudio-external]
 
-    strategy:
-      matrix:
-        node-version: [20.x]
+        strategy:
+            matrix:
+                node-version: [20.x]
 
-    steps:
-      - name: Checkout code ☕
-        uses: actions/checkout@v4
+        steps:
+            - name: Checkout code ☕
+              uses: actions/checkout@v4
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10
+            - name: Install pnpm
+              uses: pnpm/action-setup@v4
+              with:
+                  version: 10
 
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v4
+              with:
+                  node-version: ${{ matrix.node-version }}
 
-      - name: Set Deployment Path
-        run: echo "DEPLOY_PATH=/var/www/techstudio/external/staging" >> $GITHUB_ENV
+            - name: Set Deployment Path
+              run: echo "DEPLOY_PATH=/var/www/techstudio/external/staging" >> $GITHUB_ENV
 
-      - name: Cache node_modules and build cache 📦
-        uses: actions/cache@v4
-        with:
-          path: |
-            $DEPLOY_PATH/.next/cache
-            $DEPLOY_PATH/node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+            - name: Cache node_modules and build cache 📦
+              uses: actions/cache@v4
+              with:
+                  path: |
+                    $DEPLOY_PATH/.next/cache
+                    $DEPLOY_PATH/node_modules
+                  key: ${{ runner.os }}-node-${{ hashFiles('**/pnpm-lock.yaml') }}
+                  restore-keys: |
+                    ${{ runner.os }}-node-
 
-      - name: Move Repository to Deploy Path
-        run: |
-          mkdir -p $DEPLOY_PATH
-          rsync -a --delete "${{ github.workspace }}/" "$DEPLOY_PATH"
+            - name: Move Repository to Deploy Path
+              run: |
+                  mkdir -p $DEPLOY_PATH
+                  rsync -a --delete "${{ github.workspace }}/" "$DEPLOY_PATH"
 
-      - name: Create .env file 🌮
-        run: echo "${{ secrets.ENV_STAGING }}" > $DEPLOY_PATH/.env
+            - name: Create .env file 🌮
+              run: echo "${{ secrets.ENV_STAGING }}" > $DEPLOY_PATH/.env
 
-      - name: Install dependencies 🚀
-        run: pnpm install --prefix $DEPLOY_PATH
+            - name: Install dependencies 🚀
+              run: pnpm install --prefix $DEPLOY_PATH
 
-      - name: Build Application 💻
-        run: pnpm --dir $DEPLOY_PATH run build
+            - name: Build Application 💻
+              run: pnpm --dir $DEPLOY_PATH run build
 
-      - name: Restart App 💻
-        run: pm2 restart techstudio-external-staging
+            - name: Restart App 💻
+              run: pm2 restart techstudio-external-staging
 
-  deploy-prod:
-    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
-    name: Build and Deploy Main Branch
-    runs-on: [techstudio-external]
+    deploy-prod:
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        name: Build and Deploy Main Branch
+        runs-on: [techstudio-external]
 
-    strategy:
-      matrix:
-        node-version: [20.x]
+        strategy:
+            matrix:
+                node-version: [20.x]
 
-    steps:
-      - name: Checkout code ☕
-        uses: actions/checkout@v4
+        steps:
+            - name: Checkout code ☕
+              uses: actions/checkout@v4
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10
+            - name: Install pnpm
+              uses: pnpm/action-setup@v4
+              with:
+                  version: 10
 
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v4
+              with:
+                  node-version: ${{ matrix.node-version }}
 
-      - name: Set Deployment Path
-        run: echo "DEPLOY_PATH=/var/www/techstudio/external/production" >> $GITHUB_ENV
+            - name: Set Deployment Path
+              run: echo "DEPLOY_PATH=/var/www/techstudio/external/production" >> $GITHUB_ENV
 
-      - name: Cache node_modules and build cache 📦
-        uses: actions/cache@v4
-        with:
-          path: |
-            $DEPLOY_PATH/.next/cache
-            $DEPLOY_PATH/node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+            - name: Cache node_modules and build cache 📦
+              uses: actions/cache@v4
+              with:
+                  path: |
+                    $DEPLOY_PATH/.next/cache
+                    $DEPLOY_PATH/node_modules
+                  key: ${{ runner.os }}-node-${{ hashFiles('**/pnpm-lock.yaml') }}
+                  restore-keys: |
+                    ${{ runner.os }}-node-
 
-      - name: Move Repository to Deploy Path
-        run: |
-          mkdir -p $DEPLOY_PATH
-          rsync -a --delete "${{ github.workspace }}/" "$DEPLOY_PATH"
+            - name: Move Repository to Deploy Path
+              run: |
+                  mkdir -p $DEPLOY_PATH
+                  rsync -a --delete "${{ github.workspace }}/" "$DEPLOY_PATH"
 
-      - name: Create .env file 🌮
-        run: echo "${{ secrets.ENV_PROD }}" > $DEPLOY_PATH/.env
+            - name: Create .env file 🌮
+              run: echo "${{ secrets.ENV_PROD }}" > $DEPLOY_PATH/.env
 
-      - name: Install dependencies 🚀
-        run: pnpm install --prefix $DEPLOY_PATH
+            - name: Install dependencies 🚀
+              run: pnpm install --prefix $DEPLOY_PATH
 
-      - name: Build Application 💻
-        run: pnpm --dir $DEPLOY_PATH run build
+            - name: Build Application 💻
+              run: pnpm --dir $DEPLOY_PATH run build
 
-      - name: Restart App 💻
-        run: pm2 restart techstudio-external-prod
+            - name: Restart App 💻
+              run: pm2 restart tsa-external

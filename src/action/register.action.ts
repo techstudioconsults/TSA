@@ -10,9 +10,9 @@ interface RegisterFormResponse {
   error?: string;
 }
 
-export const submitRegisterForm = async (data: RegisterFormData, courseID: string): Promise<RegisterFormResponse> => {
+export const submitRegisterForm = async (data: RegisterFormData): Promise<RegisterFormResponse> => {
   try {
-    const response = await fetch(`${API_URL}?courseId=${courseID}`, {
+    const response = await fetch(`${API_URL}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -26,6 +26,7 @@ export const submitRegisterForm = async (data: RegisterFormData, courseID: strin
     }
 
     const responseData = await response.json();
+
     return { success: responseData.message };
   } catch (error) {
     const errorMessage = error instanceof Error ? error.message : "An unknown error occurred";
