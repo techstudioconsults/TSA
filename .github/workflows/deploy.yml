@@ -30,7 +30,7 @@ jobs:
 
             - name: Set Deployment Path
               run: echo "DEPLOY_PATH=/var/www/techstudio/external/staging" >> $GITHUB_ENV
-    
+
             - name: Cache node_modules and build cache 📦
               uses: actions/cache@v4
               with:
@@ -40,7 +40,7 @@ jobs:
                   key: ${{ runner.os }}-node-${{ hashFiles('**/pnpm-lock.yaml') }}
                   restore-keys: |
                     ${{ runner.os }}-node-
-            
+
             - name: Move Repository to Deploy Path
               run: |
                   mkdir -p $DEPLOY_PATH
@@ -51,10 +51,10 @@ jobs:
 
             - name: Install dependencies 🚀
               run: pnpm install --prefix $DEPLOY_PATH
-   
+
             - name: Build Application 💻
               run: pnpm --dir $DEPLOY_PATH run build
-   
+
             - name: Restart App 💻
               run: pm2 restart techstudio-external-staging
 
@@ -83,7 +83,7 @@ jobs:
 
             - name: Set Deployment Path
               run: echo "DEPLOY_PATH=/var/www/techstudio/external/production" >> $GITHUB_ENV
-    
+
             - name: Cache node_modules and build cache 📦
               uses: actions/cache@v4
               with:
@@ -93,7 +93,7 @@ jobs:
                   key: ${{ runner.os }}-node-${{ hashFiles('**/pnpm-lock.yaml') }}
                   restore-keys: |
                     ${{ runner.os }}-node-
-            
+
             - name: Move Repository to Deploy Path
               run: |
                   mkdir -p $DEPLOY_PATH
@@ -104,9 +104,9 @@ jobs:
 
             - name: Install dependencies 🚀
               run: pnpm install --prefix $DEPLOY_PATH
-   
+
             - name: Build Application 💻
               run: pnpm --dir $DEPLOY_PATH run build
-   
+
             - name: Restart App 💻
               run: pm2 restart tsa-external
