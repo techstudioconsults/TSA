@@ -23,8 +23,16 @@ export const RegisterForm: FC<RegisterProperties> = ({ slug }) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [responseMessage, setResponseMessage] = useState<string | undefined>();
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [source, setSource] = useState("direct");
 
   const { allCourses } = useCoursesStore();
+
+  useEffect(() => {
+    const savedSource = localStorage.getItem("traffic_source");
+    if (savedSource) {
+      setSource(savedSource);
+    }
+  }, []);
 
   useEffect(() => {
     fetchAllCourses();
@@ -49,6 +57,7 @@ export const RegisterForm: FC<RegisterProperties> = ({ slug }) => {
       courseId: "",
       schedule: "weekday",
       newsletter: false,
+      source: source,
     },
   });
 
@@ -70,7 +79,11 @@ export const RegisterForm: FC<RegisterProperties> = ({ slug }) => {
   const onSubmit = async (data: RegisterFormData) => {
     setIsSubmitting(true);
     try {
-      const result = await submitRegisterForm(data);
+      const formData = {
+        ...data,
+        source: source,
+      };
+      const result = await submitRegisterForm(formData);
 
       if (result.success) {
         setResponseMessage(result.success);
@@ -83,6 +96,7 @@ export const RegisterForm: FC<RegisterProperties> = ({ slug }) => {
           phoneNumber: "",
           courseId: course?.id,
           schedule: "weekday",
+          source: "direct",
         });
       } else {
         toast.error("Something went wrong!", {
