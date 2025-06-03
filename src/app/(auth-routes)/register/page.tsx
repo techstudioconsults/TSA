@@ -22,6 +22,14 @@ const RegistrationForm: FC = () => {
   const { allCourses, loading } = useCoursesStore();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [source, setSource] = useState("direct");
+
+  useEffect(() => {
+    const savedSource = localStorage.getItem("traffic_source");
+    if (savedSource) {
+      setSource(savedSource);
+    }
+  }, []);
 
   const formMethods = useForm<SignUpFormData>({
     resolver: zodResolver(signUpFormSchema),
@@ -33,6 +41,7 @@ const RegistrationForm: FC = () => {
       courseId: "",
       schedule: "",
       newsletter: false,
+      source: source,
     },
   });
 
@@ -53,6 +62,7 @@ const RegistrationForm: FC = () => {
       courseId: data.courseId,
       schedule: data.schedule,
       newsletter: data.newsletter,
+      source: source,
     });
 
     if (response.error) {

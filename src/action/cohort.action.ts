@@ -2,7 +2,7 @@ import useCohortStore from "~/stores/cohort.store";
 
 // import { Cohort } from "./services.type";
 
-const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
 // Format date as DD-MM-YYYY
 const formatDate = (date: Date): string => {
