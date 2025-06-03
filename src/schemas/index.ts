@@ -73,6 +73,7 @@ export const registerFormSchema = formSchema.merge(
         message: "Please select a schedule",
       }),
     newsletter: z.boolean(),
+    source: z.string(),
   }),
 );
 
