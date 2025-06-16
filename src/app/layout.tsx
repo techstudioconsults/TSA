@@ -1,5 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
-/* eslint-disable jsx-a11y/alt-text */
 import { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import React, { Suspense } from "react";
