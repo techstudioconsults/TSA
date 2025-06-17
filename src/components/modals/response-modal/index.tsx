@@ -39,7 +39,7 @@ const ResponseModal: React.FC<ResponseModalProperties> = ({
         </div>
         <DialogFooter>
           <button
-            className={`mt-4 rounded px-4 py-2 text-white ${isError ? "bg-red-600" : "bg-mid-blue"}`}
+            className={`mt-4 w-full rounded px-4 py-2 text-white ${isError ? "bg-red-600" : "bg-mid-blue"}`}
             onClick={onClose}
           >
             Close this window
