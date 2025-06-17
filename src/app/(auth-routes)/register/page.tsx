@@ -3,6 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader } from "lucide-react";
 import { FC, useEffect, useState } from "react";
+import ReactPixel from "react-facebook-pixel";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 
@@ -70,6 +71,12 @@ const RegistrationForm: FC = () => {
         description: response.error,
       });
     } else {
+      if (source === "facebook") {
+        ReactPixel.track("Lead", {
+          content_name: "Student Registration",
+          ...data,
+        });
+      }
       setIsModalOpen(true);
       reset();
     }
