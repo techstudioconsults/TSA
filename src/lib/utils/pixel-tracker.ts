@@ -1,5 +1,8 @@
 /* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-explicit-any */
+
+"use client";
+
 import { useEffect } from "react";
 import ReactPixel, { AdvancedMatching } from "react-facebook-pixel";
 
