@@ -3,7 +3,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader } from "lucide-react";
 import { FC, useEffect, useState } from "react";
-import ReactPixel from "react-facebook-pixel";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 
@@ -16,6 +15,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "~/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "~/components/ui/select";
 import TsaButton from "~/lib/storybook/atoms/tsa-button";
+import useFacebookPixel from "~/lib/utils/pixel-tracker";
 import { SignUpFormData, signUpFormSchema } from "~/schemas";
 import useCoursesStore from "~/stores/course.store";
 
@@ -24,6 +24,10 @@ const RegistrationForm: FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [source, setSource] = useState("direct");
+  const { trackEvent } = useFacebookPixel("962870014990453", undefined, {
+    autoConfig: true,
+    debug: true,
+  });
 
   useEffect(() => {
     const savedSource = localStorage.getItem("traffic_source");
@@ -72,9 +76,9 @@ const RegistrationForm: FC = () => {
       });
     } else {
       if (source === "facebook") {
-        ReactPixel.track("Lead", {
+        trackEvent("Lead", {
           content_name: "Student Registration",
-          ...data,
+          email: data.email,
         });
       }
       setIsModalOpen(true);

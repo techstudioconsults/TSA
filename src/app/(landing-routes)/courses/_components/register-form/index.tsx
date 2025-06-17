@@ -97,7 +97,7 @@ export const RegisterForm: FC<RegisterProperties> = ({ slug }) => {
         if (source === "facebook") {
           trackEvent("Lead", {
             content_name: "Student Registration",
-            ...data,
+            email: data.email,
           });
         }
         setResponseMessage(result.success);
