@@ -8,7 +8,7 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0 # Required for Git history
-          path: '.'
+          path: "."
 
       # Setup PNPM
       - uses: pnpm/action-setup@v2

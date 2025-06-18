@@ -2,7 +2,7 @@
 
 import { newsletterFormData } from "~/schemas";
 
-const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 const API_URL = `${BASE_URL}/external/newsletter`;
 
 interface NewsletterFormResponse {
