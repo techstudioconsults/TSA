@@ -28,14 +28,14 @@ export const SectionOne: React.FC = () => {
                 <h6 className="mt-6 font-semibold">Call or Whatsapp</h6>
                 <p className="mt-2 text-high-grey-II">
                   <span className="font-semibold">Busola:</span>
-                  <a className="text-dark" href="tel:+234123456789">
-                    +234 123 456 789
+                  <a className="text-dark" href="tel:+2348113800161">
+                    +234 811 380 0161
                   </a>
                 </p>
                 <p className="mt-2 text-high-grey-II">
                   <span className="font-semibold">Blessing:</span>
-                  <a className="text-dark" href="tel:+234987654321">
-                    +234 987 654 321
+                  <a className="text-dark" href="tel:+2348126051769">
+                    +234 812 605 1769
                   </a>
                 </p>
                 <div className="mt-8 flex items-center justify-center gap-4 lg:justify-normal">
