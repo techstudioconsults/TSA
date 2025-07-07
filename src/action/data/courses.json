@@ -193,6 +193,199 @@
     }
   },
   {
+    "fullstack-web-development-(weekday-online-class)": {
+      "intro": {
+        "title": "Full Stack Web Development (Weekday Online)",
+        "subTitle": "Let’s help you become a professional Fullstack web developer. You’ll learn all you need to know to become a Fullstack Developer and build interesting portfolios while learning the fundamentals of HTML, CSS, JavaScript, React, Mongo DB, Express and hosting on Vercel."
+      },
+      "sectionOne": {
+        "cards": [
+          {
+            "text": "In 24 weeks, you’ll be a professional Fullstack developer, able to build real-time interactive and dynamic applications. We teach Fullstack JavaScript because growing in popularity every day and it’s here to stay."
+          },
+          {
+            "text": "You move from understanding web basics to launching Single Page Applications (SPAs). You’ll be taught to build smart SPAs using vanilla JavaScript that interacts with user inputs."
+          },
+          {
+            "text": "And finally, you’ll learn the fundamentals of working as a team; collaborate with other group members of the class to build, change, maintain, and secure an application. Track your team development process using Version Control Systems. "
+          }
+        ]
+      },
+
+      "courseList": [
+        {
+          "id": 1,
+          "classname": "A",
+          "caption": "UNIT 1",
+          "title": "Introduction To HTML And CSS",
+          "desc": "This unit provides a solid foundation in web development, covering both HTML and CSS. Students will learn how to create well-structured HTML documents using tags, elements, and attributes. They will also explore CSS syntax and style rules to customize the appearance of web pages. Topics include text styling, backgrounds, borders, and images. Additionally, students will discover CSS layout techniques, such as floats and CSS grid, to create different page layouts. They will also explore Bootstrap, utilizing its pre-built components and responsive grid system for attractive and mobile-friendly layouts. Practical exercises reinforce learning.",
+          "bgColor": "bg-white",
+          "img": "/gifs/fullstack/writing-code.gif",
+          "tags": [
+            {
+              "img": "/icons/vscode.png",
+              "text": "Visual Studio Code"
+            },
+            {
+              "img": "/icons/html.png",
+              "text": "HTML"
+            },
+            {
+              "img": "/icons/css.png",
+              "text": "CSS"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "classname": "B",
+          "caption": "UNIT 2",
+          "title": "Java Script Basic",
+          "desc": "Throughout the course of this unit, students will embark on a journey into the fundamentals of JavaScript, unlocking the potential to create engaging and interactive web experiences. By delving into the core concepts and syntax of JavaScript, students will gain a comprehensive understanding of how to leverage this powerful programming language to build dynamic and responsive web pages. They will explore topics such as variables, data types, conditional statements, loops, functions, arrays, objects, and DOM manipulation.",
+          "bgColor": "bg-accent",
+          "img": "/gifs/fullstack/javascript-programming-language.gif",
+          "tags": [
+            {
+              "img": "/icons/vscode.png",
+              "text": "Visual Studio Code"
+            },
+            {
+              "img": "/icons/js.png",
+              "text": "Javascript"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "classname": "C",
+          "caption": "UNIT 3",
+          "title": "Object-Oriented JavaScript",
+          "desc": "Object-oriented JavaScript is a programming paradigm that focuses on organizing code into objects, which encapsulate data and methods. It provides a way to create reusable and modular code, making it easier to manage and maintain complex applications. In object-oriented JavaScript, students will learn how to create objects, define their properties and methods, and establish relationships between objects through inheritance. They will explore concepts such as encapsulation, where data and methods are bundled together within objects to control access and ensure data integrity.",
+          "bgColor": "bg-white",
+          "img": "/gifs/fullstack/js-javascript.gif",
+          "tags": [
+            {
+              "img": "/icons/vscode.png",
+              "text": "Visual Studio Code"
+            },
+            {
+              "img": "/icons/js.png",
+              "text": "Javascript"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "classname": "D",
+          "caption": "UNIT 4",
+          "title": "The DOM",
+          "desc": "Unit 4 dives into the exploration of the Document Object Model (DOM), an essential API for interacting programmatically with HTML and XML documents. The unit focuses on the DOM's association with JavaScript, the widely used programming language for web development, known for its built-in support for the DOM. Students learn how to leverage the DOM to manipulate and interact with web content dynamically.",
+          "bgColor": "bg-primary",
+          "img": "/gifs/fullstack/js-file-document.gif",
+          "tags": [
+            {
+              "img": "/icons/vscode.png",
+              "text": "Visual Studio Code"
+            },
+            {
+              "img": "/icons/js.png",
+              "text": "Javascript"
+            },
+            {
+              "img": "/icons/html.png",
+              "text": "HTML"
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "classname": "E",
+          "caption": "UNIT 5",
+          "title": "The REACT Library",
+          "desc": "Unit 5 focuses on the popular JavaScript library, React, known for its ability to create powerful and interactive user interfaces. React has gained immense popularity due to its component-based architecture, which allows developers to build reusable UI components that encapsulate specific functionalities. By breaking down the user interface into modular components, React promotes code reusability, improves maintainability, and facilitates collaborative development.",
+          "bgColor": "bg-white",
+          "className": "react-img",
+          "img": "/gifs/fullstack/react-js.gif",
+          "tags": [
+            {
+              "img": "/icons/vscode.png",
+              "text": "Visual Studio Code"
+            },
+            {
+              "img": "/icons/react-icon.png",
+              "text": "React"
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "classname": "F",
+          "caption": "UNIT 6",
+          "title": "Version Control",
+          "desc": "This Unit of the curriculum explores the importance of version control systems, with a particular focus on Git. Version control systems like Git play a crucial role in managing code changes over time. They provide a structured framework for tracking modifications, maintaining a comprehensive history of changes, and facilitating collaborative development by enabling multiple developers to work on the same codebase simultaneously.",
+          "bgColor": "bg-accent",
+          "img": "/gifs/fullstack/git.gif",
+          "tags": [
+            {
+              "img": "/icons/vscode.png",
+              "text": "Visual Studio Code"
+            },
+            {
+              "img": "/icons/git.png",
+              "text": "Git"
+            },
+            {
+              "img": "/icons/github.png",
+              "text": "GitHub"
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "classname": "G",
+          "caption": "UNIT 7",
+          "title": "Node JS",
+          "desc": "Node JS is a backend or server-side framework that uses JavaScript code outside a web browser. Server-side JavaScript is becoming more prevalent in the industry, with web frameworks such as Node.js and Express making it simple to create and deploy complex, data-driven web applications. This course will prepare you to use such frameworks and show you how to integrate them with NoSQL databases such as MongoDB.",
+          "bgColor": "bg-white",
+          "img": "/gifs/fullstack/node.gif",
+          "tags": [
+            {
+              "img": "/icons/vscode.png",
+              "text": "Visual Studio Code"
+            },
+            {
+              "img": "/icons/node.png",
+              "text": "NodeJs"
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "classname": "H",
+          "caption": "UNIT 8",
+          "title": "Deployment",
+          "desc": "In this comprehensive unit, students delve into the art of deploying web applications using three prominent platforms: GitHub, Netlify, and Heroku. They gain hands-on experience in version control, automation, and best practices for production environments. Throughout the curriculum, students learn to optimize deployments, scale applications, and ensure efficient error handling. By mastering these skills, they become proficient in successfully deploying web apps to meet the demands of real-world scenarios.",
+          "bgColor": "bg-primary",
+          "img": "/gifs/fullstack/node.gif",
+          "tags": [
+            {
+              "img": "/icons/github.png",
+              "text": "GitHub"
+            },
+            {
+              "img": "/icons/heroku.png",
+              "text": "Heroku"
+            },
+            {
+              "img": "/icons/vercel.png",
+              "text": "Vercel"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
     "frontend-engineering": {
       "intro": {
         "title": "Frontend Engineering Immersive",
