@@ -7,6 +7,11 @@ export const SLIDE_CONTENT: courseContentProperties[] = [
     link: "/courses/fullstack-development",
   },
   {
+    name: "Fullstack Development Weekday(Online)",
+    image: "/images/fullstack.png",
+    link: "/courses/fullstack-web-development-(weekday-online-class)",
+  },
+  {
     name: "Product Design",
     image: "/images/ui-ux.png",
     link: "/courses/product-design-ui-ux",
@@ -21,11 +26,11 @@ export const SLIDE_CONTENT: courseContentProperties[] = [
     image: "/images/cyber-security.png",
     link: "/courses/cyber-security",
   },
-  // {
-  //   name: "Product Managment",
-  //   image: "/images/product-management.png",
-  //   link: "/courses/product-management",
-  // },
+  {
+    name: "Product Managment",
+    image: "/images/product-management.png",
+    link: "/courses/product-management",
+  },
   {
     name: "Project Managment",
     image: "/images/product-management.png",
