@@ -16,7 +16,7 @@ import { cn } from "~/lib/utils";
 import { TsaNavbarProperties } from "~/types/index.types";
 import Logo from "../../atoms/logo";
 import TsaButton from "../../atoms/tsa-button";
-import { Banner } from "./banner";
+import { FullStackComingSoonBanner } from "./banner";
 import { MobileNavbar } from "./mobile-nav";
 
 export const TsaNavbar: FC<TsaNavbarProperties> = ({
@@ -27,7 +27,6 @@ export const TsaNavbar: FC<TsaNavbarProperties> = ({
   linkClassName,
   className,
   showBanner = false,
-  bannerDuration,
 }) => {
   const [scrolling, setIsScrolling] = useState<boolean>(false);
   const pathname = usePathname();
@@ -54,7 +53,7 @@ export const TsaNavbar: FC<TsaNavbarProperties> = ({
         className,
       )}
     >
-      {showBanner && <Banner duration={bannerDuration || `1m`} />}
+      {showBanner && <FullStackComingSoonBanner />}
       <nav>
         <div
           className={cn(
