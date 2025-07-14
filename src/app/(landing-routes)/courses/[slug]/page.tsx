@@ -84,7 +84,7 @@ const Courses = async ({ params }: { params: { slug: string } }) => {
       <main>
         <Hero slug={slug} intro={course.intro} />
         {slug.includes(`weekday-online-class`) ? (
-          <WeekdayCountdownBanner targetDate={`15th July, 2025`} />
+          <WeekdayCountdownBanner targetDate={`11th August, 2025`} />
         ) : (
           <DurationBanner slug={slug} />
         )}
