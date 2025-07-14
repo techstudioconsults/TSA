@@ -1,10 +1,12 @@
+import Link from "next/link";
 import React, { HtmlHTMLAttributes, useEffect, useState } from "react";
 
 import { cn } from "~/lib/utils";
 
 // Define the props type for the Banner component
 interface BannerProperties extends HtmlHTMLAttributes<HTMLDivElement> {
-  duration: string;
+  duration?: string; // Made optional
+  showCountdown?: boolean; // Added to toggle countdown visibility
 }
 
 // Helper function to parse the duration string and convert it to milliseconds
@@ -41,11 +43,19 @@ const formatTime = (ms: number): string => {
 };
 
 // Banner component
-export const Banner: React.FC<BannerProperties> = ({ duration, className, ...rest }) => {
+export const Banner: React.FC<BannerProperties> = ({
+  duration = "0s", // Default value
+  showCountdown = true, // Default value
+  className,
+  children,
+  ...rest
+}) => {
   const [timeLeft, setTimeLeft] = useState(parseDuration(duration));
   const [message, setMessage] = useState("Expires in: ");
 
   useEffect(() => {
+    if (!showCountdown || !duration) return;
+
     const interval = setInterval(() => {
       setTimeLeft((previousTime) => {
         if (previousTime <= 1000) {
@@ -58,17 +68,36 @@ export const Banner: React.FC<BannerProperties> = ({ duration, className, ...res
     }, 1000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [showCountdown, duration]);
 
   return (
     <section className={cn(`items-cente flex justify-center bg-background p-4 text-center`, className)} {...rest}>
       <p className="text-sm font-bold text-primary lg:text-lg">
-        Get 10% Discount Off Our Next Cohort! &#128073;
-        <span className="text-mid-danger lg:ml-5">
-          {message}
-          {timeLeft > 0 ? formatTime(timeLeft) : ""}
-        </span>
+        {children || (
+          <>
+            Get 10% Discount Off Our Next Cohort! &#128073;
+            {showCountdown && (
+              <span className="text-mid-danger lg:ml-5">
+                {message}
+                {timeLeft > 0 ? formatTime(timeLeft) : ""}
+              </span>
+            )}
+          </>
+        )}
       </p>
     </section>
   );
 };
+
+// Example usage for Full Stack Online Coming Soon
+export const FullStackComingSoonBanner = () => (
+  <Banner showCountdown={false}>
+    🚀 Full Stack Online Coming Soon!{" "}
+    <Link
+      href="/courses/fullstack-web-development-(weekday-online-class)"
+      className="hover:text-brand-primary text-mid-danger underline"
+    >
+      Join the waitlist
+    </Link>
+  </Banner>
+);
