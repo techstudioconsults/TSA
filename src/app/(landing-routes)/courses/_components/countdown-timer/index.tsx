@@ -76,7 +76,7 @@ export const WeekdayCountdownBanner = ({ targetDate }: WeekdayCountdownBannerPro
           localStorage.setItem(COUNTDOWN_KEY, endTime.toString());
         }
 
-        // Format for display
+        // Format for display time
         const date = new Date(endTime);
         setDisplayDate(
           date.toLocaleDateString("en-US", {
