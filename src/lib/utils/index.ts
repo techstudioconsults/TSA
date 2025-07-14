@@ -83,3 +83,7 @@ export function formatPrice(
 
   return currency === "NGN" ? `₦${newPrice.replace(/NGN\s?/, "")}` : newPrice;
 }
+
+export const formatTime = (time: number): string => {
+  return time < 10 ? `0${time}` : `${time}`;
+};
