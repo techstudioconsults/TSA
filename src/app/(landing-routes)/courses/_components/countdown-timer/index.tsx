@@ -154,40 +154,40 @@ export const WeekdayCountdownBanner = ({ targetDate }: WeekdayCountdownBannerPro
 
   return (
     <section className="mx-auto min-h-[172px] max-w-[1080px] rounded-[10px] bg-white p-[40px] text-black shadow-lg lg:translate-y-[-5rem]">
-      <h2 className="text-center text-3xl font-bold md:text-4xl lg:text-5xl">
+      <h2 className="text-center text-xl font-bold md:text-3xl">
         {timeLeft.days <= 0 && timeLeft.hours <= 0 && timeLeft.minutes <= 0 && timeLeft.seconds <= 0
           ? "Class Started!"
-          : "Next Class Starts In:"}
+          : "Next Cohort Starts In:"}
       </h2>
 
       {displayDate && (
         <p className="mt-2 text-center text-lg text-gray-600">
           {timeLeft.days <= 0 && timeLeft.hours <= 0 && timeLeft.minutes <= 0 && timeLeft.seconds <= 0
             ? "The class is now in session"
-            : `On ${displayDate}`}
+            : ` `}
         </p>
       )}
 
       {(timeLeft.days > 0 || timeLeft.hours > 0 || timeLeft.minutes > 0 || timeLeft.seconds > 0) && (
-        <div className="mt-4 flex justify-center gap-4 text-2xl font-bold text-destructive md:text-3xl lg:text-4xl">
-          <div className="flex flex-col items-center">
+        <div className="mx-auto mt-6 grid w-full max-w-xl grid-cols-2 items-center justify-center gap-4 text-2xl font-bold text-destructive md:grid-cols-4 md:gap-6 md:text-3xl lg:gap-14 lg:text-4xl">
+          <div className="flex max-w-24 flex-col items-center justify-center rounded-sm bg-low-danger p-4 text-center md:min-w-20">
             <span>{formatTime(timeLeft.days)}</span>
-            <span className="text-sm md:text-base">Days</span>
+            <p className="text-sm text-foreground md:text-base">Days</p>
           </div>
-          <span>:</span>
-          <div className="flex flex-col items-center">
+
+          <div className="flex max-w-24 flex-col items-center justify-center rounded-sm bg-low-danger p-4 text-center md:min-w-20">
             <span>{formatTime(timeLeft.hours)}</span>
-            <span className="text-sm md:text-base">Hours</span>
+            <p className="text-sm text-foreground md:text-base">Hours</p>
           </div>
-          <span>:</span>
-          <div className="flex flex-col items-center">
+
+          <div className="flex max-w-24 flex-col items-center justify-center rounded-sm bg-low-danger p-4 text-center md:min-w-20">
             <span>{formatTime(timeLeft.minutes)}</span>
-            <span className="text-sm md:text-base">Minutes</span>
+            <p className="text-sm text-foreground md:text-base">Minutes</p>
           </div>
-          <span>:</span>
-          <div className="flex flex-col items-center">
+
+          <div className="flex max-w-24 flex-col items-center justify-center rounded-sm bg-low-danger p-4 text-center md:min-w-20">
             <span>{formatTime(timeLeft.seconds)}</span>
-            <span className="text-sm md:text-base">Seconds</span>
+            <p className="text-sm text-foreground md:text-base">Seconds</p>
           </div>
         </div>
       )}
