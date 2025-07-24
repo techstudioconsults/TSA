@@ -26,8 +26,18 @@ interface ProgramCard {
   text: string;
 }
 
+interface AboutCard {
+  image: string;
+  heading: string;
+  text: string;
+}
+
 export interface ProgramSectionOne {
   cards: ProgramCard[];
+}
+
+export interface AboutOnlineSection {
+  cards: AboutCard[];
 }
 
 export interface ProgramDuration {

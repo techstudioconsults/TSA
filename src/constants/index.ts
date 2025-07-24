@@ -99,6 +99,52 @@ export const STEPS = [
   },
 ];
 
+export const ABOUTONLINECOURSE = [
+  {
+    id: "1",
+    heading: "You're Ready for Change",
+    message: "You've tried YouTube tutorials and still feel stuck. You want structured learning with real guidance.",
+  },
+  {
+    id: "2",
+    heading: "Switch Career Goals",
+    message: "You want to transition into tech and build a sustainable career in web development.",
+  },
+  {
+    id: "3",
+    heading: "Committed to Learning",
+    message: "You can commit 3-5 hours daily on weekdays to master new skills.",
+  },
+  {
+    id: "4",
+    heading: "Focus Practically",
+    message: "You want a hands-on curriculum that leads to real, job-ready skills.",
+  },
+];
+
+export const ONLINETESTIMONIAL = [
+  {
+    id: "1",
+    name: "Morayo Idowu",
+    image: "/images/testimonial-image-1.svg",
+    message:
+      "After the program, I landed my first freelance job as a React developer! The hands-on approach and internship made all the difference.",
+  },
+  {
+    id: "2",
+    name: "Joshua Bidemi",
+    image: "/images/testimonial-image-2.svg",
+    message:
+      "This course made things click. The mentorship was top-notch and the practical projects prepared me for real work.",
+  },
+  {
+    id: "3",
+    name: "Chidera Ezeani",
+    image: "/images/testimonial-image-3.svg",
+    message: "From zero coding knowledge to building full apps. I recommend it 100%. The support system is incredible.",
+  },
+];
+
 export const CourseSteps = [];
 
 export const FACILITY_CONTENT = [
