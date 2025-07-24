@@ -145,6 +145,81 @@ export const ONLINETESTIMONIAL = [
   },
 ];
 
+export const FULLSTACKFAQS = [
+  {
+    id: "1",
+    question: "Do I need prior coding knowledge?",
+    answer:
+      "Response ,No, you don’t need any prior coding experience. This program is beginner-friendly and starts from the basics.",
+  },
+  {
+    id: "2",
+    question: "How is this different from the offline class?",
+    answer:
+      "Response, The online class allows you to learn from anywhere during live, interactive sessions—offering the same value as the offline class, but with more convenience.",
+  },
+  {
+    id: "3",
+    question: "Can I pay in instalments?",
+    answer: "We currently accept only outright payments.",
+  },
+  {
+    id: "4",
+    question: "How is this different from the offline class?",
+    answer:
+      "Response, The online class allows you to learn from anywhere during live, interactive sessions—offering the same value as the offline class, but with more convenience.",
+  },
+  {
+    id: "5",
+    question: "Do I need prior coding knowledge?",
+    answers:
+      "Response ,No, you don’t need any prior coding experience. This program is beginner-friendly and starts from the basics.",
+  },
+  {
+    id: "6",
+    question: "What happens after I enrol?",
+    answer:
+      "Response , You'll be added to the class group/platform where you'll receive all updates, schedules, and learning resources.",
+  },
+];
+export const DATASCIENCEFAQS = [
+  {
+    id: "1",
+    question: "Do I need prior coding knowledge?",
+    answer:
+      "Response ,No, you don’t need any prior coding experience. This program is beginner-friendly and starts from the basics.",
+  },
+  {
+    id: "2",
+    question: "How is this different from the offline class?",
+    answer:
+      "Response, The online class allows you to learn from anywhere during live, interactive sessions—offering the same value as the offline class, but with more convenience.",
+  },
+  {
+    id: "3",
+    question: "Can I pay in instalments?",
+    answer: "We currently accept only outright payments.",
+  },
+  {
+    id: "4",
+    question: "How is this different from the offline class?",
+    answer:
+      "Response, The online class allows you to learn from anywhere during live, interactive sessions—offering the same value as the offline class, but with more convenience.",
+  },
+  {
+    id: "5",
+    question: "Do I need prior analytical knowledge?",
+    answers:
+      "Response ,No, you don’t need any prior data analysis experience. This program is beginner-friendly and starts from the basics.",
+  },
+  {
+    id: "6",
+    question: "What happens after I enrol?",
+    answer:
+      "Response , You'll be added to the class group/platform where you'll receive all updates, schedules, and learning resources.",
+  },
+];
+
 export const CourseSteps = [];
 
 export const FACILITY_CONTENT = [
