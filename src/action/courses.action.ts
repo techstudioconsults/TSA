@@ -38,6 +38,8 @@ export async function getCourseData(slug: string): Promise<EducationPrograms> {
   const courseKey = Object.keys(course)[0];
   const courseData = course[courseKey as keyof typeof course];
 
+  // console.log(courseData);
+
   // Add null check to handle potential undefined value
   if (!courseData) {
     throw new Error("Course data is undefined");

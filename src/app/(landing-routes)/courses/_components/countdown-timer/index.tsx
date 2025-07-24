@@ -161,31 +161,31 @@ export const WeekdayCountdownBanner = ({ targetDate }: WeekdayCountdownBannerPro
       </h2>
 
       {displayDate && (
-        <p className="mt-2 text-center text-lg text-gray-600">
+        <p className="mt-2 text-center text-lg font-semibold text-mid-blue lg:text-2xl">
           {timeLeft.days <= 0 && timeLeft.hours <= 0 && timeLeft.minutes <= 0 && timeLeft.seconds <= 0
             ? "The class is now in session"
-            : ` `}
+            : `${targetDate}`}
         </p>
       )}
 
       {(timeLeft.days > 0 || timeLeft.hours > 0 || timeLeft.minutes > 0 || timeLeft.seconds > 0) && (
         <div className="mx-auto mt-6 grid w-full max-w-xl grid-cols-2 items-center justify-center gap-4 text-2xl font-bold text-destructive md:grid-cols-4 md:gap-6 md:text-3xl lg:gap-14 lg:text-4xl">
-          <div className="flex flex-col items-center justify-center rounded-sm bg-low-danger p-4 text-center md:min-w-20">
+          <div className="flex flex-col items-center justify-center rounded-sm p-4 text-center md:min-w-20">
             <span>{formatTime(timeLeft.days)}</span>
             <p className="text-sm text-foreground md:text-base">Days</p>
           </div>
 
-          <div className="flex flex-col items-center justify-center rounded-sm bg-low-danger p-4 text-center md:min-w-20">
+          <div className="flex flex-col items-center justify-center rounded-sm p-4 text-center md:min-w-20">
             <span>{formatTime(timeLeft.hours)}</span>
             <p className="text-sm text-foreground md:text-base">Hours</p>
           </div>
 
-          <div className="flex flex-col items-center justify-center rounded-sm bg-low-danger p-4 text-center md:min-w-20">
+          <div className="flex flex-col items-center justify-center rounded-sm p-4 text-center md:min-w-20">
             <span>{formatTime(timeLeft.minutes)}</span>
             <p className="text-sm text-foreground md:text-base">Minutes</p>
           </div>
 
-          <div className="flex flex-col items-center justify-center rounded-sm bg-low-danger p-4 text-center md:min-w-20">
+          <div className="flex flex-col items-center justify-center rounded-sm p-4 text-center md:min-w-20">
             <span>{formatTime(timeLeft.seconds)}</span>
             <p className="text-sm text-foreground md:text-base">Seconds</p>
           </div>
