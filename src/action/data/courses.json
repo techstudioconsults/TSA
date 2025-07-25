@@ -195,8 +195,8 @@
   {
     "fullstack-web-development-(weekday-online-class)": {
       "intro": {
-        "title": "Full Stack Web Development (Weekday Online)",
-        "subTitle": "Let’s help you become a professional Fullstack web developer. You’ll learn all you need to know to become a Fullstack Developer and build interesting portfolios while learning the fundamentals of HTML, CSS, JavaScript, React, Mongo DB, Express and hosting on Vercel."
+        "title": "Learn Web Development Online. Build Projects and Get Hired",
+        "subTitle": "Learn all you need to kickstart your journey as a Fullstack Developer  Online Weekday Class • ₦350k (Pay ₦210k Now) • Only 30 Spots Available"
       },
       "sectionOne": {
         "cards": [
@@ -694,6 +694,162 @@
   },
   {
     "data-analysis-with-machine-learning": {
+      "intro": {
+        "title": "Data Analysis With Machine Learning",
+        "subTitle": "Get your hands dirty working with Excel and complex data. Dive into the Python programming language, understand data analysis and statistical modeling using Python, after which you move into machine learning and algorithms.",
+        "img": "https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/GIFS/Network%20Security.gif"
+      },
+      "sectionOne": {
+        "cards": [
+          {
+            "text": "You will learn the skills needed to skyrocket your career as a data analyst/scientist. You'll have 12 straight weeks of training to predict trends and generate informed predictive models."
+          },
+          {
+            "text": "You’ll learn the fundamentals of the Python programming language and its usage in analysing complex data. You’ll build and refine machine learning models to predict patterns from data sets and complete hands-on exercises to reinforce the newly learned skills."
+          },
+          {
+            "text": "You’ll learn the fundamentals of being a true data analyst; you work with a team, sharpen your communication skills and collaborate with members through real-world projects."
+          }
+        ]
+      },
+      "courseList": [
+        {
+          "id": 1,
+          "classname": "A",
+          "caption": "UNIT 1",
+          "title": "Introduction to Microsoft Excel - Objectives",
+          "desc": "In this unit, Students learn Microsoft Excel fundamentals, including installation, workbook creation, environment navigation, and the importance of Excel. They explore formulas, functions (arithmetic, text, logical, date), data organization (sorting, filtering, validation), analysis (conditional formatting, Power Query, Power Pivot), and pivot table creation. Practical skills for data management and analysis are gained. Throughout the unit, students gain practical skills in using Microsoft Excel for data management, analysis, and reporting.",
+          "bgColor": "bg-white",
+          "img": "/gifs/datascience/microsoft-excel_1.gif",
+          "tags": [
+            {
+              "img": "/icons/excel.png",
+              "text": "Microsoft Excel"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "classname": "B",
+          "caption": "UNIT 2",
+          "title": "Introduction to SQL",
+          "desc": "This unit introduces students to SQL, a programming language used for accessing databases. They learn the basics of SQL, including its purpose, types of databases, and concepts of DBMS and RDBMS. Students gain practical skills in creating and managing databases and tables, including inserting records and altering table structures. They also explore SQL statements for selecting columns, updating data, applying constraints, and sorting values. Throughout the unit, students develop a solid foundation in SQL fundamentals for working with databases.",
+          "bgColor": "bg-primary",
+          "img": "/gifs/datascience/sql-file-format-extension.gif",
+          "tags": [
+            {
+              "img": "/icons/sql.png",
+              "text": "SQL"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "classname": "C",
+          "caption": "UNIT 3",
+          "title": "Introduction to Power BI",
+          "desc": "Students will learn how to pre-process and transform data(data cleaning) before creating visually appealing and interactive visualization and dashboards by utilizing business intelligence. As a data analyst/scientist you can convey insights effectively and predict business trends communicating your findings to those who will make better decisions. The role of a data analyst/scientist has become increasingly important as businesses have become more data-driven. They help businesses make sense of the vast amount of data that they collect.",
+          "bgColor": "bg-white",
+          "img": "/gifs/datascience/python.gif",
+          "tags": [
+            {
+              "img": "/icons/power-bi.png",
+              "text": "Power BI"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "classname": "D",
+          "caption": "UNIT 4",
+          "title": "Python Basics",
+          "desc": "Students delve into Python programming, acquiring a strong foundation in this widely-used language for data analysis. They learn to install Anaconda, explore in-built functions, work with different data types, manipulate strings, use variables and operators, implement loops, and import modules for enhanced functionality. Practical exercises empower students to write Python code proficiently, analyze large datasets, and create visual representations of data.",
+          "bgColor": "bg-primary",
+          "img": "/gifs/datascience/python-programming-language.gif",
+          "tags": [
+            {
+              "img": "/icons/python-2.png",
+              "text": "Python"
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "classname": "E",
+          "caption": "UNIT 5",
+          "title": "Python NumPy",
+          "desc": "Students delve into NumPy, a vital Python library for numerical data analysis and scientific computing. They gain hands-on experience by importing the library and utilizing array functions. Through practical exercises, they learn to create one-dimensional and two-dimensional arrays, enabling efficient manipulation and analysis of complex numerical data. By mastering NumPy, students acquire essential skills for advanced data analysis, modeling, and scientific computations in Python.",
+          "bgColor": "bg-accent",
+          "img": "/gifs/datascience/python-3.gif",
+          "tags": [
+            {
+              "img": "/icons/python-2.png",
+              "text": "Python"
+            },
+            {
+              "img": "/icons/numpy.png",
+              "text": "Numpy"
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "classname": "F",
+          "caption": "UNIT 6",
+          "title": "Python Pandas",
+          "desc": "In this unit, students delve into Pandas, a powerful Python library for data manipulation and analysis. They learn to convert sequences and dictionaries into DataFrame tables using the .DataFrame function. Students gain practical skills in importing files and converting them into DataFrames. They explore various DataFrame operations such as retrieving index and columns, using head and tail methods, accessing specific columns, counting values, summing columns vertically and horizontally, locating values in cells or positions, extracting rows based on conditions, creating columns based on conditions, and utilizing the groupby function.",
+          "bgColor": "bg-white",
+          "img": "https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/GIFS/python%20(2).gif",
+          "tags": [
+            {
+              "img": "/icons/python-2.png",
+              "text": "Python"
+            },
+            {
+              "img": "/icons/panda.png",
+              "text": "Pandas"
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "classname": "G",
+          "caption": "UNIT 7",
+          "title": "Python Plotly",
+          "desc": "Students delve into Plotly and Plotly Express, Python libraries renowned for interactive data visualization. They acquire practical skills in creating a variety of charts, including bar charts for categorical comparisons, line charts for trend analysis, area charts for cumulative data, pie charts for proportions, and donut charts with a center hole. By mastering Plotly, students unlock the ability to design captivating and interactive visualizations that effectively convey data insights.",
+          "bgColor": "bg-primary",
+          "img": "https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/GIFS/python.gif",
+          "tags": [
+            {
+              "img": "/icons/python-2.png",
+              "text": "Python"
+            },
+            {
+              "img": "/icons/ploty.png",
+              "text": "Plotly"
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "classname": "H",
+          "caption": "UNIT 8",
+          "title": "Machine Learning Basics",
+          "desc": "Students will learn how to build predictive models using machine learning to understand and forecast the probability of future events. It is important in a variety of fields including finance, marketing, sales, healthcare, etc. Predictive analytics enables organisations to understand who their customers and prospects are, how to up-sell and cross-sell products and services, and anticipate customer behaviour",
+          "bgColor": "bg-white",
+          "img": "/gifs/datascience/brain-chip.gif",
+          "tags": [
+            {
+              "img": "/icons/ml.png",
+              "text": "ML Model"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "data-analysis-with-machine-learning-(weekday-online-class)": {
       "intro": {
         "title": "Data Analysis With Machine Learning",
         "subTitle": "Get your hands dirty working with Excel and complex data. Dive into the Python programming language, understand data analysis and statistical modeling using Python, after which you move into machine learning and algorithms.",
