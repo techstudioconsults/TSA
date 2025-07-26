@@ -26,10 +26,20 @@ interface ProgramCard {
   text: string;
 }
 
-interface AboutCard {
-  image: string;
+export interface AboutCard {
+  id: string;
   heading: string;
-  text: string;
+  message: string;
+}
+
+export interface FaqItem {
+  id: string;
+  question: string;
+  answer?: string;
+}
+
+export interface OnlineClassFaqs {
+  faqs?: FaqItem[];
 }
 
 export interface ProgramSectionOne {
@@ -37,7 +47,7 @@ export interface ProgramSectionOne {
 }
 
 export interface AboutOnlineSection {
-  cards: AboutCard[];
+  about?: AboutCard[];
 }
 
 export interface ProgramDuration {
@@ -67,4 +77,6 @@ export interface EducationPrograms {
   sectionOne: ProgramSectionOne;
   courseList: Course[];
   duration: ProgramDuration;
+  aboutOnlineCourse: AboutCard[];
+  faqs: FaqItem[];
 }

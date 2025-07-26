@@ -211,6 +211,28 @@
           }
         ]
       },
+      "aboutOnlineCourse": [
+        {
+          "id": "1",
+          "heading": "You're Ready for Change",
+          "message": "You've tried YouTube tutorials and still feel stuck. You want structured learning with real guidance."
+        },
+        {
+          "id": "2",
+          "heading": "Switch Career Goals",
+          "message": "You want to transition into tech and build a sustainable career in web development."
+        },
+        {
+          "id": "3",
+          "heading": "Committed to Learning",
+          "message": "You can commit 3-5 hours daily on weekdays to master new skills."
+        },
+        {
+          "id": "4",
+          "heading": "Focus Practically",
+          "message": "You want a hands-on curriculum that leads to real, job-ready skills."
+        }
+      ],
 
       "courseList": [
         {
@@ -381,6 +403,33 @@
               "text": "Vercel"
             }
           ]
+        }
+      ],
+      "faqs": [
+        {
+          "id": "1",
+          "question": "How is this different from the offline class?",
+          "answer": "Response, The online class allows you to learn from anywhere during live, interactive sessions—offering the same value as the offline class, but with more convenience."
+        },
+        {
+          "id": "2",
+          "question": "Can I pay in instalments?",
+          "answer": "We currently accept only outright payments."
+        },
+        {
+          "id": "3",
+          "question": "How is this different from the offline class?",
+          "answer": "Response, The online class allows you to learn from anywhere during live, interactive sessions—offering the same value as the offline class, but with more convenience."
+        },
+        {
+          "id": "4",
+          "question": "Do I need prior coding knowledge?",
+          "answer": "Response ,No, you don’t need any prior coding experience. This program is beginner-friendly and starts from the basics."
+        },
+        {
+          "id": "5",
+          "question": "What happens after I enrol?",
+          "answer": "Response , You'll be added to the class group/platform where you'll receive all updates, schedules, and learning resources."
         }
       ]
     }
@@ -851,8 +900,8 @@
   {
     "data-analysis-with-machine-learning-(weekday-online-class)": {
       "intro": {
-        "title": "Data Analysis With Machine Learning",
-        "subTitle": "Get your hands dirty working with Excel and complex data. Dive into the Python programming language, understand data analysis and statistical modeling using Python, after which you move into machine learning and algorithms.",
+        "title": "Data Analysis With Machine Learning (Weekday Online Class)",
+        "subTitle": "Learn all you need to kickstart your journey as a Data Analyst  Online Weekday Class • ₦350k (Pay ₦210k Now) • Only 30 Spots Available",
         "img": "https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/GIFS/Network%20Security.gif"
       },
       "sectionOne": {
@@ -868,6 +917,28 @@
           }
         ]
       },
+      "aboutOnlineCourse": [
+        {
+          "id": "1",
+          "heading": "You're Ready for Change",
+          "message": "You've tried YouTube tutorials and still feel stuck. You want structured learning with real guidance."
+        },
+        {
+          "id": "2",
+          "heading": "Switch Career Goals",
+          "message": "You want to transition into tech and build a sustainable career in Data Analysis."
+        },
+        {
+          "id": "3",
+          "heading": "Committed to Learning",
+          "message": "You can commit 3-5 hours daily on weekdays to master new skills."
+        },
+        {
+          "id": "4",
+          "heading": "Focus Practically",
+          "message": "You want a hands-on curriculum that leads to real, job-ready skills."
+        }
+      ],
       "courseList": [
         {
           "id": 1,
@@ -1000,6 +1071,33 @@
               "text": "ML Model"
             }
           ]
+        }
+      ],
+      "faqs": [
+        {
+          "id": "1",
+          "question": "How is this different from the offline class?",
+          "answer": "Response, The online class allows you to learn from anywhere during live, interactive sessions—offering the same value as the offline class, but with more convenience."
+        },
+        {
+          "id": "2",
+          "question": "Can I pay in instalments?",
+          "answer": "We currently accept only outright payments."
+        },
+        {
+          "id": "3",
+          "question": "How is this different from the offline class?",
+          "answer": "Response, The online class allows you to learn from anywhere during live, interactive sessions—offering the same value as the offline class, but with more convenience."
+        },
+        {
+          "id": "4",
+          "question": "Do I need prior data analysis knowledge?",
+          "answer": "Response ,No, you don’t need any prior data analysis experience. This program is beginner-friendly and starts from the basics."
+        },
+        {
+          "id": "5",
+          "question": "What happens after I enrol?",
+          "answer": "Response , You'll be added to the class group/platform where you'll receive all updates, schedules, and learning resources."
         }
       ]
     }

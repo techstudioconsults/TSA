@@ -9,14 +9,16 @@ import { Wrapper } from "~/components/layout/wrapper";
 import { Gallery } from "~/views/gallery";
 import { LifeAfterTraining } from "~/views/life-after-training";
 import { OnlineCountdownBanner } from "../../_components/online-countdown";
+import { EducationPrograms } from "../../types/index.types";
 import { OnlineClassAccordion } from "../online-accordion";
 import { OnlineTestimonial } from "../online-testimonial";
 
 interface SectionThreeProperties {
   slug: string;
+  course: EducationPrograms;
 }
 
-export const SectionThree = ({ slug }: SectionThreeProperties): ReactElement => {
+export const SectionThree = ({ slug, course }: SectionThreeProperties): ReactElement => {
   return (
     <section>
       <div className="min-h-[495px] py-[95px]">
@@ -31,10 +33,10 @@ export const SectionThree = ({ slug }: SectionThreeProperties): ReactElement => 
         <CarouselBanner />
       </Wrapper>
       {slug.includes(`weekday-online-class`) ? (
-        <Wrapper className="min-h-[952px]">
+        <Wrapper>
           {" "}
           <h2 className="text-center">FREQUENTLY ASKED QUESTIONS</h2>
-          <OnlineClassAccordion />
+          <OnlineClassAccordion course={course} />
         </Wrapper>
       ) : (
         <Wrapper className="min-h-[952px]">
