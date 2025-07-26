@@ -27,13 +27,13 @@ export const SectionOne: React.FC = () => {
                 <p className="text-high-grey-II">1 Ogunlesi Street, Off Awoyokun, Onipanu, Lagos.</p>
                 <h6 className="mt-6 font-semibold">Call or Whatsapp</h6>
                 <p className="mt-2 text-high-grey-II">
-                  <span className="font-semibold">Busola:</span>
+                  <span className="font-semibold">Phone 1:</span>
                   <a className="text-dark" href="tel:+2348113800161">
                     +234 811 380 0161
                   </a>
                 </p>
                 <p className="mt-2 text-high-grey-II">
-                  <span className="font-semibold">Blessing:</span>
+                  <span className="font-semibold">Phone 2:</span>
                   <a className="text-dark" href="tel:+2348126051769">
                     +234 812 605 1769
                   </a>

@@ -64,8 +64,6 @@
 
 // export default Courses;
 
-// "use client";
-
 import { notFound } from "next/navigation";
 
 import { getCourseData } from "~/action/courses.action";
@@ -91,11 +89,11 @@ const Courses = async ({ params }: { params: { slug: string } }) => {
           <DurationBanner slug={slug} />
         )}
 
-        {slug.includes(`weekday-online-class`) && <OnlineCardSection />}
+        {slug.includes(`weekday-online-class`) && <OnlineCardSection aboutCourse={course.aboutOnlineCourse} />}
         {slug.includes(`weekday-online-class`) && <BonusSection />}
         <SectionOne sectionOne={course.sectionOne} />
         <SectionTwo courseList={course.courseList} />
-        <SectionThree slug={slug} />
+        <SectionThree slug={slug} course={course} />
       </main>
     );
   } catch (error) {
