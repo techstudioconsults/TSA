@@ -2,8 +2,7 @@ import useCohortStore from "~/stores/cohort.store";
 
 // import { Cohort } from "./services.type";
 
-/* eslint-disable unicorn/no-null */
-const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
 // Format date as DD-MM-YYYY
 const formatDate = (date: Date): string => {
@@ -44,21 +43,15 @@ export const fetchCohortsByCourseId = async (courseId: string) => {
   }
 };
 
-export const fetchUpcomingCohorts = async (
-  page: number = 1,
-  limit: number = 1,
-) => {
-  const { setUpcomingCohorts, setLoading, setError, setPagination } =
-    useCohortStore.getState();
+export const fetchUpcomingCohorts = async (page: number = 1, limit: number = 1) => {
+  const { setUpcomingCohorts, setLoading, setError, setPagination } = useCohortStore.getState();
 
   setLoading(true);
   setError(null);
   try {
     const today = new Date();
     const startDate = formatDate(today);
-    const response = await fetch(
-      `${BASE_URL}/courses?startDate=${startDate}&endDate=&page=${page}&limit=${limit}`,
-    );
+    const response = await fetch(`${BASE_URL}/courses?startDate=${startDate}&endDate=&page=${page}&limit=${limit}`);
 
     if (!response.ok) throw new Error(`Error: ${response.statusText}`);
     const { data } = await response.json();
@@ -84,8 +77,7 @@ export const fetchUpcomingCohorts = async (
     setUpcomingCohorts(items);
     setPagination(pagination);
   } catch (error) {
-    const message =
-      error instanceof Error ? error.message : "Invalid pagination data";
+    const message = error instanceof Error ? error.message : "Invalid pagination data";
     setError(message); // This will now set the expected error
   } finally {
     setLoading(false);

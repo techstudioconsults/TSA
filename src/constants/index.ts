@@ -7,6 +7,11 @@ export const SLIDE_CONTENT: courseContentProperties[] = [
     link: "/courses/fullstack-development",
   },
   {
+    name: "Fullstack Development Weekday(Online)",
+    image: "/images/fullstack.png",
+    link: "/courses/fullstack-web-development-(weekday-online-class)",
+  },
+  {
     name: "Product Design",
     image: "/images/ui-ux.png",
     link: "/courses/product-design-ui-ux",
@@ -25,6 +30,11 @@ export const SLIDE_CONTENT: courseContentProperties[] = [
     name: "Product Managment",
     image: "/images/product-management.png",
     link: "/courses/product-management",
+  },
+  {
+    name: "Project Managment",
+    image: "/images/product-management.png",
+    link: "/courses/project-management",
   },
 ];
 
@@ -86,6 +96,127 @@ export const STEPS = [
     label: "Start classes",
     description:
       "Be sure to attend the introductory classes, this will play a huge role in your subsequent learning stages. You'll participate in projects, personal tasks, and group works.",
+  },
+];
+
+export const ABOUTONLINECOURSE = [
+  {
+    id: "1",
+    heading: "You're Ready for Change",
+    message: "You've tried YouTube tutorials and still feel stuck. You want structured learning with real guidance.",
+  },
+  {
+    id: "2",
+    heading: "Switch Career Goals",
+    message: "You want to transition into tech and build a sustainable career in web development.",
+  },
+  {
+    id: "3",
+    heading: "Committed to Learning",
+    message: "You can commit 3-5 hours daily on weekdays to master new skills.",
+  },
+  {
+    id: "4",
+    heading: "Focus Practically",
+    message: "You want a hands-on curriculum that leads to real, job-ready skills.",
+  },
+];
+
+export const ONLINETESTIMONIAL = [
+  {
+    id: "1",
+    name: "Morayo Idowu",
+    image: "/images/testimonial-image-1.svg",
+    message:
+      "After the program, I landed my first freelance job as a React developer! The hands-on approach and internship made all the difference.",
+  },
+  {
+    id: "2",
+    name: "Joshua Bidemi",
+    image: "/images/testimonial-image-2.svg",
+    message:
+      "This course made things click. The mentorship was top-notch and the practical projects prepared me for real work.",
+  },
+  {
+    id: "3",
+    name: "Chidera Ezeani",
+    image: "/images/testimonial-image-3.svg",
+    message: "From zero coding knowledge to building full apps. I recommend it 100%. The support system is incredible.",
+  },
+];
+
+export const FULLSTACKFAQS = [
+  {
+    id: "1",
+    question: "Do I need prior coding knowledge?",
+    answer:
+      "Response ,No, you don’t need any prior coding experience. This program is beginner-friendly and starts from the basics.",
+  },
+  {
+    id: "2",
+    question: "How is this different from the offline class?",
+    answer:
+      "Response, The online class allows you to learn from anywhere during live, interactive sessions—offering the same value as the offline class, but with more convenience.",
+  },
+  {
+    id: "3",
+    question: "Can I pay in instalments?",
+    answer: "We currently accept only outright payments.",
+  },
+  {
+    id: "4",
+    question: "How is this different from the offline class?",
+    answer:
+      "Response, The online class allows you to learn from anywhere during live, interactive sessions—offering the same value as the offline class, but with more convenience.",
+  },
+  {
+    id: "5",
+    question: "Do I need prior coding knowledge?",
+    answers:
+      "Response ,No, you don’t need any prior coding experience. This program is beginner-friendly and starts from the basics.",
+  },
+  {
+    id: "6",
+    question: "What happens after I enrol?",
+    answer:
+      "Response , You'll be added to the class group/platform where you'll receive all updates, schedules, and learning resources.",
+  },
+];
+export const DATASCIENCEFAQS = [
+  {
+    id: "1",
+    question: "Do I need prior coding knowledge?",
+    answer:
+      "Response ,No, you don’t need any prior coding experience. This program is beginner-friendly and starts from the basics.",
+  },
+  {
+    id: "2",
+    question: "How is this different from the offline class?",
+    answer:
+      "Response, The online class allows you to learn from anywhere during live, interactive sessions—offering the same value as the offline class, but with more convenience.",
+  },
+  {
+    id: "3",
+    question: "Can I pay in instalments?",
+    answer: "We currently accept only outright payments.",
+  },
+  {
+    id: "4",
+    question: "How is this different from the offline class?",
+    answer:
+      "Response, The online class allows you to learn from anywhere during live, interactive sessions—offering the same value as the offline class, but with more convenience.",
+  },
+  {
+    id: "5",
+    question: "Do I need prior analytical knowledge?",
+    answers:
+      "Response ,No, you don’t need any prior data analysis experience. This program is beginner-friendly and starts from the basics.",
+  },
+  {
+    id: "6",
+    question: "What happens after I enrol?",
+    answer:
+      "Response , You'll be added to the class group/platform where you'll receive all updates, schedules, and learning resources.",
   },
 ];
 

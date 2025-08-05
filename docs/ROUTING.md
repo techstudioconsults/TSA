@@ -7,5 +7,4 @@
   - course n
 - faq
 - contact-us
-- partnership
 - privacy-policy

@@ -113,16 +113,8 @@ interface DurationBannerProperties {
 }
 
 export const DurationBanner: FC<DurationBannerProperties> = ({ slug }) => {
-  const {
-    loading: coursesLoading,
-    error: coursesError,
-    allCourses,
-  } = useCoursesStore();
-  const {
-    cohorts,
-    loading: cohortsLoading,
-    error: cohortsError,
-  } = useCohortStore();
+  const { loading: coursesLoading, error: coursesError, allCourses } = useCoursesStore();
+  const { cohorts, loading: cohortsLoading, error: cohortsError } = useCohortStore();
 
   useEffect(() => {
     fetchAllCourses();
@@ -146,9 +138,7 @@ export const DurationBanner: FC<DurationBannerProperties> = ({ slug }) => {
 
   // Find weekday and weekend cohorts
   const weekdayCohort = cohorts.find((cohort) => cohort.type === "weekday");
-  const weekendCohort = cohorts.find(
-    (cohort) => cohort.type === "weekend" || cohort.type === "online",
-  );
+  const weekendCohort = cohorts.find((cohort) => cohort.type === "weekend" || cohort.type === "online");
 
   // console.log(weekdayCohort?.startDate);
 
@@ -186,49 +176,23 @@ export const DurationBanner: FC<DurationBannerProperties> = ({ slug }) => {
       </p>
       <section className="flex flex-col items-center justify-between gap-5 text-center md:flex-row lg:text-left">
         <div>
-<<<<<<< HEAD
           <h2 className="m-0 text-mid-blue">
-            {weekdayCohort?.startDate
-              ? formatDateTime(weekdayCohort.startDate).date
-              : "No Date Yet"}
+            {weekdayCohort?.startDate ? formatDateTime(weekdayCohort.startDate).date : "No Date Yet"}
           </h2>
           <p className="m-0 text-sm font-bold text-gray-700">
-            Weekday Class:{" "}
-            {weekdayCohort?.startDate
-              ? formatDateTime(weekdayCohort.startDate).date
-              : "No Date Yet"}
+            Weekday Class: {weekdayCohort?.startDate ? formatDateTime(weekdayCohort.startDate).date : "No Date Yet"}
           </p>
         </div>
 
         <div className={`${`removeWeekend`}`}>
           <h2 className="m-0 text-mid-blue">
-            {weekendCohort?.startDate
-              ? formatDateTime(weekendCohort.startDate).date
-              : "No Date Yet"}
+            {weekendCohort?.startDate ? formatDateTime(weekendCohort.startDate).date : "No Date Yet"}
           </h2>
           <p className="m-0 text-sm font-bold text-gray-700">
             Weekend Class, Online Class:{" "}
-            {weekendCohort?.startDate
-              ? formatDateTime(weekendCohort.startDate).date
-              : "No Date Yet"}
+            {weekendCohort?.startDate ? formatDateTime(weekendCohort.startDate).date : "No Date Yet"}
           </p>
         </div>
-=======
-          <h2 className="m-0 text-mid-blue">{formatDateTime(course?.classes?.weekday[0]?.startDate).date}</h2>
-          <p className="m-0 text-sm font-bold text-gray-700">
-            Weekday Class: {formatDateTime(course?.classes?.weekday[0]?.startDate).date}
-          </p>
-        </div>
-        {!isFrontendPath && (
-          <div className={`${`removeWeekend`}`}>
-            <h2 className="m-0 text-mid-blue">{formatDateTime(course?.classes?.weekend[0]?.startDate).date}</h2>
-            <p className="m-0 text-sm font-bold text-gray-700">
-              Weekend Class, Online Class:
-              {formatDateTime(course?.classes?.weekend[0]?.startDate).date}
-            </p>
-          </div>
-        )}
->>>>>>> 0866e3d6c92c7975adc6b923a430cc7223cd23f7
 
         <div>
           <TsaButton variant="outline" className="border-mid-blue text-mid-blue" size="lg" href="/register">

@@ -1,4 +1,3 @@
-/* eslint-disable unicorn/no-null */
 import { create } from "zustand";
 import { devtools } from "zustand/middleware";
 
@@ -44,8 +43,7 @@ const useCohortStore = create<CohortState>()(
 
     setCohorts: (cohorts: Cohort[]) => set({ cohorts, loading: false }),
 
-    setUpcomingCohorts: (upcomingCohorts: Cohort[]) =>
-      set({ upcomingCohorts, loading: false }),
+    setUpcomingCohorts: (upcomingCohorts: Cohort[]) => set({ upcomingCohorts, loading: false }),
 
     setLoading: (loading: boolean) => set({ loading }),
 
