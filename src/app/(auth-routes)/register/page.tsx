@@ -15,7 +15,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "~/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "~/components/ui/select";
 import TsaButton from "~/lib/storybook/atoms/tsa-button";
-import useFacebookPixel from "~/lib/utils/pixel-tracker";
+// import useFacebookPixel from "~/lib/utils/pixel-tracker";
 import { SignUpFormData, signUpFormSchema } from "~/schemas";
 import useCoursesStore from "~/stores/course.store";
 
@@ -23,18 +23,18 @@ const RegistrationForm: FC = () => {
   const { allCourses, loading } = useCoursesStore();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-  const [source, setSource] = useState("direct");
-  const { trackEvent } = useFacebookPixel("962870014990453", undefined, {
-    autoConfig: true,
-    debug: true,
-  });
+  // const [source, setSource] = useState("direct");
+  // const { trackEvent } = useFacebookPixel("962870014990453", undefined, {
+  //   autoConfig: true,
+  //   debug: true,
+  // });
 
-  useEffect(() => {
-    const savedSource = localStorage.getItem("traffic_source");
-    if (savedSource) {
-      setSource(savedSource);
-    }
-  }, []);
+  // useEffect(() => {
+  //   const savedSource = localStorage.getItem("traffic_source");
+  //   if (savedSource) {
+  //     setSource(savedSource);
+  //   }
+  // }, []);
 
   const formMethods = useForm<SignUpFormData>({
     resolver: zodResolver(signUpFormSchema),
@@ -46,7 +46,6 @@ const RegistrationForm: FC = () => {
       courseId: "",
       schedule: "",
       newsletter: false,
-      source: source,
     },
   });
 
@@ -67,7 +66,7 @@ const RegistrationForm: FC = () => {
       courseId: data.courseId,
       schedule: data.schedule,
       newsletter: data.newsletter,
-      source: source,
+      // source: source,
     });
 
     if (response.error) {
@@ -75,12 +74,12 @@ const RegistrationForm: FC = () => {
         description: response.error,
       });
     } else {
-      if (source === "facebook") {
-        trackEvent("Lead", {
-          content_name: "Student Registration",
-          email: data.email,
-        });
-      }
+      // if (source === "facebook") {
+      //   trackEvent("Lead", {
+      //     content_name: "Student Registration",
+      //     email: data.email,
+      //   });
+      // }
       setIsModalOpen(true);
       reset();
     }
@@ -104,7 +103,7 @@ const RegistrationForm: FC = () => {
         <Form {...formMethods}>
           <form onSubmit={handleSubmit(onSubmit)} className="mx-auto max-w-[600px] space-y-8 p-6">
             <div className="space-y-3">
-              <h2 className="text-xl font-bold">One last step, let’s get to know you</h2>
+              <h2 className="text-xl font-bold">One last step, let&apos;s get to know you</h2>
               <p>Fill in your details to get started.</p>
             </div>
 
@@ -270,4 +269,5 @@ const RegistrationForm: FC = () => {
     </>
   );
 };
+
 export default RegistrationForm;

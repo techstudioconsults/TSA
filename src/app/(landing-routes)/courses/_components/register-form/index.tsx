@@ -13,7 +13,7 @@ import ResponseModal from "~/components/modals/response-modal";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "~/components/ui/form";
 import { Input } from "~/components/ui/input";
 import TsaButton from "~/lib/storybook/atoms/tsa-button";
-import useFacebookPixel from "~/lib/utils/pixel-tracker";
+// import useFacebookPixel from "~/lib/utils/pixel-tracker";
 import { RegisterFormData, registerFormSchema } from "~/schemas";
 import useCoursesStore from "~/stores/course.store";
 
@@ -25,21 +25,21 @@ export const RegisterForm: FC<RegisterProperties> = ({ slug }) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [responseMessage, setResponseMessage] = useState<string | undefined>();
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-  const [source, setSource] = useState("direct");
+  // const [source, setSource] = useState("direct");
   const { allCourses } = useCoursesStore();
   const [course, setCourse] = useState<Course>();
-  const { trackEvent } = useFacebookPixel("962870014990453", undefined, {
-    autoConfig: true,
-    debug: true,
-  });
+  // const { trackEvent } = useFacebookPixel("962870014990453", undefined, {
+  //   autoConfig: true,
+  //   debug: true,
+  // });
 
-  useEffect(() => {
-    const savedSource = localStorage.getItem("traffic_source");
-    if (savedSource) {
-      setSource(savedSource);
-    }
-    // Find the course using the slug
-  }, []);
+  // useEffect(() => {
+  //   const savedSource = localStorage.getItem("traffic_source");
+  //   if (savedSource) {
+  //     setSource(savedSource);
+  //   }
+  //   // Find the course using the slug
+  // }, []);
 
   useEffect(() => {
     fetchAllCourses();
@@ -65,7 +65,7 @@ export const RegisterForm: FC<RegisterProperties> = ({ slug }) => {
       courseId: "",
       schedule: "weekday",
       newsletter: false,
-      source: source,
+      // source: source,
     },
   });
 
@@ -89,17 +89,17 @@ export const RegisterForm: FC<RegisterProperties> = ({ slug }) => {
     try {
       const formData = {
         ...data,
-        source: source,
+        // source: source,
       };
       const result = await submitRegisterForm(formData);
 
       if (result.success) {
-        if (source === "facebook") {
-          trackEvent("Lead", {
-            content_name: "Student Registration",
-            email: data.email,
-          });
-        }
+        // if (source === "facebook") {
+        //   trackEvent("Lead", {
+        //     content_name: "Student Registration",
+        //     email: data.email,
+        //   });
+        // }
         setResponseMessage(result.success);
         setIsModalOpen(true);
         // Reset form but keep courseId
@@ -111,7 +111,7 @@ export const RegisterForm: FC<RegisterProperties> = ({ slug }) => {
           courseId: course?.id,
           schedule: "weekday",
           newsletter: false,
-          source: "direct",
+          // source: "direct",
         });
       } else {
         toast.error("Something went wrong!", {
