@@ -46,7 +46,7 @@ export const BonusSection = () => {
           </div>
         </div>
 
-        <TsaButton href={whatsappLink} variant="primary" size="lg" className="w-[323px] bg-mid-blue">
+        <TsaButton href={whatsappLink} variant="primary" size="lg" className="w-[300px] bg-mid-blue">
           Ask a Question on whatsapp
         </TsaButton>
       </Wrapper>
