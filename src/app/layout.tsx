@@ -1,16 +1,17 @@
 import { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
-import React, { Suspense } from "react";
+import React from "react";
 
 import "./setup.ts";
 
-import Image from "next/image.js";
-import Script from "next/script.js";
+// import Image from "next/image.js";
+// import Script from "next/script.js";
 
 import { WhatsAppIcon } from "~/components/miscellaneous/whatsapp";
 import { Toast } from "~/components/Toast";
 import { cn } from "~/lib/utils";
-import { SourceTracker } from "~/lib/utils/source-tracker";
+
+// import { SourceTracker } from "~/lib/utils/source-tracker";
 
 const openSans = Open_Sans({ subsets: ["latin"] });
 
@@ -24,7 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <head>
         {/* Facebook Pixel Script */}
-        <Script id="fb-pixel" strategy="afterInteractive">
+        {/* <Script id="fb-pixel" strategy="afterInteractive">
           {`
             !function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -46,15 +47,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             style={{ display: "none" }}
             src="https://www.facebook.com/tr?id=962870014990453&ev=PageView&noscript=1"
           />
-        </noscript>
+        </noscript> */}
       </head>
       <body className={cn(openSans.className)}>
         <Toast />
         <WhatsAppIcon />
         {children}
-        <Suspense fallback={null}>
+        {/* <Suspense fallback={null}>
           <SourceTracker />
-        </Suspense>
+        </Suspense> */}
       </body>
     </html>
   );
