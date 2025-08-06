@@ -4,8 +4,8 @@ import React from "react";
 
 import "./setup.ts";
 
-// import Image from "next/image.js";
-// import Script from "next/script.js";
+import Image from "next/image.js";
+import Script from "next/script.js";
 
 import { WhatsAppIcon } from "~/components/miscellaneous/whatsapp";
 import { Toast } from "~/components/Toast";
@@ -25,17 +25,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <head>
         {/* Facebook Pixel Script */}
-        {/* <Script id="fb-pixel" strategy="afterInteractive">
+        <Script id="fb-pixel" strategy="afterInteractive">
           {`
             !function(f,b,e,v,n,t,s)
-            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+           {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
             n.callMethod.apply(n,arguments):n.queue.push(arguments)};
             if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
             n.queue=[];t=b.createElement(e);t.async=!0;
             t.src=v;s=b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t,s)}(window, document,'script',
             'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '962870014990453');
+            fbq('init', '1171106073347114');
             fbq('track', 'PageView');
           `}
         </Script>
@@ -45,17 +45,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             height="1"
             width="1"
             style={{ display: "none" }}
-            src="https://www.facebook.com/tr?id=962870014990453&ev=PageView&noscript=1"
+            src="https://www.facebook.com/tr?id=1171106073347114&ev=PageView&noscript=1"
           />
-        </noscript> */}
+        </noscript>
       </head>
       <body className={cn(openSans.className)}>
         <Toast />
         <WhatsAppIcon />
         {children}
-        {/* <Suspense fallback={null}>
-          <SourceTracker />
-        </Suspense> */}
       </body>
     </html>
   );
