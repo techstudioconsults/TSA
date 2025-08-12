@@ -69,7 +69,7 @@
 import { notFound } from "next/navigation";
 
 import { getCourseData } from "~/action/courses.action";
-import { WeekdayCountdownBanner } from "../_components/countdown-timer";
+// import { WeekdayCountdownBanner } from "../_components/countdown-timer";
 import { DurationBanner } from "../_components/duration-banner";
 import { BonusSection } from "../_views/bonus-section";
 import { Hero } from "../_views/hero";
@@ -85,11 +85,11 @@ const Courses = async ({ params }: { params: { slug: string } }) => {
     return (
       <main>
         <Hero slug={slug} intro={course.intro} />
-        {slug.includes(`weekday-online-class`) ? (
+        {/* {slug.includes(`weekday-online-class`) ? (
           <WeekdayCountdownBanner targetDate={`11th August, 2025`} />
-        ) : (
-          <DurationBanner slug={slug} />
-        )}
+        ) : ( */}
+        <DurationBanner slug={slug} />
+        {/* )} */}
 
         {slug.includes(`weekday-online-class`) && <OnlineCardSection />}
         {slug.includes(`weekday-online-class`) && <BonusSection />}
