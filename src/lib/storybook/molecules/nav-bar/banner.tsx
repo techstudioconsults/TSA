@@ -93,11 +93,24 @@ export const Banner: React.FC<BannerProperties> = ({
 export const FullStackComingSoonBanner = () => (
   <Banner showCountdown={false}>
     🚀 Full Stack Online Coming Soon!{" "}
+    <span className="text-mid-danger">₦350k (Pay ₦210k Now) • Only 30 Spots Available.</span>
+    {` `} 🚀
     <Link
       href="/courses/fullstack-web-development-(weekday-online-class)"
-      className="hover:text-brand-primary text-mid-danger underline"
+      className="hover:text-brand-primary animate-pulse uppercase text-mid-danger underline"
     >
       Join the waitlist
     </Link>
   </Banner>
 );
+// export const DiscountBanner = () => (
+//   <Banner showCountdown={false}>
+//     🚀 Full Stack Online Coming Soon!{" "}
+//     <Link
+//       href="/courses/fullstack-web-development-(weekday-online-class)"
+//       className="hover:text-brand-primary text-mid-danger underline"
+//     >
+//       Join the waitlist
+//     </Link>
+//   </Banner>
+// );
