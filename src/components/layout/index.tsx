@@ -53,7 +53,7 @@ export const Layout = ({ children }: { children: ReactNode }) => {
     ]);
   }, [allCourses, loading]);
 
-  const isDarkMode = pathname === "/about" || pathname === "/explore";
+  const isDarkMode = pathname === "/about" || pathname === "/explore" || pathname.includes("/success");
   const logoPath = isDarkMode ? "/images/logo-black.png" : "/images/logo-white.png";
   const linkClassName = cn(isDarkMode ? "text-black" : "text-white");
   const bgScrollColor = cn(isDarkMode ? "backdrop-blur-3xl" : "bg-primary");
