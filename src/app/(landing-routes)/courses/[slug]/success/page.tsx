@@ -56,7 +56,7 @@ export default function RegistrationSuccessPage({ params }: PageProperties) {
           <TsaButton href={`/courses/${slug}`} variant="primary" size="lg" className="bg-mid-blue text-white">
             Back to course
           </TsaButton>
-          <TsaButton href="/courses" variant="outline" size="lg" className="border-mid-blue text-mid-blue">
+          <TsaButton href="/explore" variant="outline" size="lg" className="border-mid-blue text-mid-blue">
             Explore more programs
           </TsaButton>
         </div>
