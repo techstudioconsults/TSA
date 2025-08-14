@@ -2,6 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { FC, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
@@ -9,7 +10,6 @@ import { toast } from "sonner";
 import { fetchAllCourses } from "~/action/courses.action";
 import { submitRegisterForm } from "~/action/register.action";
 import { Course } from "~/action/services.type";
-import ResponseModal from "~/components/modals/response-modal";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "~/components/ui/form";
 import { Input } from "~/components/ui/input";
 import TsaButton from "~/lib/storybook/atoms/tsa-button";
@@ -22,12 +22,11 @@ interface RegisterProperties {
 }
 
 export const RegisterForm: FC<RegisterProperties> = ({ slug }) => {
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  const [responseMessage, setResponseMessage] = useState<string | undefined>();
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   // const [source, setSource] = useState("direct");
   const { allCourses } = useCoursesStore();
   const [course, setCourse] = useState<Course>();
+  const router = useRouter();
   // const { trackEvent } = useFacebookPixel("962870014990453", undefined, {
   //   autoConfig: true,
   //   debug: true,
@@ -73,7 +72,6 @@ export const RegisterForm: FC<RegisterProperties> = ({ slug }) => {
     handleSubmit,
     formState: { errors },
     control,
-    reset,
     setValue,
   } = formMethods;
 
@@ -94,25 +92,8 @@ export const RegisterForm: FC<RegisterProperties> = ({ slug }) => {
       const result = await submitRegisterForm(formData);
 
       if (result.success) {
-        // if (source === "facebook") {
-        //   trackEvent("Lead", {
-        //     content_name: "Student Registration",
-        //     email: data.email,
-        //   });
-        // }
-        setResponseMessage(result.success);
-        setIsModalOpen(true);
-        // Reset form but keep courseId
-        reset({
-          firstName: "",
-          lastName: "",
-          email: "",
-          phoneNumber: "",
-          courseId: course?.id,
-          schedule: "weekday",
-          newsletter: false,
-          // source: "direct",
-        });
+        const message = result.success || "Registration successful.";
+        router.push(`/courses/${slug}/success?msg=${encodeURIComponent(message)}`);
       } else {
         toast.error("Something went wrong!", {
           description: result.error || "Failed to register for the course.",
@@ -125,11 +106,6 @@ export const RegisterForm: FC<RegisterProperties> = ({ slug }) => {
     } finally {
       setIsSubmitting(false);
     }
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-    setResponseMessage(undefined);
   };
 
   return (
@@ -260,15 +236,6 @@ export const RegisterForm: FC<RegisterProperties> = ({ slug }) => {
           </section>
         </form>
       </Form>
-
-      {/* Response Modal */}
-      <ResponseModal
-        title="Course Registered Successfully"
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-        responseMessage={responseMessage || ""}
-        isError={false}
-      />
     </>
   );
 };
