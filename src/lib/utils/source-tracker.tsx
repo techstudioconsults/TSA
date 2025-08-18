@@ -11,10 +11,10 @@ export function SourceTracker() {
 
     if (source) {
       // Store the UTM source if present
-      localStorage.setItem("traffic_source", source);
+      localStorage.setItem("utm_source", source);
     } else {
       // Clear existing source if no UTM parameter exists
-      localStorage.removeItem("traffic_source");
+      localStorage.removeItem("utm_source");
     }
   }, [searchParameters]);
 

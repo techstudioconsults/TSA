@@ -7,8 +7,7 @@ import "./setup.ts";
 import { WhatsAppIcon } from "~/components/miscellaneous/whatsapp";
 import { Toast } from "~/components/Toast";
 import { cn } from "~/lib/utils";
-
-// import { SourceTracker } from "~/lib/utils/source-tracker";
+import { SourceTracker } from "~/lib/utils/source-tracker";
 
 const openSans = Open_Sans({ subsets: ["latin"] });
 
@@ -23,6 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={cn(openSans.className)}>
         <Toast />
         <WhatsAppIcon />
+        <SourceTracker />
         {children}
       </body>
     </html>
