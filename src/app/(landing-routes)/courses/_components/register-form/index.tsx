@@ -23,7 +23,7 @@ interface RegisterProperties {
 
 export const RegisterForm: FC<RegisterProperties> = ({ slug }) => {
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-  // const [source, setSource] = useState("direct");
+  const [source, setSource] = useState("");
   const { allCourses } = useCoursesStore();
   const [course, setCourse] = useState<Course>();
   const router = useRouter();
@@ -32,13 +32,13 @@ export const RegisterForm: FC<RegisterProperties> = ({ slug }) => {
   //   debug: true,
   // });
 
-  // useEffect(() => {
-  //   const savedSource = localStorage.getItem("traffic_source");
-  //   if (savedSource) {
-  //     setSource(savedSource);
-  //   }
-  //   // Find the course using the slug
-  // }, []);
+  useEffect(() => {
+    const savedSource = localStorage.getItem("utm_source");
+    if (savedSource) {
+      setSource(savedSource);
+    }
+    // Find the course using the slug
+  }, []);
 
   useEffect(() => {
     fetchAllCourses();
@@ -64,7 +64,7 @@ export const RegisterForm: FC<RegisterProperties> = ({ slug }) => {
       courseId: "",
       schedule: "weekday",
       newsletter: false,
-      // source: source,
+      source: source,
     },
   });
 
@@ -87,7 +87,7 @@ export const RegisterForm: FC<RegisterProperties> = ({ slug }) => {
     try {
       const formData = {
         ...data,
-        // source: source,
+        source: source,
       };
       const result = await submitRegisterForm(formData);
 
