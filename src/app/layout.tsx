@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
-import React from "react";
+import React, { Suspense } from "react";
 
 import "./setup.ts";
 
@@ -22,7 +22,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={cn(openSans.className)}>
         <Toast />
         <WhatsAppIcon />
-        <SourceTracker />
+        <Suspense fallback={null}>
+          <SourceTracker />
+        </Suspense>
         {children}
       </body>
     </html>
