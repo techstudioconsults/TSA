@@ -1,3 +1,9 @@
+interface FAQItem {
+  id: string;
+  question: string;
+  answer: string;
+}
+
 export type Course = {
   imageUrl: string;
   id: string;
@@ -12,6 +18,7 @@ export type Course = {
     weekend: ClassDetail[];
     weekday: ClassDetail[];
   };
+  faqs?: FAQItem[];
 };
 
 export type Cohort = {
