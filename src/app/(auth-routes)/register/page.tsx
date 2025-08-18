@@ -23,18 +23,18 @@ const RegistrationForm: FC = () => {
   const { allCourses, loading } = useCoursesStore();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-  // const [source, setSource] = useState("direct");
+  const [source, setSource] = useState("");
   // const { trackEvent } = useFacebookPixel("962870014990453", undefined, {
   //   autoConfig: true,
   //   debug: true,
   // });
 
-  // useEffect(() => {
-  //   const savedSource = localStorage.getItem("traffic_source");
-  //   if (savedSource) {
-  //     setSource(savedSource);
-  //   }
-  // }, []);
+  useEffect(() => {
+    const savedSource = localStorage.getItem("utm_source");
+    if (savedSource) {
+      setSource(savedSource);
+    }
+  }, []);
 
   const formMethods = useForm<SignUpFormData>({
     resolver: zodResolver(signUpFormSchema),
@@ -46,6 +46,7 @@ const RegistrationForm: FC = () => {
       courseId: "",
       schedule: "",
       newsletter: false,
+      source: source,
     },
   });
 
@@ -66,7 +67,7 @@ const RegistrationForm: FC = () => {
       courseId: data.courseId,
       schedule: data.schedule,
       newsletter: data.newsletter,
-      // source: source,
+      source: source,
     });
 
     if (response.error) {
