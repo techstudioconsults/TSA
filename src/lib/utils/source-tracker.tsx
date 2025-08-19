@@ -13,8 +13,9 @@ export function SourceTracker() {
       // Store the UTM source if present
       localStorage.setItem("utm_source", source);
     } else {
-      // Clear existing source if no UTM parameter exists
-      localStorage.removeItem("utm_source");
+      // If no UTM parameter exists, set to "direct"
+      // This ensures we always have the correct source, even if there was a previous UTM source
+      localStorage.setItem("utm_source", "direct");
     }
   }, [searchParameters]);
 
