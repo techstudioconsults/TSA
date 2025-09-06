@@ -65,7 +65,6 @@ export const Layout = ({ children }: { children: ReactNode }) => {
         logopath={logoPath}
         navLinks={navLinks}
         bgScrollColor={bgScrollColor}
-        showBanner
       >
         <TsaButton href="/register" className="bg-mid-blue" size="lg" variant="primary">
           Register
