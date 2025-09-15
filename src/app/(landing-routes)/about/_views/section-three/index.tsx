@@ -14,16 +14,36 @@ export const SectionThree = () => {
         </header>
         <section className="grid grid-cols-1 gap-[44px] md:grid-cols-2 xl:grid-cols-3">
           <TeamCard image="/team/wasiu.png" name="Wasiu Yusuf" role="Chief Operations Officer" linkedIn="" />
-          <TeamCard image="/team/tosin.png" name="Tosin Sanya" role="Head of Admin" linkedIn="" />
-          <TeamCard image="/team/aisha.png" name={"Akinwumi Aishat"} role="Head of Products" linkedIn="" />
+          <TeamCard
+            image="/team/tosin.png"
+            name="Tosin Sanya"
+            role="Head of Admin"
+            linkedIn="https://www.linkedin.com/in/oluwatosin-sanya-acipm-52a039a0"
+          />
+          <TeamCard
+            image="/team/eggy.png"
+            name={"Eguono Imonieroh"}
+            role="Head of Products"
+            linkedIn="https://www.linkedin.com/in/eguono-imonieroh-87a919158"
+          />
           {/*<TeamCard*/}
           {/*    image=""*/}
           {/*    name=""*/}
           {/*    role="Marketing Lead"*/}
           {/*    linkedIn=""*/}
           {/*/>*/}
-          <TeamCard image="/team/busola.png" name="Adebusola Adebowale" role="Sales & Marketing" linkedIn="" />
-          <TeamCard image="/team/blessing.png" name="Patrick Blessing" role="Sales & Marketing" linkedIn="" />
+          <TeamCard
+            image="/team/temi.png"
+            name="Oluwakemi Catherine"
+            role="Sales & Marketing"
+            linkedIn="https://ng.linkedin.com/in/oladapo-oluwakemi-catherine-35743837a"
+          />
+          <TeamCard
+            image="/team/kemi.png"
+            name="Temiloluwa Ige"
+            role="Sales & Marketing"
+            linkedIn="https://www.linkedin.com/in/temiloluwaige"
+          />
         </section>
       </Wrapper>
     </section>
