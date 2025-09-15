@@ -27,13 +27,13 @@ export const SectionThree = () => {
             linkedIn="https://www.linkedin.com/in/eguono-imonieroh-87a919158"
           />
           <TeamCard
-            image="/team/temi.png"
+            image="/team/kemi.png"
             name="Oluwakemi Catherine"
             role="Sales & Marketing"
             linkedIn="https://ng.linkedin.com/in/oladapo-oluwakemi-catherine-35743837a"
           />
           <TeamCard
-            image="/team/kemi.png"
+            image="/team/temi.png"
             name="Temiloluwa Ige"
             role="Sales & Marketing"
             linkedIn="https://www.linkedin.com/in/temiloluwaige"
