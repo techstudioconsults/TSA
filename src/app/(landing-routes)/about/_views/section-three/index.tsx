@@ -21,25 +21,19 @@ export const SectionThree = () => {
             linkedIn="https://www.linkedin.com/in/oluwatosin-sanya-acipm-52a039a0"
           />
           <TeamCard
-            image="/team/eggy.png"
+            image="/team/eggyy.png"
             name={"Eguono Imonieroh"}
             role="Head of Products"
             linkedIn="https://www.linkedin.com/in/eguono-imonieroh-87a919158"
           />
-          {/*<TeamCard*/}
-          {/*    image=""*/}
-          {/*    name=""*/}
-          {/*    role="Marketing Lead"*/}
-          {/*    linkedIn=""*/}
-          {/*/>*/}
           <TeamCard
-            image="/team/temi.png"
+            image="/team/kemi-o.png"
             name="Oluwakemi Catherine"
             role="Sales & Marketing"
             linkedIn="https://ng.linkedin.com/in/oladapo-oluwakemi-catherine-35743837a"
           />
           <TeamCard
-            image="/team/kemi.png"
+            image="/team/temi-i.png"
             name="Temiloluwa Ige"
             role="Sales & Marketing"
             linkedIn="https://www.linkedin.com/in/temiloluwaige"
