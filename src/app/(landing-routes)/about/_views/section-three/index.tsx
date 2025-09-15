@@ -26,12 +26,6 @@ export const SectionThree = () => {
             role="Head of Products"
             linkedIn="https://www.linkedin.com/in/eguono-imonieroh-87a919158"
           />
-          {/*<TeamCard*/}
-          {/*    image=""*/}
-          {/*    name=""*/}
-          {/*    role="Marketing Lead"*/}
-          {/*    linkedIn=""*/}
-          {/*/>*/}
           <TeamCard
             image="/team/temi.png"
             name="Oluwakemi Catherine"
