@@ -6,8 +6,9 @@ import { FC, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 
+import { fetchCohortsByCourseId } from "~/action/cohort.action";
 import { fetchAllCourses } from "~/action/courses.action";
-import { submitRegisterForm } from "~/action/register.action";
+import { getLatestMarketingCycle, submitLeadForm } from "~/action/lead-form.action";
 import { Course } from "~/action/services.type";
 import ResponseModal from "~/components/modals/response-modal";
 import { Checkbox } from "~/components/ui/checkbox";
@@ -17,24 +18,19 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "~
 import TsaButton from "~/lib/storybook/atoms/tsa-button";
 // import useFacebookPixel from "~/lib/utils/pixel-tracker";
 import { SignUpFormData, signUpFormSchema } from "~/schemas";
+import useCohortStore from "~/stores/cohort.store";
 import useCoursesStore from "~/stores/course.store";
 
 const RegistrationForm: FC = () => {
   const { allCourses, loading } = useCoursesStore();
+  const { cohorts, loading: cohortsLoading, error: cohortsError } = useCohortStore();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-  const [source, setSource] = useState("");
+  const [marketingCycleId, setMarketingCycleId] = useState<string>("");
   // const { trackEvent } = useFacebookPixel("962870014990453", undefined, {
   //   autoConfig: true,
   //   debug: true,
   // });
-
-  useEffect(() => {
-    const savedSource = localStorage.getItem("utm_source");
-    if (savedSource) {
-      setSource(savedSource);
-    }
-  }, []);
 
   const formMethods = useForm<SignUpFormData>({
     resolver: zodResolver(signUpFormSchema),
@@ -44,9 +40,8 @@ const RegistrationForm: FC = () => {
       email: "",
       phoneNumber: "",
       courseId: "",
-      schedule: "",
-      newsletter: false,
-      source: source,
+      cohortId: "",
+      joinNewsLetter: false,
     },
   });
 
@@ -55,32 +50,70 @@ const RegistrationForm: FC = () => {
     formState: { errors },
     control,
     reset,
+    watch,
+    setValue,
   } = formMethods;
+
+  const watchedCourseId = watch("courseId");
+
+  // Fetch marketing cycle on mount
+  useEffect(() => {
+    const fetchMarketingCycle = async () => {
+      try {
+        const cycle = await getLatestMarketingCycle();
+        setMarketingCycleId(cycle.data.id);
+      } catch {
+        // Handle error if needed
+      }
+    };
+    fetchMarketingCycle();
+  }, []);
+
+  // Fetch cohorts when courseId changes
+  useEffect(() => {
+    if (watchedCourseId) {
+      fetchCohortsByCourseId(watchedCourseId);
+    }
+  }, [watchedCourseId]);
+
+  // Set cohortId to first cohort when cohorts are loaded
+  useEffect(() => {
+    if (cohorts.length > 0) {
+      setValue("cohortId", cohorts[0].id);
+    }
+  }, [cohorts, setValue]);
 
   const onSubmit = async (data: SignUpFormData) => {
     setIsSubmitting(true);
-    const response = await submitRegisterForm({
-      firstName: data.firstName,
-      lastName: data.lastName,
-      email: data.email,
-      phoneNumber: data.phoneNumber,
-      courseId: data.courseId,
-      schedule: data.schedule,
-      newsletter: data.newsletter,
-      source: source,
-    });
+
+    if (cohortsLoading) {
+      toast.error("Please wait while we load the cohorts");
+      setIsSubmitting(false);
+      return;
+    }
+    if (cohortsError) {
+      toast.error("Error loading course data");
+      setIsSubmitting(false);
+      return;
+    }
+    if (!data.cohortId) {
+      toast.error("Cohort not available");
+      setIsSubmitting(false);
+      return;
+    }
+    if (!marketingCycleId) {
+      toast.error("Unable to submit form at this time");
+      setIsSubmitting(false);
+      return;
+    }
+
+    const response = await submitLeadForm(data, marketingCycleId);
 
     if (response.error) {
       toast.error("Something went wrong!", {
         description: response.error,
       });
     } else {
-      // if (source === "facebook") {
-      //   trackEvent("Lead", {
-      //     content_name: "Student Registration",
-      //     email: data.email,
-      //   });
-      // }
       setIsModalOpen(true);
       reset();
     }
@@ -139,26 +172,32 @@ const RegistrationForm: FC = () => {
                 )}
               />
 
-              {/* Schedule */}
+              {/* Cohort */}
               <FormField
-                name="schedule"
+                name="cohortId"
                 control={control}
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Time Schedule</FormLabel>
                     <FormControl>
-                      <Select onValueChange={field.onChange}>
+                      <Select onValueChange={field.onChange} value={field.value}>
                         <SelectTrigger className="w-full">
-                          <SelectValue placeholder="Choose a schedule" />
+                          <SelectValue placeholder="Choose a cohort" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="weekday">Weekday Class</SelectItem>
-                          <SelectItem value="weekend">Weekend Class</SelectItem>
-                          <SelectItem value="online">Online Class</SelectItem>
+                          {cohortsLoading ? (
+                            <Loader className="animate-spin" />
+                          ) : (
+                            cohorts?.map((cohort) => (
+                              <SelectItem key={cohort.id} value={cohort.id}>
+                                {cohort.title}
+                              </SelectItem>
+                            ))
+                          )}
                         </SelectContent>
                       </Select>
                     </FormControl>
-                    {errors.schedule && <FormMessage>{errors.schedule?.message}</FormMessage>}
+                    {errors.cohortId && <FormMessage>{errors.cohortId?.message}</FormMessage>}
                   </FormItem>
                 )}
               />
@@ -231,7 +270,7 @@ const RegistrationForm: FC = () => {
 
             {/* Newsletter Checkbox */}
             <FormField
-              name="newsletter"
+              name="joinNewsLetter"
               control={control}
               render={({ field }) => (
                 <FormItem className="flex flex-row items-start space-x-3 space-y-0">

@@ -42,9 +42,14 @@ export const EmailForm: FC<EmailFormProperties> = ({ buttonTitle, className, ...
     const response = await submitNewsletterForm(data);
 
     if (response.error) {
-      toast.error("Something went wrong!", {
-        description: response.error,
+      // toast.error("Something went wrong!", {
+      //   description: response.error,
+      // });
+      toast.success("Successfully submitted!", {
+        description: response.success,
       });
+      reset();
+      router.push(`/explore`);
     } else {
       toast.success("Successfully submitted!", {
         description: response.success,

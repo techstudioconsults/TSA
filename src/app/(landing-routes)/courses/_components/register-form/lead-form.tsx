@@ -60,6 +60,7 @@ const LeadForm = ({ slug }: { slug: string }) => {
       setIsLoading(true);
       try {
         const cycle = await getLatestMarketingCycle();
+        // console.log(cycle);
         setMarketingCycleId(cycle.data.id);
       } catch {
         setMessage({ type: "error", text: "Failed to load form data" });
