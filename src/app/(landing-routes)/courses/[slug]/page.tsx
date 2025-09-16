@@ -82,6 +82,7 @@ const Courses = async ({ params }: { params: { slug: string } }) => {
   const { slug } = params;
   try {
     const course = await getCourseData(slug);
+
     return (
       <main>
         <Hero slug={slug} intro={course.intro} />
