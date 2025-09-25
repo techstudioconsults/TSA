@@ -6,6 +6,10 @@ export interface LeadFormData {
   courseId: string;
   cohortId: string;
   joinNewsLetter: boolean;
+  utm_source: string;
+  utm_medium: string;
+  utm_content: string;
+  utm_term: string;
 }
 
 export interface MarketingCycle {

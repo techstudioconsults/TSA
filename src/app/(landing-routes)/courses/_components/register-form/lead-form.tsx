@@ -1,7 +1,7 @@
 "use client";
 
 import { Loader } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { fetchCohortsByCourseId } from "~/action/cohort.action";
@@ -12,6 +12,7 @@ import useCoursesStore from "~/stores/course.store";
 
 const LeadForm = ({ slug }: { slug: string }) => {
   const router = useRouter();
+  const searchParameters = useSearchParams();
   const { allCourses } = useCoursesStore();
   const { cohorts, loading: cohortsLoading, error: cohortsError } = useCohortStore();
   const [formData, setFormData] = useState<LeadFormData>({
@@ -22,6 +23,10 @@ const LeadForm = ({ slug }: { slug: string }) => {
     courseId: "",
     cohortId: "",
     joinNewsLetter: false,
+    utm_source: "",
+    utm_medium: "",
+    utm_content: "",
+    utm_term: "",
   });
   const [marketingCycleId, setMarketingCycleId] = useState<string>("");
   const [isLoading, setIsLoading] = useState(true);
@@ -71,6 +76,22 @@ const LeadForm = ({ slug }: { slug: string }) => {
     fetchMarketingCycle();
   }, []);
 
+  // Populate UTM parameters from URL query
+  useEffect(() => {
+    const utmSource = searchParameters.get("utm_source") || "google";
+    const utmMedium = searchParameters.get("utm_medium") || "cpc";
+    const utmContent = searchParameters.get("utm_content") || "banner_ad";
+    const utmTerm = searchParameters.get("utm_term") || "bootcamp";
+
+    setFormData((previous) => ({
+      ...previous,
+      utm_source: utmSource,
+      utm_medium: utmMedium,
+      utm_content: utmContent,
+      utm_term: utmTerm,
+    }));
+  }, [searchParameters]);
+
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     setMessage(null);
@@ -107,6 +128,10 @@ const LeadForm = ({ slug }: { slug: string }) => {
           courseId: course?.id || "",
           cohortId: cohorts[0]?.id || "",
           joinNewsLetter: false,
+          utm_source: searchParameters.get("utm_source") || "google",
+          utm_medium: searchParameters.get("utm_medium") || "cpc",
+          utm_content: searchParameters.get("utm_content") || "banner_ad",
+          utm_term: searchParameters.get("utm_term") || "bootcamp",
         });
         // Route to success page
         const message = result.success || "Registration successful.";
