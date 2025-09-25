@@ -1,3 +1,4 @@
+/* eslint-disable vitest/no-conditional-tests */
 "use client";
 
 import { Loader } from "lucide-react";
@@ -9,6 +10,35 @@ import { getLatestMarketingCycle, submitLeadForm } from "~/action/lead-form.acti
 import type { LeadFormData } from "~/schemas/lead-form";
 import useCohortStore from "~/stores/cohort.store";
 import useCoursesStore from "~/stores/course.store";
+
+const validateField = (name: string, value: string) => {
+  switch (name) {
+    case "firstName": {
+      if (!value.trim()) return "First Name is required";
+      if (value.trim().length < 2) return "First Name must be at least 2 characters long";
+      return "";
+    }
+    case "lastName": {
+      if (!value.trim()) return "Last Name is required";
+      if (value.trim().length < 2) return "Last Name must be at least 2 characters long";
+      return "";
+    }
+    case "email": {
+      if (!value.trim()) return "Email Address is required";
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(value)) return "Must be a valid email address";
+      return "";
+    }
+    case "phoneNumber": {
+      if (!value.trim()) return "Phone Number is required";
+      if (value.trim().length < 11) return "Phone Number must be at least 10 characters long";
+      return "";
+    }
+    default: {
+      return "";
+    }
+  }
+};
 
 const LeadForm = ({ slug }: { slug: string }) => {
   const router = useRouter();
@@ -23,15 +53,16 @@ const LeadForm = ({ slug }: { slug: string }) => {
     courseId: "",
     cohortId: "",
     joinNewsLetter: false,
-    utm_source: "google",
-    utm_medium: "cpc",
-    utm_content: "banner_ad",
-    utm_term: "bootcamp",
+    utm_source: "direct_from_web_app",
+    utm_medium: "direct_from_web_app",
+    utm_content: "direct_from_web_app",
+    utm_term: "direct_from_web_app",
   });
   const [marketingCycleId, setMarketingCycleId] = useState<string>("");
   const [isLoading, setIsLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [, setMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
   // Find the course using the slug
   const course = allCourses.find(
@@ -78,10 +109,10 @@ const LeadForm = ({ slug }: { slug: string }) => {
 
   // Populate UTM parameters from URL query
   useEffect(() => {
-    const utmSource = searchParameters.get("utm_source") || "google";
-    const utmMedium = searchParameters.get("utm_medium") || "cpc";
-    const utmContent = searchParameters.get("utm_content") || "banner_ad";
-    const utmTerm = searchParameters.get("utm_term") || "bootcamp";
+    const utmSource = searchParameters.get("utm_source") || "direct_from_web_app";
+    const utmMedium = searchParameters.get("utm_medium") || "direct_from_web_app";
+    const utmContent = searchParameters.get("utm_content") || "direct_from_web_app";
+    const utmTerm = searchParameters.get("utm_term") || "direct_from_web_app";
 
     setFormData((previous) => ({
       ...previous,
@@ -92,9 +123,25 @@ const LeadForm = ({ slug }: { slug: string }) => {
     }));
   }, [searchParameters]);
 
+  const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    const error = validateField(name, value);
+    setErrors((previous) => ({ ...previous, [name]: error }));
+  };
+
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     setMessage(null);
+
+    // Validate all fields
+    const newErrors: Record<string, string> = {};
+    const fieldsToValidate = ["firstName", "lastName", "email", "phoneNumber"];
+    for (const field of fieldsToValidate) {
+      const error = validateField(field, formData[field as keyof LeadFormData] as string);
+      if (error) newErrors[field] = error;
+    }
+    setErrors(newErrors);
+    if (Object.keys(newErrors).length > 0) return;
 
     if (cohortsLoading || isLoading) {
       setMessage({ type: "error", text: "Please wait while we load the form" });
@@ -128,10 +175,10 @@ const LeadForm = ({ slug }: { slug: string }) => {
           courseId: course?.id || "",
           cohortId: cohorts[0]?.id || "",
           joinNewsLetter: false,
-          utm_source: searchParameters.get("utm_source") || "google",
-          utm_medium: searchParameters.get("utm_medium") || "cpc",
-          utm_content: searchParameters.get("utm_content") || "banner_ad",
-          utm_term: searchParameters.get("utm_term") || "bootcamp",
+          utm_source: searchParameters.get("utm_source") || "direct_from_web_app",
+          utm_medium: searchParameters.get("utm_medium") || "direct_from_web_app",
+          utm_content: searchParameters.get("utm_content") || "direct_from_web_app",
+          utm_term: searchParameters.get("utm_term") || "direct_from_web_app",
         });
         // Route to success page
         const message = result.success || "Registration successful.";
@@ -150,6 +197,10 @@ const LeadForm = ({ slug }: { slug: string }) => {
       ...formData,
       [event.target.name]: value,
     });
+    // Clear error when user starts typing
+    if (errors[event.target.name]) {
+      setErrors((previous) => ({ ...previous, [event.target.name]: "" }));
+    }
   };
 
   return (
@@ -175,11 +226,12 @@ const LeadForm = ({ slug }: { slug: string }) => {
                 name="firstName"
                 value={formData.firstName}
                 onChange={handleChange}
+                onBlur={handleBlur}
                 className="w-full rounded-md border px-4 py-2 text-black"
                 placeholder="First Name"
-                required
                 disabled={isSubmitting}
               />
+              {errors.firstName && <p className="mt-1 text-sm text-red-600">{errors.firstName}</p>}
             </div>
             <div>
               <input
@@ -187,11 +239,12 @@ const LeadForm = ({ slug }: { slug: string }) => {
                 name="lastName"
                 value={formData.lastName}
                 onChange={handleChange}
+                onBlur={handleBlur}
                 className="w-full rounded-md border px-4 py-2 text-black"
                 placeholder="Last Name"
-                required
                 disabled={isSubmitting}
               />
+              {errors.lastName && <p className="mt-1 text-sm text-red-600">{errors.lastName}</p>}
             </div>
             <div className="col-span-2">
               <input
@@ -199,11 +252,12 @@ const LeadForm = ({ slug }: { slug: string }) => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
+                onBlur={handleBlur}
                 className="w-full rounded-md border px-4 py-2 text-black"
                 placeholder="Email Address"
-                required
                 disabled={isSubmitting}
               />
+              {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
             </div>
             <div className="col-span-2">
               <input
@@ -211,11 +265,12 @@ const LeadForm = ({ slug }: { slug: string }) => {
                 name="phoneNumber"
                 value={formData.phoneNumber}
                 onChange={handleChange}
+                onBlur={handleBlur}
                 className="w-full rounded-md border px-4 py-2 text-black"
                 placeholder="Phone Number"
-                required
                 disabled={isSubmitting}
               />
+              {errors.phoneNumber && <p className="mt-1 text-sm text-red-600">{errors.phoneNumber}</p>}
             </div>
             <div className="col-span-2 flex items-center">
               <input

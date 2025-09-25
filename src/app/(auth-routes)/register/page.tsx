@@ -45,10 +45,10 @@ const RegistrationForm: FC = () => {
       courseId: "",
       cohortId: "",
       joinNewsLetter: false,
-      utm_source: "google",
-      utm_medium: "cpc",
-      utm_content: "banner_ad",
-      utm_term: "bootcamp",
+      utm_source: "direct_from_web_app",
+      utm_medium: "direct_from_web_app",
+      utm_content: "direct_from_web_app",
+      utm_term: "direct_from_web_app",
     },
   });
 
@@ -94,10 +94,10 @@ const RegistrationForm: FC = () => {
 
   // Populate UTM parameters from URL query
   useEffect(() => {
-    const utmSource = searchParameters.get("utm_source") || "google";
-    const utmMedium = searchParameters.get("utm_medium") || "cpc";
-    const utmContent = searchParameters.get("utm_content") || "banner_ad";
-    const utmTerm = searchParameters.get("utm_term") || "bootcamp";
+    const utmSource = searchParameters.get("utm_source") || "direct_from_web_app";
+    const utmMedium = searchParameters.get("utm_medium") || "direct_from_web_app";
+    const utmContent = searchParameters.get("utm_content") || "direct_from_web_app";
+    const utmTerm = searchParameters.get("utm_term") || "direct_from_web_app";
 
     setValue("utm_source", utmSource);
     setValue("utm_medium", utmMedium);
@@ -139,10 +139,10 @@ const RegistrationForm: FC = () => {
       setIsModalOpen(true);
       reset();
       // Re-set UTM parameters after reset
-      const utmSource = searchParameters.get("utm_source") || "google";
-      const utmMedium = searchParameters.get("utm_medium") || "cpc";
-      const utmContent = searchParameters.get("utm_content") || "banner_ad";
-      const utmTerm = searchParameters.get("utm_term") || "bootcamp";
+      const utmSource = searchParameters.get("utm_source") || "direct_from_web_app";
+      const utmMedium = searchParameters.get("utm_medium") || "direct_from_web_app";
+      const utmContent = searchParameters.get("utm_content") || "direct_from_web_app";
+      const utmTerm = searchParameters.get("utm_term") || "direct_from_web_app";
       setValue("utm_source", utmSource);
       setValue("utm_medium", utmMedium);
       setValue("utm_content", utmContent);
