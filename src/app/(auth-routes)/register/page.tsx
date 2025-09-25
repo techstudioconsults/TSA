@@ -2,6 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader } from "lucide-react";
+import { useSearchParams } from "next/navigation";
 import { FC, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
@@ -22,6 +23,7 @@ import useCohortStore from "~/stores/cohort.store";
 import useCoursesStore from "~/stores/course.store";
 
 const RegistrationForm: FC = () => {
+  const searchParameters = useSearchParams();
   const { allCourses, loading } = useCoursesStore();
   const { cohorts, loading: cohortsLoading, error: cohortsError } = useCohortStore();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -42,6 +44,10 @@ const RegistrationForm: FC = () => {
       courseId: "",
       cohortId: "",
       joinNewsLetter: false,
+      utm_source: "google",
+      utm_medium: "cpc",
+      utm_content: "banner_ad",
+      utm_term: "bootcamp",
     },
   });
 
@@ -83,6 +89,19 @@ const RegistrationForm: FC = () => {
     }
   }, [cohorts, setValue]);
 
+  // Populate UTM parameters from URL query
+  useEffect(() => {
+    const utmSource = searchParameters.get("utm_source") || "google";
+    const utmMedium = searchParameters.get("utm_medium") || "cpc";
+    const utmContent = searchParameters.get("utm_content") || "banner_ad";
+    const utmTerm = searchParameters.get("utm_term") || "bootcamp";
+
+    setValue("utm_source", utmSource);
+    setValue("utm_medium", utmMedium);
+    setValue("utm_content", utmContent);
+    setValue("utm_term", utmTerm);
+  }, [searchParameters, setValue]);
+
   const onSubmit = async (data: SignUpFormData) => {
     setIsSubmitting(true);
 
@@ -116,6 +135,15 @@ const RegistrationForm: FC = () => {
     } else {
       setIsModalOpen(true);
       reset();
+      // Re-set UTM parameters after reset
+      const utmSource = searchParameters.get("utm_source") || "google";
+      const utmMedium = searchParameters.get("utm_medium") || "cpc";
+      const utmContent = searchParameters.get("utm_content") || "banner_ad";
+      const utmTerm = searchParameters.get("utm_term") || "bootcamp";
+      setValue("utm_source", utmSource);
+      setValue("utm_medium", utmMedium);
+      setValue("utm_content", utmContent);
+      setValue("utm_term", utmTerm);
     }
 
     setIsSubmitting(false);
@@ -172,36 +200,6 @@ const RegistrationForm: FC = () => {
                 )}
               />
 
-              {/* Cohort */}
-              <FormField
-                name="cohortId"
-                control={control}
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Time Schedule</FormLabel>
-                    <FormControl>
-                      <Select onValueChange={field.onChange} value={field.value}>
-                        <SelectTrigger className="w-full">
-                          <SelectValue placeholder="Choose a cohort" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {cohortsLoading ? (
-                            <Loader className="animate-spin" />
-                          ) : (
-                            cohorts?.map((cohort) => (
-                              <SelectItem key={cohort.id} value={cohort.id}>
-                                {cohort.title}
-                              </SelectItem>
-                            ))
-                          )}
-                        </SelectContent>
-                      </Select>
-                    </FormControl>
-                    {errors.cohortId && <FormMessage>{errors.cohortId?.message}</FormMessage>}
-                  </FormItem>
-                )}
-              />
-
               {/* Course */}
               <FormField
                 name="courseId"
@@ -228,6 +226,36 @@ const RegistrationForm: FC = () => {
                       </Select>
                     </FormControl>
                     {errors.courseId && <FormMessage>{errors.courseId?.message}</FormMessage>}
+                  </FormItem>
+                )}
+              />
+
+              {/* Cohort */}
+              <FormField
+                name="cohortId"
+                control={control}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Cohort</FormLabel>
+                    <FormControl>
+                      <Select onValueChange={field.onChange} value={field.value}>
+                        <SelectTrigger className="w-full">
+                          <SelectValue placeholder="Choose a cohort" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {cohortsLoading ? (
+                            <Loader className="animate-spin" />
+                          ) : (
+                            cohorts?.map((cohort) => (
+                              <SelectItem key={cohort.id} value={cohort.id}>
+                                {cohort.title}
+                              </SelectItem>
+                            ))
+                          )}
+                        </SelectContent>
+                      </Select>
+                    </FormControl>
+                    {errors.cohortId && <FormMessage>{errors.cohortId?.message}</FormMessage>}
                   </FormItem>
                 )}
               />

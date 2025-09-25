@@ -23,10 +23,10 @@ const LeadForm = ({ slug }: { slug: string }) => {
     courseId: "",
     cohortId: "",
     joinNewsLetter: false,
-    utm_source: "",
-    utm_medium: "",
-    utm_content: "",
-    utm_term: "",
+    utm_source: "google",
+    utm_medium: "cpc",
+    utm_content: "banner_ad",
+    utm_term: "bootcamp",
   });
   const [marketingCycleId, setMarketingCycleId] = useState<string>("");
   const [isLoading, setIsLoading] = useState(true);
