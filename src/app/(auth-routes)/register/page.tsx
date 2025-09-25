@@ -3,7 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader } from "lucide-react";
 import { useSearchParams } from "next/navigation";
-import { FC, useEffect, useState } from "react";
+import { FC, Suspense, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 
@@ -341,4 +341,10 @@ const RegistrationForm: FC = () => {
   );
 };
 
-export default RegistrationForm;
+const RegisterPage = () => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <RegistrationForm />
+  </Suspense>
+);
+
+export default RegisterPage;
