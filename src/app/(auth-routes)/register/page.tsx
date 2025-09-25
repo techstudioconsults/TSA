@@ -36,6 +36,7 @@ const RegistrationForm: FC = () => {
 
   const formMethods = useForm<SignUpFormData>({
     resolver: zodResolver(signUpFormSchema),
+    mode: "onBlur",
     defaultValues: {
       firstName: "",
       lastName: "",
@@ -58,6 +59,7 @@ const RegistrationForm: FC = () => {
     reset,
     watch,
     setValue,
+    clearErrors,
   } = formMethods;
 
   const watchedCourseId = watch("courseId");
@@ -86,8 +88,9 @@ const RegistrationForm: FC = () => {
   useEffect(() => {
     if (cohorts.length > 0) {
       setValue("cohortId", cohorts[0].id);
+      clearErrors("cohortId");
     }
-  }, [cohorts, setValue]);
+  }, [cohorts, setValue, clearErrors]);
 
   // Populate UTM parameters from URL query
   useEffect(() => {
@@ -163,7 +166,7 @@ const RegistrationForm: FC = () => {
     <>
       <div className="rounded-md p-0 shadow-none lg:p-8 lg:shadow-lg">
         <Form {...formMethods}>
-          <form onSubmit={handleSubmit(onSubmit)} className="mx-auto max-w-[600px] space-y-8 p-6">
+          <form onSubmit={handleSubmit(onSubmit)} className="mx-auto space-y-8 lg:!w-[600px]">
             <div className="space-y-3">
               <h2 className="text-xl font-bold">One last step, let&apos;s get to know you</h2>
               <p>Fill in your details to get started.</p>
