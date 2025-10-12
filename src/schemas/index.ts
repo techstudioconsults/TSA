@@ -85,14 +85,17 @@ export const signUpFormSchema = formSchema.merge(
       .refine((value) => value !== "", {
         message: "Please select a course",
       }),
-    schedule: z
+    cohortId: z
       .string()
-      .min(1, "Schedule is required")
+      .min(1, "Cohort is required")
       .refine((value) => value !== "", {
-        message: "Please select a schedule",
+        message: "Please select a cohort",
       }),
-    newsletter: z.boolean(),
-    source: z.string(),
+    joinNewsLetter: z.boolean(),
+    utm_source: z.string(),
+    utm_medium: z.string(),
+    utm_content: z.string(),
+    utm_term: z.string(),
   }),
 );
 

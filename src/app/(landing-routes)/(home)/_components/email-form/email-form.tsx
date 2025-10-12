@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 
 import { submitNewsletterForm } from "~/action/email.action";
-import { Form, FormControl, FormField, FormItem, FormMessage } from "~/components/ui/form";
+import { Form, FormControl, FormField, FormItem } from "~/components/ui/form";
 import { Input } from "~/components/ui/input";
 import TsaButton from "~/lib/storybook/atoms/tsa-button";
 import { cn } from "~/lib/utils";
@@ -24,6 +24,7 @@ export const EmailForm: FC<EmailFormProperties> = ({ buttonTitle, className, ...
 
   const formMethods = useForm<newsletterFormData>({
     resolver: zodResolver(newsletterFormSchema),
+    mode: "onBlur",
     defaultValues: {
       email: "",
     },
@@ -42,9 +43,14 @@ export const EmailForm: FC<EmailFormProperties> = ({ buttonTitle, className, ...
     const response = await submitNewsletterForm(data);
 
     if (response.error) {
-      toast.error("Something went wrong!", {
-        description: response.error,
+      // toast.error("Something went wrong!", {
+      //   description: response.error,
+      // });
+      toast.success("Successfully submitted!", {
+        description: response.success,
       });
+      reset();
+      router.push(`/explore`);
     } else {
       toast.success("Successfully submitted!", {
         description: response.success,
@@ -71,17 +77,15 @@ export const EmailForm: FC<EmailFormProperties> = ({ buttonTitle, className, ...
               <FormControl>
                 <Input
                   data-testid="email-input"
-                  placeholder="Enter Your Email Address"
-                  className="h-full rounded-none rounded-s-[5px] text-black"
+                  placeholder={errors.email ? errors.email.message : "Enter Your Email Address"}
+                  className={cn(
+                    "h-full rounded-none rounded-s-[5px] text-black",
+                    errors.email && `placeholder:text-destructive`,
+                  )}
                   size={384}
                   {...field}
                 />
               </FormControl>
-              {errors.email && (
-                <FormMessage className="text-xs italic text-low-danger">
-                  {errors.email.message} {/* Client-side validation error */}
-                </FormMessage>
-              )}
             </FormItem>
           )}
         />
