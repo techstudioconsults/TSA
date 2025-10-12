@@ -63,6 +63,10 @@ const RegistrationForm: FC = () => {
   } = formMethods;
 
   const watchedCourseId = watch("courseId");
+  const watchedCohortId = watch("cohortId");
+  const isCourseSelected = Boolean(watchedCourseId);
+  const selectedCourseTitle = allCourses?.find((c) => c.id === watchedCourseId)?.title;
+  const selectedCohortTitle = cohorts?.find((c) => c.id === watchedCohortId)?.title;
 
   // Fetch marketing cycle on mount
   useEffect(() => {
@@ -78,12 +82,14 @@ const RegistrationForm: FC = () => {
     fetchMarketingCycle();
   }, []);
 
-  // Fetch cohorts when courseId changes
+  // Fetch cohorts when courseId changes and reset cohortId
   useEffect(() => {
+    // Clear any previously selected cohort when course changes
+    setValue("cohortId", "");
     if (watchedCourseId) {
       fetchCohortsByCourseId(watchedCourseId);
     }
-  }, [watchedCourseId]);
+  }, [watchedCourseId, setValue]);
 
   // Set cohortId to first cohort when cohorts are loaded
   useEffect(() => {
@@ -169,7 +175,7 @@ const RegistrationForm: FC = () => {
               <p>Fill in your details to get started.</p>
             </div>
 
-            <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+            <div className="flex flex-col gap-4">
               {/* First Name */}
               <FormField
                 name="firstName"
@@ -208,16 +214,16 @@ const RegistrationForm: FC = () => {
                   <FormItem>
                     <FormLabel>Course</FormLabel>
                     <FormControl>
-                      <Select onValueChange={field.onChange}>
-                        <SelectTrigger className="w-full">
+                      <Select onValueChange={field.onChange} value={field.value}>
+                        <SelectTrigger className="w-full truncate" title={selectedCourseTitle}>
                           <SelectValue placeholder="Choose a course" />
                         </SelectTrigger>
-                        <SelectContent>
+                        <SelectContent className="max-h-60 overflow-auto">
                           {loading ? (
                             <Loader className="animate-spin" />
                           ) : (
                             allCourses?.map((course: Course) => (
-                              <SelectItem key={course.id} value={course.id}>
+                              <SelectItem key={course.id} value={course.id} className="whitespace-normal break-words">
                                 {course.title}
                               </SelectItem>
                             ))
@@ -239,15 +245,19 @@ const RegistrationForm: FC = () => {
                     <FormLabel>Cohort</FormLabel>
                     <FormControl>
                       <Select onValueChange={field.onChange} value={field.value}>
-                        <SelectTrigger className="w-full">
-                          <SelectValue placeholder="Choose a cohort" />
+                        <SelectTrigger
+                          className="w-full truncate"
+                          disabled={!isCourseSelected || cohortsLoading || cohorts.length === 0}
+                          title={selectedCohortTitle}
+                        >
+                          <SelectValue placeholder={isCourseSelected ? "Choose a cohort" : "Select a course first"} />
                         </SelectTrigger>
-                        <SelectContent>
+                        <SelectContent className="max-h-60 overflow-auto">
                           {cohortsLoading ? (
                             <Loader className="animate-spin" />
                           ) : (
                             cohorts?.map((cohort) => (
-                              <SelectItem key={cohort.id} value={cohort.id}>
+                              <SelectItem key={cohort.id} value={cohort.id} className="whitespace-normal break-words">
                                 {cohort.title}
                               </SelectItem>
                             ))
