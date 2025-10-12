@@ -1,7 +1,8 @@
 import { FC } from "react";
 
 import { Wrapper } from "~/components/layout/wrapper";
-import { RegisterForm } from "../../_components/register-form";
+// import { RegisterForm } from "../../_components/register-form";
+import LeadForm from "../../_components/register-form/lead-form";
 import { ProgramIntro } from "../../types/index.types";
 
 interface CourseHeroProperty {
@@ -19,7 +20,8 @@ export const Hero: FC<CourseHeroProperty> = ({ intro, slug }) => {
             <p>{intro.subTitle}</p>
           </div>
           <div className="flex-1">
-            <RegisterForm slug={slug} />
+            {/* <RegisterForm slug={slug} /> */}
+            <LeadForm slug={slug} />
           </div>
         </section>
       </Wrapper>
