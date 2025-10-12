@@ -2,12 +2,14 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader } from "lucide-react";
-import { FC, useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { FC, Suspense, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 
+import { fetchCohortsByCourseId } from "~/action/cohort.action";
 import { fetchAllCourses } from "~/action/courses.action";
-import { submitRegisterForm } from "~/action/register.action";
+import { getLatestMarketingCycle, submitLeadForm } from "~/action/lead-form.action";
 import { Course } from "~/action/services.type";
 import ResponseModal from "~/components/modals/response-modal";
 import { Checkbox } from "~/components/ui/checkbox";
@@ -17,36 +19,36 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "~
 import TsaButton from "~/lib/storybook/atoms/tsa-button";
 // import useFacebookPixel from "~/lib/utils/pixel-tracker";
 import { SignUpFormData, signUpFormSchema } from "~/schemas";
+import useCohortStore from "~/stores/cohort.store";
 import useCoursesStore from "~/stores/course.store";
 
 const RegistrationForm: FC = () => {
+  const searchParameters = useSearchParams();
   const { allCourses, loading } = useCoursesStore();
+  const { cohorts, loading: cohortsLoading, error: cohortsError } = useCohortStore();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-  const [source, setSource] = useState("");
+  const [marketingCycleId, setMarketingCycleId] = useState<string>("");
   // const { trackEvent } = useFacebookPixel("962870014990453", undefined, {
   //   autoConfig: true,
   //   debug: true,
   // });
 
-  useEffect(() => {
-    const savedSource = localStorage.getItem("utm_source");
-    if (savedSource) {
-      setSource(savedSource);
-    }
-  }, []);
-
   const formMethods = useForm<SignUpFormData>({
     resolver: zodResolver(signUpFormSchema),
+    mode: "onBlur",
     defaultValues: {
       firstName: "",
       lastName: "",
       email: "",
       phoneNumber: "",
       courseId: "",
-      schedule: "",
-      newsletter: false,
-      source: source,
+      cohortId: "",
+      joinNewsLetter: false,
+      utm_source: "direct_from_web_app",
+      utm_medium: "direct_from_web_app",
+      utm_content: "direct_from_web_app",
+      utm_term: "direct_from_web_app",
     },
   });
 
@@ -55,34 +57,96 @@ const RegistrationForm: FC = () => {
     formState: { errors },
     control,
     reset,
+    watch,
+    setValue,
+    clearErrors,
   } = formMethods;
+
+  const watchedCourseId = watch("courseId");
+
+  // Fetch marketing cycle on mount
+  useEffect(() => {
+    const fetchMarketingCycle = async () => {
+      try {
+        const cycle = await getLatestMarketingCycle();
+        setMarketingCycleId(cycle.data.id);
+      } catch {
+        // Handle error if needed
+      }
+    };
+    fetchMarketingCycle();
+  }, []);
+
+  // Fetch cohorts when courseId changes
+  useEffect(() => {
+    if (watchedCourseId) {
+      fetchCohortsByCourseId(watchedCourseId);
+    }
+  }, [watchedCourseId]);
+
+  // Set cohortId to first cohort when cohorts are loaded
+  useEffect(() => {
+    if (cohorts.length > 0) {
+      setValue("cohortId", cohorts[0].id);
+      clearErrors("cohortId");
+    }
+  }, [cohorts, setValue, clearErrors]);
+
+  // Populate UTM parameters from URL query
+  useEffect(() => {
+    const utmSource = searchParameters.get("utm_source") || "direct_from_web_app";
+    const utmMedium = searchParameters.get("utm_medium") || "direct_from_web_app";
+    const utmContent = searchParameters.get("utm_content") || "direct_from_web_app";
+    const utmTerm = searchParameters.get("utm_term") || "direct_from_web_app";
+
+    setValue("utm_source", utmSource);
+    setValue("utm_medium", utmMedium);
+    setValue("utm_content", utmContent);
+    setValue("utm_term", utmTerm);
+  }, [searchParameters, setValue]);
 
   const onSubmit = async (data: SignUpFormData) => {
     setIsSubmitting(true);
-    const response = await submitRegisterForm({
-      firstName: data.firstName,
-      lastName: data.lastName,
-      email: data.email,
-      phoneNumber: data.phoneNumber,
-      courseId: data.courseId,
-      schedule: data.schedule,
-      newsletter: data.newsletter,
-      source: source,
-    });
+
+    if (cohortsLoading) {
+      toast.error("Please wait while we load the cohorts");
+      setIsSubmitting(false);
+      return;
+    }
+    if (cohortsError) {
+      toast.error("Error loading course data");
+      setIsSubmitting(false);
+      return;
+    }
+    if (!data.cohortId) {
+      toast.error("Cohort not available");
+      setIsSubmitting(false);
+      return;
+    }
+    if (!marketingCycleId) {
+      toast.error("Unable to submit form at this time");
+      setIsSubmitting(false);
+      return;
+    }
+
+    const response = await submitLeadForm(data, marketingCycleId);
 
     if (response.error) {
       toast.error("Something went wrong!", {
         description: response.error,
       });
     } else {
-      // if (source === "facebook") {
-      //   trackEvent("Lead", {
-      //     content_name: "Student Registration",
-      //     email: data.email,
-      //   });
-      // }
       setIsModalOpen(true);
       reset();
+      // Re-set UTM parameters after reset
+      const utmSource = searchParameters.get("utm_source") || "direct_from_web_app";
+      const utmMedium = searchParameters.get("utm_medium") || "direct_from_web_app";
+      const utmContent = searchParameters.get("utm_content") || "direct_from_web_app";
+      const utmTerm = searchParameters.get("utm_term") || "direct_from_web_app";
+      setValue("utm_source", utmSource);
+      setValue("utm_medium", utmMedium);
+      setValue("utm_content", utmContent);
+      setValue("utm_term", utmTerm);
     }
 
     setIsSubmitting(false);
@@ -102,7 +166,7 @@ const RegistrationForm: FC = () => {
     <>
       <div className="rounded-md p-0 shadow-none lg:p-8 lg:shadow-lg">
         <Form {...formMethods}>
-          <form onSubmit={handleSubmit(onSubmit)} className="mx-auto max-w-[600px] space-y-8 p-6">
+          <form onSubmit={handleSubmit(onSubmit)} className="mx-auto space-y-8 lg:!w-[600px]">
             <div className="space-y-3">
               <h2 className="text-xl font-bold">One last step, let&apos;s get to know you</h2>
               <p>Fill in your details to get started.</p>
@@ -139,30 +203,6 @@ const RegistrationForm: FC = () => {
                 )}
               />
 
-              {/* Schedule */}
-              <FormField
-                name="schedule"
-                control={control}
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Time Schedule</FormLabel>
-                    <FormControl>
-                      <Select onValueChange={field.onChange}>
-                        <SelectTrigger className="w-full">
-                          <SelectValue placeholder="Choose a schedule" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="weekday">Weekday Class</SelectItem>
-                          <SelectItem value="weekend">Weekend Class</SelectItem>
-                          <SelectItem value="online">Online Class</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </FormControl>
-                    {errors.schedule && <FormMessage>{errors.schedule?.message}</FormMessage>}
-                  </FormItem>
-                )}
-              />
-
               {/* Course */}
               <FormField
                 name="courseId"
@@ -189,6 +229,36 @@ const RegistrationForm: FC = () => {
                       </Select>
                     </FormControl>
                     {errors.courseId && <FormMessage>{errors.courseId?.message}</FormMessage>}
+                  </FormItem>
+                )}
+              />
+
+              {/* Cohort */}
+              <FormField
+                name="cohortId"
+                control={control}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Cohort</FormLabel>
+                    <FormControl>
+                      <Select onValueChange={field.onChange} value={field.value}>
+                        <SelectTrigger className="w-full">
+                          <SelectValue placeholder="Choose a cohort" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {cohortsLoading ? (
+                            <Loader className="animate-spin" />
+                          ) : (
+                            cohorts?.map((cohort) => (
+                              <SelectItem key={cohort.id} value={cohort.id}>
+                                {cohort.title}
+                              </SelectItem>
+                            ))
+                          )}
+                        </SelectContent>
+                      </Select>
+                    </FormControl>
+                    {errors.cohortId && <FormMessage>{errors.cohortId?.message}</FormMessage>}
                   </FormItem>
                 )}
               />
@@ -231,7 +301,7 @@ const RegistrationForm: FC = () => {
 
             {/* Newsletter Checkbox */}
             <FormField
-              name="newsletter"
+              name="joinNewsLetter"
               control={control}
               render={({ field }) => (
                 <FormItem className="flex flex-row items-start space-x-3 space-y-0">
@@ -271,4 +341,10 @@ const RegistrationForm: FC = () => {
   );
 };
 
-export default RegistrationForm;
+const RegisterPage = () => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <RegistrationForm />
+  </Suspense>
+);
+
+export default RegisterPage;
