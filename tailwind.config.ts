@@ -4,12 +4,7 @@ import type { Config } from "tailwindcss";
 
 const config: Config = {
   darkMode: ["class", '[data-mode="dark"]'],
-  content: [
-    "./pages/**/*.{ts,tsx}",
-    "./components/**/*.{ts,tsx}",
-    "./app/**/*.{ts,tsx}",
-    "./src/**/*.{ts,tsx}",
-  ],
+  content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
   // prefix: "",
   theme: {
     extend: {
@@ -18,8 +13,7 @@ const config: Config = {
         star: '"*"',
       },
       backgroundImage: {
-        "primary-gradient":
-          "radial-gradient(50% 50% at 50% 50%, rgba(6, 11, 59, 0) 0%, #060B3B 100%)",
+        "primary-gradient": "radial-gradient(50% 50% at 50% 50%, rgba(6, 11, 59, 0) 0%, #060B3B 100%)",
       },
       colors: {
         background: "hsl(var(--background))",
@@ -104,10 +98,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [
-    require("tailwindcss-animate"),
-    require("@mertasan/tailwindcss-variables"),
-  ],
+  plugins: [require("tailwindcss-animate"), require("@mertasan/tailwindcss-variables")],
 } satisfies Config;
 
 export default config;
