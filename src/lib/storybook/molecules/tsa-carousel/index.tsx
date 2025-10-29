@@ -97,7 +97,8 @@ export const TsaCarousel: FC<TsaCarouselProperties> = ({
       <>
         <Carousel
           plugins={[plugin.current]}
-          className={`w-full max-w-[${facilityCaroselFlatMaxWidth}] mx-auto`}
+          className="mx-auto w-full"
+          style={{ maxWidth: facilityCaroselFlatMaxWidth }}
           setApi={setApi}
         >
           <CarouselContent>
@@ -115,14 +116,13 @@ export const TsaCarousel: FC<TsaCarouselProperties> = ({
                   onClick={() => setSelectedItem(item)}
                 >
                   <Card style={{ width: carouselWidth, height: carouselHeight }}>
-                    <CardContent className="flex items-center justify-center overflow-hidden rounded-[8px] p-0">
+                    <CardContent className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-[8px] p-0">
                       <Image
                         src={item}
                         alt={`carousel-image-${index}`}
-                        layout="fill"
-                        objectFit="cover"
-                        className="w-[100%] rounded-[8px]"
-                        style={{ width: "100%", height: "100%" }}
+                        fill
+                        className="rounded-[8px] object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 372px"
                       />
                     </CardContent>
                   </Card>
@@ -155,10 +155,9 @@ export const TsaCarousel: FC<TsaCarouselProperties> = ({
                 <Image
                   src={selectedItem}
                   alt="Selected Carousel Item"
-                  layout="responsive"
                   width={500}
                   height={350}
-                  className="rounded"
+                  className="h-auto w-full rounded object-contain"
                 />
               )}
             </DialogContent>

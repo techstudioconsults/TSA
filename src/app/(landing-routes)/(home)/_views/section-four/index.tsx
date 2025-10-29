@@ -24,7 +24,7 @@ export const SectionFour = () => {
         <div className="flex-1" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
           <BlurImage
             _width={440}
-            _height={387}
+            _height={587}
             src={isHovered ? hoverImage : defaultImage}
             alt={"img"}
             className={`object-cover transition-opacity duration-500 ease-in-out`}
