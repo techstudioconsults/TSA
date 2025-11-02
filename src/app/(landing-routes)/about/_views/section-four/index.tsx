@@ -20,14 +20,14 @@ export const SectionFour = () => {
 
   return (
     <section>
-      <div className="h-fit w-full lg:min-h-[706px]">
-        <BlurImage
+      <div className="h-fit w-full">
+        {/* <BlurImage
           _width={1440}
           _height={706}
           src="/team/employees.svg"
           alt="employees"
           className="object-contain object-top lg:object-cover"
-        />
+        /> */}
       </div>
       <div className="min-h-[375px] py-[70px] lg:py-[146px]">
         <Wrapper className="grid grid-cols-1 justify-center gap-[28px] gap-y-0 text-center lg:grid-cols-3 lg:text-left">
