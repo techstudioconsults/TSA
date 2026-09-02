@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useCallback, useEffect, useState } from "react";
 
 import { fetchAllCourses } from "~/action/courses.action";
 import { EmailForm } from "~/app/(landing-routes)/(home)/_components/email-form/email-form";
@@ -9,10 +9,33 @@ import { STATIC_NAV_LINK } from "~/constants";
 import TsaButton from "~/lib/storybook/atoms/tsa-button";
 import { TsaFooter, TsaNavbar } from "~/lib/storybook/molecules";
 import { cn } from "~/lib/utils";
+import { PromoBanner } from "~/components/banners/promo-banner";
 import useCoursesStore from "~/stores/course.store";
 
 export const Layout = ({ children }: { children: ReactNode }) => {
   const pathname = usePathname();
+
+  // 8-year anniversary announcement bar (offer copy lives in promo-banner.tsx).
+  const [showPromo, setShowPromo] = useState(true);
+
+  useEffect(() => {
+    try {
+      if (sessionStorage.getItem("tsa_anniv_promo_dismissed") === "1") {
+        setShowPromo(false);
+      }
+    } catch {
+      // sessionStorage unavailable (e.g. privacy mode) — keep the banner visible.
+    }
+  }, []);
+
+  const dismissPromo = useCallback(() => {
+    setShowPromo(false);
+    try {
+      sessionStorage.setItem("tsa_anniv_promo_dismissed", "1");
+    } catch {
+      // Ignore write failures — banner simply reappears next session.
+    }
+  }, []);
   const [navLinks, setNavLinks] = useState(STATIC_NAV_LINK);
   const { allCourses, loading } = useCoursesStore();
 
@@ -60,11 +83,13 @@ export const Layout = ({ children }: { children: ReactNode }) => {
 
   return (
     <main>
+      {showPromo ? <PromoBanner onDismiss={dismissPromo} /> : null}
       <TsaNavbar
         linkClassName={cn("bg-transparent", linkClassName)}
         logopath={logoPath}
         navLinks={navLinks}
         bgScrollColor={bgScrollColor}
+        className={showPromo ? "top-[44px] lg:top-[48px]" : ""}
       >
         <TsaButton href="/register" className="bg-mid-blue" size="lg" variant="primary">
           Register
