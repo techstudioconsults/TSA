@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { ArrowRight, PartyPopper, X } from "lucide-react";
+import Link from "next/link";
 
 import { cn } from "~/lib/utils";
 
@@ -23,12 +23,12 @@ export const PROMO = {
 
 export const PROMO_BANNER_HEIGHT = "h-[44px] lg:h-[48px]";
 
-interface PromoBannerProps {
+interface PromoBannerProperties {
   onDismiss?: () => void;
   className?: string;
 }
 
-export const PromoBanner = ({ onDismiss, className }: PromoBannerProps) => {
+export const PromoBanner = ({ onDismiss, className }: PromoBannerProperties) => {
   return (
     <div
       role="region"
@@ -41,17 +41,12 @@ export const PromoBanner = ({ onDismiss, className }: PromoBannerProps) => {
     >
       <div className="mx-auto flex h-full max-w-[1240px] items-center justify-center gap-3 px-10 sm:px-12">
         <p className="flex min-w-0 items-center gap-2 truncate text-xs font-light sm:text-sm">
-          <PartyPopper
-            className="hidden size-4 shrink-0 text-secondary sm:block"
-            aria-hidden
-          />
+          <PartyPopper className="hidden size-4 shrink-0 text-secondary sm:block" aria-hidden />
           <span className="shrink-0 rounded-full bg-secondary px-2 py-[2px] text-[10px] font-semibold uppercase tracking-wide text-primary sm:text-[11px]">
             {PROMO.badge}
           </span>
           <span className="hidden truncate sm:inline">{PROMO.message}</span>
-          <span className="truncate font-semibold text-secondary">
-            {PROMO.highlight}
-          </span>
+          <span className="truncate font-semibold text-secondary">{PROMO.highlight}</span>
         </p>
 
         <Link
@@ -59,10 +54,7 @@ export const PromoBanner = ({ onDismiss, className }: PromoBannerProps) => {
           className="group inline-flex shrink-0 items-center gap-1 rounded-full bg-secondary px-3 py-[6px] text-[11px] font-semibold text-primary transition-opacity hover:opacity-90 sm:text-xs"
         >
           {PROMO.ctaLabel}
-          <ArrowRight
-            className="size-3.5 transition-transform group-hover:translate-x-0.5"
-            aria-hidden
-          />
+          <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" aria-hidden />
         </Link>
       </div>
 

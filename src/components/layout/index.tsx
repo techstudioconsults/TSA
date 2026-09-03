@@ -5,11 +5,11 @@ import { ReactNode, useCallback, useEffect, useState } from "react";
 
 import { fetchAllCourses } from "~/action/courses.action";
 import { EmailForm } from "~/app/(landing-routes)/(home)/_components/email-form/email-form";
+import { PromoBanner } from "~/components/banners/promo-banner";
 import { STATIC_NAV_LINK } from "~/constants";
 import TsaButton from "~/lib/storybook/atoms/tsa-button";
 import { TsaFooter, TsaNavbar } from "~/lib/storybook/molecules";
 import { cn } from "~/lib/utils";
-import { PromoBanner } from "~/components/banners/promo-banner";
 import useCoursesStore from "~/stores/course.store";
 
 export const Layout = ({ children }: { children: ReactNode }) => {
